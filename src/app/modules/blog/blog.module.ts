@@ -6,6 +6,7 @@ import { BlogRoutes } from './blog.routing';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogComponent } from './blog.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { BlogComponent } from './blog.component';
         BlogDetailsComponent
     ],
     imports     : [
-        RouterModule.forChild(BlogRoutes),        
+        RouterModule.forChild(BlogRoutes),
+        SharedModule      
     ],
     providers: [BlogService, PostsResolver, PostResolver, ProfileResolver]
 })

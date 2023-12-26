@@ -3,11 +3,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-    selector: 'app-blog',
-    templateUrl: './blog.component.html',
-    styleUrls: ['./blog.component.scss']
+    selector: 'app-blog-home',
+    templateUrl: './blog-home.component.html',
+    styleUrls: ['./blog-home.component.scss']
 })
-export class BlogComponent implements OnInit {
+export class BlogHomeComponent implements OnInit {
 
     constructor(private viewportScroller: ViewportScroller) {}
 
