@@ -8,8 +8,6 @@ import { CountUpModule } from 'ngx-countup';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 // import {TabsModule} from 'ngx-tabset';
 import { TooltipModule } from 'ng2-tooltip-directive';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './components/common/preloader/preloader.component';
 import { HomeOneComponent } from './components/home-one/home-one.component';
@@ -27,7 +25,6 @@ import { ServicesComponent } from './components/common/services/services.compone
 import { FooterComponent } from './components/common/footer/footer.component';
 import { SubscribeComponent } from './components/common/subscribe/subscribe.component';
 import { PartnerComponent } from './components/common/partner/partner.component';
-import { BlogComponent } from './components/common/blog/blog.component';
 import { FeedbackComponent } from './components/common/feedback/feedback.component';
 import { FaqComponent } from './components/common/faq/faq.component';
 import { PricingComponent } from './components/common/pricing/pricing.component';
@@ -47,8 +44,14 @@ import { HomeTenComponent } from './components/home-ten/home-ten.component';
 import { HomeElevenComponent } from './components/home-eleven/home-eleven.component';
 import { HomeTwelveComponent } from './components/home-twelve/home-twelve.component';
 import { HomeThirteenComponent } from './components/home-thirteen/home-thirteen.component';
-import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
-import { DemoSidebarComponent } from './components/common/demo-sidebar/demo-sidebar.component';
+import { appRoutes } from './app-routing.module';
+import { ExtraOptions, PreloadAllModules, RouterModule } from '@angular/router';
+
+
+const routerConfig: ExtraOptions = {
+    preloadingStrategy       : PreloadAllModules,
+    scrollPositionRestoration: 'enabled'
+};
 
 @NgModule({
     declarations: [
@@ -69,7 +72,6 @@ import { DemoSidebarComponent } from './components/common/demo-sidebar/demo-side
         FooterComponent,
         SubscribeComponent,
         PartnerComponent,
-        BlogComponent,
         FeedbackComponent,
         FaqComponent,
         PricingComponent,
@@ -88,20 +90,18 @@ import { DemoSidebarComponent } from './components/common/demo-sidebar/demo-side
         HomeTenComponent,
         HomeElevenComponent,
         HomeTwelveComponent,
-        HomeThirteenComponent,
-        BlogDetailsComponent,
-        DemoSidebarComponent,
+        HomeThirteenComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         BrowserAnimationsModule,
         NgxScrollTopModule,
         CarouselModule,
         FormsModule,
         CountUpModule,
         TooltipModule,
-        NgxTypedJsModule
+        NgxTypedJsModule,
+        RouterModule.forRoot(appRoutes, routerConfig),
     ],
     providers: [],
     bootstrap: [AppComponent]

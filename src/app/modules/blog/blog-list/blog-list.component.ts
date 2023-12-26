@@ -3,11 +3,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-    selector: 'app-blog',
-    templateUrl: './blog.component.html',
-    styleUrls: ['./blog.component.scss']
+    selector: 'app-blog-list',
+    templateUrl: './blog-list.component.html',
+    styleUrls: ['./blog-list.component.scss']
 })
-export class BlogComponent implements OnInit {
+export class BlogListComponent implements OnInit {
 
     constructor(private viewportScroller: ViewportScroller) {}
 
@@ -24,11 +24,10 @@ export class BlogComponent implements OnInit {
 		dots: true,
 		autoplayHoverPause: true,
 		autoplay: true,
-		rtl: true,
 		margin: 30,
 		navText: [
-			"<i class='fa fa-angle-right'></i>",
-			"<i class='fa fa-angle-left'></i>"
+			"<i class='fa fa-angle-left'></i>",
+			"<i class='fa fa-angle-right'></i>"
 		],
 		responsive: {
 			0: {
