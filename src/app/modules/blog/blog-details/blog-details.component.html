@@ -3,7 +3,8 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-title-content">
-                    <h1>Maximizando o Potencial do Seu Negócio: A Sinergia entre Engenharia de Dados e Ciência de Dados</h1>
+                    <h1>Maximizando o Potencial do Seu Negócio: A Sinergia entre
+                        Engenharia de Dados e Ciência de Dados</h1>
                     <ul>
                         <li><a routerLink="/">Início</a></li>
                         <li><i class="fas fa-chevron-right"></i></li>
@@ -21,7 +22,8 @@
             <div class="col-lg-8 col-md-12">
                 <div class="blog-details">
                     <div class="article-img">
-                        <img src="assets/img/blog-details.jpg" alt="blog-details">
+                        <img src="assets/img/blog-details.jpg"
+                            alt="blog-details">
                         <div class="date">26 <br> Dez</div>
                     </div>
                     <div class="article-text">
@@ -30,21 +32,19 @@
                             <li><a routerLink="/">Ciência de dados</a></li>
                         </ul>
                         <h4 class="title">{{post?.attributes.title}}</h4>
-                        <p class="secion-1">A engenharia de dados é a espinha dorsal do gerenciamento de dados. Ela envolve a organização, armazenamento e processamento de dados para torná-los acessíveis e úteis. Uma infraestrutura de dados bem projetada é fundamental para análises eficazes, pois garante que os dados sejam confiáveis, seguros e prontamente disponíveis para os cientistas de dados.</p>
-                        <p class="secion-2">A ciência de dados utiliza métodos analíticos, processos e algoritmos para extrair insights e conhecimento de dados. Os cientistas de dados empregam análises preditivas, descritivas e prescritivas para descobrir tendências, fazer previsões e recomendar ações. Eles transformam grandes volumes de dados em inteligência de negócios acionável.</p>
-                        <p class="secion-3">Engenharia e ciência de dados são duas faces da mesma moeda. Enquanto a engenharia de dados foca em preparar os dados, a ciência de dados se concentra em analisá-los. Por exemplo, a coleta e organização otimizadas de dados pela engenharia de dados permite que os cientistas de dados realizem análises mais avançadas e precisas.</p>
-                        <p class="secion-4">A fusão da engenharia e da ciência de dados oferece inúmeros benefícios para as empresas, incluindo aumento da eficiência operacional, melhor entendimento do cliente e inovação no desenvolvimento de produtos e serviços. Uma abordagem integrada à gestão de dados pode levar a uma tomada de decisão mais informada e orientada por dados.</p>
-                        <p class="secion-5">Integrar engenharia e ciência de dados em sua estratégia de negócios requer uma equipe qualificada e o uso de ferramentas adequadas. Investir em treinamento, tecnologia e uma cultura de dados pode ser um grande diferencial competitivo.</p>
+                        <p class="secion" *ngFor="let paragraph of post.attributes.paragraphs;">{{paragraph}}</p>
                         <blockquote class="blockquote">
-                            <p class="mb-0">A sinergia entre engenharia de dados e ciência de dados não é apenas uma alavanca para inovação; é o alicerce fundamental para transformar dados em decisões estratégicas e vantagem competitiva no mundo dos negócios modernos.</p>
+                            <p class="mb-0">{{post?.attributes.blockquote}}</p>
                         </blockquote>
-                        <p class="mb-0">A engenharia de dados e a ciência de dados, quando combinadas, podem desbloquear um potencial incrível para o seu negócio. Encorajamos nossos leitores a explorar essas áreas e considerar como elas podem ser aplicadas para melhorar seus processos, produtos e decisões estratégicas.</p>
+                        <p class="mb-0">{{post?.attributes.conclusion}}</p>
                         <div class="author-share">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="article-author">
                                         <div class="author-img">
-                                            <img src="assets/img/client-avatar1.jpg" alt="client">
+                                            <img
+                                                src="assets/img/client-avatar1.jpg"
+                                                alt="client">
                                         </div>
                                         <div class="author-title">
                                             <h4>Cristiano Araújo</h4>
@@ -54,11 +54,21 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <ul class="social-share">
-                                        <li><a href="#" tooltip="Share on Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#" target="_blank" tooltip="Share on Twitter"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#" target="_blank" tooltip="Share on Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#" target="_blank" tooltip="Share on Instagram"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#" target="_blank" tooltip="Share on Vimeo"><i class="fab fa-vimeo-v"></i></a></li>
+                                        <li><a href="#"
+                                                tooltip="Share on Facebook"><i
+                                                    class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#" target="_blank"
+                                                tooltip="Share on Twitter"><i
+                                                    class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#" target="_blank"
+                                                tooltip="Share on Linkedin"><i
+                                                    class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#" target="_blank"
+                                                tooltip="Share on Instagram"><i
+                                                    class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#" target="_blank"
+                                                tooltip="Share on Vimeo"><i
+                                                    class="fab fa-vimeo-v"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -67,35 +77,45 @@
                 </div>
                 <div class="post-controls-buttons">
                     <div class="controls-left">
-                        <a routerLink="/blog-details"><i class="fas fa-chevron-left"></i> Post anterior</a>
+                        <a routerLink="/blog-details"><i
+                                class="fas fa-chevron-left"></i> Post anterior</a>
                     </div>
                     <div class="controls-right">
-                        <a routerLink="/blog-details">Próximo post<i class="fas fa-chevron-right"></i></a>
+                        <a routerLink="/blog-details">Próximo post<i
+                                class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="leave-a-reply">
-                    <h3 class="title mt-0">Entre em contato</h3>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Full Name">
+                <form [formGroup]="form">
+                    <div class="leave-a-reply">
+                        <h3 class="title mt-0">Entre em contato</h3>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                        [formControl]="form.controls['fullName']"
+                                        placeholder="Nome">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="E-Mail">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control"
+                                    [formControl]="form.controls['email']" placeholder="e-mail">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <textarea name="comment" cols="30" rows="5" class="form-control" placeholder="Your Comment"></textarea>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <textarea cols="30" rows="5"
+                                        [formControl]="form.controls['message']"
+                                        class="form-control"
+                                        placeholder="Mensagem"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <div class="col-lg-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewportScroller } from '@angular/common';
+import { Post } from 'src/app/modules/blog/blog.type';
+import { HomeService } from '../../home.service';
 
 @Component({
     selector: 'app-blog-home',
@@ -9,13 +11,20 @@ import { ViewportScroller } from '@angular/common';
 })
 export class BlogHomeComponent implements OnInit {
 
-    constructor(private viewportScroller: ViewportScroller) {}
+	public posts!: Post[];
+
+    constructor(private viewportScroller: ViewportScroller, private _homeService: HomeService) {}
 
     public onClick(elementId: string): void { 
         this.viewportScroller.scrollToAnchor(elementId);
     }
 
     ngOnInit() {
+        this._homeService.getPosts().subscribe(
+            (posts) => {
+                this.posts = posts;
+            }
+        )
     }
 
     blogSlides: OwlOptions = {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { People, Post, Profile } from './blog.type';
 import { switchMap, tap } from 'rxjs/operators';
-import { posts as postsData } from './blog.data';
+import { posts as postsData, peoples as peoplesData, profiles as profilesData } from './blog.data';
 
 
 @Injectable({
@@ -82,8 +82,11 @@ export class BlogService {
         return of(postsData).pipe(
             tap((response: any) => {
                 const post = postsData.data.find(item => item.id === postId);
-                debugger; 
-                this._profile.next(response);
+                const authorId = post.relationships.author.data.id;
+                const author = peoplesData.data.find(item => item.id === authorId); 
+                const profileId = author.relationships.profile.data.id;
+                const profile = profilesData.data.find(item => item.id === profileId); 
+                this._profile.next(profile);
             }),
             switchMap((response) => {
                 if (response === null) {
@@ -103,8 +106,9 @@ export class BlogService {
         return of(postsData).pipe(
             tap((response: any) => {
                 const post = postsData.data.find(item => item.id === postId); 
-                debugger;
-                this._author.next(response);
+                const authorId = post.relationships.author.data.id;
+                const author = peoplesData.data.find(item => item.id === authorId); 
+                this._author.next(author);
             }),
             switchMap((response) => {
                 if (response === null) {

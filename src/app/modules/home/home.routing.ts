@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { IndexComponent } from './components/index/index.component';
+import { PostsResolver } from '../blog/blog.resolvers';
 
 
 export const HomeRoutes: Route[] = [
@@ -10,6 +11,7 @@ export const HomeRoutes: Route[] = [
     canActivate: [],
     canActivateChild: [],
     resolve: {
+      posts: PostsResolver
     },
     children : [
       {
