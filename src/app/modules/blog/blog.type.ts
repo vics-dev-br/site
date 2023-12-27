@@ -37,3 +37,11 @@ export interface Profile
         name: string;
     }
 }
+
+export interface ContactType
+{
+    name: string;
+    email: string;
+    message: string;
+    id?: number;
+}

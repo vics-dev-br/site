@@ -8,6 +8,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CountUpModule } from 'ngx-countup';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
         FooterComponent
     ],
     imports: [
+        HttpClientModule,
         NgxScrollTopModule,
         CarouselModule,
         CommonModule,
@@ -23,6 +25,7 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
         ReactiveFormsModule
     ],
     exports: [
+        HttpClientModule,
         CommonModule,
         NgxScrollTopModule,
         CarouselModule,

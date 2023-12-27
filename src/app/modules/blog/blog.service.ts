@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { People, Post, Profile } from './blog.type';
+import { ContactType, People, Post, Profile } from './blog.type';
 import { switchMap, tap } from 'rxjs/operators';
 import { posts as postsData, peoples as peoplesData, profiles as profilesData } from './blog.data';
+import { BaseServiceComponent } from 'src/app/core/base-service.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
     providedIn: 'root'
 })
-export class BlogService {
+export class BlogService extends BaseServiceComponent {
     private _posts: BehaviorSubject<Post[]> = new BehaviorSubject(null);
     private _post: BehaviorSubject<Post> = new BehaviorSubject(null);
     private _author: BehaviorSubject<People> = new BehaviorSubject(null);
@@ -17,7 +19,9 @@ export class BlogService {
     /**
      * Constructor
      */
-    constructor() { }
+    public constructor(public httpClientd: HttpClient) {
+        super(httpClientd);
+    }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
@@ -83,9 +87,9 @@ export class BlogService {
             tap((response: any) => {
                 const post = postsData.data.find(item => item.id === postId);
                 const authorId = post.relationships.author.data.id;
-                const author = peoplesData.data.find(item => item.id === authorId); 
+                const author = peoplesData.data.find(item => item.id === authorId);
                 const profileId = author.relationships.profile.data.id;
-                const profile = profilesData.data.find(item => item.id === profileId); 
+                const profile = profilesData.data.find(item => item.id === profileId);
                 this._profile.next(profile);
             }),
             switchMap((response) => {
@@ -105,9 +109,9 @@ export class BlogService {
     public getAuthorByPost(postId: number): Observable<People> {
         return of(postsData).pipe(
             tap((response: any) => {
-                const post = postsData.data.find(item => item.id === postId); 
+                const post = postsData.data.find(item => item.id === postId);
                 const authorId = post.relationships.author.data.id;
-                const author = peoplesData.data.find(item => item.id === authorId); 
+                const author = peoplesData.data.find(item => item.id === authorId);
                 this._author.next(author);
             }),
             switchMap((response) => {
@@ -137,7 +141,12 @@ export class BlogService {
                 }
                 return of(response.data);
             })
-    );
-}
+        );
+    }
+
+    public requestContact(contact: ContactType): Observable<ContactType> {
+        const url = this.getBaseUrl('contacts');
+        return this.httpClientd.post<ContactType>(url, contact);
+    }
 
 }

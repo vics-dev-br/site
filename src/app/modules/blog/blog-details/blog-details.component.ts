@@ -54,4 +54,12 @@ export class BlogDetailsComponent implements OnInit {
       });
   }
 
+  requestContact() {
+    if (this.form.valid) {
+      this._blogService.requestContact(this.form.value).subscribe(
+        (contact) => { console.log(contact) }
+      )
+    }
+  }
+
 }

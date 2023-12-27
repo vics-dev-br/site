@@ -23,6 +23,8 @@ import { HomeRoutes } from './home.routing';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { IndexComponent } from './components/index/index.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
+import { HomeService } from './home.service';
+import { HomePostsResolver } from './home.resolvers';
 
 
 @NgModule({
@@ -53,7 +55,7 @@ import { BlogHomeComponent } from './components/blog-home/blog-home.component';
         SharedModule,
         RouterModule.forChild(HomeRoutes),
     ],
-    providers: []
+    providers: [HomeService, HomePostsResolver]
 })
 export class HomeModule
 {
