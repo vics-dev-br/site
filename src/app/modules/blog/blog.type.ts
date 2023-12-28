@@ -7,6 +7,7 @@ export interface Post
         blockquote: string;
         paragraphs: string[];
         conclusion: string;
+        image: string;
     },
     relationships: {
         author: {
