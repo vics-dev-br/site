@@ -7,7 +7,7 @@ Default CSS
     --fontFamily: 'Poppins', sans-serif;
     --mainColor: #ff2c57;
     --whiteColor: #ffffff;
-    --blackColor: #000000;
+    --blackColor: #2d2828;
     --transition: .5s;
 }
 body {
@@ -566,13 +566,13 @@ Main Banner CSS
     }
 }
 .item-bg-one {
-	background-image: url(assets/img/main-bg-1.jpg);
+	background-image: url(assets/img/vics.jpg);
 }
 .item-bg-two {
-	background-image: url(assets/img/main-bg-2.jpg);
+	background-image: url(assets/img/vics.jpg);
 }
 .item-bg-three {
-	background-image: url(assets/img/main-bg-3.jpg);
+	background-image: url(assets/img/vics.jpg);
 }
 .main-banner-text {
     position: relative;
@@ -1172,7 +1172,7 @@ CTA Area CSS
     position: relative;
     z-index: 1;
     background: {
-        image: url(assets/img/ctr-bg.jpg);
+        image: url(assets/img/ctr-bg.png);
         position: center center;
         size: cover;
         repeat: no-repeat;
