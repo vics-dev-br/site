@@ -4,8 +4,6 @@ import { switchMap, tap } from 'rxjs/operators';
 import { Post } from '../blog/blog.type';
 import { posts as postsData } from '../blog/blog.data';
 
-
-
 @Injectable({
     providedIn: 'root'
 })
@@ -45,7 +43,7 @@ export class HomeService {
                 }
                 return of(response.data);
             })
-    );
-}
+        );
+    }
 
 }
