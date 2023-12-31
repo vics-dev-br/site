@@ -176,7 +176,7 @@ img {
         }
     }
     p {
-        max-width: 635px;
+        /*max-width: 635px;*/
         margin-top: -7px;
     }
     h4 {
@@ -566,13 +566,13 @@ Main Banner CSS
     }
 }
 .item-bg-one {
-	background-image: url(assets/img/vics.jpg);
+	background-image: url(assets/img/bg-home.png);
 }
 .item-bg-two {
-	background-image: url(assets/img/vics.jpg);
+	background-image: url(assets/img/bg-home.png);
 }
 .item-bg-three {
-	background-image: url(assets/img/vics.jpg);
+	background-image: url(assets/img/bg-home.png);
 }
 .main-banner-text {
     position: relative;
@@ -1067,9 +1067,9 @@ Strategy Area CSS
             }
         }
     }
-    p {
+    /*p {
         max-width: 635px;
-    }
+    }*/
 }
 .shape1 {
     position: absolute;

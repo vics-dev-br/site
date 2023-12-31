@@ -25,6 +25,7 @@ import { IndexComponent } from './components/index/index.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
 import { HomeService } from './home.service';
 import { HomePostsResolver } from './home.resolvers';
+import { ContactService } from './components/contact/contact.service';
 
 
 @NgModule({
@@ -51,12 +52,11 @@ import { HomePostsResolver } from './home.resolvers';
         ContactComponent,
         WelcomeComponent
     ],
-    imports     : [
+    imports: [
         SharedModule,
         RouterModule.forChild(HomeRoutes),
     ],
-    providers: [HomeService, HomePostsResolver]
+    providers: [HomeService, HomePostsResolver, ContactService]
 })
-export class HomeModule
-{
+export class HomeModule {
 }
