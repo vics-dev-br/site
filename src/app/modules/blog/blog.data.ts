@@ -3,7 +3,7 @@ export const peoples = {
         {
             "id": 1,
             "type": "people",
-            "attributes": {"name": "Cristiano Araújo"},
+            "attributes": { "name": "Cristiano Araújo" },
             "relationships": {
                 "profile": {
                     "data": { "type": "profile", "id": 1 }
@@ -18,7 +18,7 @@ export const profiles = {
         {
             "id": 1,
             "type": "profile",
-            "attributes": {"name": "Engenheiro de dados"}
+            "attributes": { "name": "Engenheiro de dados" }
         }
     ]
 }
@@ -38,7 +38,7 @@ export const posts =
                 "A fusão da engenharia e da ciência de dados oferece inúmeros benefícios para as empresas, incluindo aumento da eficiência operacional, melhor entendimento do cliente e inovação no desenvolvimento de produtos e serviços. Uma abordagem integrada à gestão de dados pode levar a uma tomada de decisão mais informada e orientada por dados.",
                 "Integrar engenharia e ciência de dados em sua estratégia de negócios requer uma equipe qualificada e o uso de ferramentas adequadas. Investir em treinamento, tecnologia e uma cultura de dados pode ser um grande diferencial competitivo."
             ],
-            "image": "assets/img/post-1.jpg",
+            "image": "assets/img/post-1.webp",
             "conclusion": "A engenharia de dados e a ciência de dados, quando combinadas, podem desbloquear um potencial incrível para o seu negócio. Encorajamos nossos leitores a explorar essas áreas e considerar como elas podem ser aplicadas para melhorar seus processos, produtos e decisões estratégicas."
         },
         "relationships": {
@@ -61,7 +61,7 @@ export const posts =
                 "A análise de dados não está isenta de desafios. Dados de má qualidade ou incompletos podem levar a insights enganosos. Além disso, é crucial equilibrar a análise quantitativa com insights qualitativos para obter uma compreensão mais profunda das necessidades e comportamentos do cliente.",
                 "Para pequenas e médias empresas, iniciar a jornada de análise de dados pode parecer desafiador. Comece com uma estratégia clara, definindo o que você quer alcançar. Colabore com diferentes departamentos para coletar dados relevantes e considere ferramentas de análise de dados que se encaixem no seu orçamento e capacidades técnicas."
             ],
-            "image": "assets/img/post-2.jpg",
+            "image": "assets/img/post-2.webp",
             "conclusion": "A análise de dados é uma ferramenta poderosa na identificação de novos mercados. Ao adotar uma abordagem orientada a dados, as empresas podem descobrir oportunidades ocultas, ganhando uma vantagem competitiva significativa. Encorajamos as empresas a explorar o mundo da análise de dados e a aproveitar seu potencial transformador."
         },
         "relationships": {
