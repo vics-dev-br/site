@@ -13,7 +13,7 @@ export class ContactService extends BaseServiceComponent {
 
     public requestContact(contact) {
         const url = `request_contact`;
-        return this.authHttp.post(this.getBaseUrl(url), contact)
+        return this.authHttp.post(this.getBaseUrl(url), contact);
     }
 
     public subscrible(email) {
