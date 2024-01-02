@@ -1,5 +1,6 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -7,8 +8,11 @@ import { ViewportScroller } from '@angular/common';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+    @ViewChild('about') aboutElement: ElementRef;
 
-    constructor(private viewportScroller: ViewportScroller) {}
+    constructor(
+        private viewportScroller: ViewportScroller
+    ) { }
 
     // Navbar Sticky
     isSticky: boolean = false;
@@ -22,15 +26,21 @@ export class NavbarComponent implements OnInit {
         }
     }
 
-    public onClick(elementId: string): void { 
+    public onClick(elementId: string): void {
         this.viewportScroller.scrollToAnchor(elementId);
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+
+    }
 
     classApplied = false;
     toggleClass() {
         this.classApplied = !this.classApplied;
+    }
+
+    scrollToAbout() {
+        this.aboutElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
 
 }

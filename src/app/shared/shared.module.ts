@@ -9,6 +9,7 @@ import { CountUpModule } from 'ngx-countup';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
         CarouselModule,
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule
     ],
     exports: [
         HttpClientModule,
@@ -31,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
         CarouselModule,
         FormsModule,
         ReactiveFormsModule,
+        RouterModule,
         FormsModule,
         CountUpModule,
         TooltipModule,

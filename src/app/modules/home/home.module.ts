@@ -17,7 +17,6 @@ import { FaqComponent } from './components/faq/faq.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { WorkComponent } from './components/work/work.component';
 import { WhyWeDifferentComponent } from './components/why-we-different/why-we-different.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutes } from './home.routing';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -25,7 +24,6 @@ import { IndexComponent } from './components/index/index.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
 import { HomeService } from './home.service';
 import { HomePostsResolver } from './home.resolvers';
-import { ContactService } from './components/contact/contact.service';
 
 
 @NgModule({
@@ -49,14 +47,13 @@ import { ContactService } from './components/contact/contact.service';
         PricingComponent,
         WorkComponent,
         WhyWeDifferentComponent,
-        ContactComponent,
         WelcomeComponent
     ],
     imports: [
         SharedModule,
         RouterModule.forChild(HomeRoutes),
     ],
-    providers: [HomeService, HomePostsResolver, ContactService]
+    providers: [HomeService, HomePostsResolver]
 })
 export class HomeModule {
 }

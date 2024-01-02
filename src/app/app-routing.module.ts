@@ -6,7 +6,7 @@ export const appRoutes: Route[] = [
         loadChildren: () => import("./modules/home/home.module").then(m => m.HomeModule)
     },
     {
-        path: 'post',
-        loadChildren: () => import("./modules/blog/blog.module").then(m => m.BlogModule)
+        path: 'contato',
+        loadChildren: () => import("./modules/contact/contact.module").then(m => m.ContactModule)
     }
 ];

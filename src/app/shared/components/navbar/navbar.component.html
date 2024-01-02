@@ -15,19 +15,27 @@
                 <div class="collapse navbar-collapse"
                         id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"><span class="nav-link"
-                                                (click)="onClick('home')">Início</span></li>
-                                <li class="nav-item"><span class="nav-link"
-                                                (click)="onClick('about')">Sobre</span></li>
-                                <li class="nav-item"><span class="nav-link"
-                                                (click)="onClick('services')">Serviços</span></li>
-                                <li class="nav-item"><span class="nav-link"
-                                                (click)="onClick('work')">Trabalhos</span></li>
-                                <li class="nav-item"><span class="nav-link"><a
-                                                        href="https://blog.engenhariadedados.tec.br"
-                                                        target="_blank">Blog</a></span></li>
-                                <li class="nav-item"><span class="nav-link"
-                                                (click)="onClick('contact')">Contato</span></li>
+                                <li class="nav-item"><a href="/"><span
+                                                        class="nav-link">Início</span></a></li>
+                                <li class="nav-item"><a [routerLink]="'/'"
+                                                fragment="about"><span
+                                                        class="nav-link"
+                                                        (click)="onClick('about')">Sobre</span></a></li>
+                                <li class="nav-item"><a [routerLink]="'/'"
+                                                fragment="services"><span
+                                                        class="nav-link"
+                                                        (click)="onClick('services')">Serviços</span></a></li>
+                                <li class="nav-item"><a [routerLink]="'/'"
+                                                fragment="work"><span
+                                                        class="nav-link">Trabalhos</span></a></li>
+                                <li class="nav-item"><a
+                                                href="https://blog.engenhariadedados.tec.br"
+                                                target="_blank"><span
+                                                        class="nav-link">Blog</span></a></li>
+                                <li class="nav-item"><a
+                                                [routerLink]="'/contato'"
+                                                fragment="contact"><span
+                                                        class="nav-link">Contato</span></a></li>
                         </ul>
                         <ul class="navbar-nav ml-auto for-responsive">
                                 <li class="nav-item"><span class="nav-link"
@@ -41,8 +49,9 @@
                                 <li class="nav-item"><span class="nav-link"><a
                                                         href="https://blog.engenhariadedados.tec.br"
                                                         target="_blank">Blog</a></span></li>
-                                <li class="nav-item"><span class="nav-link"
-                                                (click)="toggleClass(); onClick('contact')">Contato</span></li>
+                                <li class="nav-item"><a routerLink="/contato"
+                                                fragment="'contact'"><span
+                                                        class="nav-link">Contato</span></a></li>
                         </ul>
                 </div>
         </div>

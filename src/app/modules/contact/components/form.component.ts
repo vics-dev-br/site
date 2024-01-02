@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ContactService } from './contact.service';
+import { ContactService } from '../contact.service';
+
 
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss']
+    selector: 'app-contact-form',
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactFormComponent implements OnInit {
     form: FormGroup;
 
-    constructor(private _contactService: ContactService, private viewportScroller: ViewportScroller, private _formBuilder: FormBuilder) { }
 
-    public onClick(elementId: string): void {
-        this.viewportScroller.scrollToAnchor(elementId);
-    }
+    constructor(private _contactService: ContactService, private _formBuilder: FormBuilder) { }
 
     ngOnInit() {
         this.form = this._formBuilder.group({
@@ -25,6 +23,7 @@ export class ContactComponent implements OnInit {
             subject: ['', [Validators.required]],
             message: ['', [Validators.required]]
         });
+
     }
 
     get name(): FormControl { return this.form.get('name') as FormControl; }
