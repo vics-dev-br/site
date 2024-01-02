@@ -24,7 +24,8 @@ import { IndexComponent } from './components/index/index.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
 import { HomeService } from './home.service';
 import { HomePostsResolver } from './home.resolvers';
-
+import { ContactService } from './components/contact/contact.service';
+import { ContactFormComponent } from './components/contact/form.component';
 
 @NgModule({
     declarations: [
@@ -47,13 +48,14 @@ import { HomePostsResolver } from './home.resolvers';
         PricingComponent,
         WorkComponent,
         WhyWeDifferentComponent,
-        WelcomeComponent
+        WelcomeComponent,
+        ContactFormComponent
     ],
     imports: [
         SharedModule,
         RouterModule.forChild(HomeRoutes),
     ],
-    providers: [HomeService, HomePostsResolver]
+    providers: [HomeService, HomePostsResolver, ContactService]
 })
 export class HomeModule {
 }

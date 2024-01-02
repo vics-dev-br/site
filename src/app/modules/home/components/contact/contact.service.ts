@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BaseServiceComponent } from 'src/app/core/base-service.component';
 
+
 @Injectable({
     providedIn: 'root'
 })

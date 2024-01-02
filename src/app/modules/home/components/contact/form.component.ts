@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ContactService } from '../contact.service';
-
+import { ContactService } from './contact.service';
 
 @Component({
     selector: 'app-contact-form',
