@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiGateway: 'https://api.engenhariadedados.tec.br/'
+  apiGateway: 'https://669n3b1h62.execute-api.us-east-1.amazonaws.com/prod/'
 };
+
