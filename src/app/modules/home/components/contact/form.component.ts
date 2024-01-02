@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-contact-form',
@@ -11,7 +12,7 @@ export class ContactFormComponent implements OnInit {
     form: FormGroup;
 
 
-    constructor(private _contactService: ContactService, private _formBuilder: FormBuilder) { }
+    constructor(private _router: Router, private _contactService: ContactService, private _formBuilder: FormBuilder) { }
 
     ngOnInit() {
         this.form = this._formBuilder.group({
@@ -33,7 +34,10 @@ export class ContactFormComponent implements OnInit {
     submit() {
         if (this.form.valid) {
             this._contactService.requestContact(this.form.value).subscribe(
-                (response) => console.log(response)
+                (response) => {
+                    this._router.navigate([`/lead`],);
+                },
+                (error) => { console.log(error) }
             )
         }
     }

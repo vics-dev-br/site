@@ -1,6 +1,5 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -8,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-    @ViewChild('about') aboutElement: ElementRef;
+    @Input() fixSticky = false;
 
     constructor(
         private viewportScroller: ViewportScroller
@@ -19,6 +18,7 @@ export class NavbarComponent implements OnInit {
     @HostListener('window:scroll', ['$event'])
     checkScroll() {
         const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
         if (scrollPosition >= 50) {
             this.isSticky = true;
         } else {
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.isSticky = this.fixSticky;
     }
 
     classApplied = false;
@@ -39,8 +39,5 @@ export class NavbarComponent implements OnInit {
         this.classApplied = !this.classApplied;
     }
 
-    scrollToAbout() {
-        this.aboutElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
-    }
 
 }
