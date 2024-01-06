@@ -2,43 +2,64 @@
     <div class="container">
         <div class="section-title">
             <h2>Nosso <span>trabalho</span></h2>
-            <p>Nos dedicamos a fornecer análises de dados de classe mundial para impulsionar o sucesso dos negócios. Nossos serviços vão desde análise preditiva até visualização de dados, todos projetados para transformar dados brutos em insights estratégicos. Adotamos uma abordagem metodológica rigorosa, combinando técnicas estatísticas com inteligência artificial, para fornecer soluções precisas e adaptadas às necessidades de cada cliente. Já auxiliamos diversas empresas a otimizar suas operações de vendas, identificar novas oportunidades de mercado e tomar decisões informadas. Utilizamos as tecnologias mais avançadas em nossa análise para garantir a eficiência e a precisão dos resultados. Nosso compromisso com a excelência em ciência de dados é inabalável, e é isso que nos permite entregar resultados que não apenas atendem, mas superam as expectativas dos nossos clientes.</p>
+            <p>Nos dedicamos a fornecer análises de dados de classe mundial para
+                impulsionar o sucesso dos negócios. Nossos serviços vão desde
+                análise preditiva até visualização de dados, todos projetados
+                para transformar dados brutos em insights estratégicos. Adotamos
+                uma abordagem metodológica rigorosa, combinando técnicas
+                estatísticas com inteligência artificial, para fornecer soluções
+                precisas e adaptadas às necessidades de cada cliente. Já
+                auxiliamos diversas empresas a otimizar suas operações de
+                vendas, identificar novas oportunidades de mercado e tomar
+                decisões informadas. Utilizamos as tecnologias mais avançadas em
+                nossa análise para garantir a eficiência e a precisão dos
+                resultados. Nosso compromisso com a excelência em ciência de
+                dados é inabalável, e é isso que nos permite entregar resultados
+                que não apenas atendem, mas superam as expectativas dos nossos
+                clientes.</p>
         </div>
     </div>
     <div class="container-fluid">
         <div class="work-tabs">
             <ul class="nav-tabset">
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab1'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab1'}">
                     <span (click)="switchTab($event, 'tab1')">
                         Natureza dos Serviços
                     </span>
                 </li>
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab2'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab2'}">
                     <span (click)="switchTab($event, 'tab2')">
                         Abordagem Metodológica
                     </span>
                 </li>
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab3'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab3'}">
                     <span (click)="switchTab($event, 'tab3')">
                         Tipos de Projetos
                     </span>
                 </li>
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab4'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab4'}">
                     <span (click)="switchTab($event, 'tab4')">
                         Impacto do Trabalho
                     </span>
                 </li>
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab5'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab5'}">
                     <span (click)="switchTab($event, 'tab5')">
                         Casos de Sucesso
                     </span>
                 </li>
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab6'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab6'}">
                     <span (click)="switchTab($event, 'tab6')">
                         Tecnologias Utilizadas
                     </span>
                 </li>
-                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab7'}">
+                <li class="nav-tab"
+                    [ngClass]="{'active': currentTab === 'tab7'}">
                     <span (click)="switchTab($event, 'tab7')">
                         Compromisso com a Excelência
                     </span>
@@ -47,48 +68,35 @@
             <div class="tabs-container">
                 <div class="pane" id="tab1" *ngIf="currentTab === 'tab1'">
                     <div class="row">
+
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img1.jpg" alt="work-img">
+                                <img src="assets/img/analise_dados_varejo.png"
+                                    alt="work-img">
                                 <div class="work-content">
-                                    <h3>Creative Design</h3>
+                                    <h3>Análise de dados</h3>
                                     <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li> . </li>
-                                        <li><a routerLink="/">Brand</a></li>
+                                        <li><a href="#">Varejo</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img2.jpg" alt="work-img">
+                                <img src="assets/img/analise_dados_pet_shop.png"
+                                    alt="work-img">
                                 <div class="work-content">
-                                    <h3>Games Design</h3>
+                                    <h3>Análise de dados</h3>
                                     <ul>
-                                        <li><a href="#">IT</a></li>
-                                        <li> . </li>
-                                        <li><a href="#">Games</a></li>
+                                        <li><a routerLink="/">Pet shop</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img3.jpg" alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img4.jpg" alt="work-img">
+                                <img src="assets/img/work-img4.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -101,7 +109,8 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img5.jpg" alt="work-img">
+                                <img src="assets/img/work-img5.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -114,7 +123,8 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img6.jpg" alt="work-img">
+                                <img src="assets/img/work-img6.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -131,26 +141,49 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img1.jpg" alt="work-img">
+                                <img src="assets/img/metodo.jpeg"
+                                    alt="work-img">
                                 <div class="work-content">
-                                    <h3>Creative Design</h3>
+                                    <h3>Estatística</h3>
                                     <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li> . </li>
-                                        <li><a routerLink="/">Brand</a></li>
+                                        <li><a routerLink="/">Descritiva</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img6.jpg" alt="work-img">
+                                <img src="assets/img/persona.png"
+                                    alt="work-img">
                                 <div class="work-content">
-                                    <h3>Creative Design</h3>
+                                    <h3>Tela de persona</h3>
                                     <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
+                                        <li><a href="#">Desenvolvimento</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-work">
+                                <img src="assets/img/project-model-canvas.jpeg"
+                                    alt="work-img">
+                                <div class="work-content">
+                                    <h3>Projeto</h3>
+                                    <ul>
+                                        <li><a routerLink="/">Desenvolvimento</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-work">
+                                <img
+                                    src="assets/img/imagem-gerenciamento-integracao-dheka-v3-1.jpeg"
+                                    alt="work-img">
+                                <div class="work-content">
+                                    <h3>Projeto</h3>
+                                    <ul>
+                                        <li><a routerLink="/">Desenvolvimento</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -161,7 +194,8 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img1.jpg" alt="work-img">
+                                <img src="assets/img/work-img1.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -174,7 +208,8 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img2.jpg" alt="work-img">
+                                <img src="assets/img/work-img2.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Games Design</h3>
                                     <ul>
@@ -189,39 +224,15 @@
                 </div>
                 <div class="pane" id="tab4" *ngIf="currentTab === 'tab4'">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img2.jpg" alt="work-img">
-                                <div class="work-content">
-                                    <h3>Games Design</h3>
-                                    <ul>
-                                        <li><a href="#">IT</a></li>
-                                        <li> . </li>
-                                        <li><a href="#">Games</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img3.jpg" alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="pane" id="tab5" *ngIf="currentTab === 'tab5'">
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img3.jpg" alt="work-img">
+                                <img src="assets/img/work-img3.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -234,7 +245,8 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img4.jpg" alt="work-img">
+                                <img src="assets/img/work-img4.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -251,7 +263,8 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img4.jpg" alt="work-img">
+                                <img src="assets/img/work-img4.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
@@ -264,7 +277,8 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-work">
-                                <img src="assets/img/work-img5.jpg" alt="work-img">
+                                <img src="assets/img/work-img5.jpg"
+                                    alt="work-img">
                                 <div class="work-content">
                                     <h3>Creative Design</h3>
                                     <ul>
