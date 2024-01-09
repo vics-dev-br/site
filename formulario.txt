@@ -1,0 +1,64 @@
+1 - Recepção do Email de Contato
+
+Ação: Verificar e registrar o email recebido.
+Objetivo: Garantir que nenhuma solicitação seja perdida e iniciar o processo de engajamento.
+
+2 - Contato Inicial e Solicitação de Informações
+
+Ação: Entrar em contato com o cliente potencial para agradecer pelo interesse e solicitar o preenchimento de um formulário detalhado.
+Objetivo: Coletar informações preliminares sobre as necessidades do cliente e as partes interessadas.
+
+3 - Entrevista com as Partes Interessadas
+
+Ação: Agendar e conduzir entrevistas com as partes interessadas para entender profundamente o problema e os objetivos do projeto.
+Objetivo: Obter insights detalhados que guiarão a proposta do projeto.
+Nesta fase, enfatize a definição e delimitação do problema. Entender claramente o problema ajuda a orientar todo o projeto.
+Elaboração do Briefing e da Proposta
+
+4 - Elaboração do Briefing e da Proposta
+
+Ação: Com base nas informações coletadas, desenvolver um briefing detalhado e uma proposta de projeto, incluindo escopo, cronograma e orçamento.
+Objetivo: Apresentar uma solução personalizada que atenda às expectativas do cliente.
+Inclua uma descrição inicial do problema conforme entendido e confirmado nas entrevistas.
+Envio do Contrato
+
+5 - Envio do Contrato
+
+Ação: Preparar e enviar um contrato formal, destacando termos, condições e aspectos legais da parceria.
+Objetivo: Formalizar o acordo e estabelecer um entendimento claro entre as partes.
+
+6 - Documentação do Planejamento do Projeto
+
+Ação: Criar um documento de planejamento que detalha as fases do projeto, entregáveis, marcos e responsabilidades.
+Objetivo: Garantir que todas as partes tenham uma compreensão clara do processo e das expectativas.
+
+7 - Execução do Projeto
+
+Ação: Iniciar e gerenciar a execução do projeto conforme o planejado, mantendo comunicação regular com o cliente.
+Objetivo: Entregar os resultados prometidos, mantendo a qualidade e aderindo ao cronograma.
+
+
+8 - Apuração e Análise dos Dados
+
+Nova Etapa: Depois da coleta de dados, realize a apuração (preparação e limpeza dos dados) seguida pela análise detalhada dos dados.
+
+
+9 - Apresentação dos Resultados
+
+Nova Etapa: Apresente os dados de maneira compreensível, destacando insights e descobertas chave.
+
+10 - Feedback, Interpretação e Ajustes
+
+Nova Etapa: Discuta os resultados com o cliente, interprete os dados no contexto do problema de negócios e faça ajustes conforme necessário.
+
+11 - Conclusão e Entrega Final do Projeto
+
+Ação: Finalizar todos os entregáveis, realizar uma revisão final com o cliente e concluir o projeto.
+Objetivo: Garantir a satisfação do cliente com os resultados e encerrar formalmente o projeto.
+
+12 - Feedback e Pós-Projeto (Sugestão Adicional)
+
+Ação: Solicitar feedback do cliente e discutir quaisquer necessidades de acompanhamento ou manutenção.
+Objetivo: Melhorar os serviços continuamente e manter um relacionamento duradouro com o cliente.
+Discuta os resultados com o cliente, interprete os dados no contexto do problema de negócios e faça ajustes conforme necessário.
+Conclusão e Entrega Final do Projeto

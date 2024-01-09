@@ -1,0 +1,39 @@
+Formulário de Solicitação de Informações para Consultoria em Ciência de Dados
+
+Informações Básicas do Cliente
+
+Nome da Empresa:
+Setor de Atuação:
+Contato Principal (Nome):
+Cargo:
+E-mail:
+Telefone:
+Detalhes sobre o Projeto
+
+Título do Projeto (se aplicável):
+Descrição Breve do Projeto:
+Quais são os objetivos principais que deseja alcançar com este projeto?
+Definição do Problema
+
+Descreva o problema ou desafio que sua empresa está enfrentando:
+Como você acredita que a ciência de dados pode ajudar a resolver este problema?
+Partes Interessadas
+
+Quem são as principais partes interessadas neste projeto?
+Há algum departamento específico ou indivíduo que será diretamente impactado ou beneficiado por este projeto?
+Dados Disponíveis
+
+Que tipos de dados sua empresa possui atualmente? (ex: dados de vendas, dados de clientes, dados operacionais, etc.)
+Existem restrições de acesso ou considerações especiais para esses dados?
+Restrições e Requisitos Específicos
+
+Existem quaisquer restrições de tempo ou orçamentárias para este projeto?
+Existem requisitos técnicos ou regulamentares específicos que precisam ser considerados?
+Expectativas e Resultados Desejados
+
+Quais são suas expectativas para este projeto?
+Como você definiria o sucesso do projeto?
+Informações Adicionais
+
+Por favor, forneça quaisquer outras informações ou comentários que você acredita serem relevantes para o entendimento do seu projeto.
+
