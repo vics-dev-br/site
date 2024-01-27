@@ -13,8 +13,8 @@ Detalhes sobre o Projeto
 Título do Projeto (se aplicável):
 Descrição Breve do Projeto:
 Quais são os objetivos principais que deseja alcançar com este projeto?
-Definição do Problema
 
+Definição do Problema
 Descreva o problema ou desafio que sua empresa está enfrentando:
 Como você acredita que a ciência de dados pode ajudar a resolver este problema?
 Partes Interessadas

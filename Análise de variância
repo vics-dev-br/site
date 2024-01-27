@@ -1,0 +1,45 @@
+Análise de variância
+
+permitir comparar, simultaneamente, as médias de várias amostras, desde que:
+a) tais amostras tenham sido extraídas de população que tem distribuição normal;
+b) as populações tenham o mesmo valor de variância;
+c) tais amostras sejam aleatórias e independentes;
+
+A hipótese nula (H0) que Ma = Mb = Mc = Md = Me.
+A hipótese alternativa (H1), afirma que as médias não são iguais (pelo menos duas são diferentes).
+
+Se após o teste rejeitarmos H0, concluímos que a propriedade considerada tem infuência sobre a variável em análise.
+Lembrar que o teste leva em consideração determinado nível de insignificância. (por exemplo, alpha = 5%)
+
+Primero passo é calcular a média de cada amostra, a que chamaremos Xa, Xb, Xc, Xd e Xe respectivamente.
+
+Se estiverem próximas, tendemos a aceitar H0 como verdadeiro, ou seja, Ma = Mb = Mc = Md = Me.
+
+Calcular, na sequência, a variância amostral para cada grupo de resultados.
+
+Amostra é o número de assinantes na plataforma por região do país: 
+Região Norte: [69,40,63,31,55,52,45,45,22,24,20,9]
+Região Nordeste: [138,139,240,124,221,152,201,225,73,71,49,20]
+Região Sul: [380,335,484,405,460,427,403,303,172,202,138,48]
+Região Sudeste: [119,86,138,102,128,99,107,59,48,39,39,18]
+Região Centro Oeste: [92,117,67,39,89,78,78,65,35,36,35,14]
+
+O que preciso saber é se essas direrenças entre as médias são insignificantes ou podem ser atribuídas ao acaso.
+
+Ma = Média da região Norte
+Mb = Média da região Nordeste
+Mc = Média da região Sul
+Md = Média da região Sudeste
+Me = Média da região centro oeste
+
+
+Segundo passo é determinar a média total (média das médias) X, a variância da amostra e calcular a variância amostral para cada grupo de resultados.
+
+A média da variância amostral = S2
+
+Conhecendo a variância da amostra para as médias e a média das variâncias amostrais, calcular denominada distribuição F (em homenagm a Fisher), usando a fórmula.
+
+Após a determinação do valor de F, precisamos consultar a tabela para encontrar o valor crítico, rejeitamos H0 e, caso contrário, aceitamos H0.
+
+Caso o valor observado seja maior que o valro crítico, rejeitamos H0 e, caso contrário, aceitamos H0.
+
