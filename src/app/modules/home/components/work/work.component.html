@@ -58,12 +58,6 @@
                         Tecnologias Utilizadas
                     </span>
                 </li>
-                <li class="nav-tab"
-                    [ngClass]="{'active': currentTab === 'tab7'}">
-                    <span (click)="switchTab($event, 'tab7')">
-                        Compromisso com a Excelência
-                    </span>
-                </li>
             </ul>
             <div class="tabs-container">
                 <div class="pane" id="tab1" *ngIf="currentTab === 'tab1'">
@@ -94,48 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img4.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img5.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img6.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="pane" id="tab2" *ngIf="currentTab === 'tab2'">
@@ -189,6 +142,25 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-work">
+                                <img
+                                    src="assets/img/processamento_de_dados.webp"
+                                    alt="work-img">
+                                <div class="work-content">
+                                    <h3>Processamento de dados</h3>
+                                    <ul>
+                                        <li><a
+                                                routerLink="https://blog.engenhariadedados.tec.br/?p=119&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog">Big
+                                                data</a></li>
+                                        <li>.</li>
+                                        <li><a
+                                                routerLink="https://blog.engenhariadedados.tec.br/?p=119&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog">Saiba
+                                                mais</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="pane" id="tab3" *ngIf="currentTab === 'tab3'">
@@ -237,9 +209,13 @@
                                 <div class="work-content">
                                     <h3>Big data</h3>
                                     <ul>
-                                        <li><a routerLink="https://bit.ly/47zM99x">Marketplace de serviço</a></li>
+                                        <li><a
+                                                routerLink="https://bit.ly/47zM99x">Marketplace
+                                                de serviço</a></li>
                                         <li>.</li>
-                                        <li><a routerLink="https://bit.ly/47zM99x">Saiba mais</a></li>
+                                        <li><a
+                                                routerLink="https://bit.ly/47zM99x">Saiba
+                                                mais</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -251,23 +227,13 @@
                                 <div class="work-content">
                                     <h3>Detecção de fraude</h3>
                                     <ul>
-                                        <li><a routerLink="https://bit.ly/3tGZ5N3">Inteligência Artificial</a></li>
+                                        <li><a
+                                                routerLink="https://bit.ly/3tGZ5N3">Inteligência
+                                                Artificial</a></li>
                                         <li>.</li>
-                                        <li><a routerLink="https://bit.ly/3tGZ5N3">Saiba mais</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/processamento_de_dados.webp"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Processamento de dados</h3>
-                                    <ul>
-                                        <li><a routerLink="https://blog.engenhariadedados.tec.br/?p=119&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog">Big data</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="https://blog.engenhariadedados.tec.br/?p=119&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog">Saiba mais</a></li>
+                                        <li><a
+                                                routerLink="https://bit.ly/3tGZ5N3">Saiba
+                                                mais</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -283,23 +249,14 @@
                                 <div class="work-content">
                                     <h3>Ciências de Dados</h3>
                                     <ul>
-                                        <li><a href="https://blog.engenhariadedados.tec.br/?p=137&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog" target="_blank">M    ineração de Dados</a></li>
+                                        <li><a
+                                                href="https://blog.engenhariadedados.tec.br/?p=137&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog"
+                                                target="_blank">M ineração de
+                                                Dados</a></li>
                                         <li>.</li>
-                                        <li><a href="https://blog.engenhariadedados.tec.br/?p=137&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog" target="_blank">Saiba mais</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img5.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li>.</li>
-                                        <li><a routerLink="/">Brand</a></li>
+                                        <li><a
+                                                href="https://blog.engenhariadedados.tec.br/?p=137&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog"
+                                                target="_blank">Saiba mais</a></li>
                                     </ul>
                                 </div>
                             </div>
