@@ -8,26 +8,15 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CountUpModule } from 'ngx-countup';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { NgxTypedJsModule } from 'ngx-typed-js';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         NavbarComponent,
         FooterComponent
     ],
-    imports: [
-        HttpClientModule,
-        NgxScrollTopModule,
-        CarouselModule,
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterModule
-    ],
     exports: [
-        HttpClientModule,
         CommonModule,
         NgxScrollTopModule,
         CarouselModule,
@@ -40,8 +29,11 @@ import { RouterModule } from '@angular/router';
         NgxTypedJsModule,
         NavbarComponent,
         FooterComponent
-    ],
-    providers: []
-})
+    ], imports: [NgxScrollTopModule,
+        CarouselModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class SharedModule {
 }
