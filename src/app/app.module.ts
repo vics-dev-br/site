@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {TabsModule} from 'ngx-tabset';
@@ -32,7 +32,9 @@ const routerConfig: ExtraOptions = {
           registrationStrategy: 'registerWhenStable:30000'
         }),
     ],
-    providers: [],
+    providers: [
+    provideClientHydration(withEventReplay())
+  ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,7 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": { "base": "dist/vics" },
+            "outputPath": {
+              "base": "dist/vics"
+            },
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
@@ -48,7 +50,12 @@
             "optimization": false,
             "namedChunks": true,
             "serviceWorker": "ngsw-config.json",
-            "browser": "src/main.ts"
+            "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
