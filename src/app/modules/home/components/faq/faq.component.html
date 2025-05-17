@@ -1,210 +1,98 @@
 <div class="faq-area ptb-100">
     <div class="container">
-        <div class="section-title">
-            <h2>Perguntas frequentes <span>Questões</span></h2>
-            <p>Qualquer outra dúvida entre em contato conosco.</p>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="faq-accordion">
-                    <div class="accordion">
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(0)"
-                                [ngClass]="{ 'open': isSectionOpen(0) }">
-                                Por que minha empresa precisa de uma consultoria
-                                em ciência de dados?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(0) }">
-                                <ul class="features-list">
-                                    <li><b>1 - Tomada de Decisão Baseada em
-                                            Dados:</b> <p>A ciência de dados
-                                            permite que as empresas tomem
-                                            decisões informadas com base em
-                                            dados, ao invés de intuições ou
-                                            suposições. Uma consultoria pode
-                                            ajudar a identificar padrões,
-                                            tendências e insights valiosos nos
-                                            dados da empresa, levando a decisões
-                                            mais inteligentes e estratégicas.</p></li>
-                                    <li><b>2 - Melhoria na Eficiência e
-                                            Produtividade:</b> <p>Consultores em
-                                        ciência de dados podem otimizar
-                                        processos e operações, identificando
-                                        ineficiências e sugerindo melhorias
-                                        baseadas em análises de dados. Isso pode
-                                        levar a uma maior produtividade e
-                                        redução de custos.</p></li>
-                                    <li><b>3 - Personalização de Serviços e
-                                            Produtos:</b> <p>Com a análise de
-                                        dados, as empresas podem entender melhor
-                                        os comportamentos e preferências de seus
-                                        clientes. Isso permite personalizar
-                                        produtos e serviços, melhorando a
-                                        satisfação do cliente e potencialmente
-                                        aumentando as vendas.</p></li>
-                                    <li><b>4 - Previsão e Análise de Tendências:</b>
-                                        <p>A ciência de dados pode ajudar a prever
-                                        tendências de mercado e comportamento do
-                                        consumidor, permitindo que a empresa se
-                                        antecipe a mudanças, inove e se mantenha
-                                        competitiva.</p></li>
-                                    <li><b>5 - Gestão de Riscos:</b><p> Uma
-                                        consultoria em ciência de dados pode
-                                        ajudar na identificação e gestão de
-                                        riscos, utilizando modelos preditivos
-                                        para avaliar e mitigar potenciais
-                                        problemas antes que eles ocorram.</p></li>
-                                    <li><b>6 - Desenvolvimento de Estratégias
-                                            Baseadas em Dados:</b> <p>Os
-                                        consultores podem ajudar na criação de
-                                        estratégias de negócios e marketing
-                                        baseadas em análises profundas de dados,
-                                        garantindo que as estratégias sejam
-                                        direcionadas e eficazes.</p></li>
-                                    <li><b>7 - Transformação Digital:</b> <p>Em um
-                                        mundo cada vez mais digital, a ciência
-                                        de dados é chave para a transformação
-                                        digital. Consultores podem orientar a
-                                        empresa nesse processo, garantindo que
-                                        ela aproveite ao máximo as tecnologias e
-                                        os dados disponíveis.</p></li>
-                                    <li><b>8 - Competência Analítica Interna:</b>
-                                        <p>Além de fornecer insights, uma
-                                        consultoria pode capacitar a equipe
-                                        interna, fornecendo treinamento e
-                                        ferramentas para que possam continuar
-                                        realizando análises de dados eficazes.</p></li>
-                                    <li><b>9 - Adaptação às Mudanças
-                                            Regulatórias:</b> <p>Com o constante
-                                        surgimento de novas regulamentações de
-                                        dados, uma consultoria pode ajudar a
-                                        garantir que a empresa esteja em
-                                        conformidade, evitando multas e outros
-                                        problemas legais</p></li>
-                                    <li><b>10 - Inovação e Desenvolvimento de
-                                            Novos Produtos:</b> <p>A ciência de
-                                        dados pode identificar oportunidades de
-                                        inovação e ajudar no desenvolvimento de
-                                        novos produtos, mantendo a empresa na
-                                        vanguarda do seu setor.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(1)"
-                                [ngClass]="{ 'open': isSectionOpen(1) }">
-                                Quais ferramentas e tecnologias vocês utilizam?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(1) }">
-                                <p>Utilizamos uma variedade de ferramentas e
-                                    tecnologias de ponta, incluindo linguagens
-                                    de programação como Python e R, plataformas
-                                    de Big Data, e soluções de machine learning,
-                                    personalizando nossa abordagem para atender
-                                    às necessidades específicas de cada cliente.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(2)"
-                                [ngClass]="{ 'open': isSectionOpen(2) }">
-                                Como vocês garantem a integração com nossos
-                                sistemas e processos existentes?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(2) }">
-                                <p>Trabalhamos de perto com os clientes para
-                                    garantir que nossas soluções se integrem
-                                    perfeitamente aos seus sistemas e processos
-                                    existentes, minimizando a interrupção e
-                                    maximizando a eficiência.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(3)"
-                                [ngClass]="{ 'open': isSectionOpen(3) }">
-                                Qual é a estrutura de custos e o modelo de
-                                preços?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(3) }">
-                                <p>Nosso modelo de preços é transparente e
-                                    adaptável às necessidades específicas do
-                                    projeto, podendo incluir preços fixos,
-                                    tarifas baseadas em tempo, ou modelos
-                                    baseados em valor entregue.</p>
-                            </div>
-                        </div>
-                        
-                    </div>
+      <div class="section-title">
+        <h2>Perguntas Frequentes <span>Sobre a VICS</span></h2>
+        <p>Se ainda tiver dúvidas, entre em contato — teremos prazer em conversar com você.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="faq-accordion">
+            <div class="accordion">
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(0)" [ngClass]="{ 'open': isSectionOpen(0) }">
+                  Como a VICS pode ajudar minha empresa?
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <div class="faq-accordion">
-                    <div class="accordion">
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(5)"
-                                [ngClass]="{ 'open': isSectionOpen(5) }">
-                                Quais são as qualificações e experiências da
-                                equipe de consultoria?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(5) }">
-                                <p>Nossa equipe é composta por profissionais
-                                altamente qualificados com formação em ciência
-                                de dados, estatística, e áreas afins. Temos
-                                ampla experiência em vários setores, com um
-                                histórico comprovado de projetos bem-sucedidos.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(6)"
-                                [ngClass]="{ 'open': isSectionOpen(6) }">
-                                Como vocês abordam a segurança e a privacidade dos dados?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(6) }">
-                                <p>Dado o valor crítico dos dados e as regulamentações em torno da privacidade de dados, os clientes precisam entender como a consultoria irá proteger seus dados.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(7)"
-                                [ngClass]="{ 'open': isSectionOpen(7) }">
-                                Podem fornecer estudos de caso ou exemplos de
-                                sucesso de projetos anteriores?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(7) }">
-                                <p>Podemos fornecer vários estudos de caso que
-                                    demonstram nosso sucesso em projetos
-                                    anteriores, mostrando como ajudamos outras
-                                    empresas a alcançar seus objetivos de
-                                    ciência de dados.</p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-section">
-                            <div class="accordion-header"
-                                (click)="toggleSection(8)"
-                                [ngClass]="{ 'open': isSectionOpen(8) }">
-                                Podemos esperar algum tipo de transferência de conhecimento ou treinamento?
-                            </div>
-                            <div class="accordion-content"
-                                [ngClass]="{ 'open': isSectionOpen(8) }">
-                                <p>Muitos clientes desejam não apenas a entrega de soluções, mas também a capacitação de suas equipes para manter e desenvolver as capacidades de ciência de dados internamente.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(0) }">
+                  <p>Somos o braço técnico para empresas que têm boas ideias, mas precisam de alguém para colocar em prática.  
+                    Desenvolvemos sites, sistemas e automações sob medida, sempre com foco no resultado que você busca: eficiência, organização, crescimento e escala.</p>
                 </div>
-
+              </div>
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(1)" [ngClass]="{ 'open': isSectionOpen(1) }">
+                  Vocês trabalham só com dados?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(1) }">
+                  <p>Não. Atuamos com projetos que envolvem dados, sim — mas também desenvolvemos aplicações web, integrações de sistemas, automações de processos e tudo o que envolva tecnologia aplicada ao negócio.</p>
+                </div>
+              </div>
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(2)" [ngClass]="{ 'open': isSectionOpen(2) }">
+                  Como vocês se integram aos sistemas que já usamos?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(2) }">
+                  <p>Estudamos sua estrutura atual e criamos soluções que se adaptam a ela. Sempre que possível, evitamos mudanças bruscas, priorizando integrações suaves e eficientes.</p>
+                </div>
+              </div>
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(3)" [ngClass]="{ 'open': isSectionOpen(3) }">
+                  Quanto custa um projeto?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(3) }">
+                  <p>Depende do tipo de projeto, mas sempre trabalhamos com transparência. Pode ser por escopo fechado, por horas, ou baseado em valor entregue. Avaliamos juntos o que faz mais sentido para você.</p>
+                </div>
+              </div>
+  
             </div>
+          </div>
         </div>
+  
+        <div class="col-lg-6 col-md-12">
+          <div class="faq-accordion">
+            <div class="accordion">
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(4)" [ngClass]="{ 'open': isSectionOpen(4) }">
+                  Qual a experiência da equipe da VICS?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(4) }">
+                  <p>Temos experiência prática em projetos de diversos segmentos — de escolas a distribuidores, de startups a indústrias. Nosso foco é adaptar a tecnologia à realidade do cliente, com agilidade e responsabilidade.</p>
+                </div>
+              </div>
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(5)" [ngClass]="{ 'open': isSectionOpen(5) }">
+                  E a segurança dos dados?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(5) }">
+                  <p>Levamos isso muito a sério. Utilizamos boas práticas de segurança e seguimos normas de privacidade e compliance. Tudo é projetado para proteger seus dados e a confiança dos seus clientes.</p>
+                </div>
+              </div>
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(6)" [ngClass]="{ 'open': isSectionOpen(6) }">
+                  Vocês treinam nossa equipe também?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(6) }">
+                  <p>Sim. Além de entregar a solução, podemos capacitar sua equipe para operar e até evoluir o sistema internamente, se essa for a sua estratégia.</p>
+                </div>
+              </div>
+  
+              <div class="accordion-section">
+                <div class="accordion-header" (click)="toggleSection(7)" [ngClass]="{ 'open': isSectionOpen(7) }">
+                  Vocês têm cases de sucesso?
+                </div>
+                <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(7) }">
+                  <p>Sim. Já ajudamos empresas de diferentes setores a criarem soluções digitais relevantes. Podemos apresentar exemplos reais durante a nossa conversa.</p>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+</div> 
