@@ -1,0 +1,44 @@
+.blog-list-scroll {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    padding-left: 5px;
+  
+    .single-blog-item {
+      flex: 0 0 auto;
+      min-width: 280px;
+      max-width: 350px;
+      scroll-snap-align: start;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+  
+      &:hover {
+        transform: translateY(-4px);
+      }
+  
+      h3 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+  
+      p {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  
+    @media (min-width: 1024px) {
+      flex-wrap: wrap;
+      overflow-x: unset;
+  
+      .single-blog-item {
+        flex: 1 1 calc(33.333% - 20px);
+      }
+    }
+} 

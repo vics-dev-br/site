@@ -1,49 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-    selector: 'app-partner',
-    templateUrl: './partner.component.html',
-    styleUrls: ['./partner.component.scss'],
-    standalone: false
+  selector: 'app-partner',
+  templateUrl: './partner.component.html',
+  styleUrls: ['./partner.component.scss'],
+  standalone: false
 })
 export class PartnerComponent implements OnInit {
+  constructor(private viewportScroller: ViewportScroller) {}
 
-    constructor(private viewportScroller: ViewportScroller) {}
+  public onClick(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+  }
 
-    public onClick(elementId: string): void { 
-        this.viewportScroller.scrollToAnchor(elementId);
-    }
+  ngOnInit(): void {}
 
-    ngOnInit() {
-    }
-
-    partnerSlides: OwlOptions = {
-		loop: true,
-		nav: false,
-		dots: true,
-		autoplayHoverPause: true,
-		autoplay: true,
-		margin: 30,
-		navText: [
-			"<i class='fa fa-angle-left'></i>",
-			"<i class='fa fa-angle-right'></i>"
-		],
-		responsive: {
-			0: {
-				items: 2,
-			},
-			576: {
-				items: 3,
-			},
-			768: {
-				items: 4,
-			},
-			1200: {
-				items: 6,
-			}
-		}
-    }
-
+  partners = [
+    'assets/img/partner-1.png',
+    'assets/img/partner-2.png',
+    'assets/img/partner-3.png',
+    'assets/img/partner-4.png',
+    'assets/img/partner-5.png',
+    'assets/img/partner-6.png',
+    'assets/img/partner-1.png',
+    'assets/img/partner-2.png',
+    'assets/img/partner-3.png',
+    'assets/img/partner-4.png',
+    'assets/img/partner-5.png',
+    'assets/img/partner-6.png'
+  ];
 }

@@ -1,45 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-    selector: 'app-blog-list',
-    templateUrl: './blog-list.component.html',
-    styleUrls: ['./blog-list.component.scss']
+  selector: 'app-blog-list',
+  templateUrl: './blog-list.component.html',
+  styleUrls: ['./blog-list.component.scss'],
+  standalone: false
 })
 export class BlogListComponent implements OnInit {
+  constructor(private viewportScroller: ViewportScroller) {}
 
-    constructor(private viewportScroller: ViewportScroller) {}
+  public onClick(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+  }
 
-    public onClick(elementId: string): void { 
-        this.viewportScroller.scrollToAnchor(elementId);
-    }
+  ngOnInit(): void {}
 
-    ngOnInit() {
-    }
-
-    blogSlides: OwlOptions = {
-		loop: true,
-		nav: false,
-		dots: true,
-		autoplayHoverPause: true,
-		autoplay: true,
-		margin: 30,
-		navText: [
-			"<i class='fa fa-angle-left'></i>",
-			"<i class='fa fa-angle-right'></i>"
-		],
-		responsive: {
-			0: {
-				items: 1,
-			},
-			768: {
-				items: 2,
-			},
-			1200: {
-				items: 3,
-			}
-		}
-    }
-
+  blogSlides = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    speed: 500,
+    pauseOnHover: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: { slidesToShow: 3 }
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 }
+      },
+      {
+        breakpoint: 0,
+        settings: { slidesToShow: 1 }
+      }
+    ]
+  };
 }

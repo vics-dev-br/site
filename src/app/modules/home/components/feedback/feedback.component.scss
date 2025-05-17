@@ -1,0 +1,44 @@
+.feedback-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  
+    .single-feedback-item {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: translateY(-4px);
+      }
+  
+      p {
+        font-style: italic;
+        color: #333;
+        margin-bottom: 20px;
+      }
+  
+      .info {
+        h3 {
+          font-size: 18px;
+          margin: 0;
+        }
+  
+        span {
+          font-size: 14px;
+          color: #777;
+        }
+  
+        img {
+          margin-top: 15px;
+          width: 70px;
+          height: 70px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+} 

@@ -4,10 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CountUpModule } from 'ngx-countup';
 import { NgxTypedJsModule } from 'ngx-typed-js';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 
@@ -17,8 +16,7 @@ import { RouterModule } from '@angular/router';
     ],
     exports: [
         CommonModule,
-        NgxScrollTopModule, 
-        CarouselModule,       
+        NgxScrollTopModule,     
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
@@ -27,12 +25,19 @@ import { RouterModule } from '@angular/router';
         NgxTypedJsModule,
         NavbarComponent,
         FooterComponent
-    ], imports: [
-        NgxScrollTopModule,  
-        CarouselModule,      
+    ], 
+    imports: [
+        NgxScrollTopModule,       
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        RouterModule], 
+        providers: [
+            provideHttpClient(
+              withFetch(),
+              withInterceptorsFromDi()
+            )
+        ]
+})
 export class SharedModule {
 }

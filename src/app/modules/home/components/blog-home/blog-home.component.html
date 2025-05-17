@@ -1,20 +1,19 @@
-<div id="blog" class="blog-area ptb-100">
-    <div class="container">
-        <div class="section-title">
-            <h4>Nossas novidades</h4>
-            <h2><span>Posts</span> mais recentes</h2>
-        </div>
-        <div class="blog-slides">
-            <owl-carousel-o [options]="blogSlides">
-                <ng-template carouselSlide *ngFor="let post of posts;">
-                    <div class="single-blog-item bg1">
-                        <span>Engenharia de dados</span>
-                        <h3><a routerLink="/post/{{post.id}}">{{post.attributes.title}}</a></h3>
-                        <p> {{post.attributes.blockquote}}</p>
-                        <a routerLink="/post/{{post.id}}" title="Leia mais" class="link-btn"><i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
-        </div>
+<section class="blog-area ptb-100" id="blog">
+  <div class="container">
+    <div class="section-title">
+      <h4>Nossas novidades</h4>
+      <h2><span>Posts</span> mais recentes</h2>
     </div>
-</div>
+
+    <div class="blog-list-scroll">
+      <div class="single-blog-item bg1" *ngFor="let post of posts">
+        <span>Engenharia de dados</span>
+        <h3><a [routerLink]="['/post', post.id]">{{ post.attributes.title }}</a></h3>
+        <p>{{ post.attributes.blockquote }}</p>
+        <a [routerLink]="['/post', post.id]" class="link-btn" title="Leia mais">
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

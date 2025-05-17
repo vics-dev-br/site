@@ -1,78 +1,19 @@
-<section class="feedback-area ptb-100">
-    <div class="container">
-        <div class="feedback-slides">
-            <owl-carousel-o [options]="feedbackSlides">
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“Não se preocupe em entender os dados. Aprenda a entender o que os dados entendem sobre o mundo.”</p>
-                        <div class="info">
-                            <h3>Geoffrey Hinton</h3>
-                            <span>pioneiro em redes neurais e aprendizado profundo</span>
-                            <img src="assets/img/geoffrey.jpg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“Os dados são o novo petróleo. Não é valioso se não refinado.”</p>
-                        <div class="info">
-                            <h3>Clive Humby</h3>
-                            <span>matemático e arquiteto do Tesco Clubcard</span>
-                            <img src="assets/img/clive.jpeg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“Os dados por si só são apenas dados. A ciência de dados é sobre transformar dados em ações.”</p>
-                        <div class="info">
-                            <h3>D.J. Patil</h3>
-                            <span>cientista de dados</span>
-                            <img src="assets/img/djpatil.jpeg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“A competição baseada em dados requer muito mais do que ter os dados. Você tem que saber o que fazer com eles.”</p>
-                        <div class="info">
-                            <h3>Tom Davenport</h3>
-                            <span>autor e professor</span>
-                            <img src="assets/img/tomdavenport.jpeg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“A IA é a nova eletricidade. Assim como a eletricidade transformou quase tudo há 100 anos, acredito que a IA fará o mesmo.”</p>
-                        <div class="info">
-                            <h3>Andrew Ng</h3>
-                            <span>cofundador do Google Brain</span>
-                            <img src="assets/img/andrewng.jpeg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“Um cientista de dados é alguém que é melhor em estatística do que qualquer programador e melhor em programação do que qualquer estatístico.”</p>
-                        <div class="info">
-                            <h3>Hilary Mason</h3>
-                            <span>cientista de dados renomada</span>
-                            <img src="assets/img/hilarymason.jpeg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="single-feedback-item">
-                        <p>“Os dados são como lixo. Você precisa saber o que fazer com eles para que eles não sejam inúteis.”</p>
-                        <div class="info">
-                            <h3>Jim Bergeson</h3>
-                            <span>especialista em marketing e dados</span>
-                            <img src="assets/img/jimbergeson.jpeg" class="shadow rounded-circle" alt="image">
-                        </div>
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
-        </div>
+<section class="feedback-area ptb-100" id="feedback">
+  <div class="container">
+    <div class="section-title">
+      <h4>O que dizem os especialistas</h4>
+      <h2><span>Frases</span> inspiradoras sobre dados</h2>
     </div>
+
+    <div class="feedback-grid">
+      <div class="single-feedback-item" *ngFor="let feedback of feedbacks">
+        <p>"{{ feedback.quote }}"</p>
+        <div class="info">
+          <h3>{{ feedback.name }}</h3>
+          <span>{{ feedback.role }}</span>
+          <img [src]="feedback.img" [alt]="feedback.name" class="shadow rounded-circle">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
