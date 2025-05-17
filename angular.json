@@ -80,18 +80,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "xavro:build"
+            "buildTarget": "xavro:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "xavro:build:production"
+              "buildTarget": "xavro:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "xavro:build"
+            "buildTarget": "xavro:build"
           }
         },
         "test": {
