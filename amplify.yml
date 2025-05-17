@@ -1,0 +1,28 @@
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - echo "Usando Node 22"
+        - nvm install 22
+        - nvm use 22
+
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - node -v
+        - npm install --cache .npm --prefer-offline
+
+    build:
+      commands:
+        - npx ng build --configuration=production
+
+  artifacts:
+    baseDirectory: dist/vics/browser
+    files:
+      - '**/*'
+
+  cache:
+    paths:
+      - .npm/**/*
