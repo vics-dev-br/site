@@ -4,7 +4,8 @@ import { Subject } from 'rxjs';
 @Component({
     selector: 'lead',
     templateUrl: './lead.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class LeadComponent implements OnInit, OnDestroy {
     private _unsubscribeAll: Subject<any> = new Subject<any>();

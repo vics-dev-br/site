@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-contact-form',
     templateUrl: './form.component.html',
-    styleUrls: ['./form.component.scss']
+    styleUrls: ['./form.component.scss'],
+    standalone: false
 })
 export class ContactFormComponent implements OnInit {
     form: FormGroup;

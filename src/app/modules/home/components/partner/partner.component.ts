@@ -5,7 +5,8 @@ import { ViewportScroller } from '@angular/common';
 @Component({
     selector: 'app-partner',
     templateUrl: './partner.component.html',
-    styleUrls: ['./partner.component.scss']
+    styleUrls: ['./partner.component.scss'],
+    standalone: false
 })
 export class PartnerComponent implements OnInit {
 

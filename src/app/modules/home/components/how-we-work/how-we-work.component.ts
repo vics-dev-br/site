@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-how-we-work',
-  templateUrl: './how-we-work.component.html',
-  styleUrls: ['./how-we-work.component.scss']
+    selector: 'app-how-we-work',
+    templateUrl: './how-we-work.component.html',
+    styleUrls: ['./how-we-work.component.scss'],
+    standalone: false
 })
 export class HowWeWorkComponent implements OnInit {
 

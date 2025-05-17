@@ -4,7 +4,8 @@ import { Subject } from 'rxjs';
 @Component({
     selector: 'privacy_policy',
     templateUrl: './privacy_policy.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class PrivacyPolicyComponent implements OnInit, OnDestroy {
     private _unsubscribeAll: Subject<any> = new Subject<any>();

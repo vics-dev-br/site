@@ -4,7 +4,8 @@ import { ViewportScroller } from '@angular/common';
 @Component({
     selector: 'app-work',
     templateUrl: './work.component.html',
-    styleUrls: ['./work.component.scss']
+    styleUrls: ['./work.component.scss'],
+    standalone: false
 })
 export class WorkComponent implements OnInit {
 

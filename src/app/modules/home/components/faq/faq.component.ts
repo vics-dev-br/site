@@ -4,7 +4,8 @@ import { ViewportScroller } from '@angular/common';
 @Component({
     selector: 'app-faq',
     templateUrl: './faq.component.html',
-    styleUrls: ['./faq.component.scss']
+    styleUrls: ['./faq.component.scss'],
+    standalone: false
 })
 export class FaqComponent implements OnInit {
 

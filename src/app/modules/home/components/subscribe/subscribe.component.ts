@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-subscribe',
-  templateUrl: './subscribe.component.html',
-  styleUrls: ['./subscribe.component.scss']
+    selector: 'app-subscribe',
+    templateUrl: './subscribe.component.html',
+    styleUrls: ['./subscribe.component.scss'],
+    standalone: false
 })
 export class SubscribeComponent implements OnInit {
 

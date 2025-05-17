@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-cta',
-  templateUrl: './cta.component.html',
-  styleUrls: ['./cta.component.scss']
+    selector: 'app-cta',
+    templateUrl: './cta.component.html',
+    styleUrls: ['./cta.component.scss'],
+    standalone: false
 })
 export class CtaComponent implements OnInit {
 

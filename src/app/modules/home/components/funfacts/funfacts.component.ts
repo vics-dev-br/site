@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-funfacts',
-  templateUrl: './funfacts.component.html',
-  styleUrls: ['./funfacts.component.scss']
+    selector: 'app-funfacts',
+    templateUrl: './funfacts.component.html',
+    styleUrls: ['./funfacts.component.scss'],
+    standalone: false
 })
 export class FunfactsComponent implements OnInit {
 

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-who-we-are',
-  templateUrl: './who-we-are.component.html',
-  styleUrls: ['./who-we-are.component.scss']
+    selector: 'app-who-we-are',
+    templateUrl: './who-we-are.component.html',
+    styleUrls: ['./who-we-are.component.scss'],
+    standalone: false
 })
 export class WhoWeAreComponent implements OnInit {
 

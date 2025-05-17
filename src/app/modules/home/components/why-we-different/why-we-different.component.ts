@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-why-we-different',
-  templateUrl: './why-we-different.component.html',
-  styleUrls: ['./why-we-different.component.scss']
+    selector: 'app-why-we-different',
+    templateUrl: './why-we-different.component.html',
+    styleUrls: ['./why-we-different.component.scss'],
+    standalone: false
 })
 export class WhyWeDifferentComponent implements OnInit {
 

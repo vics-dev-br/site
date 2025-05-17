@@ -7,7 +7,8 @@ import { HomeService } from '../../home.service';
 @Component({
     selector: 'app-blog-home',
     templateUrl: './blog-home.component.html',
-    styleUrls: ['./blog-home.component.scss']
+    styleUrls: ['./blog-home.component.scss'],
+    standalone: false
 })
 export class BlogHomeComponent implements OnInit {
 

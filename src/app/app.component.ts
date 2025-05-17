@@ -13,7 +13,8 @@ declare let $: any;
             provide: LocationStrategy,
             useClass: PathLocationStrategy
         }
-    ]
+    ],
+    standalone: false
 })
 export class AppComponent {
     location: any;

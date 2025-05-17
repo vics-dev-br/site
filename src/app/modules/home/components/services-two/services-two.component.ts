@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-services-two',
-  templateUrl: './services-two.component.html',
-  styleUrls: ['./services-two.component.scss']
+    selector: 'app-services-two',
+    templateUrl: './services-two.component.html',
+    styleUrls: ['./services-two.component.scss'],
+    standalone: false
 })
 export class ServicesTwoComponent implements OnInit {
 

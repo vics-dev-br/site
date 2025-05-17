@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-strategy',
-  templateUrl: './strategy.component.html',
-  styleUrls: ['./strategy.component.scss']
+    selector: 'app-strategy',
+    templateUrl: './strategy.component.html',
+    styleUrls: ['./strategy.component.scss'],
+    standalone: false
 })
 export class StrategyComponent implements OnInit {
 
