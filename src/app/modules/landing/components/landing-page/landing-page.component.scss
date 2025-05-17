@@ -1,0 +1,72 @@
+:host {
+    display: block;
+    background-color: #f9fafb; /* Tailwind's bg-gray-50 */
+    color: #1f2937; /* Tailwind's text-gray-800 */
+  }
+  
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  section.bg-white {
+    background-color: #ffffff;
+  }
+  
+  section.bg-gray-100 {
+    background-color: #f3f4f6;
+  }
+  
+  h1, h2 {
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+  
+  a {
+    transition: all 0.3s ease;
+    display: inline-block;
+    max-width: max-content;
+    align-self: center;
+  }
+  
+  a.btn-primary, a.bg-green-500 {
+    background-color: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+  
+  a.btn-primary:hover, a.bg-green-500:hover {
+    background-color: #059669;
+  }
+  
+  ul.space-y-4 li {
+    margin-bottom: 1rem;
+    list-style: none;
+  }
+  
+  footer {
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 1rem;
+    color: #6b7280; /* Tailwind's text-gray-500 */
+  }

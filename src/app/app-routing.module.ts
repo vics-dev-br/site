@@ -13,5 +13,6 @@ export const appRoutes: Route[] = [
         path: 'politica_de_privacidade',
         loadChildren: () => import("./modules/privacy_policy/privacy_policy.module").then(m => m.PrivacyPolicyModule)
     },
+    { path: 'landing', loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) },
 
 ];
