@@ -10,7 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve:ssr:vics": "node dist/vics/server/server.mjs"
+    "serve:ssr:vics": "node dist/vics/server/server.mjs",    
+    "build:ssr": "ng build && ng run vics:server",    
+    "serve:ssr": "node dist/vics/server/server.mjs"
   },
   "private": true,
   "dependencies": {
