@@ -14,5 +14,9 @@ export const appRoutes: Route[] = [
         loadChildren: () => import("./modules/privacy_policy/privacy_policy.module").then(m => m.PrivacyPolicyModule)
     },
     { path: 'landing', loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) },
+    {
+        path: 'tech-equity',
+        loadChildren: () => import('./modules/tech-equity/tech-equity.module').then(m => m.TechEquityModule)
+    },
 
 ];

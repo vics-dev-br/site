@@ -26,6 +26,7 @@ import { HomeService } from './home.service';
 import { HomePostsResolver } from './home.resolvers';
 import { ContactService } from './components/contact/contact.service';
 import { ContactFormComponent } from './components/contact/form.component';
+import { TechEquityCtaComponent } from './components/tech-equity-cta/tech-equity-cta.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { ContactFormComponent } from './components/contact/form.component';
         WorkComponent,
         WhyWeDifferentComponent,
         WelcomeComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        TechEquityCtaComponent
     ],
     imports: [
         SharedModule,

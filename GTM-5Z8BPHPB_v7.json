@@ -1,0 +1,304 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2025-05-23 14:05:11",
+    "containerVersion": {
+        "path": "accounts/6211300277/containers/174233131/versions/7",
+        "accountId": "6211300277",
+        "containerId": "174233131",
+        "containerVersionId": "7",
+        "container": {
+            "path": "accounts/6211300277/containers/174233131",
+            "accountId": "6211300277",
+            "containerId": "174233131",
+            "name": "www.vics.dev.br",
+            "publicId": "GTM-5Z8BPHPB",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1704125745682",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6211300277/containers/174233131/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-5Z8BPHPB"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "tagId": "6",
+                "name": "whatsapp_click",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "whatsapp_click"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-DD0QLZK7FJ"
+                    }
+                ],
+                "fingerprint": "1748002406237",
+                "firingTriggerId": [
+                    "5"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "tagId": "7",
+                "name": "Tag do Google G-DD0QLZK7FJ",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "G-DD0QLZK7FJ"
+                    }
+                ],
+                "fingerprint": "1748002401029",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "tagId": "9",
+                "name": "Google Ads - Conversão WhatsApp",
+                "type": "awct",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableNewCustomerReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableConversionLinker",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableProductReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionCookiePrefix",
+                        "value": "_gcl"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableShippingData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "16609592741"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionLabel",
+                        "value": "6SNiCNO_0LsZEKWLifA9"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "rdp",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1748007819510",
+                "firingTriggerId": [
+                    "5"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "tagId": "10",
+                "name": "Google Ads - Vinculador de Conversões",
+                "type": "gclidw",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCrossDomain",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableUrlPassthrough",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCookieOverrides",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1748008290956",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "triggerId": "5",
+                "name": "GA4 - Evento WhatsApp",
+                "type": "LINK_CLICK",
+                "autoEventFilter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "wa.me/5534998097535"
+                            }
+                        ]
+                    }
+                ],
+                "waitForTags": {
+                    "type": "BOOLEAN",
+                    "value": "true"
+                },
+                "checkValidation": {
+                    "type": "BOOLEAN",
+                    "value": "true"
+                },
+                "waitForTagsTimeout": {
+                    "type": "TEMPLATE",
+                    "value": "2000"
+                },
+                "uniqueTriggerId": {
+                    "type": "TEMPLATE"
+                },
+                "fingerprint": "1748001963013"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "6211300277",
+                "containerId": "174233131",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            }
+        ],
+        "fingerprint": "1748008418407",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6211300277/containers/174233131/versions/7?apiLink=version"
+    }
+}

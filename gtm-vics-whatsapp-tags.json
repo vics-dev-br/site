@@ -1,0 +1,150 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2025-05-23T00:00:00Z",
+  "containerVersion": {
+    "container": {
+      "publicId": "GTM-XXXXXXX",
+      "name": "vics.dev.br",
+      "usageContext": [
+        "web"
+      ]
+    },
+    "tag": [
+      {
+        "name": "GA4 - Evento whatsapp_click",
+        "type": "gaawc",
+        "parameter": [
+          {
+            "key": "measurementId",
+            "value": "G-DD0QLZK7FJ"
+          },
+          {
+            "key": "eventName",
+            "value": "whatsapp_click"
+          }
+        ],
+        "firingTriggerId": [
+          "2147479550"
+        ]
+      },
+      {
+        "name": "Google Ads - Convers\u00e3o WhatsApp",
+        "type": "adwords-conversion",
+        "parameter": [
+          {
+            "key": "conversionId",
+            "value": "16609592741"
+          },
+          {
+            "key": "conversionLabel",
+            "value": "6SNiCNO_0LsZEKWLifA9"
+          }
+        ],
+        "firingTriggerId": [
+          "2147479550"
+        ]
+      },
+      {
+        "name": "Google Ads - Vinculador de Convers\u00f5es",
+        "type": "adwords-conversion-tracking",
+        "parameter": [],
+        "firingTriggerId": [
+          "2147479551"
+        ]
+      }
+    ],
+    "trigger": [
+      {
+        "triggerId": "2147479550",
+        "name": "Clique no WhatsApp",
+        "type": "click",
+        "filter": [
+          {
+            "type": "contains",
+            "parameter": [
+              {
+                "key": "arg0",
+                "type": "template",
+                "value": "{{Click URL}}"
+              },
+              {
+                "key": "arg1",
+                "type": "template",
+                "value": "wa.me/5534998097535"
+              }
+            ]
+          }
+        ],
+        "autoEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "type": "template",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "type": "template",
+                "value": "gtm.linkClick"
+              }
+            ]
+          }
+        ],
+        "waitForTags": true,
+        "waitForTagsTimeout": 2000,
+        "checkValidation": true,
+        "uniqueTriggerId": "2147479550"
+      },
+      {
+        "triggerId": "2147479551",
+        "name": "All Pages",
+        "type": "pageview",
+        "uniqueTriggerId": "2147479551"
+      }
+    ],
+    "variable": [
+      {
+        "name": "Click URL",
+        "type": "aev",
+        "parameter": [
+          {
+            "key": "varType",
+            "value": "CLICK_URL"
+          }
+        ]
+      },
+      {
+        "name": "Click Text",
+        "type": "aev",
+        "parameter": [
+          {
+            "key": "varType",
+            "value": "CLICK_TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Click Classes",
+        "type": "aev",
+        "parameter": [
+          {
+            "key": "varType",
+            "value": "CLICK_CLASSES"
+          }
+        ]
+      },
+      {
+        "name": "Event",
+        "type": "aev",
+        "parameter": [
+          {
+            "key": "varType",
+            "value": "EVENT"
+          }
+        ]
+      }
+    ]
+  }
+}
