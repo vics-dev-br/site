@@ -22,5 +22,9 @@ export const appRoutes: Route[] = [
         path: 'landing-tips',
         loadChildren: () => import('./modules/landing-tips/landing-tips.module').then(m => m.LandingTipsModule)
     },
+    {
+        path: 'tech-demanda',
+        loadChildren: () => import('./modules/tech-demanda/tech-demanda.module').then(m => m.TechDemandaModule)
+    },
 
 ];
