@@ -194,6 +194,36 @@
   }
 }
 
+// Service Cards
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid #198754;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(25, 135, 84, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  
+  i {
+    font-size: 1.75rem;
+  }
+}
+
 // Testimonials
 .testimonial-card {
   background: white;
@@ -347,6 +377,10 @@
   
   .benefit-card {
     padding: 2rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
   }
   
   .process-steps .step-item {
