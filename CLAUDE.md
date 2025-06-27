@@ -19,9 +19,12 @@ VICS (www.vics.dev.br) is an Angular 19 Progressive Web Application (PWA) with S
 - `npm run build:ssr` - Build both client and server bundles for SSR
 
 ### Testing & Quality
-- `npm test` - Run unit tests with Karma
-- `npm run lint` - Run TSLint for code quality checks (uses tslint.json configuration)
+- `npm test` - Run unit tests with Karma/Jasmine in Chrome (watch mode enabled by default)
+- `npm run lint` - Run TSLint with Codelyzer for Angular-specific checks
 - `npm run e2e` - Run end-to-end tests with Protractor
+- Coverage reports are generated in `./coverage/xavro/` directory
+- To run a single test file: `ng test --include='**/path-to-spec.ts'`
+- To focus on specific tests: use `fdescribe()` or `fit()` in test files
 
 ### Angular CLI
 - `ng generate component modules/[module-name]/components/[component-name]` - Generate new component in appropriate module
@@ -64,8 +67,12 @@ The project is configured for AWS Amplify deployment:
 - SSR server: `dist/vics/server/server.mjs`
 
 ### Code Style
-- TSLint configuration enforces Angular style guide
+- TSLint configuration enforces Angular style guide with Codelyzer
 - Single quotes for strings
 - 140 character line limit
 - Component selectors use `app-` prefix with kebab-case
 - Directive selectors use `app` prefix with camelCase
+- Semicolons are required
+- Console methods (debug, info, time, timeEnd, trace) are banned
+- Enforces proper lifecycle interface implementation
+- Member ordering: static fields → instance fields → static methods → instance methods

@@ -3,6 +3,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ContactService } from './contact.service';
 import { Router } from '@angular/router';
 
+declare global {
+    interface Window {
+        dataLayer: any[];
+    }
+}
+
 @Component({
     selector: 'app-contact-form',
     templateUrl: './form.component.html',
@@ -36,6 +42,15 @@ export class ContactFormComponent implements OnInit {
         if (this.form.valid) {
             this._contactService.requestContact(this.form.value).subscribe(
                 (response) => {
+                    // Push evento para o Google Tag Manager
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'contact_form_submit',
+                        'form_type': 'contact',
+                        'form_location': 'home_page',
+                        'form_subject': this.form.value.subject
+                    });
+                    
                     this._router.navigate([`/lead`],);
                 },
                 (error) => { console.log(error) }
