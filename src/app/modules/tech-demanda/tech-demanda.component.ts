@@ -99,6 +99,36 @@ export class TechDemandaComponent implements OnInit {
 
   openWhatsApp(): void {
     const message = encodeURIComponent('Olá! Quero uma consultoria para acelerar meu negócio com tecnologia sob demanda!');
+    
+    // Tracking GTM para WhatsApp
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'whatsapp_click', {
+        'event_category': 'contact',
+        'event_label': 'tech_demanda_consultation'
+      });
+    }
+    
     window.open(`https://wa.me/5534998097535?text=${message}`, '_blank');
+  }
+
+  submitEmail(event: Event): void {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
+    
+    if (emailInput && emailInput.value) {
+      // Tracking GTM para email capture
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'email_capture', {
+          'event_category': 'lead_generation',
+          'event_label': 'tech_demanda_email_form'
+        });
+      }
+      
+      // Aqui você pode implementar o envio do email
+      console.log('Email capturado:', emailInput.value);
+      alert('Obrigado! Entraremos em contato em breve.');
+      emailInput.value = '';
+    }
   }
 }

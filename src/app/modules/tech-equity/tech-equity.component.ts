@@ -158,4 +158,25 @@ export class TechEquityComponent implements OnInit {
     }
   }
 
+  submitEmail(event: Event): void {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
+    
+    if (emailInput && emailInput.value) {
+      // Tracking GTM para email capture
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'email_capture', {
+          'event_category': 'lead_generation',
+          'event_label': 'tech_equity_email_form'
+        });
+      }
+      
+      // Aqui você pode implementar o envio do email
+      console.log('Email capturado:', emailInput.value);
+      alert('Obrigado! Entraremos em contato em até 24h com uma análise personalizada.');
+      emailInput.value = '';
+    }
+  }
+
 }

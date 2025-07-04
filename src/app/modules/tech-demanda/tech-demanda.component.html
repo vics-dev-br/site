@@ -21,7 +21,7 @@
             <i class="fas fa-rocket me-2"></i>
             Quero acelerar meu negócio
           </button>
-          <button class="btn btn-outline-success btn-lg px-5 py-3" (click)="openWhatsApp()">
+          <button class="btn btn-outline-success btn-lg px-5 py-3" (click)="openWhatsApp()" onclick="gtag('event', 'whatsapp_click', {'event_category': 'contact', 'event_label': 'tech_demanda_hero'});">
             <i class="fab fa-whatsapp me-2"></i>
             Falar com especialista
           </button>
@@ -417,6 +417,18 @@
             Quero minha consultoria gratuita
           </button>
           
+          <div class="text-center mb-3">
+            <p class="text-muted">ou</p>
+          </div>
+          
+          <form class="email-form d-flex gap-2 justify-content-center" (submit)="submitEmail($event)">
+            <input type="email" class="form-control" placeholder="Seu email" required style="max-width: 300px;">
+            <button type="submit" class="btn btn-outline-success">
+              <i class="fas fa-envelope me-2"></i>
+              Enviar
+            </button>
+          </form>
+          
           <p class="mt-4 text-muted small">
             <i class="fas fa-shield-alt me-1"></i>
             100% gratuito • Sem compromisso • Resposta em até 2 horas
@@ -425,7 +437,9 @@
           <div class="contact-info mt-4 text-muted small">
             <p class="mb-1">
               <i class="fas fa-envelope me-2"></i>
-              tatiane&#64;vics.dev.br
+              <a href="mailto:tatiane@vics.dev.br" class="text-muted" onclick="gtag('event', 'email_click', {'event_category': 'contact', 'event_label': 'tech_demanda_page'});">
+                tatiane&#64;vics.dev.br
+              </a>
             </p>
             <p class="mb-1">
               <i class="fab fa-whatsapp me-2"></i>
