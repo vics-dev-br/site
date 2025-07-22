@@ -1,22 +1,9 @@
 <div id="work" class="work-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Nosso <span>trabalho</span></h2>
-            <p>Nos dedicamos a fornecer análises de dados de classe mundial para
-                impulsionar o sucesso dos negócios. Nossos serviços vão desde
-                análise preditiva até visualização de dados, todos projetados
-                para transformar dados brutos em insights estratégicos. Adotamos
-                uma abordagem metodológica rigorosa, combinando técnicas
-                estatísticas com inteligência artificial, para fornecer soluções
-                precisas e adaptadas às necessidades de cada cliente. Já
-                auxiliamos diversas empresas a otimizar suas operações de
-                vendas, identificar novas oportunidades de mercado e tomar
-                decisões informadas. Utilizamos as tecnologias mais avançadas em
-                nossa análise para garantir a eficiência e a precisão dos
-                resultados. Nosso compromisso com a excelência em ciência de
-                dados é inabalável, e é isso que nos permite entregar resultados
-                que não apenas atendem, mas superam as expectativas dos nossos
-                clientes.</p>
+            <h2>Casos de <span>Sucesso</span></h2>
+            <p>Resultados reais com soluções sob medida.</p>
+            <p>Combinamos tecnologia, agilidade e visão estratégica para resolver desafios técnicos e acelerar negócios. Confira alguns exemplos de impacto que geramos para nossos clientes:</p>
         </div>
     </div>
     <div class="container-fluid">
@@ -216,54 +203,38 @@
                 
                 <div class="pane" id="tab5" *ngIf="currentTab === 'tab5'">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <p>A VICS já colaborou com empresas de diversos setores, desenvolvendo soluções como marketplaces, sistemas de controle, apps e modelos de análise. Aqui estão alguns exemplos reais do impacto que geramos:</p>
-                            <div class="single-work">
-                                <img src="assets/img/big_data_market_place.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Big data</h3>
-                                    <ul>
-                                        <li><a
-                                                routerLink="https://bit.ly/47zM99x">Marketplace
-                                                de serviço</a></li>
-                                        <li>.</li>
-                                        <li><a
-                                                routerLink="https://bit.ly/47zM99x">Saiba
-                                                mais</a></li>
-                                    </ul>
-                                </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="case-study mb-4">
+                                <h4>🏦 Setor Financeiro – Banco Digital</h4>
+                                <p><strong>Desafio:</strong> Alto volume de pagamentos via Pix, com gargalos de performance.</p>
+                                <p><strong>Solução:</strong> Reestruturamos o backend com arquitetura assíncrona, reduzindo o tempo de processamento em 70%.</p>
+                                <p><strong>Tecnologias:</strong> Ruby on Rails, Sidekiq, PostgreSQL, Redis, Kubernetes (GCP).</p>
+                            </div>
+                            
+                            <div class="case-study mb-4">
+                                <h4>🏥 Setor Hospitalar – Sistema de Internações</h4>
+                                <p><strong>Desafio:</strong> Falta de visibilidade em tempo real dos leitos ocupados e disponibilidade por setor.</p>
+                                <p><strong>Solução:</strong> Criamos um data warehouse com dados históricos e tempo real, integrando fontes via Airflow e Kafka.</p>
+                                <p><strong>Resultado:</strong> BI operacional com dashboards que reduziram o tempo de decisão clínica.</p>
+                                <p><strong>Tecnologias:</strong> Apache Airflow, PostgreSQL, Superset, Kafka, Python.</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <p>Utilizamos ferramentas modernas que garantem segurança, desempenho e escalabilidade. Mais do que escolher uma tecnologia, buscamos sempre a melhor solução para cada projeto. Alguns dos recursos que aplicamos:</p>
-                            <div class="single-work">
-                                <img src="assets/img/deteccao_fraude.png"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Detecção de fraude</h3>
-                                    <ul>
-                                        <li><a
-                                                routerLink="https://bit.ly/3tGZ5N3">Inteligência
-                                                Artificial</a></li>
-                                        <li>.</li>
-                                        <li><a
-                                                routerLink="https://bit.ly/3tGZ5N3">Saiba
-                                                mais</a></li>
-                                    </ul>
-                                </div>
+                        
+                        <div class="col-lg-6 col-md-12">
+                            <div class="case-study mb-4">
+                                <h4>⚖️ Setor Jurídico – Plataforma SaaS</h4>
+                                <p><strong>Desafio:</strong> Alto custo operacional com integrações manuais entre sistemas jurídicos.</p>
+                                <p><strong>Solução:</strong> Desenvolvemos microserviços que automatizam leitura de intimações, envio de documentos e notificações.</p>
+                                <p><strong>Resultado:</strong> Redução de 40% no tempo médio de atendimento e eliminação de retrabalho.</p>
+                                <p><strong>Tecnologias:</strong> Ruby, Redis, Docker, APIs RESTful.</p>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/aws_cloud.jpg" alt="work-img">
-                                <div class="work-content">
-                                    <h3>Infraestrutura em Nuvem</h3>
-                                    <ul>
-                                        <li><a href="#">AWS / GCP</a></li>
-                                        <li><a href="#">Alta disponibilidade</a></li>
-                                    </ul>
-                                </div>
+                            
+                            <div class="case-study mb-4">
+                                <h4>🌎 Solução Crossborder – Plataforma de Exportação</h4>
+                                <p><strong>Desafio:</strong> Pequenos produtores queriam exportar lotes com burocracia reduzida e baixo custo.</p>
+                                <p><strong>Solução:</strong> Plataforma web com automação de cadastro, câmbio e DU-E, integrada ao Pix e à Receita Federal.</p>
+                                <p><strong>Resultado:</strong> Exportação viabilizada em 5 cliques, com economia de até 40% no custo total.</p>
+                                <p><strong>Tecnologias:</strong> Rails, Python, APIs públicas, bancos Azure e GCP.</p>
                             </div>
                         </div>
                     </div>

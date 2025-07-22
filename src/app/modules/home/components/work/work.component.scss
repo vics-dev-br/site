@@ -1,0 +1,25 @@
+.case-study {
+  padding: 20px;
+  border-left: 4px solid #007bff;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  
+  h4 {
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  strong {
+    color: #007bff;
+  }
+}
