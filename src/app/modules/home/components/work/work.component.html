@@ -22,12 +22,6 @@
                     </span>
                 </li>
                 <li class="nav-tab"
-                    [ngClass]="{'active': currentTab === 'tab3'}">
-                    <span (click)="switchTab($event, 'tab3')">
-                        Tipos de Projetos
-                    </span>
-                </li>
-                <li class="nav-tab"
                     [ngClass]="{'active': currentTab === 'tab4'}">
                     <span (click)="switchTab($event, 'tab4')">
                         Impacto do Trabalho
@@ -144,38 +138,6 @@
                                         <li><a
                                                 routerLink="https://blog.engenhariadedados.tec.br/?p=119&utm_source=site&utm_medium=link&utm_campaign=link_para_post&utm_id=trabalhos&utm_term=ciencia_de_dados&utm_content=link_para_o_blog">Saiba
                                                 mais</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pane" id="tab3" *ngIf="currentTab === 'tab3'">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img1.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Creative Design</h3>
-                                    <ul>
-                                        <li><a routerLink="/">Design</a></li>
-                                        <li> . </li>
-                                        <li><a routerLink="/">Brand</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-work">
-                                <img src="assets/img/work-img2.jpg"
-                                    alt="work-img">
-                                <div class="work-content">
-                                    <h3>Games Design</h3>
-                                    <ul>
-                                        <li><a href="#">IT</a></li>
-                                        <li> . </li>
-                                        <li><a href="#">Games</a></li>
                                     </ul>
                                 </div>
                             </div>
