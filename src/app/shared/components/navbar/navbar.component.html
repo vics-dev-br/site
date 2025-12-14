@@ -18,19 +18,25 @@
                                 <li class="nav-item"><a href="/"><span
                                                         class="nav-link">Início</span></a></li>
                                 <li class="nav-item"><a [routerLink]="'/'"
-                                                fragment="about"><span
+                                                fragment="para-quem"><span
                                                         class="nav-link"
-                                                        (click)="onClick('about')">Sobre</span></a></li>
+                                                        (click)="onClick('para-quem')">Para quem</span></a></li>
+                                <li class="nav-item"><a [routerLink]="'/'"
+                                                fragment="crises"><span
+                                                        class="nav-link"
+                                                        (click)="onClick('crises')">Crises</span></a></li>
                                 <li class="nav-item"><a [routerLink]="'/'"
                                                 fragment="services"><span
                                                         class="nav-link"
                                                         (click)="onClick('services')">Serviços</span></a></li>
-                                <li class="nav-item"><a routerLink="/tech-equity"><span
-                                                        class="nav-link">Tech for Equity</span></a></li>
-                                <!--<li class="nav-item"><a
-                                                href="https://blog.engenhariadedados.tec.br"
-                                                target="_blank"><span
-                                                        class="nav-link">Blog</span></a></li>-->
+                                <li class="nav-item"><a [routerLink]="'/'"
+                                                fragment="prova"><span
+                                                        class="nav-link"
+                                                        (click)="onClick('prova')">Prova</span></a></li>
+                                <li class="nav-item"><a [routerLink]="'/'"
+                                                fragment="processo"><span
+                                                        class="nav-link"
+                                                        (click)="onClick('processo')">Processo</span></a></li>
                                 <li class="nav-item"><a
                                                 [routerLink]="'/'"
                                                 fragment="contact"><span
@@ -40,18 +46,17 @@
                                 <li class="nav-item"><span class="nav-link"
                                                 (click)="toggleClass(); onClick('home')">Início</span></li>
                                 <li class="nav-item"><span class="nav-link"
-                                                (click)="toggleClass(); onClick('about')">Sobre</span></li>
+                                                (click)="toggleClass(); onClick('para-quem')">Para quem</span></li>
+                                <li class="nav-item"><span class="nav-link"
+                                                (click)="toggleClass(); onClick('crises')">Crises</span></li>
                                 <li class="nav-item"><span class="nav-link"
                                                 (click)="toggleClass(); onClick('services')">Serviços</span></li>
-                                <li class="nav-item"><a routerLink="/tech-equity"><span class="nav-link"
-                                                (click)="toggleClass()">Tech for Equity</span></a></li>
                                 <li class="nav-item"><span class="nav-link"
-                                                (click)="toggleClass(); onClick('work')">Trabalhos</span></li>
-                                <li class="nav-item"><span class="nav-link"><a
-                                                        href="https://blog.engenhariadedados.tec.br"
-                                                        target="_blank">Blog</a></span></li>
+                                                (click)="toggleClass(); onClick('prova')">Prova</span></li>
+                                <li class="nav-item"><span class="nav-link"
+                                                (click)="toggleClass(); onClick('processo')">Processo</span></li>
                                 <li class="nav-item"><a routerLink="/"
-                                                fragment="'contact'"><span
+                                                fragment="contact"><span
                                                         class="nav-link">Contato</span></a></li>
                         </ul>
                 </div>

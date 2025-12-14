@@ -1,40 +1,140 @@
 
-<div class="main-banner item-bg-one">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
-                <div class="main-banner-text">
-                    <h1>Consultoria em Dados e Desenvolvimento de Sistemas sob medida para sua empresa</h1>
-                    <h4>Atendemos empresas e startups de Lagoa Santa, região metropolitana de BH e todo estado de Minas Gerais. Transformamos dados em decisões inteligentes e desenvolvemos sistemas que crescem junto com seu negócio.</h4>
-                    <div class="banner-btn-group">
-                        <a (click)="onClick('contact')" class="btn btn-primary btn-lg me-3">💬 Fale com a VICS</a>
-                        <a (click)="onClick('services')" class="btn btn-info btn-lg">🚀 Ver nossos serviços</a>
-                    </div>
-                </div>
-            </div>
+<div class="main-banner item-bg-one crisis-hero" id="home">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="container">
+        <div class="main-banner-text text-start">
+          <div class="hero-badge">Resposta para produção • Engenharia sênior</div>
+          <h1>Sua infraestrutura está em risco? Nós resolvemos crises técnicas em produção.</h1>
+          <p>Atuamos quando falhas de segurança, custos fora de controle ou sistemas legados ameaçam o negócio. Intervenção direta, rápida e feita por especialistas.</p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5534998097535?text=Tenho%20um%20problema%20cr%C3%ADtico%20em%20produ%C3%A7%C3%A3o%20e%20preciso%20de%20ajuda%20da%20VICS"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-primary btn-lg">
+              🔴 Falar com um especialista agora
+            </a>
+            <div class="hero-meta">Resposta em até 2h úteis • Brasil e Portugal • Produção primeiro</div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<app-welcome></app-welcome>
+<section id="para-quem" class="section-tight bg-fffdfd">
+  <div class="container">
+    <div class="section-title simple">
+      <h4>Filtro imediato</h4>
+      <h2>Este serviço é para empresas que</h2>
+    </div>
+    <div class="row align-items-start">
+      <div class="col-lg-7">
+        <ul class="pill-list">
+          <li>Já estão em produção e dependem do sistema para faturar</li>
+          <li>Têm medo real de vazamento de dados ou ataques</li>
+          <li>Estão com custos imprevisíveis na nuvem</li>
+          <li>Carregam sistemas legados que ninguém quer assumir</li>
+          <li>Precisam de ação rápida, não de orçamentos baratos</li>
+        </ul>
+      </div>
+      <div class="col-lg-5">
+        <div class="alert-box">
+          <h5>Não somos genéricos</h5>
+          <p>Entramos em cenários críticos para recuperar controle, segurança e previsibilidade da infraestrutura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<app-services></app-services>
+<section id="crises" class="section-tight">
+  <div class="container">
+    <div class="section-title simple">
+      <h4>Situações em que somos chamados</h4>
+      <h2>Crises técnicas reais</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let crise of crises">
+        <div class="crisis-card">
+          <div class="icon">{{ crise.icon }}</div>
+          <h5>{{ crise.title }}</h5>
+          <p>{{ crise.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<app-storytelling></app-storytelling>
+<section id="services" class="section-tight bg-F7F5F4">
+  <div class="container">
+    <div class="section-title simple">
+      <h4>Nossos serviços principais</h4>
+      <h2>Poucos, claros e feitos por especialistas</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let service of services">
+        <div class="service-card">
+          <div class="service-head">
+            <div class="icon">{{ service.icon }}</div>
+            <div>
+              <h5>{{ service.title }}</h5>
+              <span class="price">Projetos a partir de {{ service.price }}</span>
+            </div>
+          </div>
+          <ul>
+            <li *ngFor="let item of service.items">{{ item }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<app-cta></app-cta>
+<section id="prova" class="section-tight">
+  <div class="container">
+    <div class="section-title simple">
+      <h4>Experiência real</h4>
+      <h2>Ambientes críticos onde já atuamos</h2>
+    </div>
+    <ul class="checklist">
+      <li>Migração Azure -> AWS em produção, sem downtime</li>
+      <li>Implantação de Rancher + ArgoCD do zero para equipes distribuídas</li>
+      <li>Upgrade seguro de sistemas Rails grandes e legados</li>
+      <li>Redução de custos em RDS com Redis e arquitetura eficiente</li>
+      <li>Resposta direta a incidentes de segurança e hardening</li>
+    </ul>
+  </div>
+</section>
 
-<!--<app-work></app-work>-->
+<section id="processo" class="section-tight bg-fffdfd">
+  <div class="container">
+    <div class="section-title simple">
+      <h4>Processo curto</h4>
+      <h2>Como conduzimos uma crise</h2>
+    </div>
+    <ol class="process-steps">
+      <li><span>1</span> Entendimento rápido do problema (call)</li>
+      <li><span>2</span> Diagnóstico técnico e plano imediato</li>
+      <li><span>3</span> Proposta objetiva e sem rodeios</li>
+      <li><span>4</span> Execução direta pelos especialistas</li>
+      <li><span>5</span> Documentação e handover para sua equipe</li>
+    </ol>
+  </div>
+</section>
 
-<!--<app-pricing></app-pricing>-->
-
-<app-faq></app-faq>
-
-<app-feedback></app-feedback>
-
-<app-blog-home></app-blog-home>
-
-<!--<app-partner></app-partner>-->
-
-<!--<app-subscribe></app-subscribe>-->
-<app-contact-form></app-contact-form>
+<section id="contact" class="cta-final">
+  <div class="container">
+    <h2>Está enfrentando uma situação crítica?</h2>
+    <p>Fale diretamente com quem resolve. Sem múltiplos CTAs, sem time comercial.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/5534998097535?text=Tenho%20uma%20situa%C3%A7%C3%A3o%20cr%C3%ADtica%20e%20preciso%20de%20suporte%20agora"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-primary btn-lg">🔴 Agendar conversa agora</a>
+      <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Situa%C3%A7%C3%A3o%20cr%C3%ADtica%20em%20produ%C3%A7%C3%A3o"
+         class="btn btn-light btn-lg">Ou envie detalhes por email</a>
+    </div>
+    <p class="cta-meta">Resposta em até 2h úteis | Base Lagoa Santa/MG • Brasil e Portugal</p>
+  </div>
+</section>
