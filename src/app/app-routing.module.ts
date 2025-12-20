@@ -23,6 +23,14 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('./modules/performance-infra/performance-infra.module').then(m => m.PerformanceInfraModule)
     },
     {
+        path: 'blindagem-performance-infra',
+        loadChildren: () => import('./modules/blindagem-performance/blindagem-performance.module').then(m => m.BlindagemPerformanceModule)
+    },
+    {
+        path: 'monitoramento-governanca-performance',
+        loadChildren: () => import('./modules/monitoramento-governanca/monitoramento-governanca.module').then(m => m.MonitoramentoGovernancaModule)
+    },
+    {
         path: 'landing-tips',
         loadChildren: () => import('./modules/landing-tips/landing-tips.module').then(m => m.LandingTipsModule)
     },

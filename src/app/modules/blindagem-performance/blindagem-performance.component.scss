@@ -12,27 +12,29 @@
   padding: 120px 0 90px;
   background: radial-gradient(circle at 20% 20%, rgba(255, 44, 87, 0.12), transparent 35%), radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.08), transparent 30%);
 
-  .eyebrow {
-    color: var(--mainColor);
-    font-weight: 700;
-    letter-spacing: 0.4px;
-  }
-
   .hero-grid {
     display: grid;
-    gap: 32px;
+    gap: 28px;
     grid-template-columns: 1.6fr 1fr;
     align-items: start;
   }
 
   .hero-content {
     display: grid;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .eyebrow {
+    color: var(--mainColor);
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    font-size: 12px;
   }
 
   h1 {
     font-size: clamp(30px, 5vw, 46px);
-    margin: 14px 0;
+    margin: 8px 0;
     font-weight: 800;
     line-height: 1.15;
     color: #ffffff;
@@ -46,9 +48,9 @@
   }
 
   .hero-actions {
-    margin-top: 22px;
+    margin-top: 14px;
     display: flex;
-    gap: 14px;
+    gap: 12px;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -58,120 +60,19 @@
     font-size: 14px;
   }
 
-  .trust {
-    background: rgba(19, 18, 23, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 14px 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  }
-
-  .trust-label {
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    font-size: 12px;
-    color: #c8c3c3;
-    margin: 0 0 8px;
-  }
-
-  .logo-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-
-    img {
-      max-height: 28px;
-      filter: grayscale(100%) brightness(1.1);
-      opacity: 0.9;
-    }
-  }
-
-  .quote {
-    margin: 0;
-    color: #f5f5f5;
-    font-weight: 600;
-    line-height: 1.5;
-    border-left: 3px solid #ff2c57;
-    padding-left: 12px;
-
-    span {
-      display: block;
-      margin-top: 6px;
-      color: #c8c3c3;
-      font-weight: 500;
-      font-size: 14px;
-    }
-  }
-
-  .lead-card {
-    background: #131217;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
-    position: relative;
-    top: 12px;
+  .hero-card {
+    align-self: stretch;
 
     h3 {
-      margin: 0 0 6px;
+      margin: 0;
       font-size: 22px;
       font-weight: 700;
     }
 
-    .lead-copy {
-      margin: 0 0 14px;
-      color: #dcd7d7;
+    .lede-sm {
+      color: #e5e0e0;
       line-height: 1.5;
     }
-  }
-
-  .lead-form {
-    display: grid;
-    gap: 12px;
-
-    label {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-weight: 600;
-      color: #f5f5f5;
-      font-size: 14px;
-    }
-
-    input,
-    textarea {
-      background: #0b0a0c;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 12px 12px;
-      color: #f5f5f5;
-      font-size: 15px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-      &:focus {
-        outline: none;
-        border-color: #ff2c57;
-        box-shadow: 0 0 0 3px rgba(255, 44, 87, 0.18);
-      }
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 4px;
-    }
-  }
-
-  .form-meta {
-    margin: 8px 0 0;
-    color: rgba(245, 245, 245, 0.75);
-    font-size: 13px;
   }
 }
 
@@ -201,45 +102,6 @@
   }
 }
 
-.blindagem-grid .timeline {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  padding: 10px;
-  background: #0f0e12;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  margin: 10px 0;
-
-  p {
-    margin: 0 0 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    font-size: 12px;
-    color: #c8c3c3;
-  }
-
-  strong {
-    color: #f5f5f5;
-    font-weight: 700;
-  }
-}
-
-.emphasis {
-  font-weight: 700;
-}
-
-.cta-hint {
-  margin: 8px 0 0;
-  color: rgba(245, 245, 245, 0.75);
-  font-size: 13px;
-}
-
-.blindagem-steps .note.inline,
-.blindagem-steps .note.success.inline {
-  margin-top: 14px;
-}
-
 .pill-grid {
   display: grid;
   gap: 12px;
@@ -258,6 +120,11 @@
   font-weight: 600;
   color: #f5f5f5;
   line-height: 1.5;
+
+  &.danger {
+    border-color: rgba(255, 44, 87, 0.35);
+    background: rgba(255, 44, 87, 0.08);
+  }
 }
 
 .note {
@@ -281,6 +148,10 @@
   &.success {
     background: rgba(24, 201, 100, 0.12);
     border: 1px solid rgba(24, 201, 100, 0.3);
+  }
+
+  &.inline {
+    margin-top: 10px;
   }
 }
 
@@ -379,25 +250,59 @@
   }
 }
 
-.case-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+.timeline-card {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+
+  h3 {
+    font-size: 28px;
+  }
 }
 
-.case-card {
-  background: #131217;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 16px;
+.case-block {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
 
-  .eyebrow {
-    color: #c8c3c3;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0.4px;
-    margin: 0 0 10px;
-  }
+.flow {
+  display: grid;
+  gap: 12px;
+}
+
+.flow-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: #0f0e12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ff2c57;
+  color: #0b0a0c;
+  font-weight: 800;
+}
+
+.label {
+  font-weight: 700;
+  margin: 0;
+  color: #f5f5f5;
+}
+
+.muted {
+  color: #c8c3c3;
+  margin: 0;
 }
 
 .cta {
@@ -433,32 +338,6 @@
   }
 }
 
-.faq-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.faq-item {
-  background: #131217;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
-
-  h4 {
-    margin: 0 0 8px;
-    color: #f5f5f5;
-    font-weight: 700;
-  }
-
-  p {
-    margin: 0;
-    color: #dcd7d7;
-    line-height: 1.6;
-  }
-}
-
 .page .btn-primary {
   background-color: #ff2c57;
   border-color: #ff2c57;
@@ -473,16 +352,20 @@
   }
 }
 
+blockquote {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 3px solid #ff2c57;
+  line-height: 1.6;
+  color: #f5f5f5;
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 100px 0 70px;
 
     .hero-grid {
       grid-template-columns: 1fr;
-    }
-
-    .lead-card {
-      top: 0;
     }
   }
 

@@ -1,0 +1,200 @@
+<app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
+
+<div class="page">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Produto 3 • Recorrência</p>
+          <h1>Monitoramento & Governança de Performance</h1>
+          <p class="lede">Estabilidade contínua para sistemas críticos em produção. Depois do diagnóstico e da blindagem, o maior risco é deixar a performance se perder com o tempo. Este produto garante previsibilidade, controle e tranquilidade contínua.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+            <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance">Falar com especialista</a>
+            <span class="hero-meta">Disponível após Diagnóstico e Blindagem.</span>
+          </div>
+          <div class="note neutral">
+            <strong>Promessa:</strong> Garantir que a performance conquistada não se perca com o tempo, crescimento ou mudanças no sistema.
+          </div>
+        </div>
+        <div class="card hero-card">
+          <h3>Valor</h3>
+          <p class="lede-sm">Você não vende monitoramento técnico. Você vende previsibilidade, tranquilidade e controle contínuo.</p>
+          <blockquote>Governança técnica que evita crises antes que elas aconteçam.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="problema">
+    <div class="container">
+      <div class="section-title">
+        <h2>O problema: performance degrada aos poucos</h2>
+        <p>Novos módulos, crescimento de dados e ajustes sem contexto fazem a performance cair silenciosamente — até virar crise.</p>
+      </div>
+      <div class="pill-grid">
+        <div class="pill danger" *ngFor="let item of problemReasons">❌ {{ item }}</div>
+      </div>
+      <div class="note warning">
+        Governança evita que o problema volte.
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que é o Monitoramento & Governança</h2>
+        <p>Serviço recorrente e estruturado para sustentar a performance conquistada.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card highlight">
+          <h3>Para manter o ganho vivo</h3>
+          <p class="lede-sm">Acompanhar saúde do sistema, detectar gargalos antes de incidentes e orientar decisões técnicas e de infraestrutura.</p>
+          <div class="note neutral inline">Não é suporte. Não é NOC genérico. É governança técnica especializada.</div>
+        </div>
+        <div class="card">
+          <h4>Para quem é</h4>
+          <ul class="checklist">
+            <li *ngFor="let audience of audiences">{{ audience }}</li>
+          </ul>
+          <div class="note warning inline">Não indicado para ambientes experimentais ou sem governança mínima.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="escopo">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que fazemos</h2>
+        <p>Escopo recorrente, sem horas abertas.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>Monitoramento estratégico</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of monitoringItems">{{ item }}</li>
+          </ul>
+          <div class="note neutral inline">Leitura técnica com contexto do sistema.</div>
+        </div>
+        <div class="card">
+          <h4>Revisões técnicas periódicas</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of reviewItems">{{ item }}</li>
+          </ul>
+          <div class="note success inline">Pequenas correções evitam grandes crises.</div>
+        </div>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>Governança técnica</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of governanceItems">{{ item }}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Relatórios executivos</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of reportingItems">{{ item }}</li>
+          </ul>
+          <div class="note neutral inline">Comunicação técnica e executiva no mesmo pacote.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="planos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Planos e preços</h2>
+        <p>Produto recorrente com escopo claro. Sem horas abertas.</p>
+      </div>
+      <div class="card-grid three plans">
+        <div class="card" *ngFor="let plan of plans">
+          <p class="eyebrow">{{ plan.tagline }}</p>
+          <h3>{{ plan.name }}</h3>
+          <p class="price">{{ plan.price }}</p>
+          <ul class="dash-list">
+            <li *ngFor="let item of plan.items">{{ item }}</li>
+          </ul>
+          <div class="note neutral inline">{{ plan.note }}</div>
+        </div>
+      </div>
+      <div class="note warning">
+        Não vender Produto 3 sem Produto 1 e 2. Não tratar como suporte barato. Não aceitar escopo aberto.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resultados">
+    <div class="container">
+      <div class="section-title">
+        <h2>Resultados esperados</h2>
+        <p>Crise evitada é lucro preservado.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <ul class="checklist">
+            <li *ngFor="let result of results">{{ result }}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Conexão com os outros produtos</h4>
+          <div class="flow">
+            <div class="flow-item">
+              <span class="badge">1</span>
+              <div>
+                <p class="label">Diagnóstico de Performance</p>
+                <p class="muted">Clareza e priorização</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <span class="badge">2</span>
+              <div>
+                <p class="label">Blindagem de Performance & Infra</p>
+                <p class="muted">Execução controlada e validação</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <span class="badge">3</span>
+              <div>
+                <p class="label">Monitoramento & Governança</p>
+                <p class="muted">Recorrência e previsibilidade</p>
+              </div>
+            </div>
+          </div>
+          <div class="note success inline">Produto recorrente, não contrato informal.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="exclusoes">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que não está incluído</h2>
+        <p>Proteção de escopo e sustentabilidade do modelo.</p>
+      </div>
+      <div class="pill-grid soft">
+        <div class="pill" *ngFor="let item of exclusions">❌ {{ item }}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="card cta-card">
+        <h2>Quer garantir que seu sistema não volte a degradar?</h2>
+        <p>Escolha o plano ideal e mantenha estabilidade, previsibilidade e controle contínuo.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+          <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance">Falar com especialista</a>
+        </div>
+        <p class="cta-meta">Contratação disponível após diagnóstico e blindagem. Performance não é projeto — é governança contínua.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

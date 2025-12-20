@@ -1,0 +1,252 @@
+<app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
+
+<div class="page">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Produto 2 • Execução</p>
+          <h1>Blindagem de Performance & Infra</h1>
+          <p class="lede">Execução controlada para sistemas críticos que não podem parar. Transformamos o diagnóstico técnico em melhorias reais de performance, estabilidade e eficiência, com método, controle de risco e validação de resultados.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+            <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Blindagem%20de%20Performance%20-%20Execu%C3%A7%C3%A3o">Falar com especialista</a>
+            <span class="hero-meta">Disponível para clientes que já passaram pelo diagnóstico.</span>
+          </div>
+        </div>
+        <div class="card hero-card">
+          <h3>Promessa clara</h3>
+          <p class="lede-sm"><strong>Implementar as otimizações certas, com segurança, sem improviso e sem aumento desnecessário de infraestrutura.</strong></p>
+          <div class="note neutral">
+            Você não vende “otimização”. Você vende estabilidade operacional + previsibilidade de crescimento.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contexto">
+    <div class="container">
+      <div class="section-title">
+        <h2>Você já sabe onde estão os gargalos. Agora vem a parte crítica.</h2>
+        <p>O diagnóstico mostrou o que fazer. A blindagem executa o plano com método.</p>
+      </div>
+      <div class="pill-grid">
+        <div class="pill danger" *ngFor="let item of contextPitfalls">❌ {{ item }}</div>
+      </div>
+      <div class="note warning">
+        📌 É aqui que muitos sistemas quebram. A Blindagem de Performance existe para executar o plano certo, da forma certa.
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que é a Blindagem de Performance</h2>
+        <p>Produto de execução técnica controlada para transformar diagnóstico em resultado real.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card highlight">
+          <h3>Implantação especializada</h3>
+          <p class="lede-sm">Implementar otimizações identificadas no diagnóstico, reduzir risco operacional e garantir estabilidade durante e após as mudanças.</p>
+          <div class="note neutral inline">Não é consultoria aberta. É implantação especializada.</div>
+        </div>
+        <div class="card">
+          <h4>Para quem é</h4>
+          <ul class="checklist">
+            <li *ngFor="let audience of targetAudiences">{{ audience }}</li>
+          </ul>
+          <div class="note warning inline">Não indicado para: Protótipos, ambientes experimentais ou projetos sem governança técnica.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="escopo">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que fazemos (escopo fechado)</h2>
+        <p>Execução com começo, meio e fim — sem escopo infinito.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>1️⃣ Planejamento técnico controlado</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of planningItems">{{ item }}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>2️⃣ Execução das otimizações críticas</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of executionItems">{{ item }}</li>
+          </ul>
+          <div class="note neutral inline">📌 Apenas o que foi validado no diagnóstico.</div>
+        </div>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>3️⃣ Estabilização e validação</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of stabilizationItems">{{ item }}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>4️⃣ Entrega final</h4>
+          <ul class="dash-list">
+            <li *ngFor="let item of finalDelivery">{{ item }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="escopo-protecao">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que não está incluído (proteção)</h2>
+        <p>Controle de escopo e previsibilidade.</p>
+      </div>
+      <div class="pill-grid soft">
+        <div class="pill" *ngFor="let item of notIncluded">❌ {{ item }}</div>
+      </div>
+      <div class="note warning">
+        Evitamos escopo infinito e protegemos o ambiente. Novos requisitos e evoluções funcionais são tratados em propostas separadas.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="prazo">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prazo de execução</h2>
+        <p>Tempo alinhado ao volume de otimizações e complexidade do ambiente.</p>
+      </div>
+      <div class="card timeline-card">
+        <p class="eyebrow">Prazo recomendado</p>
+        <h3>15 a 30 dias</h3>
+        <p class="lede-sm">Janelas controladas, rollback definido e validação de métricas em cada entrega.</p>
+        <div class="note neutral inline">Pagamento por etapa opcional.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="resultados">
+    <div class="container">
+      <div class="section-title">
+        <h2>Resultados esperados</h2>
+        <p>Resultado mensurável, não promessa vaga.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <ul class="checklist">
+            <li *ngFor="let item of results">{{ item }}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Exemplo real</h4>
+          <p class="eyebrow">Sistema hospitalar em produção com risco operacional</p>
+          <div class="case-block">
+            <div>
+              <strong>Cenário</strong>
+              <ul class="dash-list">
+                <li>Lentidão crescente</li>
+                <li>Pressão para aumentar infraestrutura</li>
+                <li>Reclamações constantes</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Execução</strong>
+              <ul class="dash-list">
+                <li>Implementação das otimizações mapeadas</li>
+                <li>Estratégia de cache e ajustes estruturais</li>
+                <li>Validação com métricas reais</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Resultado</strong>
+              <ul class="dash-list">
+                <li>Sistema estabilizado</li>
+                <li>Performance restaurada</li>
+                <li>Nenhum aumento de infraestrutura</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note success inline">Execução com método evita crises.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="risco">
+    <div class="container">
+      <div class="section-title">
+        <h2>Redução de risco (decisão segura)</h2>
+        <p>Você sabe exatamente o que será feito.</p>
+      </div>
+      <div class="pill-grid">
+        <div class="pill" *ngFor="let item of riskControls">✔ {{ item }}</div>
+      </div>
+      <div class="note neutral">
+        <blockquote>Executamos otimizações críticas com método, controle de risco e validação real de resultados.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="conexao">
+    <div class="container">
+      <div class="section-title">
+        <h2>Conexão com o diagnóstico</h2>
+        <p>A Blindagem de Performance é a continuação natural do Diagnóstico de Performance.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>Sequência recomendada</h4>
+          <div class="flow">
+            <div class="flow-item">
+              <span class="badge">1</span>
+              <div>
+                <p class="label">Diagnóstico de Performance (Produto 1)</p>
+                <p class="muted">Clareza e priorização das ações</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <span class="badge">2</span>
+              <div>
+                <p class="label">Blindagem de Performance & Infra (Produto 2)</p>
+                <p class="muted">Execução controlada e validação</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <span class="badge">3</span>
+              <div>
+                <p class="label">Monitoramento & Governança (Produto 3)</p>
+                <p class="muted">Recorrência e previsibilidade</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Investimento</h4>
+          <p>Faixa recomendada: a partir de 3x a 6x o valor do diagnóstico (sem publicar na landing).</p>
+          <p class="note neutral inline">O valor do diagnóstico pode ser abatido parcialmente na execução.</p>
+          <p class="note warning inline">Recomendação: usar esta landing como próximo passo após o diagnóstico, não como produto isolado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Pronto para executar com segurança?</h2>
+      <p>Avance para a Blindagem de Performance & Infra e transforme diagnóstico em resultado real.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+        <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Blindagem%20de%20Performance%20-%20Execu%C3%A7%C3%A3o">Falar com especialista</a>
+      </div>
+      <p class="cta-meta">Disponível para quem já realizou o diagnóstico. Mudanças em produção apenas com método e controle de risco.</p>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>
