@@ -266,6 +266,20 @@
   }
 }
 
+.page .btn-primary {
+  background-color: #ff2c57;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: #ffc2d0;
+    border-color: #ff2c57;
+    color: #0b0a0c;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 100px 0 70px;

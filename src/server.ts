@@ -13,6 +13,36 @@ const app = express();
 const commonEngine = new CommonEngine();
 
 /**
+ * Security headers for CSP, HSTS, clickjacking, and COOP.
+ * Adjust sources if you add new third-party assets.
+ */
+app.use((_, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://www.vics.dev.br",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
+      "frame-src 'self' https://www.googletagmanager.com",
+      "object-src 'none'",
+      'form-action self',
+      'upgrade-insecure-requests'
+    ].join('; ')
+  );
+  res.setHeader(
+    'Strict-Transport-Security',
+    'max-age=31536000; includeSubDomains; preload'
+  );
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+  next();
+});
+
+/**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
  *
