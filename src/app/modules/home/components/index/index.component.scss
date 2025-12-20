@@ -109,7 +109,9 @@
 }
 
 .crisis-card,
-.service-card {
+.service-card,
+.case-card,
+.product-card {
   background: #ffffff;
   border: 1px solid #ede9e8;
   border-radius: 14px;
@@ -268,6 +270,160 @@
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     margin: 0;
+  }
+}
+
+.case-card {
+  display: grid;
+  gap: 12px;
+
+  .eyebrow {
+    color: var(--mainColor);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  h5 {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .bullet-list {
+    padding-left: 18px;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+
+    li {
+      color: #4a4444;
+      line-height: 1.6;
+      list-style: disc;
+    }
+  }
+
+  .tagline {
+    color: #2d2828;
+    font-weight: 600;
+  }
+}
+
+.quote-box {
+  background: #161313;
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+  height: 100%;
+
+  .quote {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #f1f1f1;
+    margin: 0;
+  }
+}
+
+.alert-line {
+  margin-top: 14px;
+  font-weight: 600;
+  color: #2d2828;
+}
+
+.product-card {
+  display: grid;
+  gap: 14px;
+
+  .product-head {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    color: #6b6161;
+  }
+
+  h5 {
+    margin: 2px 0 6px;
+    font-weight: 700;
+  }
+
+  .pitch {
+    margin: 0;
+    color: #4a4444;
+  }
+
+  .product-section {
+    border-top: 1px solid #f0eceb;
+    padding-top: 10px;
+    display: grid;
+    gap: 6px;
+
+    h6 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      color: #6b6161;
+    }
+
+    p {
+      margin: 0;
+      color: #2d2828;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+  }
+}
+
+.dash-list {
+  display: grid;
+  gap: 6px;
+  padding-left: 0;
+  margin: 0;
+
+  li {
+    list-style: none;
+    position: relative;
+    padding-left: 16px;
+    color: #4a4444;
+    line-height: 1.6;
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--mainColor);
+      font-weight: 700;
+    }
+  }
+}
+
+.key-phrase {
+  margin-top: 30px;
+  padding: 18px 20px;
+  background: #161313;
+  color: #ffffff;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 700;
+
+  p {
+    margin: 0;
+    color: #ffffff;
   }
 }
 

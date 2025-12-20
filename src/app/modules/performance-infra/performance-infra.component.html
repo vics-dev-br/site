@@ -1,0 +1,181 @@
+<app-navbar></app-navbar>
+
+<div class="page">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Produto de entrada</p>
+      <h1>Diagnóstico de Performance para Sistemas Críticos</h1>
+      <p class="lede">Descubra onde seu sistema perde performance, estabilidade e dinheiro — antes de escalar infraestrutura desnecessariamente. Analisamos aplicação, banco e infraestrutura para entregar um plano técnico claro, priorizado e acionável.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://wa.me/5534998097535?text=Quero%20contratar%20o%20Diagn%C3%B3stico%20de%20Performance%20da%20VICS" target="_blank" rel="noopener">Contratar diagnóstico de performance</a>
+        <span class="hero-meta">Prazo médio: 10 a 15 dias • Execução pelos sócios</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dor">
+    <div class="container">
+      <div class="section-title">
+        <h2>O problema (dor consciente)</h2>
+        <p>Se o seu sistema apresenta algum desses sinais, o risco já está instalado.</p>
+      </div>
+      <div class="pill-grid">
+        <div class="pill" *ngFor="let pain of painPoints">
+          {{ pain }}
+        </div>
+      </div>
+      <div class="note warning">
+        <strong>📉 Escalar infraestrutura sem diagnóstico aumenta custo e não resolve a causa.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="solucao">
+    <div class="container">
+      <div class="section-title">
+        <h2>Diagnóstico de Performance & Infra</h2>
+        <p>Produto de entrada pago para mapear gargalos reais, reduzir riscos operacionais e orientar decisões com dados.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card highlight">
+          <h3>Você paga para saber onde agir</h3>
+          <p>Plano priorizado, com impacto técnico e financeiro, sem alterar produção nesta fase.</p>
+          <a class="btn btn-primary w-100" href="https://wa.me/5534998097535?text=Quero%20agendar%20o%20diagn%C3%B3stico%20de%20performance" target="_blank" rel="noopener">Agendar diagnóstico</a>
+        </div>
+        <div class="card">
+          <h4>Entregáveis claros</h4>
+          <ul class="dash-list">
+            <li *ngFor="let deliverable of deliverables">{{ deliverable }}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Como funciona</h4>
+          <ol class="step-list">
+            <li *ngFor="let step of steps">{{ step }}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="escopo">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que é analisado</h2>
+        <p>Diagnóstico completo sem tocar na produção, protegendo seu ambiente.</p>
+      </div>
+      <div class="pill-grid soft">
+        <div class="pill" *ngFor="let item of scope">
+          {{ item }}
+        </div>
+      </div>
+      <div class="note neutral">
+        ⚠️ Sem alterações diretas em produção nesta fase — é diagnóstico, não execução.
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="evita">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que esse diagnóstico evita</h2>
+        <p>Decidir com clareza custa menos do que corrigir uma crise.</p>
+      </div>
+      <ul class="checklist">
+        <li *ngFor="let item of avoids">{{ item }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="case">
+    <div class="container">
+      <div class="section-title">
+        <h2>Exemplo real</h2>
+        <p>Sistema hospitalar com lentidão crescente</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-card">
+          <p class="eyebrow">Situação</p>
+          <ul class="dash-list">
+            <li>Reclamações frequentes de usuários</li>
+            <li>Infraestrutura pressionando por mais recursos</li>
+            <li>Risco operacional elevado</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <p class="eyebrow">Diagnóstico</p>
+          <ul class="dash-list">
+            <li>Gargalos críticos de banco e aplicação</li>
+            <li>Uso ineficiente de recursos</li>
+            <li>Ausência de estratégia de cache</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <p class="eyebrow">Resultado</p>
+          <ul class="dash-list">
+            <li>Plano claro de otimização</li>
+            <li>Estabilidade restaurada</li>
+            <li>Nenhum aumento de infraestrutura</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note success">
+        📌 O diagnóstico evitou custos maiores e riscos operacionais.
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="por-que-pago">
+    <div class="container">
+      <div class="section-title">
+        <h2>Por que o diagnóstico é pago</h2>
+        <p>Clareza técnica, redução de risco e economia futura.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>Posicionamento de preço</h4>
+          <ul class="dash-list">
+            <li>Diagnóstico técnico profissional</li>
+            <li>Escopo fechado e entregável documentado</li>
+            <li>Base para execução futura</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Abatimento inteligente</h4>
+          <p>O valor do diagnóstico pode ser abatido na execução, caso avance para a fase de otimização.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="para-quem">
+    <div class="container">
+      <div class="section-title">
+        <h2>Para quem é</h2>
+        <p>Diagnosticamos onde há risco e necessidade de previsibilidade.</p>
+      </div>
+      <div class="pill-grid">
+        <div class="pill" *ngFor="let audience of audiences">
+          {{ audience }}
+        </div>
+      </div>
+      <div class="note warning">
+        ❌ Não indicado para protótipos ou projetos experimentais.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Quer saber onde seu sistema perde performance?</h2>
+      <p>Contrate o Diagnóstico de Performance e tenha clareza antes de investir mais em infraestrutura.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" href="https://wa.me/5534998097535?text=Quero%20contratar%20o%20Diagn%C3%B3stico%20de%20Performance" target="_blank" rel="noopener">Contratar diagnóstico</a>
+        <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Diagn%C3%B3stico%20de%20Performance%20-%20VICS">Falar com especialista</a>
+      </div>
+      <p class="cta-meta">Diagnóstico técnico que evita crise, reduz custo e traz previsibilidade para sistemas críticos.</p>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

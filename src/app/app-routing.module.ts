@@ -19,6 +19,10 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('./modules/tech-equity/tech-equity.module').then(m => m.TechEquityModule)
     },
     {
+        path: 'performance-infra',
+        loadChildren: () => import('./modules/performance-infra/performance-infra.module').then(m => m.PerformanceInfraModule)
+    },
+    {
         path: 'landing-tips',
         loadChildren: () => import('./modules/landing-tips/landing-tips.module').then(m => m.LandingTipsModule)
     },
