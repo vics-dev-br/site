@@ -4,17 +4,21 @@
     <div class="d-table-cell">
       <div class="container">
         <div class="main-banner-text text-start">
-          <div class="hero-badge">Você não faz improviso — já tem produto</div>
-          <h1>Blindagem operacional e engenharia de vitória para quem vive de produção.</h1>
-          <p>Transformamos crises reais em ofertas claras: desempenho com custo controlado em sistemas críticos e engenharia técnica para vencer editais. Resposta rápida, feita pelos especialistas.</p>
+          <div class="hero-badge">Tripé de performance: Diagnóstico → Blindagem → Governança</div>
+          <h1>Diagnóstico, execução e governança para sistemas críticos que não podem parar.</h1>
+          <p>Começamos pelo diagnóstico pago, executamos a blindagem com método e mantemos a estabilidade com governança recorrente. Resultado: performance sustentada e custo previsível.</p>
           <div class="hero-actions">
-            <a href="https://wa.me/5534998097535?text=Tenho%20um%20caso%20cr%C3%ADtico%20e%20quero%20estruturar%20como%20produto"
+            <a routerLink="/performance-infra"
+               class="btn btn-primary btn-lg">
+              🔴 Diagnóstico de Performance (Produto 1)
+            </a>
+            <a href="https://wa.me/5534998097535?text=Quero%20agendar%20o%20Diagn%C3%B3stico%20de%20Performance"
                target="_blank"
                rel="noopener"
-               class="btn btn-primary btn-lg">
-              🔴 Falar com um especialista agora
+               class="btn btn-light btn-lg">
+              Falar com especialista
             </a>
-            <div class="hero-meta">Resposta em até 2h úteis • Brasil e Portugal • Produção primeiro</div>
+            <div class="hero-meta">Prazo do diagnóstico: 10 a 15 dias • Execução pelos sócios</div>
           </div>
         </div>
       </div>
@@ -86,8 +90,8 @@
 <section id="produtos" class="section-tight bg-F7F5F4">
   <div class="container">
     <div class="section-title simple">
-      <h4>Dois produtos claros</h4>
-      <h2>Empacotamos o que você já entregou</h2>
+      <h4>Três produtos claros</h4>
+      <h2>Entrada, execução e recorrência previsível</h2>
     </div>
     <div class="row g-4">
       <div class="col-lg-6" *ngFor="let product of products">
@@ -115,6 +119,11 @@
             <ul class="dash-list">
               <li *ngFor="let reason of product.scale">{{ reason }}</li>
             </ul>
+            <div class="product-actions">
+              <a *ngIf="product.label === 'Produto 1'" routerLink="/performance-infra" class="btn btn-primary btn-sm">Ver diagnóstico</a>
+              <a *ngIf="product.label === 'Produto 2'" routerLink="/blindagem-performance-infra" class="btn btn-primary btn-sm">Ver blindagem</a>
+              <a *ngIf="product.label === 'Produto 3'" routerLink="/monitoramento-governanca-performance" class="btn btn-primary btn-sm">Ver governança</a>
+            </div>
           </div>
         </div>
       </div>
@@ -126,15 +135,15 @@
   <div class="container">
     <div class="section-title simple">
       <h4>Sobrevivência + escala</h4>
-      <h2>Plano realista para agora</h2>
+      <h2>Plano realista: tripé em 3 passos</h2>
     </div>
     <ol class="process-steps">
-      <li><span>1</span> Nomear o que você faz (essa semana) — “Blindagem de performance”, “Diagnóstico técnico”, “Engenharia de edital”.</li>
-      <li><span>2</span> Criar 1 produto fechado primeiro (14 dias) — escolha performance ou editais: nome, quem atende, problema que resolve, escopo, preço mínimo.</li>
-      <li><span>3</span> Usar serviço para financiar produto — a cada caso entregue, documente, padronize, crie checklist e método.</li>
+      <li><span>1</span> Diagnóstico de Performance (10 a 15 dias) — entrada paga, plano priorizado e abatimento na execução.</li>
+      <li><span>2</span> Blindagem de Performance & Infra (15 a 30 dias) — execução controlada das otimizações com rollback e validação.</li>
+      <li><span>3</span> Monitoramento & Governança (recorrente) — evitar regressão, orientar novas features e manter previsibilidade.</li>
     </ol>
     <div class="key-phrase">
-      <p>“Você não precisa de mais clientes. Precisa vender melhor o que JÁ faz.”</p>
+      <p>“Performance não é projeto. É diagnóstico, blindagem e governança contínua.”</p>
     </div>
   </div>
 </section>
