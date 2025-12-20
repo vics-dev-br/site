@@ -1,14 +1,60 @@
-<app-navbar></app-navbar>
+<app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
 
 <div class="page">
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">Produto de entrada</p>
-      <h1>Diagnóstico de Performance para Sistemas Críticos</h1>
-      <p class="lede">Descubra onde seu sistema perde performance, estabilidade e dinheiro — antes de escalar infraestrutura desnecessariamente. Analisamos aplicação, banco e infraestrutura para entregar um plano técnico claro, priorizado e acionável.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="https://wa.me/5534998097535?text=Quero%20contratar%20o%20Diagn%C3%B3stico%20de%20Performance%20da%20VICS" target="_blank" rel="noopener">Contratar diagnóstico de performance</a>
-        <span class="hero-meta">Prazo médio: 10 a 15 dias • Execução pelos sócios</span>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Produto de entrada</p>
+          <h1>Diagnóstico de Performance para Sistemas Críticos</h1>
+          <p class="lede">Descubra os gargalos que travam seu sistema e custam dinheiro — com um plano técnico claro em até 15 dias. Analisamos aplicação, banco e infraestrutura para entregar ações priorizadas e sem suposições.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+            <span class="hero-meta">Plano técnico entregue em até 15 dias • Execução pelos sócios</span>
+          </div>
+          <div class="trust">
+            <p class="trust-label">Confiança de quem opera sistemas críticos</p>
+            <div class="logo-row">
+              <img src="assets/img/partner-1.png" alt="Cliente parceiro 1" />
+              <img src="assets/img/partner-2.png" alt="Cliente parceiro 2" />
+              <img src="assets/img/partner-3.png" alt="Cliente parceiro 3" />
+              <img src="assets/img/partner-4.png" alt="Cliente parceiro 4" />
+            </div>
+            <blockquote class="quote">
+              "Reduzimos risco operacional, estabilizamos o sistema e economizamos antes de ampliar infraestrutura."
+              <span>CTO • Sistema hospitalar</span>
+            </blockquote>
+          </div>
+        </div>
+        <div class="lead-card" id="agendar">
+          <p class="eyebrow">Formulário curto</p>
+          <h3>Agende uma avaliação técnica</h3>
+          <p class="lead-copy">Retornamos em 1 dia útil com agenda e próximos passos. Sem alterar produção nesta fase.</p>
+          <form class="lead-form" (submit)="submitLead($event)">
+            <label>
+              <span>Nome</span>
+              <input type="text" name="nome" required />
+            </label>
+            <label>
+              <span>Email corporativo</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span>Empresa</span>
+              <input type="text" name="empresa" required />
+            </label>
+            <label>
+              <span>Sistema/stack</span>
+              <input type="text" name="sistema" />
+            </label>
+            <label>
+              <span>Principais dores</span>
+              <textarea name="dores" rows="3" placeholder="Ex.: lentidão em horários de pico, quedas, custo alto de infra" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-lg">{{ ctaLabel }}</button>
+            <p class="form-meta">Diagnóstico observacional: nada muda em produção nesta fase.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -40,7 +86,7 @@
         <div class="card highlight">
           <h3>Você paga para saber onde agir</h3>
           <p>Plano priorizado, com impacto técnico e financeiro, sem alterar produção nesta fase.</p>
-          <a class="btn btn-primary w-100" href="https://wa.me/5534998097535?text=Quero%20agendar%20o%20diagn%C3%B3stico%20de%20performance" target="_blank" rel="noopener">Agendar diagnóstico</a>
+          <a class="btn btn-primary w-100" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
         </div>
         <div class="card">
           <h4>Entregáveis claros</h4>
@@ -165,12 +211,27 @@
     </div>
   </section>
 
+  <section class="section muted" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes</h2>
+        <p>O que decisores costumam perguntar antes do diagnóstico.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" *ngFor="let faq of faqs">
+          <h4>{{ faq.question }}</h4>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="container">
       <h2>Quer saber onde seu sistema perde performance?</h2>
-      <p>Contrate o Diagnóstico de Performance e tenha clareza antes de investir mais em infraestrutura.</p>
+      <p>Agende o diagnóstico e receba um plano técnico claro antes de investir mais em infraestrutura.</p>
       <div class="cta-actions">
-        <a class="btn btn-primary btn-lg" href="https://wa.me/5534998097535?text=Quero%20contratar%20o%20Diagn%C3%B3stico%20de%20Performance" target="_blank" rel="noopener">Contratar diagnóstico</a>
+        <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
         <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Diagn%C3%B3stico%20de%20Performance%20-%20VICS">Falar com especialista</a>
       </div>
       <p class="cta-meta">Diagnóstico técnico que evita crise, reduz custo e traz previsibilidade para sistemas críticos.</p>

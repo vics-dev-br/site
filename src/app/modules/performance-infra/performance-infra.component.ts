@@ -8,6 +8,10 @@ import { Meta, Title } from '@angular/platform-browser';
   standalone: false
 })
 export class PerformanceInfraComponent implements OnInit {
+  ctaLabel = 'Agendar avaliação técnica';
+  ctaHref =
+    'https://wa.me/5534998097535?text=Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20t%C3%A9cnica%20para%20diagn%C3%B3stico%20de%20performance';
+
   painPoints = [
     'Lentidão crescente sem causa clara',
     'Reclamações constantes de usuários',
@@ -59,6 +63,24 @@ export class PerformanceInfraComponent implements OnInit {
     'Infraestruturas sob pressão'
   ];
 
+  faqs = [
+    {
+      question: 'Quanto tempo leva para receber o plano?',
+      answer:
+        'Entregamos o diagnóstico consolidado e o plano técnico priorizado em 10 a 15 dias, considerando acesso aos dados e agendas de entrevistas.'
+    },
+    {
+      question: 'Vocês alteram meu ambiente durante o diagnóstico?',
+      answer:
+        'Não. Esta fase é observacional: analisamos métricas, logs e configurações sem alterar produção. Recomendamos mudanças apenas após o plano aprovado.'
+    },
+    {
+      question: 'O que acontece depois do diagnóstico?',
+      answer:
+        'Você recebe um roadmap priorizado. Se avançar para execução, abatemos o valor do diagnóstico e seguimos para otimização acompanhada pelos sócios.'
+    }
+  ];
+
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit(): void {
@@ -66,12 +88,11 @@ export class PerformanceInfraComponent implements OnInit {
     this.meta.updateTag({
       name: 'description',
       content:
-        'Diagnóstico pago para sistemas críticos: mapeamos gargalos de performance, risco e custo antes de você escalar infraestrutura. Plano claro, priorizado e acionável.'
+        'Diagnóstico pago para sistemas críticos: mapeamos gargalos de performance, risco e custo antes de você escalar infraestrutura. Plano técnico claro em até 15 dias, priorizado e acionável.'
     });
     this.meta.updateTag({
       name: 'keywords',
-      content:
-        'diagnóstico de performance, otimização rails, postgres, kubernetes, finops, performance em produção'
+      content: 'diagnóstico de performance, sistemas críticos, otimização de infraestrutura, avaliação técnica, finops, performance em produção'
     });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
@@ -81,7 +102,32 @@ export class PerformanceInfraComponent implements OnInit {
     this.meta.updateTag({
       property: 'og:description',
       content:
-        'Descubra onde seu sistema perde performance, estabilidade e dinheiro — antes de aumentar infraestrutura. Diagnóstico pago com entregáveis claros.'
+        'Descubra os gargalos que travam seu sistema e custam dinheiro — com um plano técnico claro em até 15 dias. Diagnóstico pago com entregáveis claros.'
     });
+  }
+
+  submitLead(event: Event): void {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+    const payload = {
+      nome: data.get('nome'),
+      email: data.get('email'),
+      empresa: data.get('empresa'),
+      sistema: data.get('sistema'),
+      dores: data.get('dores')
+    };
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'lead_submit', {
+        event_category: 'lead',
+        event_label: 'diagnostico_performance',
+        ...payload
+      });
+    }
+
+    console.log('Lead capturado:', payload);
+    alert('Obrigado! Vamos retornar em até 1 dia útil com os próximos passos.');
+    form.reset();
   }
 }

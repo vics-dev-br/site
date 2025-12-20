@@ -14,8 +14,11 @@ import {
     styleUrls: ['./navbar.component.scss'],
     standalone: false
   })
-  export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit {
     @Input() fixSticky = false;
+    @Input() minimalNav = false;
+    @Input() ctaHref = 'https://wa.me/5534998097535?text=Quero%20falar%20com%20a%20VICS';
+    @Input() ctaLabel = 'Falar com a VICS';
   
     isSticky = false;
     isBrowser = false;
