@@ -18,6 +18,16 @@
     .btn {
       font-weight: 700;
       padding: 10px 14px;
+      background-color: #ff2c57;
+      border-color: #ff2c57;
+      color: #0b0a0c;
+
+      &:hover,
+      &:focus {
+        background-color: #ff4c73;
+        border-color: #ff2c57;
+        color: #0b0a0c;
+      }
     }
   }
 }

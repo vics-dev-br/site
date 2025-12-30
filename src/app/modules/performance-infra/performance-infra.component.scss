@@ -137,13 +137,13 @@
     }
   }
 
-  .quote {
-    margin: 0;
-    color: #f5f5f5;
-    font-weight: 600;
-    line-height: 1.5;
-    border-left: 3px solid #ff2c57;
-    padding-left: 12px;
+.quote {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.5;
+  border-left: 3px solid #ff2c57;
+  padding-left: 12px;
 
     span {
       display: block;
@@ -155,23 +155,25 @@
   }
 
   .lead-card {
-    background: #131217;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0f0e12;
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
     position: relative;
     top: 12px;
+    color: #fdfdfd;
 
     h3 {
       margin: 0 0 6px;
       font-size: 22px;
       font-weight: 700;
+      color: #ffffff;
     }
 
     .lead-copy {
       margin: 0 0 14px;
-      color: #dcd7d7;
+      color: #f0f0f0;
       line-height: 1.5;
     }
   }
@@ -219,8 +221,21 @@
 
   .form-meta {
     margin: 8px 0 0;
-    color: rgba(245, 245, 245, 0.75);
+    color: #e6e6e6;
     font-size: 13px;
+  }
+
+  .lead-card span {
+    color: #f5f5f5;
+  }
+
+  .lead-card .text-muted {
+    color: #ededed !important;
+  }
+
+  .lead-card h4 {
+    color: #ffffff;
+    font-weight: 700;
   }
 }
 
