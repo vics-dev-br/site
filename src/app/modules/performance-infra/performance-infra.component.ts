@@ -10,7 +10,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class PerformanceInfraComponent implements OnInit {
   ctaLabel = 'Agendar avaliação técnica';
   ctaHref =
-    'https://wa.me/5534998097535?text=Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20t%C3%A9cnica%20para%20diagn%C3%B3stico%20de%20performance';
+    'https://wa.me/5531975474785?text=Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20t%C3%A9cnica%20para%20diagn%C3%B3stico%20de%20performance';
 
   painPoints = [
     'Lentidão crescente sem causa clara',
@@ -126,8 +126,16 @@ export class PerformanceInfraComponent implements OnInit {
       });
     }
 
-    console.log('Lead capturado:', payload);
-    alert('Obrigado! Vamos retornar em até 1 dia útil com os próximos passos.');
+    const message = `Olá! Gostaria de agendar uma avaliação técnica para diagnóstico de performance.
+
+*Nome:* ${payload.nome}
+*Email:* ${payload.email}
+*Empresa:* ${payload.empresa}
+*Sistema:* ${payload.sistema}
+*Dores:* ${payload.dores}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/5531975474785?text=${encodedMessage}`, '_blank');
     form.reset();
   }
 }

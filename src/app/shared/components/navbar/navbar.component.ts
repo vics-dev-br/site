@@ -17,7 +17,7 @@ import {
 export class NavbarComponent implements OnInit {
     @Input() fixSticky = false;
     @Input() minimalNav = false;
-    @Input() ctaHref = 'https://wa.me/5534998097535?text=Quero%20falar%20com%20a%20VICS';
+    @Input() ctaHref = 'https://wa.me/5531975474785?text=Quero%20falar%20com%20a%20VICS';
     @Input() ctaLabel = 'Falar com a VICS';
   
     isSticky = false;

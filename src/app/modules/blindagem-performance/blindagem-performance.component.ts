@@ -10,7 +10,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class BlindagemPerformanceComponent implements OnInit {
   ctaLabel = 'Avançar para execução de blindagem';
   ctaHref =
-    'https://wa.me/5534998097535?text=Queremos%20avancar%20para%20a%20Execu%C3%A7%C3%A3o%20de%20Blindagem%20ap%C3%B3s%20o%20diagn%C3%B3stico';
+    'https://wa.me/5531975474785?text=Queremos%20avancar%20para%20a%20Execu%C3%A7%C3%A3o%20de%20Blindagem%20ap%C3%B3s%20o%20diagn%C3%B3stico';
 
   contextPitfalls = [
     'Executar sem método',

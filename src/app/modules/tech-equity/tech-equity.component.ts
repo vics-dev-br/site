@@ -162,7 +162,7 @@ export class TechEquityComponent implements OnInit {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
-    
+
     if (emailInput && emailInput.value) {
       // Tracking GTM para email capture
       if (typeof gtag !== 'undefined') {
@@ -171,10 +171,15 @@ export class TechEquityComponent implements OnInit {
           'event_label': 'tech_equity_email_form'
         });
       }
-      
-      // Aqui você pode implementar o envio do email
-      console.log('Email capturado:', emailInput.value);
-      alert('Obrigado! Entraremos em contato em até 24h com uma análise personalizada.');
+
+      const message = `Olá! Tenho interesse no Tech for Equity.
+
+*Email:* ${emailInput.value}
+
+Gostaria de uma análise personalizada sobre parceria tecnológica.`;
+
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/5531975474785?text=${encodedMessage}`, '_blank');
       emailInput.value = '';
     }
   }

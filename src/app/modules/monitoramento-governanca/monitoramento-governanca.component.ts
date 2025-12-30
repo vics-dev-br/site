@@ -10,7 +10,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class MonitoramentoGovernancaComponent implements OnInit {
   ctaLabel = 'Contratar Monitoramento & Governança';
   ctaHref =
-    'https://wa.me/5534998097535?text=Queremos%20contratar%20Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance%20ap%C3%B3s%20Diagn%C3%B3stico%20e%20Blindagem';
+    'https://wa.me/5531975474785?text=Queremos%20contratar%20Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance%20ap%C3%B3s%20Diagn%C3%B3stico%20e%20Blindagem';
 
   problemReasons = [
     'Novos módulos são adicionados',
