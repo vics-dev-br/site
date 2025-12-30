@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-performance-infra',
@@ -8,9 +9,10 @@ import { Meta, Title } from '@angular/platform-browser';
   standalone: false
 })
 export class PerformanceInfraComponent implements OnInit {
-  ctaLabel = 'Agendar avaliação técnica';
+  ctaLabel = 'Agendar diagnóstico gratuito de 30 min';
   ctaHref =
-    'https://wa.me/5531975474785?text=Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20t%C3%A9cnica%20para%20diagn%C3%B3stico%20de%20performance';
+    'https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra';
+  checklistHref = '/assets/checklist-12-pontos.pdf';
 
   painPoints = [
     'Lentidão crescente sem causa clara',
@@ -65,77 +67,146 @@ export class PerformanceInfraComponent implements OnInit {
 
   faqs = [
     {
-      question: 'Quanto tempo leva para receber o plano?',
+      question: 'Como medir ganhos de performance de infra?',
       answer:
-        'Entregamos o diagnóstico consolidado e o plano técnico priorizado em 10 a 15 dias, considerando acesso aos dados e agendas de entrevistas.'
+        'Começamos definindo SLI/SLO claros (latência P95/P99, throughput, erro rate e custo). O plano traz baseline e metas por componente, com comparativo antes/depois.'
     },
     {
-      question: 'Vocês alteram meu ambiente durante o diagnóstico?',
+      question: 'Quanto tempo até ver resultado?',
       answer:
-        'Não. Esta fase é observacional: analisamos métricas, logs e configurações sem alterar produção. Recomendamos mudanças apenas após o plano aprovado.'
+        'O diagnóstico completo leva 10 a 15 dias. As primeiras otimizações priorizadas normalmente entregam melhora perceptível nas 2 primeiras sprints de execução.'
     },
     {
-      question: 'O que acontece depois do diagnóstico?',
+      question: 'Como equilibrar performance e custos?',
       answer:
-        'Você recebe um roadmap priorizado. Se avançar para execução, abatemos o valor do diagnóstico e seguimos para otimização acompanhada pelos sócios.'
+        'Mapeamos gargalos que geram consumo desnecessário e ajustamos caches, índices e configuração de recursos. Priorizamos ações com melhor relação ganho/custo.'
     }
   ];
 
-  constructor(private title: Title, private meta: Meta) {}
+  testimonials = [
+    {
+      quote: 'Reduzimos latência P95 em 38% e estabilizamos plantões críticos sem aumentar infraestrutura.',
+      author: 'CTO - Saúde',
+      metric: 'P95 de 420ms para 260ms em 4 semanas'
+    },
+    {
+      quote: 'Corte de 22% no custo de cloud enquanto liberamos throughput para novo módulo.',
+      author: 'Head de Tecnologia - Finanças',
+      metric: 'Throughput +18% com -22% de custo'
+    }
+  ];
+
+  beforeAfterMetrics = [
+    { metric: 'Latência P95', before: '420 ms', after: '260 ms' },
+    { metric: 'Latência P99', before: '680 ms', after: '410 ms' },
+    { metric: 'Erro rate', before: '1,8%', after: '0,6%' },
+    { metric: 'Throughput', before: '11k req/min', after: '13k req/min' },
+    { metric: 'Custo de infra', before: 'R$ 38k/mês', after: 'R$ 29k/mês' }
+  ];
+
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Diagnóstico de Performance e Infra | VICS');
+    this.title.setTitle('Performance de Infraestrutura | Aceleração, SLO e Custos — VICS');
     this.meta.updateTag({
       name: 'description',
-      content:
-        'Diagnóstico pago para sistemas críticos: mapeamos gargalos de performance, risco e custo antes de você escalar infraestrutura. Plano técnico claro em até 15 dias, priorizado e acionável.'
+      content: 'Otimize latência, throughput e custo da sua infra. SLO claros, ganhos mensuráveis e governança. Veja como a VICS executa.'
     });
     this.meta.updateTag({
       name: 'keywords',
-      content: 'diagnóstico de performance, sistemas críticos, otimização de infraestrutura, avaliação técnica, finops, performance em produção'
+      content: 'performance de infraestrutura, otimização de performance, SLO, finops, redução de latência, throughput, custo de cloud'
     });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Diagnóstico de Performance para Sistemas Críticos | VICS'
+      content: 'Performance de Infraestrutura | Aceleração, SLO e Custos — VICS'
     });
     this.meta.updateTag({
       property: 'og:description',
-      content:
-        'Descubra os gargalos que travam seu sistema e custam dinheiro — com um plano técnico claro em até 15 dias. Diagnóstico pago com entregáveis claros.'
+      content: 'Otimize latência, throughput e custo da sua infra com SLO claros e ganhos mensuráveis.'
     });
-  }
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.vics.dev.br/performance-infra'
+    });
 
-  submitLead(event: Event): void {
-    event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const data = new FormData(form);
-    const payload = {
-      nome: data.get('nome'),
-      email: data.get('email'),
-      empresa: data.get('empresa'),
-      sistema: data.get('sistema'),
-      dores: data.get('dores')
-    };
+    if (isPlatformBrowser(this.platformId)) {
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'VICS',
+        url: 'https://www.vics.dev.br',
+        logo: 'https://www.vics.dev.br/assets/logo.png',
+        sameAs: ['https://www.linkedin.com/company/vicsdevbr/?viewAsMember=true'],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+55 31 97547-4785',
+          contactType: 'sales',
+          areaServed: 'BR'
+        }
+      });
 
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'lead_submit', {
-        event_category: 'lead',
-        event_label: 'diagnostico_performance',
-        ...payload
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Performance de Infraestrutura',
+        url: 'https://www.vics.dev.br/performance-infra',
+        serviceType: 'Diagnóstico e aceleração de performance',
+        provider: {
+          '@type': 'Organization',
+          name: 'VICS',
+          url: 'https://www.vics.dev.br'
+        },
+        areaServed: { '@type': 'Country', name: 'BR' },
+        offers: {
+          '@type': 'Offer',
+          description: 'Diagnóstico e plano de ação para performance de infraestrutura com SLO claros.'
+        }
+      });
+
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: this.faqs.map(faq => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+          }
+        }))
+      });
+
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Início',
+            item: 'https://www.vics.dev.br'
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Performance de Infraestrutura',
+            item: 'https://www.vics.dev.br/performance-infra'
+          }
+        ]
       });
     }
+  }
 
-    const message = `Olá! Gostaria de agendar uma avaliação técnica para diagnóstico de performance.
-
-*Nome:* ${payload.nome}
-*Email:* ${payload.email}
-*Empresa:* ${payload.empresa}
-*Sistema:* ${payload.sistema}
-*Dores:* ${payload.dores}`;
-
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/5531975474785?text=${encodedMessage}`, '_blank');
-    form.reset();
+  private appendJsonLd(data: unknown): void {
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(data);
+    this.document.head.appendChild(script);
   }
 }

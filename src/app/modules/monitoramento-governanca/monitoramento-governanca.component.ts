@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-monitoramento-governanca',
@@ -8,9 +9,10 @@ import { Meta, Title } from '@angular/platform-browser';
   standalone: false
 })
 export class MonitoramentoGovernancaComponent implements OnInit {
-  ctaLabel = 'Contratar Monitoramento & Governança';
+  ctaLabel = 'Agendar diagnóstico gratuito de 30 min';
   ctaHref =
-    'https://wa.me/5531975474785?text=Queremos%20contratar%20Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance%20ap%C3%B3s%20Diagn%C3%B3stico%20e%20Blindagem';
+    'https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance';
+  checklistHref = '/assets/checklist-12-pontos.pdf';
 
   problemReasons = [
     'Novos módulos são adicionados',
@@ -118,14 +120,56 @@ export class MonitoramentoGovernancaComponent implements OnInit {
     'Governança contínua'
   ];
 
-  constructor(private title: Title, private meta: Meta) {}
+  faqs = [
+    {
+      question: 'O que rastrear em SLI/SLO?',
+      answer:
+        'Latência P95/P99, erro rate, saturação, disponibilidade e custo. Priorizamos por impacto em UX e negócio e criamos limites de alerta por componente.'
+    },
+    {
+      question: 'Observabilidade vs. monitoramento tradicional?',
+      answer:
+        'Monitoramento avisa “quebrou”. Observabilidade explica “por que quebrou” e antecipa degradação. Usamos logs, métricas, traces e eventos de negócio juntos.'
+    },
+    {
+      question: 'Como conectar performance e FinOps?',
+      answer:
+        'Ligamos SLI/SLO a custos por serviço e ambiente, medindo impacto de otimizações e prevenindo escala desnecessária com dashboards e alertas de custo.'
+    }
+  ];
+
+  testimonials = [
+    {
+      quote: 'Crescemos 2 releases por mês sem voltar a degradar performance.',
+      author: 'CTO - SaaS B2B',
+      metric: 'Erro rate mantido < 0,8% com throughput +25%'
+    },
+    {
+      quote: 'FinOps e SLO no mesmo dashboard. Decisão de infra deixou de ser no escuro.',
+      author: 'CIO - Serviços financeiros',
+      metric: 'Custo otimizado em -15% mantendo P95 estável'
+    }
+  ];
+
+  beforeAfterMetrics = [
+    { metric: 'Latência P95', before: '340 ms', after: '270 ms' },
+    { metric: 'Erro rate', before: '1,4%', after: '0,7%' },
+    { metric: 'Alertas falsos positivos', before: '18/mês', after: '6/mês' },
+    { metric: 'Custo de cloud', before: 'R$ 41k/mês', after: 'R$ 35k/mês' }
+  ];
+
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Monitoramento & Governança de Performance | VICS');
+    this.title.setTitle('Monitoramento e Governança de Performance | Observabilidade — VICS');
     this.meta.updateTag({
       name: 'description',
-      content:
-        'Monitoramento e governança contínua para sistemas críticos: estabilidade, previsibilidade e controle após diagnóstico e blindagem.'
+      content: 'Observabilidade, SLI/SLO, FinOps e governança contínua para performance previsível.'
     });
     this.meta.updateTag({
       name: 'keywords',
@@ -135,12 +179,61 @@ export class MonitoramentoGovernancaComponent implements OnInit {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Monitoramento & Governança de Performance | Estabilidade Contínua'
+      content: 'Monitoramento e Governança de Performance | Observabilidade — VICS'
     });
     this.meta.updateTag({
       property: 'og:description',
-      content:
-        'Estabilidade contínua para sistemas críticos. Governança técnica, revisões periódicas e monitoramento estratégico para evitar novas crises.'
+      content: 'Observabilidade, SLI/SLO, FinOps e governança contínua para performance previsível.'
     });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.vics.dev.br/monitoramento-governanca-performance'
+    });
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'VICS',
+        url: 'https://www.vics.dev.br',
+        logo: 'https://www.vics.dev.br/assets/logo.png'
+      });
+
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Monitoramento & Governança de Performance',
+        url: 'https://www.vics.dev.br/monitoramento-governanca-performance',
+        serviceType: 'Observabilidade e governança de SLO',
+        provider: { '@type': 'Organization', name: 'VICS' },
+        areaServed: { '@type': 'Country', name: 'BR' }
+      });
+
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: this.faqs.map(faq => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+        }))
+      });
+
+      this.appendJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.vics.dev.br' },
+          { '@type': 'ListItem', position: 2, name: 'Monitoramento & Governança', item: 'https://www.vics.dev.br/monitoramento-governanca-performance' }
+        ]
+      });
+    }
+  }
+
+  private appendJsonLd(data: unknown): void {
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(data);
+    this.document.head.appendChild(script);
   }
 }

@@ -1,17 +1,30 @@
 <app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
 
 <div class="page">
+  <nav class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Início</a></li>
+        <li aria-current="page">Blindagem de Performance em Infra</li>
+      </ol>
+    </div>
+  </nav>
+
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">Produto 2 • Execução</p>
-          <h1>Blindagem de Performance & Infra</h1>
-          <p class="lede">Execução controlada para sistemas críticos que não podem parar. Transformamos o diagnóstico técnico em melhorias reais de performance, estabilidade e eficiência, com método, controle de risco e validação de resultados.</p>
+          <p class="eyebrow">Sub-pilar • Resiliência</p>
+          <h1>Blindagem de Performance: resiliência que sustenta picos e falhas</h1>
+          <p class="lede">Execução controlada das otimizações críticas com rollback, testes de carga e caos engineering para que seus SLO não quebrem nos momentos mais exigentes.</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
-            <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Blindagem%20de%20Performance%20-%20Execu%C3%A7%C3%A3o">Falar com especialista</a>
-            <span class="hero-meta">Disponível para clientes que já passaram pelo diagnóstico.</span>
+            <a class="btn btn-light btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist de 12 pontos</a>
+            <span class="hero-meta">Disponível para quem já passou pelo diagnóstico.</span>
+          </div>
+          <div class="hero-links">
+            <a routerLink="/performance-infra">Antes de blindar, otimize gargalos.</a>
+            <a routerLink="/monitoramento-governanca-performance">Monitore a saúde dos SLOs.</a>
           </div>
         </div>
         <div class="card hero-card">
@@ -193,6 +206,84 @@
     </div>
   </section>
 
+  <section class="section" id="antes-depois">
+    <div class="container">
+      <div class="section-title">
+        <h2>Antes e depois (exemplo anonimizado)</h2>
+        <p>Validação com testes de carga, caos e SLO definidos.</p>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Antes</th>
+              <th>Depois</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let metric of beforeAfterMetrics">
+              <td>{{ metric.metric }}</td>
+              <td>{{ metric.before }}</td>
+              <td>{{ metric.after }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="prova-social">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prova social</h2>
+        <p>Depoimentos curtos com métricas.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card" *ngFor="let testimonial of testimonials">
+          <blockquote class="quote">{{ testimonial.quote }}</blockquote>
+          <p class="eyebrow">{{ testimonial.author }}</p>
+          <p class="lede-sm">{{ testimonial.metric }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="checklist">
+    <div class="container">
+      <div class="section-title">
+        <h2>Checklist de 12 pontos</h2>
+        <p>Use como checklist de readiness antes da blindagem.</p>
+      </div>
+      <div class="lead-magnet">
+        <ul class="dash-list">
+          <li>Itens críticos de resiliência e rollback</li>
+          <li>Sinais de alerta para caos engineering</li>
+          <li>SLI/SLO para picos e falhas</li>
+        </ul>
+        <div class="lead-magnet-actions">
+          <a class="btn btn-primary btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist</a>
+          <a class="btn btn-light btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes</h2>
+        <p>O que os times perguntam antes de executar.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" *ngFor="let faq of faqs">
+          <h4>{{ faq.question }}</h4>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section muted" id="conexao">
     <div class="container">
       <div class="section-title">
@@ -238,11 +329,11 @@
 
   <section class="cta">
     <div class="container">
-      <h2>Pronto para executar com segurança?</h2>
-      <p>Avance para a Blindagem de Performance & Infra e transforme diagnóstico em resultado real.</p>
+      <h2>Pronto para blindar seus SLO?</h2>
+      <p>Agende o diagnóstico de 30 minutos e planeje a execução com testes de carga e rollback definidos.</p>
       <div class="cta-actions">
         <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
-        <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Blindagem%20de%20Performance%20-%20Execu%C3%A7%C3%A3o">Falar com especialista</a>
+        <a class="btn btn-light btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist</a>
       </div>
       <p class="cta-meta">Disponível para quem já realizou o diagnóstico. Mudanças em produção apenas com método e controle de risco.</p>
     </div>

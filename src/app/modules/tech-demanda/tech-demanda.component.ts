@@ -111,29 +111,4 @@ export class TechDemandaComponent implements OnInit {
     window.open(`https://wa.me/5531975474785?text=${message}`, '_blank');
   }
 
-  submitEmail(event: Event): void {
-    event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
-
-    if (emailInput && emailInput.value) {
-      // Tracking GTM para email capture
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'email_capture', {
-          'event_category': 'lead_generation',
-          'event_label': 'tech_demanda_email_form'
-        });
-      }
-
-      const message = `Olá! Tenho interesse em Tecnologia sob Demanda.
-
-*Email:* ${emailInput.value}
-
-Gostaria de conversar sobre desenvolvimento de software.`;
-
-      const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/5531975474785?text=${encodedMessage}`, '_blank');
-      emailInput.value = '';
-    }
-  }
 }

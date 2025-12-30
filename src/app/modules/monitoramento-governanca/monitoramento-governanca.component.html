@@ -1,17 +1,30 @@
 <app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
 
 <div class="page">
+  <nav class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Início</a></li>
+        <li aria-current="page">Monitoramento & Governança de Performance</li>
+      </ol>
+    </div>
+  </nav>
+
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">Produto 3 • Recorrência</p>
-          <h1>Monitoramento & Governança de Performance</h1>
-          <p class="lede">Estabilidade contínua para sistemas críticos em produção. Depois do diagnóstico e da blindagem, o maior risco é deixar a performance se perder com o tempo. Este produto garante previsibilidade, controle e tranquilidade contínua.</p>
+          <p class="eyebrow">Sub-pilar • Governança</p>
+          <h1>Monitoramento & Governança de Performance: decisão guiada por dados</h1>
+          <p class="lede">Observabilidade, SLI/SLO, FinOps e governança contínua para performance previsível. Evite regressão silenciosa e conecte performance a decisão de produto e custos.</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
-            <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance">Falar com especialista</a>
+            <a class="btn btn-light btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist de 12 pontos</a>
             <span class="hero-meta">Disponível após Diagnóstico e Blindagem.</span>
+          </div>
+          <div class="hero-links">
+            <a routerLink="/performance-infra">Gargalos achados? Otimize.</a>
+            <a routerLink="/blindagem-performance-infra">Valide resiliência sob carga real.</a>
           </div>
           <div class="note neutral">
             <strong>Promessa:</strong> Garantir que a performance conquistada não se perca com o tempo, crescimento ou mudanças no sistema.
@@ -182,14 +195,92 @@
     </div>
   </section>
 
+  <section class="section" id="antes-depois">
+    <div class="container">
+      <div class="section-title">
+        <h2>Métricas monitoradas (exemplo)</h2>
+        <p>Governança guiada por dados, FinOps e SLO.</p>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Antes</th>
+              <th>Depois</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let metric of beforeAfterMetrics">
+              <td>{{ metric.metric }}</td>
+              <td>{{ metric.before }}</td>
+              <td>{{ metric.after }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="prova-social">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prova social</h2>
+        <p>Resultados mensuráveis com SLO vivos.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card" *ngFor="let testimonial of testimonials">
+          <blockquote class="quote">{{ testimonial.quote }}</blockquote>
+          <p class="eyebrow">{{ testimonial.author }}</p>
+          <p class="lede-sm">{{ testimonial.metric }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="checklist">
+    <div class="container">
+      <div class="section-title">
+        <h2>Checklist de 12 pontos</h2>
+        <p>Base para rodar governança e observabilidade.</p>
+      </div>
+      <div class="lead-magnet">
+        <ul class="dash-list">
+          <li>SLI/SLO essenciais para app, infra e negócio</li>
+          <li>Alertas práticos para evitar regressão silenciosa</li>
+          <li>Ligação entre performance e FinOps</li>
+        </ul>
+        <div class="lead-magnet-actions">
+          <a class="btn btn-primary btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist</a>
+          <a class="btn btn-light btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes</h2>
+        <p>Para alinhar expectativas sobre governança e observabilidade.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" *ngFor="let faq of faqs">
+          <h4>{{ faq.question }}</h4>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="cta">
     <div class="container">
       <div class="card cta-card">
         <h2>Quer garantir que seu sistema não volte a degradar?</h2>
-        <p>Escolha o plano ideal e mantenha estabilidade, previsibilidade e controle contínuo.</p>
+        <p>Agende o diagnóstico de 30 minutos e mantenha estabilidade, previsibilidade e controle contínuo.</p>
         <div class="cta-actions">
           <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
-          <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Monitoramento%20%26%20Governan%C3%A7a%20de%20Performance">Falar com especialista</a>
+          <a class="btn btn-light btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist</a>
         </div>
         <p class="cta-meta">Contratação disponível após diagnóstico e blindagem. Performance não é projeto — é governança contínua.</p>
       </div>

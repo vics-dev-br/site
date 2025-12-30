@@ -1,24 +1,38 @@
 <app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
 
 <div class="page">
+  <nav class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Início</a></li>
+        <li aria-current="page">Performance de Infraestrutura</li>
+      </ol>
+    </div>
+  </nav>
+
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">Produto de entrada</p>
-          <h1>Diagnóstico de Performance para Sistemas Críticos</h1>
-          <p class="lede">Descubra os gargalos que travam seu sistema e custam dinheiro — com um plano técnico claro em até 15 dias. Analisamos aplicação, banco e infraestrutura para entregar ações priorizadas e sem suposições.</p>
+          <p class="eyebrow">Pilar • Performance & Infra</p>
+          <h1>Performance de Infraestrutura: do diagnóstico ao ganho mensurável</h1>
+          <p class="lede">Otimize latência, throughput e custo com um diagnóstico técnico que entrega SLO claros e plano acionável em até 15 dias. Analisamos aplicação, banco e infraestrutura para priorizar o que move a agulha.</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+            <a class="btn btn-light btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist de 12 pontos</a>
             <span class="hero-meta">Plano técnico entregue em até 15 dias • Execução pelos sócios</span>
+          </div>
+          <div class="hero-links">
+            <a routerLink="/blindagem-performance-infra">Precisa garantir resiliência?</a>
+            <a routerLink="/monitoramento-governanca-performance">Quer governar por SLO/SLI?</a>
           </div>
           <div class="trust">
             <p class="trust-label">Confiança de quem opera sistemas críticos</p>
             <div class="logo-row">
-              <img src="assets/img/partner-1.png" alt="Cliente parceiro 1" />
-              <img src="assets/img/partner-2.png" alt="Cliente parceiro 2" />
-              <img src="assets/img/partner-3.png" alt="Cliente parceiro 3" />
-              <img src="assets/img/partner-4.png" alt="Cliente parceiro 4" />
+              <img src="assets/img/partner-1.png" alt="Logo cliente de saúde" loading="lazy" />
+              <img src="assets/img/partner-2.png" alt="Logo cliente de finanças" loading="lazy" />
+              <img src="assets/img/partner-3.png" alt="Logo cliente enterprise" loading="lazy" />
+              <img src="assets/img/partner-4.png" alt="Logo cliente setor público" loading="lazy" />
             </div>
             <blockquote class="quote">
               "Reduzimos risco operacional, estabilizamos o sistema e economizamos antes de ampliar infraestrutura."
@@ -27,33 +41,35 @@
           </div>
         </div>
         <div class="lead-card" id="agendar">
-          <p class="eyebrow">Formulário curto</p>
-          <h3>Agende uma avaliação técnica</h3>
-          <p class="lead-copy">Retornamos em 1 dia útil com agenda e próximos passos. Sem alterar produção nesta fase.</p>
-          <form class="lead-form" (submit)="submitLead($event)">
-            <label>
-              <span>Nome</span>
-              <input type="text" name="nome" required />
-            </label>
-            <label>
-              <span>Email corporativo</span>
-              <input type="email" name="email" required />
-            </label>
-            <label>
-              <span>Empresa</span>
-              <input type="text" name="empresa" required />
-            </label>
-            <label>
-              <span>Sistema/stack</span>
-              <input type="text" name="sistema" />
-            </label>
-            <label>
-              <span>Principais dores</span>
-              <textarea name="dores" rows="3" placeholder="Ex.: lentidão em horários de pico, quedas, custo alto de infra" required></textarea>
-            </label>
-            <button type="submit" class="btn btn-primary btn-lg">{{ ctaLabel }}</button>
-            <p class="form-meta">Diagnóstico observacional: nada muda em produção nesta fase.</p>
-          </form>
+          <p class="eyebrow">Atendimento direto</p>
+          <h3>Agende seu diagnóstico em 30 minutos</h3>
+          <p class="lead-copy">Retornamos em 1 dia útil com agenda e próximos passos. Diagnóstico observacional: nada muda em produção nesta fase.</p>
+          <div class="whatsapp-cta-card">
+            <div class="whatsapp-icon-large mb-4">
+              <i class="fab fa-whatsapp fa-4x text-success"></i>
+            </div>
+            <h4 class="mb-3">Fale direto com nossos especialistas</h4>
+            <p class="text-muted mb-4">Envie uma mensagem pelo WhatsApp e retornamos rapidamente com os próximos passos</p>
+            <a class="btn btn-success btn-lg w-100 mb-3" [href]="ctaHref" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp me-2"></i>{{ ctaLabel }}
+            </a>
+            <div class="trust-indicators">
+              <div class="d-flex flex-column gap-2 small text-muted">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>Resposta em até 1 dia útil</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>Diagnóstico observacional</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>Sem alterar produção</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +96,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Diagnóstico de Performance & Infra</h2>
-        <p>Produto de entrada pago para mapear gargalos reais, reduzir riscos operacionais e orientar decisões com dados.</p>
+        <p>Chamada gratuita de 30 min para enquadrar o cenário. Diagnóstico completo (pago) entrega plano priorizado com impacto técnico e financeiro.</p>
       </div>
       <div class="card-grid">
         <div class="card highlight">
@@ -171,6 +187,33 @@
     </div>
   </section>
 
+  <section class="section muted" id="antes-depois">
+    <div class="container">
+      <div class="section-title">
+        <h2>Métricas antes e depois (exemplo anonimizado)</h2>
+        <p>Baseline, metas e validação com SLI/SLO para cada componente.</p>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Antes</th>
+              <th>Depois</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let metric of beforeAfterMetrics">
+              <td>{{ metric.metric }}</td>
+              <td>{{ metric.before }}</td>
+              <td>{{ metric.after }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section class="section muted" id="por-que-pago">
     <div class="container">
       <div class="section-title">
@@ -194,6 +237,22 @@
     </div>
   </section>
 
+  <section class="section" id="prova-social">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prova social (mensurável)</h2>
+        <p>Resultados validados em produção, com SLO monitorados.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card" *ngFor="let testimonial of testimonials">
+          <blockquote class="quote">{{ testimonial.quote }}</blockquote>
+          <p class="eyebrow">{{ testimonial.author }}</p>
+          <p class="lede-sm">{{ testimonial.metric }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="para-quem">
     <div class="container">
       <div class="section-title">
@@ -211,72 +270,45 @@
     </div>
   </section>
 
-  <section class="section" id="blindagem">
+  <section class="section" id="links-internos">
     <div class="container">
       <div class="section-title">
-        <h2>Execução de Blindagem (Produto 2)</h2>
-        <p>Para quem já passou pelo diagnóstico e precisa executar com segurança, método e controle de risco.</p>
+        <h2>Próximos passos no cluster</h2>
+        <p>Conecte performance, resiliência e governança.</p>
       </div>
       <div class="card-grid two blindagem-grid">
         <div class="card highlight">
           <h3>Blindagem de Performance & Infra</h3>
-          <p class="emphasis">Execução controlada para sistemas que não podem parar.</p>
-          <ul class="dash-list">
-            <li>Implementar as otimizações certas, com segurança e rollback definido</li>
-            <li>Estabilidade operacional + previsibilidade de crescimento</li>
-            <li>Sem aumento desnecessário de infraestrutura</li>
-          </ul>
-          <div class="timeline">
-            <div>
-              <p class="eyebrow">Prazo</p>
-              <strong>15 a 30 dias</strong>
-            </div>
-            <div>
-              <p class="eyebrow">Modelo</p>
-              <strong>Escopo fechado • Pagamento por etapa</strong>
-            </div>
-          </div>
-          <a class="btn btn-primary w-100" href="https://wa.me/5531975474785?text=J%C3%A1%20realizamos%20o%20diagn%C3%B3stico%20e%20queremos%20avancar%20para%20a%20Execu%C3%A7%C3%A3o%20de%20Blindagem" target="_blank" rel="noopener">Avançar para Execução de Blindagem</a>
-          <p class="cta-hint">Somente disponível após o Diagnóstico de Performance.</p>
+          <p>Resiliência para sustentar picos e falhas. Execução controlada das otimizações priorizadas com testes de carga e rollback.</p>
+          <a class="btn btn-light" routerLink="/blindagem-performance-infra">Ver blindagem</a>
         </div>
         <div class="card">
-          <h4>O que está incluído</h4>
-          <div class="pill-grid soft">
-            <div class="pill">Planejamento técnico controlado</div>
-            <div class="pill">Execução de otimizações críticas</div>
-            <div class="pill">Estratégia de cache e índices</div>
-            <div class="pill">Ajustes de aplicação e servidores</div>
-            <div class="pill">Ajustes de infraestrutura e escalabilidade</div>
-            <div class="pill">Monitoramento pós-implantação</div>
-            <div class="pill">Validação de métricas</div>
-            <div class="pill">Relatório de execução e comparativo</div>
-          </div>
-          <div class="note neutral">
-            ❌ Não inclui novos requisitos, evoluções funcionais, suporte contínuo ou operação diária. Evita escopo infinito.
-          </div>
+          <h3>Monitoramento & Governança de Performance</h3>
+          <p>Observabilidade, SLI/SLO e FinOps contínuo para que os ganhos não se percam com o tempo.</p>
+          <a class="btn btn-light" routerLink="/monitoramento-governanca-performance">Ver governança</a>
         </div>
       </div>
-      <div class="card-grid two blindagem-steps">
-        <div class="card">
-          <h4>Como funciona</h4>
-          <ol class="step-list">
-            <li>Revisamos o plano do diagnóstico</li>
-            <li>Definimos janelas, rollback e priorização por risco</li>
-            <li>Implementamos otimizações priorizadas</li>
-            <li>Monitoramos e validamos estabilidade e resultado</li>
-          </ol>
-          <p class="note neutral inline">Tudo com métricas e controle de risco.</p>
-        </div>
-        <div class="card">
-          <h4>Resultados esperados</h4>
-          <ul class="checklist">
-            <li>Redução de lentidão percebida</li>
-            <li>Estabilidade operacional</li>
-            <li>Melhor uso de recursos</li>
-            <li>Evita aumento desnecessário de infraestrutura</li>
-            <li>Confiança técnica e gerencial</li>
-          </ul>
-          <p class="note success inline">Não executamos mudanças em produção sem diagnóstico, método e controle de risco.</p>
+      <div class="note neutral">
+        Use o mesmo CTA em todas as páginas: <strong>{{ ctaLabel }}</strong>.
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="checklist">
+    <div class="container">
+      <div class="section-title">
+        <h2>Checklist de 12 pontos</h2>
+        <p>Diagnóstico rápido de maturidade com ações recomendadas.</p>
+      </div>
+      <div class="lead-magnet">
+        <ul class="dash-list">
+          <li>SLI/SLO essenciais para app, infra e negócio</li>
+          <li>Alertas e riscos prioritários (P95/P99, erro rate, custo)</li>
+          <li>Passo a passo para estabilizar e reduzir custo</li>
+        </ul>
+        <div class="lead-magnet-actions">
+          <a class="btn btn-primary btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist de 12 pontos</a>
+          <a class="btn btn-light btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
         </div>
       </div>
     </div>
@@ -299,11 +331,11 @@
 
   <section class="cta">
     <div class="container">
-      <h2>Quer saber onde seu sistema perde performance?</h2>
-      <p>Agende o diagnóstico e receba um plano técnico claro antes de investir mais em infraestrutura.</p>
+      <h2>Quer performance previsível com custo sob controle?</h2>
+      <p>Agende o diagnóstico e receba um plano técnico com SLO claros antes de investir mais em infraestrutura.</p>
       <div class="cta-actions">
         <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
-        <a class="btn btn-light btn-lg" href="mailto:cristiano@engenhariadedados.tec.br?subject=Diagn%C3%B3stico%20de%20Performance%20-%20VICS">Falar com especialista</a>
+        <a class="btn btn-light btn-lg" [href]="checklistHref" target="_blank" rel="noopener">Baixar checklist de 12 pontos</a>
       </div>
       <p class="cta-meta">Diagnóstico técnico que evita crise, reduz custo e traz previsibilidade para sistemas críticos.</p>
     </div>

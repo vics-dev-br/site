@@ -100,7 +100,7 @@ export class TechEquityComponent implements OnInit {
         "name": "VICS",
         "url": "https://www.vics.dev.br",
         "logo": "https://www.vics.dev.br/assets/images/logo.png",
-        "telephone": "+55-34-99809-7535",
+        "telephone": "+55-31-97547-4785",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Uberlândia",
@@ -155,32 +155,6 @@ export class TechEquityComponent implements OnInit {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
-  }
-
-  submitEmail(event: Event): void {
-    event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
-
-    if (emailInput && emailInput.value) {
-      // Tracking GTM para email capture
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'email_capture', {
-          'event_category': 'lead_generation',
-          'event_label': 'tech_equity_email_form'
-        });
-      }
-
-      const message = `Olá! Tenho interesse no Tech for Equity.
-
-*Email:* ${emailInput.value}
-
-Gostaria de uma análise personalizada sobre parceria tecnológica.`;
-
-      const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/5531975474785?text=${encodedMessage}`, '_blank');
-      emailInput.value = '';
     }
   }
 
