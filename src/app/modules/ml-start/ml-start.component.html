@@ -1,0 +1,180 @@
+<app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
+
+<div class="page">
+  <nav class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Inicio</a></li>
+        <li aria-current="page">ML Start</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Produto de Dados</p>
+          <h1>ML Start — Decisoes que Escalam</h1>
+          <p class="lede">Seu primeiro modelo de Machine Learning em producao em 6 semanas. Para startups que querem parar de adivinhar e comecar a decidir com dados.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+            <span class="hero-meta">Diagnostico gratuito de 30 minutos</span>
+          </div>
+        </div>
+        <div class="card hero-card">
+          <h3>Pitch de 30 segundos</h3>
+          <p class="lede-sm"><strong>Startups que crescem rapido precisam tomar decisoes melhores, mais rapido. O ML Start entrega seu primeiro modelo de Machine Learning em producao — priorizacao de leads, deteccao de fraude, recomendacao de produtos — em 6 semanas, por uma fracao do custo de montar um time de dados interno.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="icp">
+    <div class="container">
+      <div class="section-title">
+        <h2>Para quem e o ML Start</h2>
+        <p>Startups em crescimento que precisam automatizar decisoes com dados.</p>
+      </div>
+      <div class="icp-grid">
+        <div class="icp-card" *ngFor="let audience of targetAudiences">
+          <h4>{{ audience.segment }}</h4>
+          <p>{{ audience.description }}</p>
+        </div>
+      </div>
+      <div class="note neutral">
+        Se voce ainda esta validando produto ou nao tem dados historicos, o ML Start pode nao ser o momento certo. Vamos conversar no diagnostico.
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="nao-e">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que o ML Start NAO e</h2>
+        <p>Clareza sobre o escopo para alinhar expectativas.</p>
+      </div>
+      <div class="pill-grid">
+        <div class="pill danger" *ngFor="let item of exclusions">{{ item }}</div>
+      </div>
+      <div class="note warning">
+        O ML Start e focado em entregar um modelo funcional rapidamente. Projetos de infraestrutura de dados ou BI completo exigem escopo diferente.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-title">
+        <h2>Como funciona: 5 fases em 6-7 semanas</h2>
+        <p>Processo estruturado com entregas claras em cada etapa.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let phase of phases">
+          <div class="timeline-marker">
+            <span class="phase-number">{{ phase.number }}</span>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h4>{{ phase.title }}</h4>
+              <span class="duration">{{ phase.duration }}</span>
+            </div>
+            <p>{{ phase.description }}</p>
+            <div class="deliverables">
+              <span class="deliverable-label">Entregavel:</span>
+              <span *ngFor="let deliverable of phase.deliverables">{{ deliverable }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="investimento">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prazo e Investimento</h2>
+        <p>Previsibilidade de entrega e custo.</p>
+      </div>
+      <div class="card-grid two">
+        <div class="card highlight">
+          <p class="eyebrow">Prazo</p>
+          <h3>6-7 semanas</h3>
+          <p class="lede-sm">Do diagnostico ao modelo em producao com validacao real.</p>
+        </div>
+        <div class="card highlight">
+          <p class="eyebrow">Investimento</p>
+          <h3>R$ 15.000 - R$ 30.000</h3>
+          <p class="lede-sm">Varia conforme complexidade dos dados e integracao.</p>
+          <div class="note neutral inline">Pagamento parcelado por fase disponivel.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="linguagem">
+    <div class="container">
+      <div class="section-title">
+        <h2>Proposta de valor clara</h2>
+        <p>O que voce realmente esta comprando.</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-item" *ngFor="let prop of valueProps">
+          <div class="value-wrong">
+            <span class="icon">NAO dizemos:</span>
+            <p>{{ prop.wrong }}</p>
+          </div>
+          <div class="value-right">
+            <span class="icon">Dizemos:</span>
+            <p>{{ prop.right }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="checklist">
+    <div class="container">
+      <div class="section-title">
+        <h2>Checklist: voce esta pronto?</h2>
+        <p>5 criterios para saber se o ML Start faz sentido agora.</p>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li *ngFor="let item of successChecklist">{{ item }}</li>
+        </ul>
+        <div class="note neutral inline">
+          Se voce marcou pelo menos 4 de 5, o ML Start provavelmente e uma boa opcao. Vamos validar no diagnostico.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes</h2>
+        <p>O que startups perguntam antes de comecar.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" *ngFor="let faq of faqs">
+          <h4>{{ faq.question }}</h4>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Pronto para seu primeiro modelo de ML?</h2>
+      <p>Agende um diagnostico gratuito de 30 minutos. Vamos avaliar juntos se o ML Start faz sentido para sua startup.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">{{ ctaLabel }}</a>
+      </div>
+      <p class="cta-meta">Sem compromisso. Se nao fizer sentido, voce sai com clareza sobre o que precisa antes.</p>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

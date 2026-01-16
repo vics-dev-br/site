@@ -38,5 +38,9 @@ export const appRoutes: Route[] = [
         path: 'tech-demanda',
         loadChildren: () => import('./modules/tech-demanda/tech-demanda.module').then(m => m.TechDemandaModule)
     },
+    {
+        path: 'ml-start',
+        loadChildren: () => import('./modules/ml-start/ml-start.module').then(m => m.MlStartModule)
+    },
 
 ];
