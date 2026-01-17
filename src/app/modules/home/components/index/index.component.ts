@@ -63,6 +63,24 @@ export class IndexComponent implements OnInit {
                 'Menos incidentes e menos pressão por infra',
                 'Produto recorrente, sem horas abertas'
             ]
+        },
+        {
+            icon: '🤖',
+            label: 'Produto 4',
+            title: 'ML Start — Decisões que Escalam',
+            pitch: 'Primeiro modelo de Machine Learning em produção em 6 semanas.',
+            offer: 'Modelo de ML funcional para startups que querem automatizar decisões com dados.',
+            scope: [
+                'Diagnóstico e mapeamento de dados',
+                'Preparação e feature engineering',
+                'Treinamento e validação do modelo',
+                'Integração via API ou batch'
+            ],
+            scale: [
+                'Entrega rápida com escopo fechado',
+                'Modelo pronto para consumo',
+                'Base para escalar com dados'
+            ]
         }
     ];
 
