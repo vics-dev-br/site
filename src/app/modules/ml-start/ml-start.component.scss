@@ -520,6 +520,20 @@
   }
 }
 
+.page .btn-light {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #f5f5f5;
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 100px 0 70px;
