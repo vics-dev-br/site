@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/components/navbar/navbar.component.scss"],
+  "sourcesContent": [".navbar.minimal {\n  background: rgba(11, 10, 12, 0.92);\n  border-bottom: 1px solid rgba(255, 255, 255, 0.08);\n  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);\n\n  .navbar-brand {\n    color: #f5f5f5;\n    font-weight: 800;\n\n    span {\n      color: var(--mainColor);\n    }\n  }\n\n  .navbar-actions {\n    margin-left: auto;\n\n    .btn {\n      font-weight: 700;\n      padding: 10px 14px;\n      background-color: #ff2c57;\n      border-color: #ff2c57;\n      color: #0b0a0c;\n\n      &:hover,\n      &:focus {\n        background-color: #ff4c73;\n        border-color: #ff2c57;\n        color: #0b0a0c;\n      }\n    }\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA,MAAA,CAAA;AACE,cAAA,KAAA,EAAA,EAAA,EAAA,EAAA,EAAA,EAAA;AACA,iBAAA,IAAA,MAAA,KAAA,GAAA,EAAA,GAAA,EAAA,GAAA,EAAA;AACA,cAAA,EAAA,IAAA,KAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;AAEA,CALF,MAKE,CALF,QAKE,CAAA;AACE,SAAA;AACA,eAAA;;AAEA,CATJ,MASI,CATJ,QASI,CAJF,aAIE;AACE,SAAA,IAAA;;AAIJ,CAdF,MAcE,CAdF,QAcE,CAAA;AACE,eAAA;;AAEA,CAjBJ,MAiBI,CAjBJ,QAiBI,CAHF,eAGE,CAAA;AACE,eAAA;AACA,WAAA,KAAA;AACA,oBAAA;AACA,gBAAA;AACA,SAAA;;AAEA,CAxBN,MAwBM,CAxBN,QAwBM,CAVJ,eAUI,CAPF,GAOE;AAAA,CAxBN,MAwBM,CAxBN,QAwBM,CAVJ,eAUI,CAPF,GAOE;AAEE,oBAAA;AACA,gBAAA;AACA,SAAA;;",
+  "names": []
+}

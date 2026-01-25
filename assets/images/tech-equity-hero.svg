@@ -1,0 +1,11 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#F8F9FA"/>
+  <circle cx="300" cy="200" r="150" fill="#E3F2FD"/>
+  <path d="M300 100C244.772 100 200 144.772 200 200C200 255.228 244.772 300 300 300C355.228 300 400 255.228 400 200C400 144.772 355.228 100 300 100Z" fill="#1976D2" opacity="0.1"/>
+  <path d="M350 150L250 150L250 250L350 250L350 150Z" fill="#1976D2" opacity="0.2"/>
+  <path d="M280 180H320V220H280V180Z" fill="#1976D2"/>
+  <path d="M260 160H340V200H260V160Z" fill="#0D47A1" opacity="0.5"/>
+  <path d="M240 200H360V240H240V200Z" fill="#0D47A1" opacity="0.3"/>
+  <circle cx="300" cy="200" r="10" fill="#FFF"/>
+  <text x="300" y="350" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1976D2">Tech for Equity</text>
+</svg>

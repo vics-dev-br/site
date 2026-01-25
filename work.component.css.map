@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/modules/home/components/work/work.component.scss"],
+  "sourcesContent": [".case-study {\n  padding: 20px;\n  border-left: 4px solid #007bff;\n  background-color: #f8f9fa;\n  border-radius: 5px;\n  \n  h4 {\n    margin-bottom: 15px;\n    color: #333;\n    font-weight: 600;\n  }\n  \n  p {\n    margin-bottom: 10px;\n    line-height: 1.6;\n    \n    &:last-child {\n      margin-bottom: 0;\n    }\n  }\n  \n  strong {\n    color: #007bff;\n  }\n}"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,eAAA,IAAA,MAAA;AACA,oBAAA;AACA,iBAAA;;AAEA,CANF,WAME;AACE,iBAAA;AACA,SAAA;AACA,eAAA;;AAGF,CAZF,WAYE;AACE,iBAAA;AACA,eAAA;;AAEA,CAhBJ,WAgBI,CAAA;AACE,iBAAA;;AAIJ,CArBF,WAqBE;AACE,SAAA;;",
+  "names": []
+}

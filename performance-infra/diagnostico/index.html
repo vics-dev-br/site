@@ -1,0 +1,686 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+        <meta charset="utf-8">
+        <title>Diagnóstico: Performance de Infraestrutura — VICS</title>
+        <base href="/www.vics.dev.br/">
+        <meta name="robots" content="index, follow">
+        <meta name="google-site-verification" content="aGfOnoj2oriAUqJPiLj9xQqcx8glVQenlxsGeWDsDAI">
+        <link rel="canonical" href="https://www.vics.dev.br/">
+        <meta name="description" content="Descubra em 3 minutos se sua operação precisa de um diagnóstico de performance e infraestrutura. 20 perguntas com resultado imediato.">
+        <meta name="keywords" content="resposta a incidentes, crise em produção, hardening segurança, finops aws, migração azure aws, modernização rails, redução custos cloud">
+        <meta name="author" content="VICS - Resolução de crises técnicas em produção">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+        <link rel="manifest" href="manifest.webmanifest">
+        <meta name="theme-color" content="#1976d2">
+
+    <meta property="og:title" content="Diagnóstico: Performance de Infraestrutura — VICS">
+    <meta property="og:description" content="Resposta rápida a incidentes de segurança, custos descontrolados na cloud, migrações críticas e modernização de legados em produção.">
+    <meta property="og:image" content="https://www.vics.dev.br/assets/logo.png">
+    <meta property="og:url" content="https://www.vics.dev.br/performance-infra/diagnostico">
+    <meta name="twitter:card" content="summary_large_image">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Z8BPHPB');</script>
+        <!-- End Google Tag Manager -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "VICS",
+      "description": "Resolução de crises técnicas em produção: incidentes de segurança, reestruturação de cloud, finops e modernização de sistemas legados.",
+      "image": "https://www.vics.dev.br/assets/logo.png",
+      "logo": "https://www.vics.dev.br/assets/logo.png",
+      "url": "https://www.vics.dev.br/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lagoa Santa",
+        "addressLocality": "Lagoa Santa",
+        "addressRegion": "Minas Gerais",
+        "addressCountry": "Brasil",
+        "postalCode": "33400-000"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-19.6319",
+        "longitude": "-43.8939"
+      },
+      "telephone": "+55-31-97547-4785",
+      "areaServed": [
+        { "@type": "Country", "name": "Brasil" },
+        { "@type": "Country", "name": "Portugal" }
+      ],
+      "serviceType": [
+        "Resposta a incidentes e hardening de segurança",
+        "Reestruturação de infraestrutura em produção (AWS / cloud)",
+        "Redução de custos críticos em cloud (FinOps técnico)",
+        "Modernização de sistemas legados críticos (Rails)"
+      ],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+55-31-97547-4785",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.vics.dev.br"
+      ]
+    }
+</script>
+    <link rel="stylesheet" href="styles.css"><style ng-app-id="ng">
+
+.page[_ngcontent-ng-c2677373282] {
+  background: #071013;
+  color: #ecf4f8;
+  min-height: 100vh;
+}
+.container[_ngcontent-ng-c2677373282] {
+  width: min(900px, 90vw);
+  margin: 0 auto;
+}
+.breadcrumb-nav[_ngcontent-ng-c2677373282] {
+  background: #0b161a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 0;
+}
+.breadcrumb-nav[_ngcontent-ng-c2677373282]   .breadcrumb[_ngcontent-ng-c2677373282] {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #c8d7de;
+  font-size: 14px;
+}
+.breadcrumb-nav[_ngcontent-ng-c2677373282]   .breadcrumb[_ngcontent-ng-c2677373282]   li[_ngcontent-ng-c2677373282] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb-nav[_ngcontent-ng-c2677373282]   .breadcrumb[_ngcontent-ng-c2677373282]   li[_ngcontent-ng-c2677373282]:not(:last-child)::after {
+  content: "/";
+  color: rgba(236, 244, 248, 0.6);
+}
+.breadcrumb-nav[_ngcontent-ng-c2677373282]   .breadcrumb[_ngcontent-ng-c2677373282]   li[_ngcontent-ng-c2677373282]   a[_ngcontent-ng-c2677373282] {
+  color: #ecf4f8;
+  text-decoration: none;
+}
+.breadcrumb-nav[_ngcontent-ng-c2677373282]   .breadcrumb[_ngcontent-ng-c2677373282]   li[_ngcontent-ng-c2677373282]   a[_ngcontent-ng-c2677373282]:hover {
+  text-decoration: underline;
+}
+.hero[_ngcontent-ng-c2677373282] {
+  padding: 80px 0 50px;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(34, 211, 238, 0.18),
+      transparent 50%),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(52, 211, 153, 0.1),
+      transparent 35%);
+}
+.hero[_ngcontent-ng-c2677373282]   .eyebrow[_ngcontent-ng-c2677373282] {
+  color: #22d3ee;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.hero[_ngcontent-ng-c2677373282]   h1[_ngcontent-ng-c2677373282] {
+  font-size: clamp(28px, 5vw, 42px);
+  margin: 0 0 16px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+}
+.hero[_ngcontent-ng-c2677373282]   .lede[_ngcontent-ng-c2677373282] {
+  color: #d5e7ee;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+.progress-info[_ngcontent-ng-c2677373282] {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.progress-info[_ngcontent-ng-c2677373282]   span[_ngcontent-ng-c2677373282] {
+  display: block;
+  font-size: 14px;
+  color: #99afb8;
+  margin-bottom: 8px;
+}
+.progress-bar[_ngcontent-ng-c2677373282] {
+  height: 8px;
+  background: #102027;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill[_ngcontent-ng-c2677373282] {
+  height: 100%;
+  background:
+    linear-gradient(
+      90deg,
+      #22d3ee,
+      #34d399);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.section[_ngcontent-ng-c2677373282] {
+  padding: 60px 0;
+}
+.section.form-section[_ngcontent-ng-c2677373282] {
+  padding-top: 30px;
+}
+.section.result-section[_ngcontent-ng-c2677373282] {
+  background: #0b161a;
+}
+.block[_ngcontent-ng-c2677373282] {
+  margin-bottom: 40px;
+}
+.block-header[_ngcontent-ng-c2677373282] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.block-header[_ngcontent-ng-c2677373282]   .block-icon[_ngcontent-ng-c2677373282] {
+  font-size: 20px;
+}
+.block-header[_ngcontent-ng-c2677373282]   h2[_ngcontent-ng-c2677373282] {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+.question-card[_ngcontent-ng-c2677373282] {
+  background: #0f1c21;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.question-card[_ngcontent-ng-c2677373282]:hover {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+.question-number[_ngcontent-ng-c2677373282] {
+  font-size: 12px;
+  font-weight: 700;
+  color: #22d3ee;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px;
+}
+.question-text[_ngcontent-ng-c2677373282] {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ecf4f8;
+  margin: 0 0 16px;
+}
+.answer-options[_ngcontent-ng-c2677373282] {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.answer-option[_ngcontent-ng-c2677373282] {
+  flex: 1;
+  min-width: 100px;
+  cursor: pointer;
+}
+.answer-option[_ngcontent-ng-c2677373282]   input[_ngcontent-ng-c2677373282] {
+  display: none;
+}
+.answer-option[_ngcontent-ng-c2677373282]   .option-label[_ngcontent-ng-c2677373282] {
+  display: block;
+  padding: 12px 16px;
+  background: #12252d;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: #c8d7de;
+  transition: all 0.2s ease;
+}
+.answer-option[_ngcontent-ng-c2677373282]   .option-label[_ngcontent-ng-c2677373282]:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+  background: #152c36;
+}
+.answer-option.selected[_ngcontent-ng-c2677373282]   .option-label[_ngcontent-ng-c2677373282] {
+  background: rgba(52, 211, 153, 0.14);
+  border-color: #34d399;
+  color: #ffffff;
+}
+.submit-section[_ngcontent-ng-c2677373282] {
+  text-align: center;
+  padding: 40px 0;
+}
+.submit-section[_ngcontent-ng-c2677373282]   .btn[_ngcontent-ng-c2677373282] {
+  min-width: 250px;
+}
+.submit-section[_ngcontent-ng-c2677373282]   .submit-hint[_ngcontent-ng-c2677373282] {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #99afb8;
+}
+.result-card[_ngcontent-ng-c2677373282] {
+  background: #0f1c21;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+.result-card.result-green[_ngcontent-ng-c2677373282] {
+  border-top: 4px solid #34d399;
+}
+.result-card.result-green[_ngcontent-ng-c2677373282]   .result-title[_ngcontent-ng-c2677373282] {
+  color: #34d399;
+}
+.result-card.result-yellow[_ngcontent-ng-c2677373282] {
+  border-top: 4px solid #eab308;
+}
+.result-card.result-yellow[_ngcontent-ng-c2677373282]   .result-title[_ngcontent-ng-c2677373282] {
+  color: #eab308;
+}
+.result-card.result-orange[_ngcontent-ng-c2677373282] {
+  border-top: 4px solid #fb923c;
+}
+.result-card.result-orange[_ngcontent-ng-c2677373282]   .result-title[_ngcontent-ng-c2677373282] {
+  color: #fb923c;
+}
+.result-card.result-red[_ngcontent-ng-c2677373282] {
+  border-top: 4px solid #f43f5e;
+}
+.result-card.result-red[_ngcontent-ng-c2677373282]   .result-title[_ngcontent-ng-c2677373282] {
+  color: #f43f5e;
+}
+.result-header[_ngcontent-ng-c2677373282] {
+  padding: 30px 30px 20px;
+  text-align: center;
+}
+.result-header[_ngcontent-ng-c2677373282]   .result-range[_ngcontent-ng-c2677373282] {
+  font-size: 14px;
+  color: #99afb8;
+  margin: 0 0 12px;
+}
+.result-header[_ngcontent-ng-c2677373282]   .result-title[_ngcontent-ng-c2677373282] {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  margin: 0;
+}
+.result-body[_ngcontent-ng-c2677373282] {
+  padding: 0 30px 30px;
+}
+.result-message[_ngcontent-ng-c2677373282] {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #d5e7ee;
+  text-align: center;
+  margin: 0 0 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+}
+.result-product[_ngcontent-ng-c2677373282] {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.result-product[_ngcontent-ng-c2677373282]   .product-label[_ngcontent-ng-c2677373282] {
+  font-size: 12px;
+  font-weight: 700;
+  color: #22d3ee;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px;
+}
+.result-product[_ngcontent-ng-c2677373282]   .product-name[_ngcontent-ng-c2677373282] {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+.result-actions[_ngcontent-ng-c2677373282] {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.result-footer[_ngcontent-ng-c2677373282] {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.result-footer[_ngcontent-ng-c2677373282]   blockquote[_ngcontent-ng-c2677373282] {
+  margin: 0;
+  font-size: 16px;
+  font-style: italic;
+  color: #99afb8;
+  border: none;
+  padding: 0;
+}
+.result-footer[_ngcontent-ng-c2677373282]   blockquote[_ngcontent-ng-c2677373282]::before {
+  content: '"';
+}
+.result-footer[_ngcontent-ng-c2677373282]   blockquote[_ngcontent-ng-c2677373282]::after {
+  content: '"';
+}
+.share-section[_ngcontent-ng-c2677373282] {
+  margin-top: 40px;
+  text-align: center;
+}
+.share-section[_ngcontent-ng-c2677373282]   p[_ngcontent-ng-c2677373282] {
+  font-size: 14px;
+  color: #99afb8;
+  margin: 0 0 16px;
+}
+.share-buttons[_ngcontent-ng-c2677373282] {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.share-btn[_ngcontent-ng-c2677373282] {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.share-btn.whatsapp[_ngcontent-ng-c2677373282] {
+  background: #25d366;
+  color: #ffffff;
+}
+.share-btn.whatsapp[_ngcontent-ng-c2677373282]:hover {
+  background: #1da851;
+}
+.share-btn.linkedin[_ngcontent-ng-c2677373282] {
+  background: #0077b5;
+  color: #ffffff;
+}
+.share-btn.linkedin[_ngcontent-ng-c2677373282]:hover {
+  background: #005e93;
+}
+.page[_ngcontent-ng-c2677373282]   .btn-primary[_ngcontent-ng-c2677373282] {
+  background-color: #22d3ee;
+  border-color: #22d3ee;
+  color: #071013;
+  font-weight: 700;
+}
+.page[_ngcontent-ng-c2677373282]   .btn-primary[_ngcontent-ng-c2677373282]:hover, 
+.page[_ngcontent-ng-c2677373282]   .btn-primary[_ngcontent-ng-c2677373282]:focus {
+  background-color: #34d399;
+  border-color: #34d399;
+  color: #071013;
+}
+.page[_ngcontent-ng-c2677373282]   .btn-primary[_ngcontent-ng-c2677373282]:disabled {
+  background-color: #4b5c66;
+  border-color: #4b5c66;
+  color: #9fb4bf;
+  cursor: not-allowed;
+}
+.page[_ngcontent-ng-c2677373282]   .btn-light[_ngcontent-ng-c2677373282] {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ecf4f8;
+  font-weight: 600;
+}
+.page[_ngcontent-ng-c2677373282]   .btn-light[_ngcontent-ng-c2677373282]:hover, 
+.page[_ngcontent-ng-c2677373282]   .btn-light[_ngcontent-ng-c2677373282]:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .hero[_ngcontent-ng-c2677373282] {
+    padding: 60px 0 40px;
+  }
+  .answer-options[_ngcontent-ng-c2677373282] {
+    flex-direction: column;
+  }
+  .answer-option[_ngcontent-ng-c2677373282] {
+    min-width: 100%;
+  }
+  .result-header[_ngcontent-ng-c2677373282], 
+   .result-body[_ngcontent-ng-c2677373282] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .result-actions[_ngcontent-ng-c2677373282] {
+    flex-direction: column;
+  }
+  .result-actions[_ngcontent-ng-c2677373282]   .btn[_ngcontent-ng-c2677373282] {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=/www.vics.dev.br/diagnostico-performance.component.css.map */</style><style ng-app-id="ng">
+
+.navbar.minimal[_ngcontent-ng-c1335739864] {
+  background: rgba(11, 10, 12, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-brand[_ngcontent-ng-c1335739864] {
+  color: #f5f5f5;
+  font-weight: 800;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-brand[_ngcontent-ng-c1335739864]   span[_ngcontent-ng-c1335739864] {
+  color: var(--mainColor);
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864] {
+  margin-left: auto;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864] {
+  font-weight: 700;
+  padding: 10px 14px;
+  background-color: #ff2c57;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864]:hover, 
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864]:focus {
+  background-color: #ff4c73;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+/*# sourceMappingURL=/www.vics.dev.br/navbar.component.css.map */</style><style ng-app-id="ng">
+
+.footer-content[_ngcontent-ng-c1683307145] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .footer-content[_ngcontent-ng-c1683307145] {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.footer-brand[_ngcontent-ng-c1683307145] {
+  flex: 1;
+  min-width: 250px;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   h3[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   h3[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  color: #ff2c57 !important;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin-top: 0.5rem;
+  color: #cccccc !important;
+  line-height: 1.5;
+}
+.footer-info[_ngcontent-ng-c1683307145] {
+  display: flex;
+  flex: 2;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .footer-info[_ngcontent-ng-c1683307145] {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.footer-contact[_ngcontent-ng-c1683307145] {
+  flex: 1;
+}
+.footer-contact[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin-bottom: 0.5rem;
+  color: #ffffff !important;
+}
+.footer-contact[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145]   i[_ngcontent-ng-c1683307145] {
+  margin-right: 0.5rem;
+  width: 16px;
+  color: #ff2c57;
+}
+.footer-links[_ngcontent-ng-c1683307145] {
+  flex: 1;
+}
+.footer-links[_ngcontent-ng-c1683307145]   h4[_ngcontent-ng-c1683307145] {
+  margin-bottom: 1rem;
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145] {
+  margin-bottom: 0.5rem;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  color: #cccccc !important;
+  text-decoration: none;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  color: #ff2c57 !important;
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145] {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145] {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ff2c57;
+  color: white !important;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  background-color: #ffffff;
+  color: #ff2c57 !important;
+  transform: translateY(-2px);
+}
+.footer-bottom[_ngcontent-ng-c1683307145] {
+  border-top: 1px solid #444444;
+  padding-top: 1rem;
+  text-align: center;
+}
+.footer-bottom[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin: 0;
+  color: #cccccc !important;
+  font-size: 0.9rem;
+}
+/*# sourceMappingURL=/www.vics.dev.br/footer.component.css.map */</style><style ng-app-id="ng">button[_ngcontent-ng-c4121617842]{outline:0;-webkit-user-select:none;user-select:none}.scrolltop-button[_ngcontent-ng-c4121617842]{position:fixed;display:flex;justify-content:center;align-items:center;border-radius:50%;padding:0;width:40px;height:40px;right:20px;bottom:20px;cursor:pointer;border:none;transition:opacity .1s linear;z-index:10000;box-shadow:0 5px 5px -3px #0003,0 8px 10px 1px #00000024,0 3px 14px 2px #0000001f}.scrolltop-button[_ngcontent-ng-c4121617842]:hover{opacity:.92}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{font-size:15px}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]:empty{display:none}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{display:inline-flex;transform:translateY(10%);width:35%;vertical-align:baseline}.scrolltop-button.black[_ngcontent-ng-c4121617842]{background-color:#000;color:#fff}.scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff}.scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff}.scrolltop-button.white[_ngcontent-ng-c4121617842]{background-color:#fff;color:#000}.scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#000}.scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#000}.scrolltop-button.gray[_ngcontent-ng-c4121617842]{background-color:#212121;color:#fafafa}.scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fafafa}.scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]{background-color:#212121;color:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fafafa}.scrolltop-button.brown[_ngcontent-ng-c4121617842]{background-color:#3e2723;color:#efebe9}.scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#efebe9}.scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#efebe9}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]{background-color:#bf360c;color:#fbe9e7}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fbe9e7}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fbe9e7}.scrolltop-button.orange[_ngcontent-ng-c4121617842]{background-color:#ff6d00;color:#fff3e0}.scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff3e0}.scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff3e0}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]{background-color:#ffd600;color:#fffde7}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fffde7}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fffde7}.scrolltop-button.green[_ngcontent-ng-c4121617842]{background-color:#1b5e20;color:#e8f5e9}.scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e8f5e9}.scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e8f5e9}.scrolltop-button.blue[_ngcontent-ng-c4121617842]{background-color:#2962ff;color:#e3f2fd}.scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e3f2fd}.scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e3f2fd}.scrolltop-button.purple[_ngcontent-ng-c4121617842]{background-color:#4a148c;color:#f3e5f5}.scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f3e5f5}.scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f3e5f5}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]{background-color:#311b92;color:#ede7f6}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#ede7f6}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#ede7f6}.scrolltop-button.pink[_ngcontent-ng-c4121617842]{background-color:#880e4f;color:#fce4ec}.scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fce4ec}.scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fce4ec}.scrolltop-button.red[_ngcontent-ng-c4121617842]{background-color:#b71c1c;color:#ffebee}.scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#ffebee}.scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#ffebee}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]{background-color:#1a237e;color:#e8eaf6}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e8eaf6}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e8eaf6}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]{background-color:#01579b;color:#e1f5fe}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e1f5fe}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e1f5fe}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]{background-color:#006064;color:#e0f7fa}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e0f7fa}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e0f7fa}.scrolltop-button.teal[_ngcontent-ng-c4121617842]{background-color:#004d40;color:#e0f2f1}.scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e0f2f1}.scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e0f2f1}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]{background-color:#33691e;color:#f1f8e9}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f1f8e9}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f1f8e9}.scrolltop-button.lime[_ngcontent-ng-c4121617842]{background-color:#827717;color:#f9fbe7}.scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f9fbe7}.scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f9fbe7}.scrolltop-button.amber[_ngcontent-ng-c4121617842]{background-color:#ff6f00;color:#fff8e1}.scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff8e1}.scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff8e1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]{background-color:#263238;color:#eceff1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#eceff1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#eceff1}</style><meta property="og:type" content="website"></head>
+    <body id="home"><!--nghm--><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script><script>window.__jsaction_bootstrap(document.body,"ng",["click","submit","input","compositionstart","compositionend","change"],["blur"]);</script>
+        <app-root ng-version="19.2.11" ngh="4" ng-server-context="ssg"><router-outlet></router-outlet><app-performance-diagnostico _nghost-ng-c2677373282="" ngh="3"><app-navbar _ngcontent-ng-c2677373282="" _nghost-ng-c1335739864="" ng-reflect-minimal-nav="true" ngh="0"><nav _ngcontent-ng-c1335739864="" class="navbar navbar-expand-lg navbar-light bg-light minimal" ng-reflect-ng-class="[object Object]"><div _ngcontent-ng-c1335739864="" class="container"><a _ngcontent-ng-c1335739864="" routerlink="/" class="navbar-brand" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;"><span _ngcontent-ng-c1335739864="">V</span>ICS</a><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div _ngcontent-ng-c1335739864="" class="navbar-actions"><a _ngcontent-ng-c1335739864="" target="_blank" rel="noopener" class="btn btn-primary btn-sm" href="https://wa.me/5531975474785?text=Quero%20falar%20com%20a%20VICS">Falar com a VICS</a></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div></nav></app-navbar><div _ngcontent-ng-c2677373282="" class="page"><nav _ngcontent-ng-c2677373282="" class="breadcrumb-nav"><div _ngcontent-ng-c2677373282="" class="container"><ol _ngcontent-ng-c2677373282="" class="breadcrumb"><li _ngcontent-ng-c2677373282=""><a _ngcontent-ng-c2677373282="" routerlink="/" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;">Inicio</a></li><li _ngcontent-ng-c2677373282=""><a _ngcontent-ng-c2677373282="" routerlink="/performance-infra" ng-reflect-router-link="/performance-infra" href="/www.vics.dev.br/performance-infra" jsaction="click:;">Performance de Infra</a></li><li _ngcontent-ng-c2677373282="" aria-current="page">Diagnostico</li></ol></div></nav><section _ngcontent-ng-c2677373282="" class="hero"><div _ngcontent-ng-c2677373282="" class="container"><p _ngcontent-ng-c2677373282="" class="eyebrow">Diagnostico gratuito</p><h1 _ngcontent-ng-c2677373282="">Qual o risco de performance da sua infraestrutura?</h1><p _ngcontent-ng-c2677373282="" class="lede">Responda 20 perguntas rápidas e descubra se você precisa do diagnóstico técnico agora ou se ajustes táticos resolvem. Resultado imediato.</p><div _ngcontent-ng-c2677373282="" class="progress-info"><span _ngcontent-ng-c2677373282="">0 de 20 perguntas respondidas</span><div _ngcontent-ng-c2677373282="" class="progress-bar"><div _ngcontent-ng-c2677373282="" class="progress-fill" style="width: 0%;"></div></div></div></div></section><section _ngcontent-ng-c2677373282="" class="section form-section"><div _ngcontent-ng-c2677373282="" class="container"><form _ngcontent-ng-c2677373282="" novalidate="" class="ng-untouched ng-pristine ng-valid" jsaction="submit:;"><div _ngcontent-ng-c2677373282="" class="block"><div _ngcontent-ng-c2677373282="" class="block-header"><span _ngcontent-ng-c2677373282="" class="block-icon">🚨</span><h2 _ngcontent-ng-c2677373282="">Bloco A — Sintomas em produção</h2></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 1</p><p _ngcontent-ng-c2677373282="" class="question-text">Incidentes ou lentidão em horários críticos se repetem?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-1" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-1" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-1" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 2</p><p _ngcontent-ng-c2677373282="" class="question-text">Usuários relatam demora em etapas-chave (checkout, autenticação, consultas)?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-2" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-2" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-2" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 3</p><p _ngcontent-ng-c2677373282="" class="question-text">Há picos de fila ou timeout em integrações externas?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-3" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-3" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-3" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 4</p><p _ngcontent-ng-c2677373282="" class="question-text">A equipe passa mais tempo apagando incêndio do que evoluindo o produto?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-4" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-4" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-4" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 5</p><p _ngcontent-ng-c2677373282="" class="question-text">Deploys são evitados por medo de derrubar a performance?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-5" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-5" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-5" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div><div _ngcontent-ng-c2677373282="" class="block"><div _ngcontent-ng-c2677373282="" class="block-header"><span _ngcontent-ng-c2677373282="" class="block-icon">📊</span><h2 _ngcontent-ng-c2677373282="">Bloco B — Observabilidade e SLO</h2></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 6</p><p _ngcontent-ng-c2677373282="" class="question-text">Você mede latência P95/P99, erro rate e throughput por rota/serviço?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-6" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-6" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-6" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 7</p><p _ngcontent-ng-c2677373282="" class="question-text">Alertas são acionáveis ou você descobre problemas por reclamação de usuário?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-7" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-7" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-7" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 8</p><p _ngcontent-ng-c2677373282="" class="question-text">Tem logs distribuídos/tracing para seguir a jornada de uma requisição?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-8" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-8" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-8" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 9</p><p _ngcontent-ng-c2677373282="" class="question-text">Existem baselines claros para horário de pico ou datas críticas?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-9" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-9" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-9" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 10</p><p _ngcontent-ng-c2677373282="" class="question-text">SLO/SLI estão acordados com o negócio e revisados periodicamente?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-10" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-10" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-10" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div><div _ngcontent-ng-c2677373282="" class="block"><div _ngcontent-ng-c2677373282="" class="block-header"><span _ngcontent-ng-c2677373282="" class="block-icon">🧭</span><h2 _ngcontent-ng-c2677373282="">Bloco C — Arquitetura e gargalos</h2></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 11</p><p _ngcontent-ng-c2677373282="" class="question-text">Queries ou jobs viram gargalo mesmo após aumentar recursos?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-11" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-11" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-11" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 12</p><p _ngcontent-ng-c2677373282="" class="question-text">Caches, filas ou bancos são usados sem estratégia clara de validade e carga?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-12" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-12" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-12" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 13</p><p _ngcontent-ng-c2677373282="" class="question-text">Autoescalonamento aumenta custo sem resolver a lentidão?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-13" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-13" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-13" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 14</p><p _ngcontent-ng-c2677373282="" class="question-text">Dependências externas geram backpressure sem circuit breaker ou proteção?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-14" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-14" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-14" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 15</p><p _ngcontent-ng-c2677373282="" class="question-text">Você conhece a capacidade atual e o ponto de saturação antes da degradação?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-15" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-15" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-15" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div><div _ngcontent-ng-c2677373282="" class="block"><div _ngcontent-ng-c2677373282="" class="block-header"><span _ngcontent-ng-c2677373282="" class="block-icon">💰</span><h2 _ngcontent-ng-c2677373282="">Bloco D — Custos e previsibilidade</h2></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 16</p><p _ngcontent-ng-c2677373282="" class="question-text">O custo de cloud/infra subiu nos últimos meses sem redução de latência?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-16" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-16" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-16" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 17</p><p _ngcontent-ng-c2677373282="" class="question-text">Existe um plano claro de capacity planning para os próximos 3-6 meses?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-17" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-17" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-17" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 18</p><p _ngcontent-ng-c2677373282="" class="question-text">Você não realiza testes de carga/estresse antes de datas ou campanhas críticas?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-18" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-18" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-18" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 19</p><p _ngcontent-ng-c2677373282="" class="question-text">Negócio e produto têm visibilidade do risco de performance em roadmap?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-19" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-19" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-19" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c2677373282="" class="question-card"><p _ngcontent-ng-c2677373282="" class="question-number">Pergunta 20</p><p _ngcontent-ng-c2677373282="" class="question-text">Investimentos em infraestrutura são decididos mais por feeling do que por dados?</p><div _ngcontent-ng-c2677373282="" class="answer-options"><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-20" ng-reflect-value="2" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Sim</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-20" ng-reflect-value="1" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Às vezes</span></label><label _ngcontent-ng-c2677373282="" class="answer-option"><input _ngcontent-ng-c2677373282="" type="radio" ng-reflect-name="question-20" ng-reflect-value="0" class="ng-untouched ng-pristine ng-valid" jsaction="input:;blur:;compositionstart:;compositionend:;change:;"><span _ngcontent-ng-c2677373282="" class="option-label">Não</span></label><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><div _ngcontent-ng-c2677373282="" class="submit-section"><button _ngcontent-ng-c2677373282="" type="submit" class="btn btn-primary btn-lg" disabled=""> Ver meu resultado </button><p _ngcontent-ng-c2677373282="" class="submit-hint"> Responda todas as perguntas para ver o resultado </p><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div></form></div></section><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><app-footer _ngcontent-ng-c2677373282="" _nghost-ng-c1683307145="" ngh="2"><footer _ngcontent-ng-c1683307145="" class="footer-area"><div _ngcontent-ng-c1683307145="" class="container"><div _ngcontent-ng-c1683307145="" class="footer-content"><div _ngcontent-ng-c1683307145="" class="footer-brand"><h3 _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" routerlink="/" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;">VICS – Engenharia de Dados e Soluções Digitais</a></h3><p _ngcontent-ng-c1683307145="">Especialistas em backend, engenharia de dados, automações e integrações.</p></div><div _ngcontent-ng-c1683307145="" class="footer-info"><div _ngcontent-ng-c1683307145="" class="footer-contact"><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="fas fa-map-marker-alt"></i><strong _ngcontent-ng-c1683307145="">Lagoa Santa, Minas Gerais – Atuação remota Brasil e Europa</strong></p><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="far fa-envelope"></i><strong _ngcontent-ng-c1683307145="">cristiano@engenhariadedados.tec.br</strong></p><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="fab fa-whatsapp"></i><strong _ngcontent-ng-c1683307145="">WhatsApp: 5531975474785</strong></p></div></div><div _ngcontent-ng-c1683307145="" class="footer-social"><ul _ngcontent-ng-c1683307145=""><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.linkedin.com/company/99272758/admin/feed/posts/" target="_blank" class="fab fa-linkedin-in"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.facebook.com/people/VICS-Consultoria/61555044575855/" target="_blank" class="fab fa-facebook-f"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://twitter.com/vicsdevbr" target="_blank" class="fab fa-twitter"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.instagram.com/vicsdevbr" target="_blank" class="fab fa-instagram"></a></li></ul></div></div><div _ngcontent-ng-c1683307145="" class="footer-bottom"><p _ngcontent-ng-c1683307145="">🄯 2025 – Todos os direitos reservados.</p></div></div></footer><ngx-scrolltop _ngcontent-ng-c1683307145="" _nghost-ng-c4121617842="" ngh="1"><!--container--></ngx-scrolltop></app-footer></app-performance-diagnostico><!--container--></app-root>
+        <noscript>Please enable JavaScript to continue using this application.</noscript>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z8BPHPB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    <link rel="modulepreload" href="chunk-LPTTI34C.js"><link rel="modulepreload" href="chunk-U2PEDCZ4.js"><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+<link rel="modulepreload" href="performance-infra.module-XNUBIPHM.js">
+<link rel="modulepreload" href="chunk-ZV3RLNPR.js">
+
+
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"6":"t0","7":"t1","8":"t2"},"c":{"6":[],"7":[],"8":[{"i":"t2","r":1}]}},{"t":{"0":"t10"},"c":{"0":[]}},{},{"t":{"29":"t11","33":"t14","34":"t15"},"c":{"29":[{"i":"t11","r":1,"t":{"6":"t12"},"c":{"6":[{"i":"t12","r":1,"t":{"6":"t13"},"c":{"6":[{"i":"t13","r":1,"x":3}]},"x":5}]},"x":4}],"33":[{"i":"t14","r":1}],"34":[]}},{"c":{"0":[{"i":"c2677373282","r":1}]}}]}</script></body></html>

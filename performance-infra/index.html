@@ -1,0 +1,794 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+        <meta charset="utf-8">
+        <title>Performance de Infraestrutura | Aceleração, SLO e Custos — VICS</title>
+        <base href="/www.vics.dev.br/">
+        <meta name="robots" content="index, follow">
+        <meta name="google-site-verification" content="aGfOnoj2oriAUqJPiLj9xQqcx8glVQenlxsGeWDsDAI">
+        <link rel="canonical" href="https://www.vics.dev.br/">
+        <meta name="description" content="Otimize latência, throughput e custo da sua infra. SLO claros, ganhos mensuráveis e governança. Veja como a VICS executa.">
+        <meta name="keywords" content="performance de infraestrutura, otimização de performance, SLO, finops, redução de latência, throughput, custo de cloud">
+        <meta name="author" content="VICS - Resolução de crises técnicas em produção">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+        <link rel="manifest" href="manifest.webmanifest">
+        <meta name="theme-color" content="#1976d2">
+
+    <meta property="og:title" content="Performance de Infraestrutura | Aceleração, SLO e Custos — VICS">
+    <meta property="og:description" content="Otimize latência, throughput e custo da sua infra com SLO claros e ganhos mensuráveis.">
+    <meta property="og:image" content="https://www.vics.dev.br/assets/logo.png">
+    <meta property="og:url" content="https://www.vics.dev.br/performance-infra">
+    <meta name="twitter:card" content="summary_large_image">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Z8BPHPB');</script>
+        <!-- End Google Tag Manager -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "VICS",
+      "description": "Resolução de crises técnicas em produção: incidentes de segurança, reestruturação de cloud, finops e modernização de sistemas legados.",
+      "image": "https://www.vics.dev.br/assets/logo.png",
+      "logo": "https://www.vics.dev.br/assets/logo.png",
+      "url": "https://www.vics.dev.br/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lagoa Santa",
+        "addressLocality": "Lagoa Santa",
+        "addressRegion": "Minas Gerais",
+        "addressCountry": "Brasil",
+        "postalCode": "33400-000"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-19.6319",
+        "longitude": "-43.8939"
+      },
+      "telephone": "+55-31-97547-4785",
+      "areaServed": [
+        { "@type": "Country", "name": "Brasil" },
+        { "@type": "Country", "name": "Portugal" }
+      ],
+      "serviceType": [
+        "Resposta a incidentes e hardening de segurança",
+        "Reestruturação de infraestrutura em produção (AWS / cloud)",
+        "Redução de custos críticos em cloud (FinOps técnico)",
+        "Modernização de sistemas legados críticos (Rails)"
+      ],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+55-31-97547-4785",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.vics.dev.br"
+      ]
+    }
+</script>
+    <link rel="stylesheet" href="styles.css"><style ng-app-id="ng">@charset "UTF-8";
+
+
+
+.page[_ngcontent-ng-c880784431] {
+  background: #0b0a0c;
+  color: #f5f5f5;
+}
+.container[_ngcontent-ng-c880784431] {
+  width: min(1100px, 90vw);
+  margin: 0 auto;
+}
+.breadcrumb-nav[_ngcontent-ng-c880784431] {
+  background: #0f0e12;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 0;
+}
+.breadcrumb-nav[_ngcontent-ng-c880784431]   .breadcrumb[_ngcontent-ng-c880784431] {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #dcd7d7;
+  font-size: 14px;
+}
+.breadcrumb-nav[_ngcontent-ng-c880784431]   .breadcrumb[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb-nav[_ngcontent-ng-c880784431]   .breadcrumb[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431]:not(:last-child)::after {
+  content: "/";
+  color: rgba(245, 245, 245, 0.6);
+}
+.breadcrumb-nav[_ngcontent-ng-c880784431]   .breadcrumb[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431]   a[_ngcontent-ng-c880784431] {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+.hero[_ngcontent-ng-c880784431] {
+  padding: 120px 0 90px;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 44, 87, 0.12),
+      transparent 35%),
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%);
+}
+.hero[_ngcontent-ng-c880784431]   .eyebrow[_ngcontent-ng-c880784431] {
+  color: var(--mainColor);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-grid[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: start;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-content[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 16px;
+}
+.hero[_ngcontent-ng-c880784431]   h1[_ngcontent-ng-c880784431] {
+  font-size: clamp(30px, 5vw, 46px);
+  margin: 14px 0;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+}
+.hero[_ngcontent-ng-c880784431]   .lede[_ngcontent-ng-c880784431] {
+  color: #e5e0e0;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 820px;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-actions[_ngcontent-ng-c880784431] {
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-links[_ngcontent-ng-c880784431] {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 10px 0 4px;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-links[_ngcontent-ng-c880784431]   a[_ngcontent-ng-c880784431] {
+  color: #ffc2d0;
+  font-weight: 700;
+  text-decoration: none;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-links[_ngcontent-ng-c880784431]   a[_ngcontent-ng-c880784431]:hover {
+  text-decoration: underline;
+}
+.hero[_ngcontent-ng-c880784431]   .hero-meta[_ngcontent-ng-c880784431] {
+  color: rgba(245, 245, 245, 0.8);
+  font-size: 14px;
+}
+.hero[_ngcontent-ng-c880784431]   .trust[_ngcontent-ng-c880784431] {
+  background: rgba(19, 18, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+.hero[_ngcontent-ng-c880784431]   .trust-label[_ngcontent-ng-c880784431] {
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 12px;
+  color: #c8c3c3;
+  margin: 0 0 8px;
+}
+.hero[_ngcontent-ng-c880784431]   .logo-row[_ngcontent-ng-c880784431] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.hero[_ngcontent-ng-c880784431]   .logo-row[_ngcontent-ng-c880784431]   img[_ngcontent-ng-c880784431] {
+  max-height: 28px;
+  filter: grayscale(100%) brightness(1.1);
+  opacity: 0.9;
+}
+.hero[_ngcontent-ng-c880784431]   .quote[_ngcontent-ng-c880784431] {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.5;
+  border-left: 3px solid #ff2c57;
+  padding-left: 12px;
+}
+.hero[_ngcontent-ng-c880784431]   .quote[_ngcontent-ng-c880784431]   span[_ngcontent-ng-c880784431] {
+  display: block;
+  margin-top: 6px;
+  color: #c8c3c3;
+  font-weight: 500;
+  font-size: 14px;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431] {
+  background: #0f0e12;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  position: relative;
+  top: 12px;
+  color: #fdfdfd;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431]   h3[_ngcontent-ng-c880784431] {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431]   .lead-copy[_ngcontent-ng-c880784431] {
+  margin: 0 0 14px;
+  color: #f0f0f0;
+  line-height: 1.5;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 12px;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   label[_ngcontent-ng-c880784431] {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  color: #f5f5f5;
+  font-size: 14px;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   input[_ngcontent-ng-c880784431], 
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   textarea[_ngcontent-ng-c880784431] {
+  background: #0b0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 12px 12px;
+  color: #f5f5f5;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   input[_ngcontent-ng-c880784431]:focus, 
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   textarea[_ngcontent-ng-c880784431]:focus {
+  outline: none;
+  border-color: #ff2c57;
+  box-shadow: 0 0 0 3px rgba(255, 44, 87, 0.18);
+}
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   textarea[_ngcontent-ng-c880784431] {
+  resize: vertical;
+  min-height: 90px;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-form[_ngcontent-ng-c880784431]   button[_ngcontent-ng-c880784431] {
+  width: 100%;
+  margin-top: 4px;
+}
+.hero[_ngcontent-ng-c880784431]   .form-meta[_ngcontent-ng-c880784431] {
+  margin: 8px 0 0;
+  color: #e6e6e6;
+  font-size: 13px;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431]   span[_ngcontent-ng-c880784431] {
+  color: #f5f5f5;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431]   .text-muted[_ngcontent-ng-c880784431] {
+  color: #ededed !important;
+}
+.hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431]   h4[_ngcontent-ng-c880784431] {
+  color: #ffffff;
+  font-weight: 700;
+}
+.section[_ngcontent-ng-c880784431] {
+  padding: 90px 0;
+  background: #0b0a0c;
+}
+.section.muted[_ngcontent-ng-c880784431] {
+  background: #111013;
+}
+.section-title[_ngcontent-ng-c880784431] {
+  margin-bottom: 26px;
+}
+.section-title[_ngcontent-ng-c880784431]   h2[_ngcontent-ng-c880784431] {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #f5f5f5;
+}
+.section-title[_ngcontent-ng-c880784431]   p[_ngcontent-ng-c880784431] {
+  color: #dcd7d7;
+  margin: 0;
+  font-size: 16px;
+}
+.blindagem-grid[_ngcontent-ng-c880784431]   .timeline[_ngcontent-ng-c880784431] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  padding: 10px;
+  background: #0f0e12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin: 10px 0;
+}
+.blindagem-grid[_ngcontent-ng-c880784431]   .timeline[_ngcontent-ng-c880784431]   p[_ngcontent-ng-c880784431] {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 12px;
+  color: #c8c3c3;
+}
+.blindagem-grid[_ngcontent-ng-c880784431]   .timeline[_ngcontent-ng-c880784431]   strong[_ngcontent-ng-c880784431] {
+  color: #f5f5f5;
+  font-weight: 700;
+}
+.emphasis[_ngcontent-ng-c880784431] {
+  font-weight: 700;
+}
+.cta-hint[_ngcontent-ng-c880784431] {
+  margin: 8px 0 0;
+  color: rgba(245, 245, 245, 0.75);
+  font-size: 13px;
+}
+.blindagem-steps[_ngcontent-ng-c880784431]   .note.inline[_ngcontent-ng-c880784431], 
+.blindagem-steps[_ngcontent-ng-c880784431]   .note.success.inline[_ngcontent-ng-c880784431] {
+  margin-top: 14px;
+}
+.pill-grid[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.pill-grid.soft[_ngcontent-ng-c880784431]   .pill[_ngcontent-ng-c880784431] {
+  background: #151419;
+}
+.pill[_ngcontent-ng-c880784431] {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #131217;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  color: #f5f5f5;
+  line-height: 1.5;
+}
+.note[_ngcontent-ng-c880784431] {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+.note.warning[_ngcontent-ng-c880784431] {
+  background: rgba(255, 44, 87, 0.08);
+  border: 1px solid rgba(255, 44, 87, 0.25);
+}
+.note.neutral[_ngcontent-ng-c880784431] {
+  background: #16151b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #dcd7d7;
+}
+.note.success[_ngcontent-ng-c880784431] {
+  background: rgba(24, 201, 100, 0.12);
+  border: 1px solid rgba(24, 201, 100, 0.3);
+}
+.card-grid[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.card-grid.two[_ngcontent-ng-c880784431] {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.card[_ngcontent-ng-c880784431] {
+  background: #131217;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  height: 100%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+.card[_ngcontent-ng-c880784431]   h3[_ngcontent-ng-c880784431], 
+.card[_ngcontent-ng-c880784431]   h4[_ngcontent-ng-c880784431] {
+  margin: 0;
+  font-weight: 700;
+  color: #f5f5f5;
+}
+.card[_ngcontent-ng-c880784431]   p[_ngcontent-ng-c880784431] {
+  margin: 0;
+  color: #dcd7d7;
+}
+.card.highlight[_ngcontent-ng-c880784431] {
+  background:
+    linear-gradient(
+      135deg,
+      #1d1a22,
+      #211018);
+  border-color: rgba(255, 44, 87, 0.35);
+}
+.dash-list[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 8px;
+  padding-left: 0;
+  margin: 0;
+}
+.dash-list[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431] {
+  list-style: none;
+  position: relative;
+  padding-left: 14px;
+  color: #dcd7d7;
+  line-height: 1.6;
+}
+.dash-list[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431]::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--mainColor);
+  font-weight: 700;
+}
+.step-list[_ngcontent-ng-c880784431] {
+  padding-left: 18px;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.step-list[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431] {
+  color: #dcd7d7;
+  line-height: 1.6;
+}
+.checklist[_ngcontent-ng-c880784431] {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+.checklist[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431] {
+  padding-left: 26px;
+  position: relative;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+.checklist[_ngcontent-ng-c880784431]   li[_ngcontent-ng-c880784431]::before {
+  content: "\2714";
+  position: absolute;
+  left: 0;
+  color: #18c964;
+  font-weight: 800;
+}
+.case-grid[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.case-card[_ngcontent-ng-c880784431] {
+  background: #131217;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+.case-card[_ngcontent-ng-c880784431]   .eyebrow[_ngcontent-ng-c880784431] {
+  color: #c8c3c3;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  margin: 0 0 10px;
+}
+.table-wrapper[_ngcontent-ng-c880784431] {
+  background: #131217;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  overflow-x: auto;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+table[_ngcontent-ng-c880784431] {
+  width: 100%;
+  border-collapse: collapse;
+  color: #f5f5f5;
+}
+table[_ngcontent-ng-c880784431]   th[_ngcontent-ng-c880784431], 
+table[_ngcontent-ng-c880784431]   td[_ngcontent-ng-c880784431] {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+table[_ngcontent-ng-c880784431]   th[_ngcontent-ng-c880784431] {
+  color: #c8c3c3;
+  font-weight: 700;
+}
+table[_ngcontent-ng-c880784431]   tr[_ngcontent-ng-c880784431]:last-child   td[_ngcontent-ng-c880784431] {
+  border-bottom: none;
+}
+.lead-magnet[_ngcontent-ng-c880784431] {
+  background: #131217;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+.lead-magnet-actions[_ngcontent-ng-c880784431] {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cta[_ngcontent-ng-c880784431] {
+  padding: 90px 0 110px;
+  background:
+    linear-gradient(
+      120deg,
+      #0f0d0e,
+      #361525);
+  text-align: center;
+  color: #ffffff;
+}
+.cta[_ngcontent-ng-c880784431]   h2[_ngcontent-ng-c880784431] {
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.cta[_ngcontent-ng-c880784431]   p[_ngcontent-ng-c880784431] {
+  margin: 0 auto 18px;
+  max-width: 700px;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+.cta[_ngcontent-ng-c880784431]   .cta-actions[_ngcontent-ng-c880784431] {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.cta[_ngcontent-ng-c880784431]   .cta-meta[_ngcontent-ng-c880784431] {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+.faq-grid[_ngcontent-ng-c880784431] {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.faq-item[_ngcontent-ng-c880784431] {
+  background: #131217;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+}
+.faq-item[_ngcontent-ng-c880784431]   h4[_ngcontent-ng-c880784431] {
+  margin: 0 0 8px;
+  color: #f5f5f5;
+  font-weight: 700;
+}
+.faq-item[_ngcontent-ng-c880784431]   p[_ngcontent-ng-c880784431] {
+  margin: 0;
+  color: #dcd7d7;
+  line-height: 1.6;
+}
+.page[_ngcontent-ng-c880784431]   .btn-primary[_ngcontent-ng-c880784431] {
+  background-color: #ff2c57;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+  font-weight: 700;
+}
+.page[_ngcontent-ng-c880784431]   .btn-primary[_ngcontent-ng-c880784431]:hover, 
+.page[_ngcontent-ng-c880784431]   .btn-primary[_ngcontent-ng-c880784431]:focus {
+  background-color: #ffc2d0;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+@media (max-width: 768px) {
+  .hero[_ngcontent-ng-c880784431] {
+    padding: 100px 0 70px;
+  }
+  .hero[_ngcontent-ng-c880784431]   .hero-grid[_ngcontent-ng-c880784431] {
+    grid-template-columns: 1fr;
+  }
+  .hero[_ngcontent-ng-c880784431]   .lead-card[_ngcontent-ng-c880784431] {
+    top: 0;
+  }
+  .section[_ngcontent-ng-c880784431] {
+    padding: 70px 0;
+  }
+}
+/*# sourceMappingURL=/www.vics.dev.br/performance-infra.component.css.map */</style><style ng-app-id="ng">
+
+.navbar.minimal[_ngcontent-ng-c1335739864] {
+  background: rgba(11, 10, 12, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-brand[_ngcontent-ng-c1335739864] {
+  color: #f5f5f5;
+  font-weight: 800;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-brand[_ngcontent-ng-c1335739864]   span[_ngcontent-ng-c1335739864] {
+  color: var(--mainColor);
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864] {
+  margin-left: auto;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864] {
+  font-weight: 700;
+  padding: 10px 14px;
+  background-color: #ff2c57;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864]:hover, 
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864]:focus {
+  background-color: #ff4c73;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+/*# sourceMappingURL=/www.vics.dev.br/navbar.component.css.map */</style><style ng-app-id="ng">
+
+.footer-content[_ngcontent-ng-c1683307145] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .footer-content[_ngcontent-ng-c1683307145] {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.footer-brand[_ngcontent-ng-c1683307145] {
+  flex: 1;
+  min-width: 250px;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   h3[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   h3[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  color: #ff2c57 !important;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin-top: 0.5rem;
+  color: #cccccc !important;
+  line-height: 1.5;
+}
+.footer-info[_ngcontent-ng-c1683307145] {
+  display: flex;
+  flex: 2;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .footer-info[_ngcontent-ng-c1683307145] {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.footer-contact[_ngcontent-ng-c1683307145] {
+  flex: 1;
+}
+.footer-contact[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin-bottom: 0.5rem;
+  color: #ffffff !important;
+}
+.footer-contact[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145]   i[_ngcontent-ng-c1683307145] {
+  margin-right: 0.5rem;
+  width: 16px;
+  color: #ff2c57;
+}
+.footer-links[_ngcontent-ng-c1683307145] {
+  flex: 1;
+}
+.footer-links[_ngcontent-ng-c1683307145]   h4[_ngcontent-ng-c1683307145] {
+  margin-bottom: 1rem;
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145] {
+  margin-bottom: 0.5rem;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  color: #cccccc !important;
+  text-decoration: none;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  color: #ff2c57 !important;
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145] {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145] {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ff2c57;
+  color: white !important;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  background-color: #ffffff;
+  color: #ff2c57 !important;
+  transform: translateY(-2px);
+}
+.footer-bottom[_ngcontent-ng-c1683307145] {
+  border-top: 1px solid #444444;
+  padding-top: 1rem;
+  text-align: center;
+}
+.footer-bottom[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin: 0;
+  color: #cccccc !important;
+  font-size: 0.9rem;
+}
+/*# sourceMappingURL=/www.vics.dev.br/footer.component.css.map */</style><style ng-app-id="ng">button[_ngcontent-ng-c4121617842]{outline:0;-webkit-user-select:none;user-select:none}.scrolltop-button[_ngcontent-ng-c4121617842]{position:fixed;display:flex;justify-content:center;align-items:center;border-radius:50%;padding:0;width:40px;height:40px;right:20px;bottom:20px;cursor:pointer;border:none;transition:opacity .1s linear;z-index:10000;box-shadow:0 5px 5px -3px #0003,0 8px 10px 1px #00000024,0 3px 14px 2px #0000001f}.scrolltop-button[_ngcontent-ng-c4121617842]:hover{opacity:.92}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{font-size:15px}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]:empty{display:none}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{display:inline-flex;transform:translateY(10%);width:35%;vertical-align:baseline}.scrolltop-button.black[_ngcontent-ng-c4121617842]{background-color:#000;color:#fff}.scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff}.scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff}.scrolltop-button.white[_ngcontent-ng-c4121617842]{background-color:#fff;color:#000}.scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#000}.scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#000}.scrolltop-button.gray[_ngcontent-ng-c4121617842]{background-color:#212121;color:#fafafa}.scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fafafa}.scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]{background-color:#212121;color:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fafafa}.scrolltop-button.brown[_ngcontent-ng-c4121617842]{background-color:#3e2723;color:#efebe9}.scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#efebe9}.scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#efebe9}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]{background-color:#bf360c;color:#fbe9e7}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fbe9e7}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fbe9e7}.scrolltop-button.orange[_ngcontent-ng-c4121617842]{background-color:#ff6d00;color:#fff3e0}.scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff3e0}.scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff3e0}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]{background-color:#ffd600;color:#fffde7}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fffde7}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fffde7}.scrolltop-button.green[_ngcontent-ng-c4121617842]{background-color:#1b5e20;color:#e8f5e9}.scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e8f5e9}.scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e8f5e9}.scrolltop-button.blue[_ngcontent-ng-c4121617842]{background-color:#2962ff;color:#e3f2fd}.scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e3f2fd}.scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e3f2fd}.scrolltop-button.purple[_ngcontent-ng-c4121617842]{background-color:#4a148c;color:#f3e5f5}.scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f3e5f5}.scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f3e5f5}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]{background-color:#311b92;color:#ede7f6}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#ede7f6}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#ede7f6}.scrolltop-button.pink[_ngcontent-ng-c4121617842]{background-color:#880e4f;color:#fce4ec}.scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fce4ec}.scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fce4ec}.scrolltop-button.red[_ngcontent-ng-c4121617842]{background-color:#b71c1c;color:#ffebee}.scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#ffebee}.scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#ffebee}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]{background-color:#1a237e;color:#e8eaf6}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e8eaf6}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e8eaf6}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]{background-color:#01579b;color:#e1f5fe}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e1f5fe}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e1f5fe}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]{background-color:#006064;color:#e0f7fa}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e0f7fa}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e0f7fa}.scrolltop-button.teal[_ngcontent-ng-c4121617842]{background-color:#004d40;color:#e0f2f1}.scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e0f2f1}.scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e0f2f1}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]{background-color:#33691e;color:#f1f8e9}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f1f8e9}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f1f8e9}.scrolltop-button.lime[_ngcontent-ng-c4121617842]{background-color:#827717;color:#f9fbe7}.scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f9fbe7}.scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f9fbe7}.scrolltop-button.amber[_ngcontent-ng-c4121617842]{background-color:#ff6f00;color:#fff8e1}.scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff8e1}.scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff8e1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]{background-color:#263238;color:#eceff1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#eceff1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#eceff1}</style><meta property="og:type" content="website"></head>
+    <body id="home"><!--nghm--><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script><script>window.__jsaction_bootstrap(document.body,"ng",["click"],[]);</script>
+        <app-root ng-version="19.2.11" ngh="4" ng-server-context="ssg"><router-outlet></router-outlet><app-performance-infra _nghost-ng-c880784431="" ngh="3"><app-navbar _ngcontent-ng-c880784431="" _nghost-ng-c1335739864="" ng-reflect-minimal-nav="true" ng-reflect-cta-href="https://wa.me/5531975474785?te" ng-reflect-cta-label="Agendar diagnóstico gratuito d" ngh="0"><nav _ngcontent-ng-c1335739864="" class="navbar navbar-expand-lg navbar-light bg-light minimal" ng-reflect-ng-class="[object Object]"><div _ngcontent-ng-c1335739864="" class="container"><a _ngcontent-ng-c1335739864="" routerlink="/" class="navbar-brand" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;"><span _ngcontent-ng-c1335739864="">V</span>ICS</a><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div _ngcontent-ng-c1335739864="" class="navbar-actions"><a _ngcontent-ng-c1335739864="" target="_blank" rel="noopener" class="btn btn-primary btn-sm" href="https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra">Agendar diagnóstico gratuito de 30 min</a></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div></nav></app-navbar><div _ngcontent-ng-c880784431="" class="page"><nav _ngcontent-ng-c880784431="" class="breadcrumb-nav"><div _ngcontent-ng-c880784431="" class="container"><ol _ngcontent-ng-c880784431="" class="breadcrumb"><li _ngcontent-ng-c880784431=""><a _ngcontent-ng-c880784431="" routerlink="/" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;">Início</a></li><li _ngcontent-ng-c880784431="" aria-current="page">Performance de Infraestrutura</li></ol></div></nav><section _ngcontent-ng-c880784431="" class="hero"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="hero-grid"><div _ngcontent-ng-c880784431="" class="hero-content"><p _ngcontent-ng-c880784431="" class="eyebrow">Pilar • Performance &amp; Infra</p><h1 _ngcontent-ng-c880784431="">Performance de Infraestrutura: do diagnóstico ao ganho mensurável</h1><p _ngcontent-ng-c880784431="" class="lede">Otimize latência, throughput e custo com um diagnóstico técnico que entrega SLO claros e plano acionável em até 15 dias. Analisamos aplicação, banco e infraestrutura para priorizar o que move a agulha.</p><div _ngcontent-ng-c880784431="" class="hero-actions"><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-primary btn-lg" href="https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra">Agendar diagnóstico gratuito de 30 min</a><a _ngcontent-ng-c880784431="" routerlink="/performance-infra/diagnostico" class="btn btn-secondary btn-lg" ng-reflect-router-link="/performance-infra/diagnostico" href="/www.vics.dev.br/performance-infra/diagnostico" jsaction="click:;">Fazer autodiagnóstico online</a><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-light btn-lg" href="/assets/checklist-12-pontos.pdf">Baixar checklist de 12 pontos</a><span _ngcontent-ng-c880784431="" class="hero-meta">Plano técnico entregue em até 15 dias • Execução pelos sócios</span></div><div _ngcontent-ng-c880784431="" class="hero-links"><a _ngcontent-ng-c880784431="" routerlink="/blindagem-performance-infra" ng-reflect-router-link="/blindagem-performance-infra" href="/www.vics.dev.br/blindagem-performance-infra" jsaction="click:;">Precisa garantir resiliência?</a><a _ngcontent-ng-c880784431="" routerlink="/monitoramento-governanca-performance" ng-reflect-router-link="/monitoramento-governanca-perf" href="/www.vics.dev.br/monitoramento-governanca-performance" jsaction="click:;">Quer governar por SLO/SLI?</a></div><div _ngcontent-ng-c880784431="" class="trust"><p _ngcontent-ng-c880784431="" class="trust-label">Confiança de quem opera sistemas críticos</p><div _ngcontent-ng-c880784431="" class="logo-row"><img _ngcontent-ng-c880784431="" src="assets/img/partner-1.png" alt="Logo cliente de saúde" loading="lazy"><img _ngcontent-ng-c880784431="" src="assets/img/partner-2.png" alt="Logo cliente de finanças" loading="lazy"><img _ngcontent-ng-c880784431="" src="assets/img/partner-3.png" alt="Logo cliente enterprise" loading="lazy"><img _ngcontent-ng-c880784431="" src="assets/img/partner-4.png" alt="Logo cliente setor público" loading="lazy"></div><blockquote _ngcontent-ng-c880784431="" class="quote"> "Reduzimos risco operacional, estabilizamos o sistema e economizamos antes de ampliar infraestrutura." <span _ngcontent-ng-c880784431="">CTO • Sistema hospitalar</span></blockquote></div></div><div _ngcontent-ng-c880784431="" id="agendar" class="lead-card"><p _ngcontent-ng-c880784431="" class="eyebrow">Atendimento direto</p><h3 _ngcontent-ng-c880784431="">Agende seu diagnóstico em 30 minutos</h3><p _ngcontent-ng-c880784431="" class="lead-copy">Retornamos em 1 dia útil com agenda e próximos passos. Diagnóstico observacional: nada muda em produção nesta fase.</p><div _ngcontent-ng-c880784431="" class="whatsapp-cta-card"><div _ngcontent-ng-c880784431="" class="whatsapp-icon-large mb-4"><i _ngcontent-ng-c880784431="" class="fab fa-whatsapp fa-4x text-success"></i></div><h4 _ngcontent-ng-c880784431="" class="mb-3">Fale direto com nossos especialistas</h4><p _ngcontent-ng-c880784431="" class="text-muted mb-4">Envie uma mensagem pelo WhatsApp e retornamos rapidamente com os próximos passos</p><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-success btn-lg w-100 mb-3" href="https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra"><i _ngcontent-ng-c880784431="" class="fab fa-whatsapp me-2"></i>Agendar diagnóstico gratuito de 30 min </a><div _ngcontent-ng-c880784431="" class="trust-indicators"><div _ngcontent-ng-c880784431="" class="d-flex flex-column gap-2 small text-muted"><div _ngcontent-ng-c880784431="" class="d-flex align-items-center"><i _ngcontent-ng-c880784431="" class="fas fa-check-circle text-success me-2"></i><span _ngcontent-ng-c880784431="">Resposta em até 1 dia útil</span></div><div _ngcontent-ng-c880784431="" class="d-flex align-items-center"><i _ngcontent-ng-c880784431="" class="fas fa-check-circle text-success me-2"></i><span _ngcontent-ng-c880784431="">Diagnóstico observacional</span></div><div _ngcontent-ng-c880784431="" class="d-flex align-items-center"><i _ngcontent-ng-c880784431="" class="fas fa-check-circle text-success me-2"></i><span _ngcontent-ng-c880784431="">Sem alterar produção</span></div></div></div></div></div></div></div></section><section _ngcontent-ng-c880784431="" id="dor" class="section"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">O problema (dor consciente)</h2><p _ngcontent-ng-c880784431="">Se o seu sistema apresenta algum desses sinais, o risco já está instalado.</p></div><div _ngcontent-ng-c880784431="" class="pill-grid"><div _ngcontent-ng-c880784431="" class="pill"> Lentidão crescente sem causa clara </div><div _ngcontent-ng-c880784431="" class="pill"> Reclamações constantes de usuários </div><div _ngcontent-ng-c880784431="" class="pill"> Infraestrutura pressionando por mais recursos </div><div _ngcontent-ng-c880784431="" class="pill"> Consultas lentas e instáveis no banco de dados </div><div _ngcontent-ng-c880784431="" class="pill"> Medo de quedas em horários críticos </div><div _ngcontent-ng-c880784431="" class="pill"> Falta de métricas confiáveis para decisão </div><!--bindings={
+  "ng-reflect-ng-for-of": "Lentidão crescente sem causa c"
+}--></div><div _ngcontent-ng-c880784431="" class="note warning"><strong _ngcontent-ng-c880784431="">📉 Escalar infraestrutura sem diagnóstico aumenta custo e não resolve a causa.</strong></div></div></section><section _ngcontent-ng-c880784431="" id="solucao" class="section muted"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Diagnóstico de Performance &amp; Infra</h2><p _ngcontent-ng-c880784431="">Chamada gratuita de 30 min para enquadrar o cenário. Diagnóstico completo (pago) entrega plano priorizado com impacto técnico e financeiro.</p></div><div _ngcontent-ng-c880784431="" class="card-grid"><div _ngcontent-ng-c880784431="" class="card highlight"><h3 _ngcontent-ng-c880784431="">Você paga para saber onde agir</h3><p _ngcontent-ng-c880784431="">Plano priorizado, com impacto técnico e financeiro, sem alterar produção nesta fase.</p><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-primary w-100" href="https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra">Agendar diagnóstico gratuito de 30 min</a></div><div _ngcontent-ng-c880784431="" class="card"><h4 _ngcontent-ng-c880784431="">Entregáveis claros</h4><ul _ngcontent-ng-c880784431="" class="dash-list"><li _ngcontent-ng-c880784431="">Mapa completo de gargalos de performance</li><li _ngcontent-ng-c880784431="">Análise integrada de aplicação, banco e infraestrutura</li><li _ngcontent-ng-c880784431="">Identificação de riscos operacionais</li><li _ngcontent-ng-c880784431="">Avaliação de impacto financeiro (custo x benefício)</li><li _ngcontent-ng-c880784431="">Plano de ação priorizado</li><li _ngcontent-ng-c880784431="">Relatório técnico documentado</li><!--bindings={
+  "ng-reflect-ng-for-of": "Mapa completo de gargalos de p"
+}--></ul></div><div _ngcontent-ng-c880784431="" class="card"><h4 _ngcontent-ng-c880784431="">Como funciona</h4><ol _ngcontent-ng-c880784431="" class="step-list"><li _ngcontent-ng-c880784431="">Levantamento Técnico — métricas, logs e configurações do ambiente</li><li _ngcontent-ng-c880784431="">Análise Profunda — gargalos de aplicação, banco de dados e infraestrutura</li><li _ngcontent-ng-c880784431="">Diagnóstico Consolidado — visão técnica com impacto no negócio</li><li _ngcontent-ng-c880784431="">Entrega do Plano de Ação — prioridades, riscos e recomendações (10 a 15 dias)</li><!--bindings={
+  "ng-reflect-ng-for-of": "Levantamento Técnico — métrica"
+}--></ol></div></div></div></section><section _ngcontent-ng-c880784431="" id="escopo" class="section"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">O que é analisado</h2><p _ngcontent-ng-c880784431="">Diagnóstico completo sem tocar na produção, protegendo seu ambiente.</p></div><div _ngcontent-ng-c880784431="" class="pill-grid soft"><div _ngcontent-ng-c880784431="" class="pill"> Performance da aplicação </div><div _ngcontent-ng-c880784431="" class="pill"> Consultas e índices do banco de dados </div><div _ngcontent-ng-c880784431="" class="pill"> Uso de cache e recursos </div><div _ngcontent-ng-c880784431="" class="pill"> Configurações de servidores de aplicação </div><div _ngcontent-ng-c880784431="" class="pill"> Uso e escalabilidade da infraestrutura </div><div _ngcontent-ng-c880784431="" class="pill"> Consumo de CPU, memória e I/O </div><div _ngcontent-ng-c880784431="" class="pill"> Riscos de instabilidade </div><!--bindings={
+  "ng-reflect-ng-for-of": "Performance da aplicação,Consu"
+}--></div><div _ngcontent-ng-c880784431="" class="note neutral"> ⚠️ Sem alterações diretas em produção nesta fase — é diagnóstico, não execução. </div></div></section><section _ngcontent-ng-c880784431="" id="evita" class="section muted"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">O que esse diagnóstico evita</h2><p _ngcontent-ng-c880784431="">Decidir com clareza custa menos do que corrigir uma crise.</p></div><ul _ngcontent-ng-c880784431="" class="checklist"><li _ngcontent-ng-c880784431="">Aumento desnecessário de infraestrutura</li><li _ngcontent-ng-c880784431="">Otimizações aleatórias sem resultado</li><li _ngcontent-ng-c880784431="">Quedas inesperadas em sistemas críticos</li><li _ngcontent-ng-c880784431="">Decisões baseadas em suposição</li><li _ngcontent-ng-c880784431="">Retrabalho técnico</li><!--bindings={
+  "ng-reflect-ng-for-of": "Aumento desnecessário de infra"
+}--></ul></div></section><section _ngcontent-ng-c880784431="" id="case" class="section"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Exemplo real</h2><p _ngcontent-ng-c880784431="">Sistema hospitalar com lentidão crescente</p></div><div _ngcontent-ng-c880784431="" class="case-grid"><div _ngcontent-ng-c880784431="" class="case-card"><p _ngcontent-ng-c880784431="" class="eyebrow">Situação</p><ul _ngcontent-ng-c880784431="" class="dash-list"><li _ngcontent-ng-c880784431="">Reclamações frequentes de usuários</li><li _ngcontent-ng-c880784431="">Infraestrutura pressionando por mais recursos</li><li _ngcontent-ng-c880784431="">Risco operacional elevado</li></ul></div><div _ngcontent-ng-c880784431="" class="case-card"><p _ngcontent-ng-c880784431="" class="eyebrow">Diagnóstico</p><ul _ngcontent-ng-c880784431="" class="dash-list"><li _ngcontent-ng-c880784431="">Gargalos críticos de banco e aplicação</li><li _ngcontent-ng-c880784431="">Uso ineficiente de recursos</li><li _ngcontent-ng-c880784431="">Ausência de estratégia de cache</li></ul></div><div _ngcontent-ng-c880784431="" class="case-card"><p _ngcontent-ng-c880784431="" class="eyebrow">Resultado</p><ul _ngcontent-ng-c880784431="" class="dash-list"><li _ngcontent-ng-c880784431="">Plano claro de otimização</li><li _ngcontent-ng-c880784431="">Estabilidade restaurada</li><li _ngcontent-ng-c880784431="">Nenhum aumento de infraestrutura</li></ul></div></div><div _ngcontent-ng-c880784431="" class="note success"> 📌 O diagnóstico evitou custos maiores e riscos operacionais. </div></div></section><section _ngcontent-ng-c880784431="" id="antes-depois" class="section muted"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Métricas antes e depois (exemplo anonimizado)</h2><p _ngcontent-ng-c880784431="">Baseline, metas e validação com SLI/SLO para cada componente.</p></div><div _ngcontent-ng-c880784431="" class="table-wrapper"><table _ngcontent-ng-c880784431=""><thead _ngcontent-ng-c880784431=""><tr _ngcontent-ng-c880784431=""><th _ngcontent-ng-c880784431="">Métrica</th><th _ngcontent-ng-c880784431="">Antes</th><th _ngcontent-ng-c880784431="">Depois</th></tr></thead><tbody _ngcontent-ng-c880784431=""><tr _ngcontent-ng-c880784431=""><td _ngcontent-ng-c880784431="">Latência P95</td><td _ngcontent-ng-c880784431="">420 ms</td><td _ngcontent-ng-c880784431="">260 ms</td></tr><tr _ngcontent-ng-c880784431=""><td _ngcontent-ng-c880784431="">Latência P99</td><td _ngcontent-ng-c880784431="">680 ms</td><td _ngcontent-ng-c880784431="">410 ms</td></tr><tr _ngcontent-ng-c880784431=""><td _ngcontent-ng-c880784431="">Erro rate</td><td _ngcontent-ng-c880784431="">1,8%</td><td _ngcontent-ng-c880784431="">0,6%</td></tr><tr _ngcontent-ng-c880784431=""><td _ngcontent-ng-c880784431="">Throughput</td><td _ngcontent-ng-c880784431="">11k req/min</td><td _ngcontent-ng-c880784431="">13k req/min</td></tr><tr _ngcontent-ng-c880784431=""><td _ngcontent-ng-c880784431="">Custo de infra</td><td _ngcontent-ng-c880784431="">R$ 38k/mês</td><td _ngcontent-ng-c880784431="">R$ 29k/mês</td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div></section><section _ngcontent-ng-c880784431="" id="por-que-pago" class="section muted"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Por que o diagnóstico é pago</h2><p _ngcontent-ng-c880784431="">Clareza técnica, redução de risco e economia futura.</p></div><div _ngcontent-ng-c880784431="" class="card-grid two"><div _ngcontent-ng-c880784431="" class="card"><h4 _ngcontent-ng-c880784431="">Posicionamento de preço</h4><ul _ngcontent-ng-c880784431="" class="dash-list"><li _ngcontent-ng-c880784431="">Diagnóstico técnico profissional</li><li _ngcontent-ng-c880784431="">Escopo fechado e entregável documentado</li><li _ngcontent-ng-c880784431="">Base para execução futura</li></ul></div><div _ngcontent-ng-c880784431="" class="card"><h4 _ngcontent-ng-c880784431="">Abatimento inteligente</h4><p _ngcontent-ng-c880784431="">O valor do diagnóstico pode ser abatido na execução, caso avance para a fase de otimização.</p></div></div></div></section><section _ngcontent-ng-c880784431="" id="prova-social" class="section"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Prova social (mensurável)</h2><p _ngcontent-ng-c880784431="">Resultados validados em produção, com SLO monitorados.</p></div><div _ngcontent-ng-c880784431="" class="card-grid two"><div _ngcontent-ng-c880784431="" class="card"><blockquote _ngcontent-ng-c880784431="" class="quote">Reduzimos latência P95 em 38% e estabilizamos plantões críticos sem aumentar infraestrutura.</blockquote><p _ngcontent-ng-c880784431="" class="eyebrow">CTO - Saúde</p><p _ngcontent-ng-c880784431="" class="lede-sm">P95 de 420ms para 260ms em 4 semanas</p></div><div _ngcontent-ng-c880784431="" class="card"><blockquote _ngcontent-ng-c880784431="" class="quote">Corte de 22% no custo de cloud enquanto liberamos throughput para novo módulo.</blockquote><p _ngcontent-ng-c880784431="" class="eyebrow">Head de Tecnologia - Finanças</p><p _ngcontent-ng-c880784431="" class="lede-sm">Throughput +18% com -22% de custo</p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div></section><section _ngcontent-ng-c880784431="" id="para-quem" class="section"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Para quem é</h2><p _ngcontent-ng-c880784431="">Diagnosticamos onde há risco e necessidade de previsibilidade.</p></div><div _ngcontent-ng-c880784431="" class="pill-grid"><div _ngcontent-ng-c880784431="" class="pill"> Sistemas críticos em produção </div><div _ngcontent-ng-c880784431="" class="pill"> Ambientes hospitalares, governamentais ou corporativos </div><div _ngcontent-ng-c880784431="" class="pill"> Empresas em crescimento </div><div _ngcontent-ng-c880784431="" class="pill"> Gestores que precisam de previsibilidade </div><div _ngcontent-ng-c880784431="" class="pill"> Infraestruturas sob pressão </div><!--bindings={
+  "ng-reflect-ng-for-of": "Sistemas críticos em produção,"
+}--></div><div _ngcontent-ng-c880784431="" class="note warning"> ❌ Não indicado para protótipos ou projetos experimentais. </div></div></section><section _ngcontent-ng-c880784431="" id="links-internos" class="section"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Próximos passos no cluster</h2><p _ngcontent-ng-c880784431="">Conecte performance, resiliência e governança.</p></div><div _ngcontent-ng-c880784431="" class="card-grid two blindagem-grid"><div _ngcontent-ng-c880784431="" class="card highlight"><h3 _ngcontent-ng-c880784431="">Blindagem de Performance &amp; Infra</h3><p _ngcontent-ng-c880784431="">Resiliência para sustentar picos e falhas. Execução controlada das otimizações priorizadas com testes de carga e rollback.</p><a _ngcontent-ng-c880784431="" routerlink="/blindagem-performance-infra" class="btn btn-light" ng-reflect-router-link="/blindagem-performance-infra" href="/www.vics.dev.br/blindagem-performance-infra" jsaction="click:;">Ver blindagem</a></div><div _ngcontent-ng-c880784431="" class="card"><h3 _ngcontent-ng-c880784431="">Monitoramento &amp; Governança de Performance</h3><p _ngcontent-ng-c880784431="">Observabilidade, SLI/SLO e FinOps contínuo para que os ganhos não se percam com o tempo.</p><a _ngcontent-ng-c880784431="" routerlink="/monitoramento-governanca-performance" class="btn btn-light" ng-reflect-router-link="/monitoramento-governanca-perf" href="/www.vics.dev.br/monitoramento-governanca-performance" jsaction="click:;">Ver governança</a></div></div><div _ngcontent-ng-c880784431="" class="note neutral"> Use o mesmo CTA em todas as páginas: <strong _ngcontent-ng-c880784431="">Agendar diagnóstico gratuito de 30 min</strong>. </div></div></section><section _ngcontent-ng-c880784431="" id="checklist" class="section muted"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Checklist de 12 pontos</h2><p _ngcontent-ng-c880784431="">Diagnóstico rápido de maturidade com ações recomendadas.</p></div><div _ngcontent-ng-c880784431="" class="lead-magnet"><ul _ngcontent-ng-c880784431="" class="dash-list"><li _ngcontent-ng-c880784431="">SLI/SLO essenciais para app, infra e negócio</li><li _ngcontent-ng-c880784431="">Alertas e riscos prioritários (P95/P99, erro rate, custo)</li><li _ngcontent-ng-c880784431="">Passo a passo para estabilizar e reduzir custo</li></ul><div _ngcontent-ng-c880784431="" class="lead-magnet-actions"><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-primary btn-lg" href="/assets/checklist-12-pontos.pdf">Baixar checklist de 12 pontos</a><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-light btn-lg" href="https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra">Agendar diagnóstico gratuito de 30 min</a></div></div></div></section><section _ngcontent-ng-c880784431="" id="faq" class="section muted"><div _ngcontent-ng-c880784431="" class="container"><div _ngcontent-ng-c880784431="" class="section-title"><h2 _ngcontent-ng-c880784431="">Perguntas frequentes</h2><p _ngcontent-ng-c880784431="">O que decisores costumam perguntar antes do diagnóstico.</p></div><div _ngcontent-ng-c880784431="" class="faq-grid"><div _ngcontent-ng-c880784431="" class="faq-item"><h4 _ngcontent-ng-c880784431="">Como medir ganhos de performance de infra?</h4><p _ngcontent-ng-c880784431="">Começamos definindo SLI/SLO claros (latência P95/P99, throughput, erro rate e custo). O plano traz baseline e metas por componente, com comparativo antes/depois.</p></div><div _ngcontent-ng-c880784431="" class="faq-item"><h4 _ngcontent-ng-c880784431="">Quanto tempo até ver resultado?</h4><p _ngcontent-ng-c880784431="">O diagnóstico completo leva 10 a 15 dias. As primeiras otimizações priorizadas normalmente entregam melhora perceptível nas 2 primeiras sprints de execução.</p></div><div _ngcontent-ng-c880784431="" class="faq-item"><h4 _ngcontent-ng-c880784431="">Como equilibrar performance e custos?</h4><p _ngcontent-ng-c880784431="">Mapeamos gargalos que geram consumo desnecessário e ajustamos caches, índices e configuração de recursos. Priorizamos ações com melhor relação ganho/custo.</p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div></section><section _ngcontent-ng-c880784431="" class="cta"><div _ngcontent-ng-c880784431="" class="container"><h2 _ngcontent-ng-c880784431="">Quer performance previsível com custo sob controle?</h2><p _ngcontent-ng-c880784431="">Agende o diagnóstico e receba um plano técnico com SLO claros antes de investir mais em infraestrutura.</p><div _ngcontent-ng-c880784431="" class="cta-actions"><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-primary btn-lg" href="https://wa.me/5531975474785?text=Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20de%2030%20min%20para%20avaliar%20performance%20de%20infra">Agendar diagnóstico gratuito de 30 min</a><a _ngcontent-ng-c880784431="" target="_blank" rel="noopener" class="btn btn-light btn-lg" href="/assets/checklist-12-pontos.pdf">Baixar checklist de 12 pontos</a></div><p _ngcontent-ng-c880784431="" class="cta-meta">Diagnóstico técnico que evita crise, reduz custo e traz previsibilidade para sistemas críticos.</p></div></section></div><app-footer _ngcontent-ng-c880784431="" _nghost-ng-c1683307145="" ngh="2"><footer _ngcontent-ng-c1683307145="" class="footer-area"><div _ngcontent-ng-c1683307145="" class="container"><div _ngcontent-ng-c1683307145="" class="footer-content"><div _ngcontent-ng-c1683307145="" class="footer-brand"><h3 _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" routerlink="/" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;">VICS – Engenharia de Dados e Soluções Digitais</a></h3><p _ngcontent-ng-c1683307145="">Especialistas em backend, engenharia de dados, automações e integrações.</p></div><div _ngcontent-ng-c1683307145="" class="footer-info"><div _ngcontent-ng-c1683307145="" class="footer-contact"><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="fas fa-map-marker-alt"></i><strong _ngcontent-ng-c1683307145="">Lagoa Santa, Minas Gerais – Atuação remota Brasil e Europa</strong></p><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="far fa-envelope"></i><strong _ngcontent-ng-c1683307145="">cristiano@engenhariadedados.tec.br</strong></p><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="fab fa-whatsapp"></i><strong _ngcontent-ng-c1683307145="">WhatsApp: 5531975474785</strong></p></div></div><div _ngcontent-ng-c1683307145="" class="footer-social"><ul _ngcontent-ng-c1683307145=""><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.linkedin.com/company/99272758/admin/feed/posts/" target="_blank" class="fab fa-linkedin-in"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.facebook.com/people/VICS-Consultoria/61555044575855/" target="_blank" class="fab fa-facebook-f"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://twitter.com/vicsdevbr" target="_blank" class="fab fa-twitter"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.instagram.com/vicsdevbr" target="_blank" class="fab fa-instagram"></a></li></ul></div></div><div _ngcontent-ng-c1683307145="" class="footer-bottom"><p _ngcontent-ng-c1683307145="">🄯 2025 – Todos os direitos reservados.</p></div></div></footer><ngx-scrolltop _ngcontent-ng-c1683307145="" _nghost-ng-c4121617842="" ngh="1"><!--container--></ngx-scrolltop></app-footer></app-performance-infra><!--container--></app-root>
+        <noscript>Please enable JavaScript to continue using this application.</noscript>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z8BPHPB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    <link rel="modulepreload" href="chunk-LPTTI34C.js"><link rel="modulepreload" href="chunk-U2PEDCZ4.js"><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+<link rel="modulepreload" href="performance-infra.module-XNUBIPHM.js">
+<link rel="modulepreload" href="chunk-ZV3RLNPR.js">
+
+
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"6":"t0","7":"t1","8":"t2"},"c":{"6":[],"7":[],"8":[{"i":"t2","r":1}]}},{"t":{"0":"t3"},"c":{"0":[]}},{},{"t":{"85":"t4","108":"t5","113":"t6","122":"t7","133":"t8","192":"t9","224":"t10","233":"t11","291":"t12"},"c":{"85":[{"i":"t4","r":1,"x":6}],"108":[{"i":"t5","r":1,"x":6}],"113":[{"i":"t6","r":1,"x":4}],"122":[{"i":"t7","r":1,"x":7}],"133":[{"i":"t8","r":1,"x":5}],"192":[{"i":"t9","r":1,"x":5}],"224":[{"i":"t10","r":1,"x":2}],"233":[{"i":"t11","r":1,"x":5}],"291":[{"i":"t12","r":1,"x":3}]}},{"c":{"0":[{"i":"c880784431","r":1}]}}]}</script></body></html>

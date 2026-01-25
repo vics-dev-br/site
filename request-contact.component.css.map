@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/modules/lead/components/request_contact/request-contact.component.scss"],
+  "sourcesContent": [".request-contact {\n    text-align: center; // Centraliza o texto\n    display: flex;\n    flex-direction: column;\n    align-items: center; // Alinha os itens ao centro\n    justify-content: center; // Centraliza os itens verticalmente\n\n    img {\n        margin: 0 auto; // Centraliza a imagem\n        display: block; // Garante que a imagem se comporte como um bloco\n    }\n\n    h1 {\n        margin-top: 20px; // Espaçamento no topo do título\n    }\n\n    p {\n        margin: 20px 0; // Espaçamento acima e abaixo do parágrafo\n    }\n}"],
+  "mappings": ";AAAA,CAAA;AACI,cAAA;AACA,WAAA;AACA,kBAAA;AACA,eAAA;AACA,mBAAA;;AAEA,CAPJ,gBAOI;AACI,UAAA,EAAA;AACA,WAAA;;AAGJ,CAZJ,gBAYI;AACI,cAAA;;AAGJ,CAhBJ,gBAgBI;AACI,UAAA,KAAA;;",
+  "names": []
+}

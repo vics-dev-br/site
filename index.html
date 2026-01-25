@@ -1,0 +1,679 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+        <meta charset="utf-8">
+        <title>VICS | Diagnóstico, Blindagem e Governança de Performance</title>
+        <base href="/www.vics.dev.br/">
+        <meta name="robots" content="index, follow">
+        <meta name="google-site-verification" content="aGfOnoj2oriAUqJPiLj9xQqcx8glVQenlxsGeWDsDAI">
+        <link rel="canonical" href="https://www.vics.dev.br/">
+        <meta name="description" content="Tripé completo para sistemas críticos: diagnóstico de performance, blindagem de execução e governança contínua. Estabilidade, previsibilidade e redução de custos de infraestrutura.">
+        <meta name="keywords" content="diagnóstico de performance, blindagem de performance, governança de performance, sistemas críticos, finops, estabilidade em produção">
+        <meta name="author" content="VICS - Resolução de crises técnicas em produção">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+        <link rel="manifest" href="manifest.webmanifest">
+        <meta name="theme-color" content="#1976d2">
+
+    <meta property="og:title" content="VICS – Diagnóstico, Blindagem e Governança de Performance">
+    <meta property="og:description" content="Entrada com diagnóstico pago, execução controlada com blindagem e recorrência com governança de performance para sistemas críticos.">
+    <meta property="og:image" content="https://www.vics.dev.br/assets/logo.png">
+    <meta property="og:url" content="https://www.vics.dev.br/">
+    <meta name="twitter:card" content="summary_large_image">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Z8BPHPB');</script>
+        <!-- End Google Tag Manager -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "VICS",
+      "description": "Resolução de crises técnicas em produção: incidentes de segurança, reestruturação de cloud, finops e modernização de sistemas legados.",
+      "image": "https://www.vics.dev.br/assets/logo.png",
+      "logo": "https://www.vics.dev.br/assets/logo.png",
+      "url": "https://www.vics.dev.br/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lagoa Santa",
+        "addressLocality": "Lagoa Santa",
+        "addressRegion": "Minas Gerais",
+        "addressCountry": "Brasil",
+        "postalCode": "33400-000"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-19.6319",
+        "longitude": "-43.8939"
+      },
+      "telephone": "+55-31-97547-4785",
+      "areaServed": [
+        { "@type": "Country", "name": "Brasil" },
+        { "@type": "Country", "name": "Portugal" }
+      ],
+      "serviceType": [
+        "Resposta a incidentes e hardening de segurança",
+        "Reestruturação de infraestrutura em produção (AWS / cloud)",
+        "Redução de custos críticos em cloud (FinOps técnico)",
+        "Modernização de sistemas legados críticos (Rails)"
+      ],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+55-31-97547-4785",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.vics.dev.br"
+      ]
+    }
+</script>
+    <link rel="stylesheet" href="styles.css"><style ng-app-id="ng">
+
+.navbar.minimal[_ngcontent-ng-c1335739864] {
+  background: rgba(11, 10, 12, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-brand[_ngcontent-ng-c1335739864] {
+  color: #f5f5f5;
+  font-weight: 800;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-brand[_ngcontent-ng-c1335739864]   span[_ngcontent-ng-c1335739864] {
+  color: var(--mainColor);
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864] {
+  margin-left: auto;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864] {
+  font-weight: 700;
+  padding: 10px 14px;
+  background-color: #ff2c57;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864]:hover, 
+.navbar.minimal[_ngcontent-ng-c1335739864]   .navbar-actions[_ngcontent-ng-c1335739864]   .btn[_ngcontent-ng-c1335739864]:focus {
+  background-color: #ff4c73;
+  border-color: #ff2c57;
+  color: #0b0a0c;
+}
+/*# sourceMappingURL=/www.vics.dev.br/navbar.component.css.map */</style><style ng-app-id="ng">
+
+.footer-content[_ngcontent-ng-c1683307145] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .footer-content[_ngcontent-ng-c1683307145] {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.footer-brand[_ngcontent-ng-c1683307145] {
+  flex: 1;
+  min-width: 250px;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   h3[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   h3[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  color: #ff2c57 !important;
+}
+.footer-brand[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin-top: 0.5rem;
+  color: #cccccc !important;
+  line-height: 1.5;
+}
+.footer-info[_ngcontent-ng-c1683307145] {
+  display: flex;
+  flex: 2;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .footer-info[_ngcontent-ng-c1683307145] {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.footer-contact[_ngcontent-ng-c1683307145] {
+  flex: 1;
+}
+.footer-contact[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin-bottom: 0.5rem;
+  color: #ffffff !important;
+}
+.footer-contact[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145]   i[_ngcontent-ng-c1683307145] {
+  margin-right: 0.5rem;
+  width: 16px;
+  color: #ff2c57;
+}
+.footer-links[_ngcontent-ng-c1683307145] {
+  flex: 1;
+}
+.footer-links[_ngcontent-ng-c1683307145]   h4[_ngcontent-ng-c1683307145] {
+  margin-bottom: 1rem;
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145] {
+  margin-bottom: 0.5rem;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  color: #cccccc !important;
+  text-decoration: none;
+}
+.footer-links[_ngcontent-ng-c1683307145]   .footer-nav[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  color: #ff2c57 !important;
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145] {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145] {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ff2c57;
+  color: white !important;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-social[_ngcontent-ng-c1683307145]   ul[_ngcontent-ng-c1683307145]   li[_ngcontent-ng-c1683307145]   a[_ngcontent-ng-c1683307145]:hover {
+  background-color: #ffffff;
+  color: #ff2c57 !important;
+  transform: translateY(-2px);
+}
+.footer-bottom[_ngcontent-ng-c1683307145] {
+  border-top: 1px solid #444444;
+  padding-top: 1rem;
+  text-align: center;
+}
+.footer-bottom[_ngcontent-ng-c1683307145]   p[_ngcontent-ng-c1683307145] {
+  margin: 0;
+  color: #cccccc !important;
+  font-size: 0.9rem;
+}
+/*# sourceMappingURL=/www.vics.dev.br/footer.component.css.map */</style><style ng-app-id="ng">button[_ngcontent-ng-c4121617842]{outline:0;-webkit-user-select:none;user-select:none}.scrolltop-button[_ngcontent-ng-c4121617842]{position:fixed;display:flex;justify-content:center;align-items:center;border-radius:50%;padding:0;width:40px;height:40px;right:20px;bottom:20px;cursor:pointer;border:none;transition:opacity .1s linear;z-index:10000;box-shadow:0 5px 5px -3px #0003,0 8px 10px 1px #00000024,0 3px 14px 2px #0000001f}.scrolltop-button[_ngcontent-ng-c4121617842]:hover{opacity:.92}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{font-size:15px}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]:empty{display:none}.scrolltop-button[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{display:inline-flex;transform:translateY(10%);width:35%;vertical-align:baseline}.scrolltop-button.black[_ngcontent-ng-c4121617842]{background-color:#000;color:#fff}.scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff}.scrolltop-button.black[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff}.scrolltop-button.white[_ngcontent-ng-c4121617842]{background-color:#fff;color:#000}.scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#000}.scrolltop-button.white[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#000}.scrolltop-button.gray[_ngcontent-ng-c4121617842]{background-color:#212121;color:#fafafa}.scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fafafa}.scrolltop-button.gray[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]{background-color:#212121;color:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fafafa}.scrolltop-button.grey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fafafa}.scrolltop-button.brown[_ngcontent-ng-c4121617842]{background-color:#3e2723;color:#efebe9}.scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#efebe9}.scrolltop-button.brown[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#efebe9}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]{background-color:#bf360c;color:#fbe9e7}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fbe9e7}.scrolltop-button.deeporange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fbe9e7}.scrolltop-button.orange[_ngcontent-ng-c4121617842]{background-color:#ff6d00;color:#fff3e0}.scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff3e0}.scrolltop-button.orange[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff3e0}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]{background-color:#ffd600;color:#fffde7}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fffde7}.scrolltop-button.yellow[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fffde7}.scrolltop-button.green[_ngcontent-ng-c4121617842]{background-color:#1b5e20;color:#e8f5e9}.scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e8f5e9}.scrolltop-button.green[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e8f5e9}.scrolltop-button.blue[_ngcontent-ng-c4121617842]{background-color:#2962ff;color:#e3f2fd}.scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e3f2fd}.scrolltop-button.blue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e3f2fd}.scrolltop-button.purple[_ngcontent-ng-c4121617842]{background-color:#4a148c;color:#f3e5f5}.scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f3e5f5}.scrolltop-button.purple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f3e5f5}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]{background-color:#311b92;color:#ede7f6}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#ede7f6}.scrolltop-button.deeppurple[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#ede7f6}.scrolltop-button.pink[_ngcontent-ng-c4121617842]{background-color:#880e4f;color:#fce4ec}.scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fce4ec}.scrolltop-button.pink[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fce4ec}.scrolltop-button.red[_ngcontent-ng-c4121617842]{background-color:#b71c1c;color:#ffebee}.scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#ffebee}.scrolltop-button.red[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#ffebee}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]{background-color:#1a237e;color:#e8eaf6}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e8eaf6}.scrolltop-button.indigo[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e8eaf6}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]{background-color:#01579b;color:#e1f5fe}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e1f5fe}.scrolltop-button.lightblue[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e1f5fe}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]{background-color:#006064;color:#e0f7fa}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e0f7fa}.scrolltop-button.cyan[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e0f7fa}.scrolltop-button.teal[_ngcontent-ng-c4121617842]{background-color:#004d40;color:#e0f2f1}.scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#e0f2f1}.scrolltop-button.teal[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#e0f2f1}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]{background-color:#33691e;color:#f1f8e9}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f1f8e9}.scrolltop-button.lightgreen[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f1f8e9}.scrolltop-button.lime[_ngcontent-ng-c4121617842]{background-color:#827717;color:#f9fbe7}.scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#f9fbe7}.scrolltop-button.lime[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#f9fbe7}.scrolltop-button.amber[_ngcontent-ng-c4121617842]{background-color:#ff6f00;color:#fff8e1}.scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#fff8e1}.scrolltop-button.amber[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#fff8e1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]{background-color:#263238;color:#eceff1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842], .scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   span[_ngcontent-ng-c4121617842]{color:#eceff1}.scrolltop-button.bluegrey[_ngcontent-ng-c4121617842]   .symbol-container[_ngcontent-ng-c4121617842]   svg[_ngcontent-ng-c4121617842]{fill:#eceff1}</style><meta name="description" content="Oferecemos soluções em engenharia de dados, análise de Big Data, Business Intelligence e muito mais para ajudar sua empresa a transformar dados em insights estratégicos."><meta name="keywords" content="Engenharia de Dados, Big Data, Business Intelligence, Desenvolvimento Backend, Desenvolvimento Web, Data Warehousing, Machine Learning"><meta name="author" content="Cristiano Araújo"><meta name="viewport" content="width=device-width, initial-scale=1"><style ng-app-id="ng">@charset "UTF-8";
+
+
+
+.crisis-hero[_ngcontent-ng-c959145836] {
+  height: auto;
+  min-height: 720px;
+  padding: 140px 0 120px;
+}
+.crisis-hero[_ngcontent-ng-c959145836]   .main-banner-text[_ngcontent-ng-c959145836] {
+  max-width: 820px;
+}
+.crisis-hero[_ngcontent-ng-c959145836]   .hero-badge[_ngcontent-ng-c959145836] {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f5f5f5;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 22px;
+}
+.crisis-hero[_ngcontent-ng-c959145836]   h1[_ngcontent-ng-c959145836] {
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.15;
+  font-size: clamp(32px, 4vw, 48px);
+}
+.crisis-hero[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  color: #f1f1f1;
+  font-size: 17px;
+  margin-bottom: 24px;
+  max-width: 680px;
+}
+.crisis-hero[_ngcontent-ng-c959145836]   .hero-actions[_ngcontent-ng-c959145836] {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.crisis-hero[_ngcontent-ng-c959145836]   .hero-meta[_ngcontent-ng-c959145836] {
+  color: #f1f1f1;
+  font-size: 14px;
+}
+.section-tight[_ngcontent-ng-c959145836] {
+  padding: 90px 0;
+}
+.section-title.simple[_ngcontent-ng-c959145836] {
+  padding-left: 0;
+  margin-bottom: 32px;
+}
+.section-title.simple[_ngcontent-ng-c959145836]::before, 
+.section-title.simple[_ngcontent-ng-c959145836]::after {
+  display: none;
+}
+.section-title.simple[_ngcontent-ng-c959145836]   h4[_ngcontent-ng-c959145836] {
+  color: var(--mainColor);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.section-title.simple[_ngcontent-ng-c959145836]   h2[_ngcontent-ng-c959145836] {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+  font-weight: 600;
+}
+.pill-list[_ngcontent-ng-c959145836] {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+}
+.pill-list[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836] {
+  list-style: none;
+  background: #f7f5f4;
+  border: 1px solid #ede9e8;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-weight: 500;
+  color: #2d2828;
+}
+.alert-box[_ngcontent-ng-c959145836] {
+  background: #161313;
+  color: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+}
+.alert-box[_ngcontent-ng-c959145836]   h5[_ngcontent-ng-c959145836] {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.alert-box[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  margin: 0;
+  color: #f1f1f1;
+}
+.crisis-card[_ngcontent-ng-c959145836], 
+.service-card[_ngcontent-ng-c959145836], 
+.case-card[_ngcontent-ng-c959145836], 
+.product-card[_ngcontent-ng-c959145836] {
+  background: #ffffff;
+  border: 1px solid #ede9e8;
+  border-radius: 14px;
+  padding: 22px;
+  height: 100%;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.crisis-card[_ngcontent-ng-c959145836]:hover, 
+.service-card[_ngcontent-ng-c959145836]:hover, 
+.case-card[_ngcontent-ng-c959145836]:hover, 
+.product-card[_ngcontent-ng-c959145836]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+}
+.crisis-card[_ngcontent-ng-c959145836]   .icon[_ngcontent-ng-c959145836] {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+.crisis-card[_ngcontent-ng-c959145836]   h5[_ngcontent-ng-c959145836] {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.crisis-card[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  color: #565050;
+  margin: 0;
+  line-height: 1.6;
+}
+.service-card[_ngcontent-ng-c959145836] {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.service-card[_ngcontent-ng-c959145836]   .service-head[_ngcontent-ng-c959145836] {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.service-card[_ngcontent-ng-c959145836]   .icon[_ngcontent-ng-c959145836] {
+  font-size: 28px;
+}
+.service-card[_ngcontent-ng-c959145836]   h5[_ngcontent-ng-c959145836] {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+.service-card[_ngcontent-ng-c959145836]   .price[_ngcontent-ng-c959145836] {
+  color: var(--mainColor);
+  font-weight: 600;
+}
+.service-card[_ngcontent-ng-c959145836]   ul[_ngcontent-ng-c959145836] {
+  padding-left: 18px;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.service-card[_ngcontent-ng-c959145836]   ul[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836] {
+  color: #565050;
+  line-height: 1.6;
+}
+.checklist[_ngcontent-ng-c959145836] {
+  padding-left: 0;
+  display: grid;
+  gap: 12px;
+}
+.checklist[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836] {
+  list-style: none;
+  padding-left: 28px;
+  position: relative;
+  font-weight: 500;
+  color: #2d2828;
+}
+.checklist[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836]::before {
+  content: "\2714";
+  position: absolute;
+  left: 0;
+  color: var(--mainColor);
+  font-weight: 700;
+}
+.process-steps[_ngcontent-ng-c959145836] {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 12px;
+  max-width: 720px;
+}
+.process-steps[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f7f5f4;
+  border: 1px solid #ede9e8;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-weight: 500;
+}
+.process-steps[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836]   span[_ngcontent-ng-c959145836] {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgb(255, 29.05, 75.0966824645);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.cta-final[_ngcontent-ng-c959145836] {
+  background:
+    linear-gradient(
+      120deg,
+      #0f0d0e,
+      #361525);
+  color: #ffffff;
+  padding: 80px 0;
+  text-align: center;
+}
+.cta-final[_ngcontent-ng-c959145836]   h2[_ngcontent-ng-c959145836] {
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: clamp(26px, 3vw, 34px);
+}
+.cta-final[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  color: #f1f1f1;
+  margin-bottom: 22px;
+}
+.cta-final[_ngcontent-ng-c959145836]   .cta-actions[_ngcontent-ng-c959145836] {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.cta-final[_ngcontent-ng-c959145836]   .btn-light[_ngcontent-ng-c959145836] {
+  color: #2d2828;
+  border-color: #ffffff;
+}
+.cta-final[_ngcontent-ng-c959145836]   .cta-meta[_ngcontent-ng-c959145836] {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin: 0;
+}
+.case-card[_ngcontent-ng-c959145836] {
+  display: grid;
+  gap: 12px;
+}
+.case-card[_ngcontent-ng-c959145836]   .eyebrow[_ngcontent-ng-c959145836] {
+  color: var(--mainColor);
+  font-weight: 600;
+  margin: 0;
+}
+.case-card[_ngcontent-ng-c959145836]   h5[_ngcontent-ng-c959145836] {
+  font-weight: 700;
+  margin: 0;
+}
+.case-card[_ngcontent-ng-c959145836]   .bullet-list[_ngcontent-ng-c959145836] {
+  padding-left: 18px;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.case-card[_ngcontent-ng-c959145836]   .bullet-list[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836] {
+  color: #4a4444;
+  line-height: 1.6;
+  list-style: disc;
+}
+.case-card[_ngcontent-ng-c959145836]   .tagline[_ngcontent-ng-c959145836] {
+  color: #2d2828;
+  font-weight: 600;
+}
+.quote-box[_ngcontent-ng-c959145836] {
+  background: #161313;
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+  height: 100%;
+}
+.quote-box[_ngcontent-ng-c959145836]   .quote[_ngcontent-ng-c959145836] {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.quote-box[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  color: #f1f1f1;
+  margin: 0;
+}
+.alert-line[_ngcontent-ng-c959145836] {
+  margin-top: 14px;
+  font-weight: 600;
+  color: #2d2828;
+}
+.product-card[_ngcontent-ng-c959145836] {
+  display: grid;
+  gap: 14px;
+}
+.product-card[_ngcontent-ng-c959145836]   .product-head[_ngcontent-ng-c959145836] {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.product-card[_ngcontent-ng-c959145836]   .icon[_ngcontent-ng-c959145836] {
+  font-size: 28px;
+}
+.product-card[_ngcontent-ng-c959145836]   .eyebrow[_ngcontent-ng-c959145836] {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  color: #6b6161;
+}
+.product-card[_ngcontent-ng-c959145836]   h5[_ngcontent-ng-c959145836] {
+  margin: 2px 0 6px;
+  font-weight: 700;
+}
+.product-card[_ngcontent-ng-c959145836]   .pitch[_ngcontent-ng-c959145836] {
+  margin: 0;
+  color: #4a4444;
+}
+.product-card[_ngcontent-ng-c959145836]   .product-section[_ngcontent-ng-c959145836] {
+  border-top: 1px solid #f0eceb;
+  padding-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+.product-card[_ngcontent-ng-c959145836]   .product-section[_ngcontent-ng-c959145836]   h6[_ngcontent-ng-c959145836] {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #6b6161;
+}
+.product-card[_ngcontent-ng-c959145836]   .product-section[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  margin: 0;
+  color: #2d2828;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.product-card[_ngcontent-ng-c959145836]   .product-actions[_ngcontent-ng-c959145836] {
+  margin-top: 8px;
+}
+.product-card[_ngcontent-ng-c959145836]   .product-actions[_ngcontent-ng-c959145836]   .btn[_ngcontent-ng-c959145836] {
+  font-weight: 700;
+}
+.dash-list[_ngcontent-ng-c959145836] {
+  display: grid;
+  gap: 6px;
+  padding-left: 0;
+  margin: 0;
+}
+.dash-list[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836] {
+  list-style: none;
+  position: relative;
+  padding-left: 16px;
+  color: #4a4444;
+  line-height: 1.6;
+}
+.dash-list[_ngcontent-ng-c959145836]   li[_ngcontent-ng-c959145836]::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--mainColor);
+  font-weight: 700;
+}
+.key-phrase[_ngcontent-ng-c959145836] {
+  margin-top: 30px;
+  padding: 18px 20px;
+  background: #161313;
+  color: #ffffff;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 700;
+}
+.key-phrase[_ngcontent-ng-c959145836]   p[_ngcontent-ng-c959145836] {
+  margin: 0;
+  color: #ffffff;
+}
+@media (max-width: 991px) {
+  .crisis-hero[_ngcontent-ng-c959145836] {
+    padding: 120px 0 90px;
+  }
+  .crisis-hero[_ngcontent-ng-c959145836]   .main-banner-text[_ngcontent-ng-c959145836] {
+    text-align: left;
+  }
+  .section-tight[_ngcontent-ng-c959145836] {
+    padding: 70px 0;
+  }
+}
+/*# sourceMappingURL=/www.vics.dev.br/index.component.css.map */</style><meta property="og:type" content="website"></head>
+    <body id="home"><!--nghm--><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script><script>window.__jsaction_bootstrap(document.body,"ng",["click"],[]);</script>
+        <app-root ng-version="19.2.11" ngh="5" ng-server-context="ssg"><router-outlet></router-outlet><app-home ngh="4"><app-navbar _nghost-ng-c1335739864="" ngh="0"><nav _ngcontent-ng-c1335739864="" class="navbar navbar-expand-lg navbar-light bg-light" ng-reflect-ng-class="[object Object]"><div _ngcontent-ng-c1335739864="" class="container"><a _ngcontent-ng-c1335739864="" routerlink="/" class="navbar-brand" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;"><span _ngcontent-ng-c1335739864="">V</span>ICS</a><button _ngcontent-ng-c1335739864="" type="button" class="navbar-toggler" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="burger-menu"><span _ngcontent-ng-c1335739864="" class="top-bar"></span><span _ngcontent-ng-c1335739864="" class="middle-bar"></span><span _ngcontent-ng-c1335739864="" class="bottom-bar"></span></span></button><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><div _ngcontent-ng-c1335739864="" id="navbarSupportedContent" class="collapse navbar-collapse"><ul _ngcontent-ng-c1335739864="" class="navbar-nav ml-auto"><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" href="/"><span _ngcontent-ng-c1335739864="" class="nav-link">Início</span></a></li><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" fragment="realidade" ng-reflect-fragment="realidade" ng-reflect-router-link="/" href="/www.vics.dev.br/#realidade" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Realidade</span></a></li><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" fragment="erro" ng-reflect-fragment="erro" ng-reflect-router-link="/" href="/www.vics.dev.br/#erro" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Erro invisível</span></a></li><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" fragment="produtos" ng-reflect-fragment="produtos" ng-reflect-router-link="/" href="/www.vics.dev.br/#produtos" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Produtos</span></a></li><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" fragment="plano" ng-reflect-fragment="plano" ng-reflect-router-link="/" href="/www.vics.dev.br/#plano" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Plano</span></a></li><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" fragment="contact" ng-reflect-fragment="contact" ng-reflect-router-link="/" href="/www.vics.dev.br/#contact" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="nav-link">Contato</span></a></li></ul><ul _ngcontent-ng-c1335739864="" class="navbar-nav ml-auto for-responsive"><li _ngcontent-ng-c1335739864="" class="nav-item"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Início</span></li><li _ngcontent-ng-c1335739864="" class="nav-item"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Realidade</span></li><li _ngcontent-ng-c1335739864="" class="nav-item"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Erro invisível</span></li><li _ngcontent-ng-c1335739864="" class="nav-item"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Produtos</span></li><li _ngcontent-ng-c1335739864="" class="nav-item"><span _ngcontent-ng-c1335739864="" class="nav-link" jsaction="click:;">Plano</span></li><li _ngcontent-ng-c1335739864="" class="nav-item"><a _ngcontent-ng-c1335739864="" routerlink="/" fragment="contact" ng-reflect-router-link="/" ng-reflect-fragment="contact" href="/www.vics.dev.br/#contact" jsaction="click:;"><span _ngcontent-ng-c1335739864="" class="nav-link">Contato</span></a></li></ul></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></nav></app-navbar><router-outlet></router-outlet><app-index _nghost-ng-c959145836="" ngh="1"><div _ngcontent-ng-c959145836="" id="home" class="main-banner item-bg-one crisis-hero"><div _ngcontent-ng-c959145836="" class="d-table"><div _ngcontent-ng-c959145836="" class="d-table-cell"><div _ngcontent-ng-c959145836="" class="container"><div _ngcontent-ng-c959145836="" class="main-banner-text text-start"><div _ngcontent-ng-c959145836="" class="hero-badge">Tripé de performance: Diagnóstico → Blindagem → Governança</div><h1 _ngcontent-ng-c959145836="">Diagnóstico, execução e governança para sistemas críticos que não podem parar.</h1><p _ngcontent-ng-c959145836="">Começamos pelo diagnóstico pago, executamos a blindagem com método e mantemos a estabilidade com governança recorrente. Resultado: performance sustentada e custo previsível.</p><div _ngcontent-ng-c959145836="" class="hero-actions"><a _ngcontent-ng-c959145836="" routerlink="/performance-infra" class="btn btn-primary btn-lg" ng-reflect-router-link="/performance-infra" href="/www.vics.dev.br/performance-infra" jsaction="click:;"> 🔴 Diagnóstico de Performance (Produto 1) </a><a _ngcontent-ng-c959145836="" href="https://wa.me/5531975474785?text=Quero%20agendar%20o%20Diagn%C3%B3stico%20de%20Performance" target="_blank" rel="noopener" class="btn btn-light btn-lg"> Falar com especialista </a><div _ngcontent-ng-c959145836="" class="hero-meta">Prazo do diagnóstico: 10 a 15 dias • Execução pelos sócios</div></div></div></div></div></div></div><section _ngcontent-ng-c959145836="" id="realidade" class="section-tight bg-fffdfd"><div _ngcontent-ng-c959145836="" class="container"><div _ngcontent-ng-c959145836="" class="section-title simple"><h4 _ngcontent-ng-c959145836="">O que você realmente faz</h4><h2 _ngcontent-ng-c959145836="">Blindagem e engenharia, não “otimização técnica”</h2></div><div _ngcontent-ng-c959145836="" class="row g-4"><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="case-card"><p _ngcontent-ng-c959145836="" class="eyebrow">🔹 Caso 1 — Sistema hospitalar lento</p><h5 _ngcontent-ng-c959145836="">Você blindou o negócio, não só o código</h5><ul _ngcontent-ng-c959145836="" class="bullet-list"><li _ngcontent-ng-c959145836="">Evito queda de sistema crítico e aumento de custo de infraestrutura</li><li _ngcontent-ng-c959145836="">Entrego confiabilidade operacional e redução de risco político</li><li _ngcontent-ng-c959145836="">Protejo a imagem do fornecedor e garantimos continuidade do contrato</li></ul><p _ngcontent-ng-c959145836="" class="tagline">Isso é blindagem operacional.</p></div></div><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="case-card"><p _ngcontent-ng-c959145836="" class="eyebrow">🔹 Caso 2 — Termo de referência + licitação</p><h5 _ngcontent-ng-c959145836="">Você vendeu vitória, não requisito</h5><ul _ngcontent-ng-c959145836="" class="bullet-list"><li _ngcontent-ng-c959145836="">Traduzo requisito técnico em linguagem comprável</li><li _ngcontent-ng-c959145836="">Antecipação de critérios de julgamento e blindagem contra impugnação</li><li _ngcontent-ng-c959145836="">Maior chance de vitória no edital e menos retrabalho futuro</li></ul><p _ngcontent-ng-c959145836="" class="tagline">Isso é engenharia de vitória em licitação.</p></div></div></div></div></section><section _ngcontent-ng-c959145836="" id="erro" class="section-tight"><div _ngcontent-ng-c959145836="" class="container"><div _ngcontent-ng-c959145836="" class="section-title simple"><h4 _ngcontent-ng-c959145836="">Erro invisível</h4><h2 _ngcontent-ng-c959145836="">O mercado te usa como bombeiro, não como produto</h2></div><div _ngcontent-ng-c959145836="" class="row g-4 align-items-start"><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="quote-box"><p _ngcontent-ng-c959145836="" class="quote">“Sou o cara que resolve quando dá problema.”</p><p _ngcontent-ng-c959145836="">Esse posicionamento gera dependência, trabalho reativo e vendas difíceis. A dor é urgente, mas episódica.</p></div></div><div _ngcontent-ng-c959145836="" class="col-lg-6"><ul _ngcontent-ng-c959145836="" class="pill-list"><li _ngcontent-ng-c959145836="">Dependência em você e escala impossível</li><li _ngcontent-ng-c959145836="">Zero previsibilidade de receita</li><li _ngcontent-ng-c959145836="">Venda difícil por falta de oferta clara</li><li _ngcontent-ng-c959145836="">O mercado não enxerga o valor acumulado</li></ul><p _ngcontent-ng-c959145836="" class="alert-line">O que você faz já é produto — só está sendo vendido como improviso.</p></div></div></div></section><section _ngcontent-ng-c959145836="" id="produtos" class="section-tight bg-F7F5F4"><div _ngcontent-ng-c959145836="" class="container"><div _ngcontent-ng-c959145836="" class="section-title simple"><h4 _ngcontent-ng-c959145836="">Três produtos claros</h4><h2 _ngcontent-ng-c959145836="">Entrada, execução e recorrência previsível</h2></div><div _ngcontent-ng-c959145836="" class="row g-4"><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="product-card"><div _ngcontent-ng-c959145836="" class="product-head"><div _ngcontent-ng-c959145836="" class="icon">🛡️</div><div _ngcontent-ng-c959145836=""><p _ngcontent-ng-c959145836="" class="eyebrow">Produto 1</p><h5 _ngcontent-ng-c959145836="">Diagnóstico de Performance para Sistemas Críticos</h5><p _ngcontent-ng-c959145836="" class="pitch">Mapa claro de gargalos de aplicação, banco e infra em até 15 dias.</p></div></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">O que você vende</h6><p _ngcontent-ng-c959145836="">Diagnóstico técnico pago com plano de ação priorizado antes de escalar infraestrutura.</p></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Escopo rápido</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Levantamento de métricas, logs e configuração</li><li _ngcontent-ng-c959145836="">Análise de aplicação, banco e infraestrutura</li><li _ngcontent-ng-c959145836="">Plano de ação priorizado com impacto técnico e financeiro</li><li _ngcontent-ng-c959145836="">Entregáveis documentados</li><!--bindings={
+  "ng-reflect-ng-for-of": "Levantamento de métricas, logs"
+}--></ul></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Por que isso escala</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Entrada clara e de baixo risco</li><li _ngcontent-ng-c959145836="">Define onde agir primeiro</li><li _ngcontent-ng-c959145836="">Abatimento do valor na execução</li><!--bindings={
+  "ng-reflect-ng-for-of": "Entrada clara e de baixo risco"
+}--></ul><div _ngcontent-ng-c959145836="" class="product-actions"><a _ngcontent-ng-c959145836="" routerlink="/performance-infra" class="btn btn-primary btn-sm" ng-reflect-router-link="/performance-infra" href="/www.vics.dev.br/performance-infra" jsaction="click:;">Ver diagnóstico</a><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div></div></div><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="product-card"><div _ngcontent-ng-c959145836="" class="product-head"><div _ngcontent-ng-c959145836="" class="icon">⚙️</div><div _ngcontent-ng-c959145836=""><p _ngcontent-ng-c959145836="" class="eyebrow">Produto 2</p><h5 _ngcontent-ng-c959145836="">Blindagem de Performance &amp; Infra</h5><p _ngcontent-ng-c959145836="" class="pitch">Execução controlada das otimizações críticas em 15 a 30 dias.</p></div></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">O que você vende</h6><p _ngcontent-ng-c959145836="">Implementação com método, rollback e validação de métricas para sistemas que não podem parar.</p></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Escopo rápido</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Planejamento técnico e janelas de execução</li><li _ngcontent-ng-c959145836="">Otimização de queries, índices e cache</li><li _ngcontent-ng-c959145836="">Ajustes de aplicação e servidores</li><li _ngcontent-ng-c959145836="">Monitoramento e validação pós-implantação</li><!--bindings={
+  "ng-reflect-ng-for-of": "Planejamento técnico e janelas"
+}--></ul></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Por que isso escala</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Plano já validado no diagnóstico</li><li _ngcontent-ng-c959145836="">Entrega fechada com escopo claro</li><li _ngcontent-ng-c959145836="">Evita aumento desnecessário de infraestrutura</li><!--bindings={
+  "ng-reflect-ng-for-of": "Plano já validado no diagnósti"
+}--></ul><div _ngcontent-ng-c959145836="" class="product-actions"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><a _ngcontent-ng-c959145836="" routerlink="/blindagem-performance-infra" class="btn btn-primary btn-sm" ng-reflect-router-link="/blindagem-performance-infra" href="/www.vics.dev.br/blindagem-performance-infra" jsaction="click:;">Ver blindagem</a><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div></div></div><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="product-card"><div _ngcontent-ng-c959145836="" class="product-head"><div _ngcontent-ng-c959145836="" class="icon">📈</div><div _ngcontent-ng-c959145836=""><p _ngcontent-ng-c959145836="" class="eyebrow">Produto 3</p><h5 _ngcontent-ng-c959145836="">Monitoramento &amp; Governança de Performance</h5><p _ngcontent-ng-c959145836="" class="pitch">Assinatura recorrente para manter performance e evitar novas crises.</p></div></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">O que você vende</h6><p _ngcontent-ng-c959145836="">Monitoramento estratégico, revisões periódicas e governança técnica com relatórios executivos.</p></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Escopo rápido</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Indicadores críticos e análise de tendência</li><li _ngcontent-ng-c959145836="">Revisões técnicas mensais ou trimestrais</li><li _ngcontent-ng-c959145836="">Boas práticas e orientação para novas features</li><li _ngcontent-ng-c959145836="">Relatórios executivos com riscos e recomendações</li><!--bindings={
+  "ng-reflect-ng-for-of": "Indicadores críticos e análise"
+}--></ul></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Por que isso escala</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Receita previsível e relação de longo prazo</li><li _ngcontent-ng-c959145836="">Menos incidentes e menos pressão por infra</li><li _ngcontent-ng-c959145836="">Produto recorrente, sem horas abertas</li><!--bindings={
+  "ng-reflect-ng-for-of": "Receita previsível e relação d"
+}--></ul><div _ngcontent-ng-c959145836="" class="product-actions"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><a _ngcontent-ng-c959145836="" routerlink="/monitoramento-governanca-performance" class="btn btn-primary btn-sm" ng-reflect-router-link="/monitoramento-governanca-perf" href="/www.vics.dev.br/monitoramento-governanca-performance" jsaction="click:;">Ver governança</a><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div></div></div><div _ngcontent-ng-c959145836="" class="col-lg-6"><div _ngcontent-ng-c959145836="" class="product-card"><div _ngcontent-ng-c959145836="" class="product-head"><div _ngcontent-ng-c959145836="" class="icon">🤖</div><div _ngcontent-ng-c959145836=""><p _ngcontent-ng-c959145836="" class="eyebrow">Produto 4</p><h5 _ngcontent-ng-c959145836="">ML Start — Decisões que Escalam</h5><p _ngcontent-ng-c959145836="" class="pitch">Primeiro modelo de Machine Learning em produção em 6 semanas.</p></div></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">O que você vende</h6><p _ngcontent-ng-c959145836="">Modelo de ML funcional para startups que querem automatizar decisões com dados.</p></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Escopo rápido</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Diagnóstico e mapeamento de dados</li><li _ngcontent-ng-c959145836="">Preparação e feature engineering</li><li _ngcontent-ng-c959145836="">Treinamento e validação do modelo</li><li _ngcontent-ng-c959145836="">Integração via API ou batch</li><!--bindings={
+  "ng-reflect-ng-for-of": "Diagnóstico e mapeamento de da"
+}--></ul></div><div _ngcontent-ng-c959145836="" class="product-section"><h6 _ngcontent-ng-c959145836="">Por que isso escala</h6><ul _ngcontent-ng-c959145836="" class="dash-list"><li _ngcontent-ng-c959145836="">Entrega rápida com escopo fechado</li><li _ngcontent-ng-c959145836="">Modelo pronto para consumo</li><li _ngcontent-ng-c959145836="">Base para escalar com dados</li><!--bindings={
+  "ng-reflect-ng-for-of": "Entrega rápida com escopo fech"
+}--></ul><div _ngcontent-ng-c959145836="" class="product-actions"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><a _ngcontent-ng-c959145836="" routerlink="/ml-start" class="btn btn-primary btn-sm" ng-reflect-router-link="/ml-start" href="/www.vics.dev.br/ml-start" jsaction="click:;">Ver ML Start</a><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div></div></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div></section><section _ngcontent-ng-c959145836="" id="plano" class="section-tight"><div _ngcontent-ng-c959145836="" class="container"><div _ngcontent-ng-c959145836="" class="section-title simple"><h4 _ngcontent-ng-c959145836="">Sobrevivência + escala</h4><h2 _ngcontent-ng-c959145836="">Plano realista: tripé em 3 passos</h2></div><ol _ngcontent-ng-c959145836="" class="process-steps"><li _ngcontent-ng-c959145836=""><span _ngcontent-ng-c959145836="">1</span> Diagnóstico de Performance (10 a 15 dias) — entrada paga, plano priorizado e abatimento na execução.</li><li _ngcontent-ng-c959145836=""><span _ngcontent-ng-c959145836="">2</span> Blindagem de Performance &amp; Infra (15 a 30 dias) — execução controlada das otimizações com rollback e validação.</li><li _ngcontent-ng-c959145836=""><span _ngcontent-ng-c959145836="">3</span> Monitoramento &amp; Governança (recorrente) — evitar regressão, orientar novas features e manter previsibilidade.</li></ol><div _ngcontent-ng-c959145836="" class="key-phrase"><p _ngcontent-ng-c959145836="">“Performance não é projeto. É diagnóstico, blindagem e governança contínua.”</p></div></div></section><section _ngcontent-ng-c959145836="" id="contact" class="cta-final"><div _ngcontent-ng-c959145836="" class="container"><h2 _ngcontent-ng-c959145836="">Quer transformar um caso em produto agora?</h2><p _ngcontent-ng-c959145836="">Podemos criar a página de produto, pitch de venda, escopo e preço a partir de um caso real — sem parar o caixa.</p><div _ngcontent-ng-c959145836="" class="cta-actions"><a _ngcontent-ng-c959145836="" href="https://wa.me/5531975474785?text=Quero%20transformar%20um%20caso%20em%20produto" target="_blank" rel="noopener" class="btn btn-primary btn-lg">🔴 Agendar conversa agora</a><a _ngcontent-ng-c959145836="" href="mailto:cristiano@engenhariadedados.tec.br?subject=Transformar%20um%20caso%20em%20produto" class="btn btn-light btn-lg">Ou envie detalhes por email</a></div><p _ngcontent-ng-c959145836="" class="cta-meta">Resposta em até 2h úteis | Base Lagoa Santa/MG • Brasil e Portugal</p></div></section></app-index><!--container--><app-footer _nghost-ng-c1683307145="" ngh="3"><footer _ngcontent-ng-c1683307145="" class="footer-area"><div _ngcontent-ng-c1683307145="" class="container"><div _ngcontent-ng-c1683307145="" class="footer-content"><div _ngcontent-ng-c1683307145="" class="footer-brand"><h3 _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" routerlink="/" ng-reflect-router-link="/" href="/www.vics.dev.br/" jsaction="click:;">VICS – Engenharia de Dados e Soluções Digitais</a></h3><p _ngcontent-ng-c1683307145="">Especialistas em backend, engenharia de dados, automações e integrações.</p></div><div _ngcontent-ng-c1683307145="" class="footer-info"><div _ngcontent-ng-c1683307145="" class="footer-contact"><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="fas fa-map-marker-alt"></i><strong _ngcontent-ng-c1683307145="">Lagoa Santa, Minas Gerais – Atuação remota Brasil e Europa</strong></p><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="far fa-envelope"></i><strong _ngcontent-ng-c1683307145="">cristiano@engenhariadedados.tec.br</strong></p><p _ngcontent-ng-c1683307145=""><i _ngcontent-ng-c1683307145="" class="fab fa-whatsapp"></i><strong _ngcontent-ng-c1683307145="">WhatsApp: 5531975474785</strong></p></div></div><div _ngcontent-ng-c1683307145="" class="footer-social"><ul _ngcontent-ng-c1683307145=""><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.linkedin.com/company/99272758/admin/feed/posts/" target="_blank" class="fab fa-linkedin-in"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.facebook.com/people/VICS-Consultoria/61555044575855/" target="_blank" class="fab fa-facebook-f"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://twitter.com/vicsdevbr" target="_blank" class="fab fa-twitter"></a></li><li _ngcontent-ng-c1683307145=""><a _ngcontent-ng-c1683307145="" href="https://www.instagram.com/vicsdevbr" target="_blank" class="fab fa-instagram"></a></li></ul></div></div><div _ngcontent-ng-c1683307145="" class="footer-bottom"><p _ngcontent-ng-c1683307145="">🄯 2025 – Todos os direitos reservados.</p></div></div></footer><ngx-scrolltop _ngcontent-ng-c1683307145="" _nghost-ng-c4121617842="" ngh="2"><!--container--></ngx-scrolltop></app-footer></app-home><!--container--></app-root>
+        <noscript>Please enable JavaScript to continue using this application.</noscript>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z8BPHPB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    <link rel="modulepreload" href="chunk-LPTTI34C.js"><link rel="modulepreload" href="chunk-U2PEDCZ4.js"><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"6":"t0","7":"t1","8":"t2"},"c":{"6":[{"i":"t0","r":1}],"7":[{"i":"t1","r":1}],"8":[]}},{"t":{"90":"t3"},"c":{"90":[{"i":"t3","r":1,"t":{"21":"t4","26":"t5","28":"t6","29":"t7","30":"t8","31":"t9"},"c":{"21":[{"i":"t4","r":1,"x":4}],"26":[{"i":"t5","r":1,"x":3}],"28":[{"i":"t6","r":1}],"29":[],"30":[],"31":[]}},{"i":"t3","r":1,"t":{"21":"t4","26":"t5","28":"t6","29":"t7","30":"t8","31":"t9"},"c":{"21":[{"i":"t4","r":1,"x":4}],"26":[{"i":"t5","r":1,"x":3}],"28":[],"29":[{"i":"t7","r":1}],"30":[],"31":[]}},{"i":"t3","r":1,"t":{"21":"t4","26":"t5","28":"t6","29":"t7","30":"t8","31":"t9"},"c":{"21":[{"i":"t4","r":1,"x":4}],"26":[{"i":"t5","r":1,"x":3}],"28":[],"29":[],"30":[{"i":"t8","r":1}],"31":[]}},{"i":"t3","r":1,"t":{"21":"t4","26":"t5","28":"t6","29":"t7","30":"t8","31":"t9"},"c":{"21":[{"i":"t4","r":1,"x":4}],"26":[{"i":"t5","r":1,"x":3}],"28":[],"29":[],"30":[],"31":[{"i":"t9","r":1}]}}]}},{"t":{"0":"t10"},"c":{"0":[]}},{},{"c":{"1":[{"i":"c959145836","r":1}]}},{"c":{"0":[{"i":"c3658728005","r":1}]}}]}</script></body></html>
