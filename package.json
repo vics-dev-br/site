@@ -46,6 +46,7 @@
     "@types/express": "^5.0.2",
     "@types/jquery": "^3.5.32",
     "@types/node": "^22.15.18",
+    "angular-cli-ghpages": "^3.0.2",
     "typescript": "~5.8.3"
   }
 }
