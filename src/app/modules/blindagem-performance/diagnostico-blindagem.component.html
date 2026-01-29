@@ -1,0 +1,129 @@
+<app-navbar [minimalNav]="true"></app-navbar>
+
+<div class="page">
+  <nav class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/blindagem-performance-infra">Blindagem de Performance</a></li>
+        <li aria-current="page">Diagnostico</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Diagnostico Gratuito</p>
+      <h1>Voce precisa de Blindagem de Performance?</h1>
+      <p class="lede">Responda 20 perguntas rapidas e descubra se seu sistema precisa de blindagem, resiliencia e validacao sob carga. Resultado imediato.</p>
+      <div class="progress-info">
+        <span>{{ answeredCount }} de {{ questions.length }} perguntas respondidas</span>
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="progress"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section form-section">
+    <div class="container">
+      <form (ngSubmit)="calculateResult()">
+        <div class="block" *ngFor="let block of blocks">
+          <div class="block-header">
+            <span class="block-icon">{{ block.icon }}</span>
+            <h2>Bloco {{ block.id }} — {{ block.title }}</h2>
+          </div>
+
+          <div class="question-card" *ngFor="let question of getQuestionsByBlock(block.id)">
+            <p class="question-number">Pergunta {{ question.id }}</p>
+            <p class="question-text">{{ question.text }}</p>
+            <div class="answer-options">
+              <label *ngFor="let option of answerOptions" class="answer-option" [class.selected]="question.answer === option.value">
+                <input
+                  type="radio"
+                  [name]="'question-' + question.id"
+                  [value]="option.value"
+                  [(ngModel)]="question.answer"
+                />
+                <span class="option-label">{{ option.label }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-section">
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!allAnswered">
+            Ver meu resultado
+          </button>
+          <p class="submit-hint" *ngIf="!allAnswered">
+            Responda todas as perguntas para ver o resultado
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section result-section" id="resultado" *ngIf="showResult && currentResult">
+    <div class="container">
+      <div class="result-card" [class]="'result-' + currentResult.color">
+        <div class="result-header">
+          <p class="result-range">Sua pontuacao: {{ totalScore }} de 40 pontos</p>
+          <h2 class="result-title">{{ currentResult.title }}</h2>
+        </div>
+
+        <div class="result-body">
+          <p class="result-message">{{ currentResult.message }}</p>
+
+          <div class="result-product">
+            <p class="product-label">Produto recomendado:</p>
+            <p class="product-name">{{ currentResult.product }}</p>
+          </div>
+
+          <div class="result-actions">
+            <a
+              [href]="currentResult.ctaLink"
+              [target]="currentResult.ctaLink.startsWith('http') ? '_blank' : '_self'"
+              rel="noopener"
+              class="btn btn-primary btn-lg"
+            >
+              {{ currentResult.cta }}
+            </a>
+            <button type="button" class="btn btn-light btn-lg" (click)="resetForm()">
+              Refazer diagnostico
+            </button>
+          </div>
+        </div>
+
+        <div class="result-footer">
+          <blockquote>
+            "Sistemas nao quebram no dia calmo — quebram no pico de demanda."
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="share-section">
+        <p>Compartilhe seu resultado:</p>
+        <div class="share-buttons">
+          <a
+            [href]="'https://wa.me/?text=Fiz%20o%20diagn%C3%B3stico%20de%20Blindagem%20de%20Performance%20da%20VICS%20e%20minha%20pontua%C3%A7%C3%A3o%20foi%20' + totalScore + '%20de%2040.%20Fa%C3%A7a%20o%20seu%3A%20https%3A%2F%2Fwww.vics.dev.br%2Fblindagem-performance-infra%2Fdiagnostico'"
+            target="_blank"
+            rel="noopener"
+            class="share-btn whatsapp"
+          >
+            WhatsApp
+          </a>
+          <a
+            [href]="'https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.vics.dev.br%2Fblindagem-performance-infra%2Fdiagnostico'"
+            target="_blank"
+            rel="noopener"
+            class="share-btn linkedin"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>
