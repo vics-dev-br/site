@@ -22,10 +22,16 @@
           <div class="progress-fill" [style.width.%]="progress"></div>
         </div>
       </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="/performance-infra/diagnostico#questionario">
+          Ver se preciso do diagnóstico agora
+        </a>
+        <span class="cta-caption">Leva ~3 minutos para saber se você precisa do serviço</span>
+      </div>
     </div>
   </section>
 
-  <section class="section form-section">
+  <section class="section form-section" id="questionario">
     <div class="container">
       <form (ngSubmit)="calculateResult()">
         <div class="block" *ngFor="let block of blocks">

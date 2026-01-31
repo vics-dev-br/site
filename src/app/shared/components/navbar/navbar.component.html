@@ -1,7 +1,11 @@
 <nav
-        class="navbar navbar-expand-lg navbar-light bg-light"
+        class="navbar navbar-expand-lg"
+        [class.navbar-light]="!minimalNav"
+        [class.bg-light]="!minimalNav"
+        [class.navbar-dark]="minimalNav"
+        [class.minimal]="minimalNav"
         [class.active]="classApplied"
-        [ngClass]="{'sticky': isSticky, 'minimal': minimalNav}">
+        [class.sticky]="isSticky">
         <div class="container">
                 <a class="navbar-brand" routerLink="/"><span>V</span>ICS</a>
                 <button class="navbar-toggler" type="button"

@@ -73,6 +73,10 @@ export class DiagnosticoPerformanceComponent implements OnInit {
     { value: 0, label: 'Não' }
   ];
 
+  // Perguntas onde "Sim" representa risco direto de performance (problema presente).
+  // Nas demais, "Sim" indica boa prática em vigor e "Não" aumenta o risco.
+  riskQuestions = [1, 2, 3, 4, 5, 11, 12, 13, 14, 16, 18, 20];
+
   results: Result[] = [
     {
       range: '0-10',
@@ -174,7 +178,20 @@ export class DiagnosticoPerformanceComponent implements OnInit {
   }
 
   calculateResult(): void {
-    this.totalScore = this.questions.reduce((sum, q) => sum + (q.answer || 0), 0);
+    this.totalScore = this.questions.reduce((sum, q) => {
+      if (q.answer === null) return sum;
+
+      const answerValue = Number(q.answer);
+      if (Number.isNaN(answerValue)) return sum;
+
+      // Perguntas de risco: "Sim" (2) aumenta a pontuação; "Não" (0) não soma.
+      if (this.riskQuestions.includes(q.id)) {
+        return sum + answerValue;
+      }
+
+      // Perguntas de boas práticas: "Não" aumenta o risco (2 - answerValue).
+      return sum + (2 - answerValue);
+    }, 0);
 
     if (this.totalScore <= 10) {
       this.currentResult = this.results[0];
