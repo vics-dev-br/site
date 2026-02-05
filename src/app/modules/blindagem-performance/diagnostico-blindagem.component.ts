@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
@@ -17,6 +17,8 @@ interface Result {
   product: string;
   cta: string;
   ctaLink: string;
+  riskMessage: string;
+  alertHeadline: string;
 }
 
 @Component({
@@ -25,7 +27,7 @@ interface Result {
   styleUrls: ['./diagnostico-blindagem.component.scss'],
   standalone: false
 })
-export class DiagnosticoBlindagemComponent implements OnInit {
+export class DiagnosticoBlindagemComponent implements OnInit, OnDestroy {
   ctaWhatsApp = 'https://wa.me/5531975474785?text=Fiz%20o%20diagn%C3%B3stico%20no%20site%20e%20quero%20conversar%20sobre%20Blindagem%20de%20Performance';
 
   blocks = [
@@ -86,7 +88,9 @@ export class DiagnosticoBlindagemComponent implements OnInit {
       message: 'Parabéns! Você já tem práticas sólidas de resiliência e validação. Considere evoluir para testes de caos e SLO avançados.',
       product: 'Conteúdo / Checklist',
       cta: 'Baixar checklist de 12 pontos',
-      ctaLink: '/assets/checklist-12-pontos.pdf'
+      ctaLink: '/assets/checklist-12-pontos.pdf',
+      riskMessage: '',
+      alertHeadline: ''
     },
     {
       range: '11-20',
@@ -94,8 +98,10 @@ export class DiagnosticoBlindagemComponent implements OnInit {
       color: 'yellow',
       message: 'Existem gaps que podem virar incidentes. Testes de carga e estratégias de rollback são prioridade antes de eventos críticos.',
       product: 'Blindagem Básica',
-      cta: 'Conhecer Blindagem de Performance',
-      ctaLink: this.ctaWhatsApp
+      cta: 'Garantir estabilidade do meu sistema',
+      ctaLink: this.ctaWhatsApp,
+      riskMessage: 'Com essa pontuação, gaps de validação podem causar incidentes em períodos de pico.',
+      alertHeadline: 'Atenção: seu sistema tem pontos cegos que podem falhar sob pressão'
     },
     {
       range: '21-30',
@@ -103,8 +109,10 @@ export class DiagnosticoBlindagemComponent implements OnInit {
       color: 'orange',
       message: 'Seu ambiente tem riscos reais de incidentes. Execução controlada de otimizações, testes de carga e estratégia de resiliência são urgentes.',
       product: 'Blindagem Completa (Recomendado)',
-      cta: 'Agendar diagnóstico de blindagem',
-      ctaLink: this.ctaWhatsApp
+      cta: 'Resolver gaps de infraestrutura agora',
+      ctaLink: this.ctaWhatsApp,
+      riskMessage: 'Seu risco de downtime em eventos como Black Friday ou lançamentos é alto. Não espere o sistema cair para agir.',
+      alertHeadline: 'Alerta: riscos reais de downtime detectados na sua infraestrutura'
     },
     {
       range: '31-40',
@@ -112,14 +120,26 @@ export class DiagnosticoBlindagemComponent implements OnInit {
       color: 'red',
       message: 'Seu sistema opera em risco. Incidentes em produção são questão de tempo. Blindagem com testes de caos e resiliência é urgente.',
       product: 'Blindagem Crítica + Chaos Engineering',
-      cta: 'Agendar diagnóstico urgente',
-      ctaLink: this.ctaWhatsApp
+      cta: 'Proteger minha operação AGORA',
+      ctaLink: this.ctaWhatsApp,
+      riskMessage: 'Seu sistema OPERA EM RISCO. Cada dia sem blindagem é um dia mais próximo de um incidente crítico em produção.',
+      alertHeadline: 'CRÍTICO: seu sistema está operando sem proteção contra falhas'
     }
   ];
 
   showResult = false;
   totalScore = 0;
   currentResult: Result | null = null;
+
+  // Urgency banner & countdown
+  showUrgencyBanner = false;
+  countdownMinutes = 15;
+  countdownSeconds = 0;
+  private countdownInterval: any;
+
+  // Exit-intent modal
+  showExitModal = false;
+  private exitModalShown = false;
 
   constructor(
     private title: Title,
@@ -156,6 +176,20 @@ export class DiagnosticoBlindagemComponent implements OnInit {
         }
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+    }
+  }
+
+  get currentMonth(): string {
+    const months = [
+      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
+    return months[new Date().getMonth()];
   }
 
   getQuestionsByBlock(blockId: string): Question[] {
@@ -197,6 +231,11 @@ export class DiagnosticoBlindagemComponent implements OnInit {
 
     this.showResult = true;
 
+    if (this.totalScore >= 11) {
+      this.showUrgencyBanner = true;
+      this.startCountdown();
+    }
+
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
         const resultEl = this.document.getElementById('resultado');
@@ -207,11 +246,59 @@ export class DiagnosticoBlindagemComponent implements OnInit {
     }
   }
 
+  startCountdown(): void {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+    }
+
+    this.countdownMinutes = 15;
+    this.countdownSeconds = 0;
+
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.countdownInterval = setInterval(() => {
+      if (this.countdownSeconds === 0) {
+        if (this.countdownMinutes === 0) {
+          clearInterval(this.countdownInterval);
+          return;
+        }
+        this.countdownMinutes--;
+        this.countdownSeconds = 59;
+      } else {
+        this.countdownSeconds--;
+      }
+    }, 1000);
+  }
+
+  @HostListener('document:mouseleave')
+  onMouseLeave(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    if (this.exitModalShown) return;
+    if (!this.showResult || !this.currentResult) return;
+    if (this.totalScore < 11) return;
+
+    this.showExitModal = true;
+    this.exitModalShown = true;
+  }
+
+  closeExitModal(): void {
+    this.showExitModal = false;
+  }
+
   resetForm(): void {
     this.questions.forEach(q => q.answer = null);
     this.showResult = false;
     this.totalScore = 0;
     this.currentResult = null;
+    this.showUrgencyBanner = false;
+    this.showExitModal = false;
+    this.exitModalShown = false;
+
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+    }
+    this.countdownMinutes = 15;
+    this.countdownSeconds = 0;
 
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -9,6 +9,59 @@
   margin: 0 auto;
 }
 
+// ── Urgency Banner ──
+.urgency-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  background: linear-gradient(90deg, #dc2626, #ea580c);
+  padding: 10px 0;
+  text-align: center;
+  animation: slideDown 0.4s ease-out;
+}
+
+.urgency-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.urgency-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.urgency-coupon {
+  font-size: 13px;
+  color: #fef3c7;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+// ── Countdown (shared) ──
+.countdown {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .breadcrumb-nav {
   background: #0f0e12;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -303,20 +356,78 @@
   padding: 0 30px 30px;
 }
 
+// ── Alert Headline ──
+.alert-headline {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 0 0 16px;
+}
+
+.result-red .alert-headline {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+// ── Social Proof ──
+.social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #86efac;
+
+  .social-proof-icon {
+    font-size: 18px;
+    color: #22c55e;
+  }
+}
+
 .result-message {
   font-size: 18px;
   line-height: 1.6;
   color: #e5e0e0;
   text-align: center;
-  margin: 0 0 30px;
+  margin: 0 0 16px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
 }
 
+// ── Risk Message (Psicologia da Perda) ──
+.risk-message {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.08);
+  border-left: 3px solid #f97316;
+  padding: 12px 16px;
+  margin: 0 0 24px;
+  border-radius: 0 8px 8px 0;
+}
+
+.result-red .risk-message {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.08);
+  border-left-color: #ef4444;
+}
+
 .result-product {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   .product-label {
     font-size: 12px;
@@ -335,11 +446,59 @@
   }
 }
 
+// ── Scarcity Text ──
+.scarcity-text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fbbf24;
+  margin: 0 0 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
 .result-actions {
   display: flex;
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+// ── Conversion Button ──
+.btn-conversion {
+  background-color: #22c55e !important;
+  border-color: #22c55e !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.35);
+  transition: all 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #16a34a !important;
+    border-color: #16a34a !important;
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
+    transform: translateY(-1px);
+  }
+}
+
+// ── CTA Microcopy ──
+.cta-microcopy {
+  text-align: center;
+  font-size: 13px;
+  color: #a5a5a5;
+  margin: 12px 0 0;
 }
 
 .result-footer {
@@ -356,11 +515,11 @@
     padding: 0;
 
     &::before {
-      content: '"';
+      content: '\201C';
     }
 
     &::after {
-      content: '"';
+      content: '\201D';
     }
   }
 }
@@ -444,9 +603,120 @@
   }
 }
 
+// ── Exit-Intent Modal ──
+.exit-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.exit-modal {
+  background: #1a1920;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 480px;
+  width: 90vw;
+  text-align: center;
+  position: relative;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.exit-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #a5a5a5;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.exit-modal-headline {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f87171;
+  margin: 0 0 16px;
+}
+
+.exit-modal-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e5e0e0;
+  margin: 0 0 20px;
+}
+
+.exit-modal-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+
+  .countdown {
+    font-size: 32px;
+  }
+}
+
+.exit-modal-coupon {
+  font-size: 13px;
+  color: #fef3c7;
+  background: rgba(251, 191, 36, 0.15);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.exit-modal-cta {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// ── Responsive ──
 @media (max-width: 768px) {
   .hero {
     padding: 60px 0 40px;
+  }
+
+  .urgency-banner-content {
+    flex-direction: column;
+    gap: 6px;
   }
 
   .answer-options {
@@ -469,5 +739,13 @@
     .btn {
       width: 100%;
     }
+  }
+
+  .exit-modal {
+    padding: 30px 20px;
+  }
+
+  .exit-modal-countdown .countdown {
+    font-size: 26px;
   }
 }

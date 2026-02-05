@@ -1,6 +1,19 @@
 <app-navbar [minimalNav]="true"></app-navbar>
 
 <div class="page">
+  <!-- Urgency Banner -->
+  <div class="urgency-banner" *ngIf="showUrgencyBanner && currentResult">
+    <div class="container urgency-banner-content">
+      <span class="urgency-text">
+        Sua infraestrutura esta vulneravel. Garanta sua consultoria com <strong>15% de desconto</strong> nos proximos
+      </span>
+      <span class="countdown">
+        {{ countdownMinutes | number:'2.0-0' }}:{{ countdownSeconds | number:'2.0-0' }}
+      </span>
+      <span class="urgency-coupon">Cupom: <strong>SISTEMA-SEGURO</strong> | 15% OFF</span>
+    </div>
+  </div>
+
   <nav class="breadcrumb-nav">
     <div class="container">
       <ol class="breadcrumb">
@@ -26,7 +39,7 @@
         <a class="btn btn-primary btn-lg" href="/blindagem-performance-infra/diagnostico#questionario">
           Ver se preciso blindar agora
         </a>
-        <span class="cta-caption">Leva ~3 minutos para saber se você precisa do serviço</span>
+        <span class="cta-caption">Leva ~3 minutos para saber se voce precisa do servico</span>
       </div>
     </div>
   </section>
@@ -78,19 +91,40 @@
         </div>
 
         <div class="result-body">
+          <!-- Alert Headline -->
+          <p class="alert-headline" *ngIf="currentResult.alertHeadline">
+            {{ currentResult.alertHeadline }}
+          </p>
+
+          <!-- Social Proof -->
+          <div class="social-proof" *ngIf="totalScore >= 11">
+            <span class="social-proof-icon">&#9733;</span>
+            <span>Empresas que aplicaram a Blindagem VICS reduziram incidentes em 70%.</span>
+          </div>
+
           <p class="result-message">{{ currentResult.message }}</p>
+
+          <!-- Risk Message (Psicologia da Perda) -->
+          <p class="risk-message" *ngIf="currentResult.riskMessage">
+            {{ currentResult.riskMessage }}
+          </p>
 
           <div class="result-product">
             <p class="product-label">Produto recomendado:</p>
             <p class="product-name">{{ currentResult.product }}</p>
           </div>
 
+          <!-- Scarcity Text -->
+          <p class="scarcity-text" *ngIf="totalScore >= 11">
+            Vagas limitadas para {{ currentMonth }}: Temos capacidade para apenas mais 2 novos projetos de Blindagem este mes.
+          </p>
+
           <div class="result-actions">
             <a
               [href]="currentResult.ctaLink"
               [target]="currentResult.ctaLink.startsWith('http') ? '_blank' : '_self'"
               rel="noopener"
-              class="btn btn-primary btn-lg"
+              [class]="totalScore >= 21 ? 'btn btn-conversion btn-lg' : 'btn btn-primary btn-lg'"
             >
               {{ currentResult.cta }}
             </a>
@@ -98,6 +132,11 @@
               Refazer diagnostico
             </button>
           </div>
+
+          <!-- CTA Microcopy -->
+          <p class="cta-microcopy" *ngIf="totalScore >= 11">
+            Fale com um especialista em 5 minutos via WhatsApp
+          </p>
         </div>
 
         <div class="result-footer">
@@ -130,6 +169,32 @@
       </div>
     </div>
   </section>
+</div>
+
+<!-- Exit-Intent Modal -->
+<div class="exit-modal-overlay" *ngIf="showExitModal" (click)="closeExitModal()">
+  <div class="exit-modal" (click)="$event.stopPropagation()">
+    <button class="exit-modal-close" (click)="closeExitModal()">&times;</button>
+    <h3 class="exit-modal-headline" *ngIf="currentResult">{{ currentResult.alertHeadline }}</h3>
+    <p class="exit-modal-text">
+      Nao saia sem garantir a protecao do seu sistema. Aproveite <strong>15% de desconto</strong> na sua consultoria de Blindagem.
+    </p>
+    <div class="exit-modal-countdown">
+      <span class="countdown">
+        {{ countdownMinutes | number:'2.0-0' }}:{{ countdownSeconds | number:'2.0-0' }}
+      </span>
+      <span class="exit-modal-coupon">Cupom: <strong>SISTEMA-SEGURO</strong> | 15% OFF</span>
+    </div>
+    <a
+      [href]="ctaWhatsApp"
+      target="_blank"
+      rel="noopener"
+      class="btn btn-conversion btn-lg exit-modal-cta"
+    >
+      Garantir meu desconto agora
+    </a>
+    <p class="cta-microcopy">Fale com um especialista em 5 minutos via WhatsApp</p>
+  </div>
 </div>
 
 <app-footer></app-footer>
