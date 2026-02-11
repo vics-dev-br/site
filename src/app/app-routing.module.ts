@@ -46,5 +46,9 @@ export const appRoutes: Route[] = [
         path: 'ferramentas/postgres-tuning-online',
         loadChildren: () => import('./modules/postgres-tuning/postgres-tuning.module').then(m => m.PostgresTuningModule)
     },
+    {
+        path: 'ferramentas/k8s-resources-calculator',
+        loadChildren: () => import('./modules/k8s-resources/k8s-resources.module').then(m => m.K8sResourcesModule)
+    },
 
 ];

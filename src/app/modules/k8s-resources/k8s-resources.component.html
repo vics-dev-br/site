@@ -1,0 +1,252 @@
+<app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
+
+<div class="page" itemscope itemtype="https://schema.org/WebPage">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a routerLink="/" itemprop="item"><span itemprop="name">Início</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Ferramentas</span>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+          <span itemprop="name">Calculadora de Resources Kubernetes</span>
+          <meta itemprop="position" content="3" />
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Ferramenta Gratuita</p>
+          <h1 itemprop="name">Calculadora de Recursos Kubernetes: Requests, Limits & Custo</h1>
+          <p class="lede" itemprop="description">Pare de chutar valores no seu YAML. Defina o tamanho exato dos seus Pods para garantir estabilidade e previsibilidade na fatura da nuvem.</p>
+          <p class="seo-intro">Configurar <code>resources</code> no Kubernetes é um equilíbrio delicado. <strong>Se errar para menos</strong>, seu app sofre com <em>CPU Throttling</em> (lentidão) ou morre com <em>OOMKilled</em> (falta de memória). <strong>Se errar para mais</strong>, você desperdiça dinheiro reservando capacidade ociosa nos Nodes. Esta calculadora usa heurísticas de <strong>SRE/DevOps</strong> para sugerir uma configuração base segura para <strong>Java, Node.js, Go e Python</strong>.</p>
+        </div>
+
+        <div class="form-card" id="calculadora">
+          <h2 class="form-title">Configure seu Pod</h2>
+
+          <div class="form-group" role="radiogroup" aria-labelledby="stackLabel">
+            <label id="stackLabel">Linguagem / Stack</label>
+            <div class="radio-group">
+              <label class="radio-label" [class.active]="stack === 'java'">
+                <input type="radio" name="stack" value="java" [(ngModel)]="stack" />
+                <span>Java / JVM</span>
+              </label>
+              <label class="radio-label" [class.active]="stack === 'node'">
+                <input type="radio" name="stack" value="node" [(ngModel)]="stack" />
+                <span>Node.js</span>
+              </label>
+              <label class="radio-label" [class.active]="stack === 'go'">
+                <input type="radio" name="stack" value="go" [(ngModel)]="stack" />
+                <span>Go</span>
+              </label>
+              <label class="radio-label" [class.active]="stack === 'python'">
+                <input type="radio" name="stack" value="python" [(ngModel)]="stack" />
+                <span>Python</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rpsInput">Tráfego esperado (RPS por Pod)</label>
+            <input id="rpsInput" type="number" [(ngModel)]="rps" min="1" max="10000" aria-describedby="rpsHelp" />
+            <small id="rpsHelp" class="form-help">Requests por segundo que cada Pod vai receber</small>
+          </div>
+
+          <div class="form-group">
+            <label for="latenciaInput">Tempo médio de resposta (ms)</label>
+            <input id="latenciaInput" type="number" [(ngModel)]="latenciaMs" min="1" max="30000" aria-describedby="latenciaHelp" />
+            <small id="latenciaHelp" class="form-help">Latência média da sua aplicação por request</small>
+          </div>
+
+          <div class="form-group" role="radiogroup" aria-labelledby="cargaLabel">
+            <label id="cargaLabel">Estilo de Carga</label>
+            <div class="radio-group">
+              <label class="radio-label" [class.active]="tipoCarga === 'estavel'">
+                <input type="radio" name="tipoCarga" value="estavel" [(ngModel)]="tipoCarga" />
+                <span>Estável</span>
+              </label>
+              <label class="radio-label" [class.active]="tipoCarga === 'burstable'">
+                <input type="radio" name="tipoCarga" value="burstable" [(ngModel)]="tipoCarga" />
+                <span>Burstable</span>
+              </label>
+            </div>
+            <small class="form-help">Burstable: picos repentinos (e-commerce, eventos). Estável: tráfego previsível.</small>
+          </div>
+
+          <button class="btn btn-primary btn-lg w-100" (click)="calcular()">
+            <i class="fas fa-calculator me-2"></i>Calcular Resources
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resultado" *ngIf="resultadoVisible" #resultadoSection aria-label="Resultado do cálculo">
+    <div class="container">
+      <div class="section-title">
+        <h2>Seu YAML de Resources Kubernetes</h2>
+        <p>Copie e aplique no Deployment do seu Pod. Revise os valores antes de aplicar em produção.</p>
+      </div>
+
+      <div class="result-summary">
+        <div class="metric-card">
+          <span class="metric-label">CPU Request</span>
+          <span class="metric-value">{{ cpuRequestResult }}</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">CPU Limit</span>
+          <span class="metric-value">{{ cpuLimitResult }}</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">RAM Request</span>
+          <span class="metric-value">{{ ramRequestResult }}</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">RAM Limit</span>
+          <span class="metric-value">{{ ramLimitResult }}</span>
+        </div>
+        <div class="metric-card highlight">
+          <span class="metric-label">Custo/Pod/Mês</span>
+          <span class="metric-value">{{ custoEstimado }}</span>
+        </div>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">deployment.yaml</span>
+          <button class="btn-copy" (click)="copiarYaml()" [class.copied]="copiadoFeedback" [attr.aria-label]="copiadoFeedback ? 'YAML copiado' : 'Copiar YAML para clipboard'">
+            <i class="fas" [ngClass]="copiadoFeedback ? 'fa-check' : 'fa-copy'"></i>
+            {{ copiadoFeedback ? 'Copiado!' : 'Copiar' }}
+          </button>
+        </div>
+        <pre class="terminal-body"><code>{{ yamlGerado }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="alerta" *ngIf="resultadoVisible" aria-label="Aviso importante">
+    <div class="container">
+      <div class="alert-box" role="alert">
+        <div class="alert-icon">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        </div>
+        <div class="alert-content">
+          <h3>O limite da matemática: quando os números mentem</h3>
+          <p>Esta calculadora entrega uma <strong>base matemática sólida</strong>, mas o mundo real é mais complexo. Se os valores sugeridos parecem altos (ex: > 2Gi de RAM ou > 1 Core para pouco tráfego), <strong>atenção: seu código pode estar ineficiente.</strong></p>
+          <ul>
+            <li><strong>Vazamento de memória?</strong> O Pod vai morrer de qualquer jeito, só vai demorar mais.</li>
+            <li><strong>Queries lentas no banco?</strong> Mais CPU no Pod não vai fazer o banco responder mais rápido.</li>
+            <li><strong>Custos fora de controle?</strong> Se você tem 50 Pods com essa config, pode estar gastando <strong>milhares de reais a mais</strong> por mês do que deveria.</li>
+          </ul>
+          <p class="alert-cta-text">Não deixe sua infraestrutura virar um buraco negro de dinheiro. Na VICS, entramos no seu cluster para fazer o ajuste fino: analisamos o comportamento real, aplicamos HPA e reduzimos sua fatura mantendo a estabilidade.</p>
+          <a class="btn btn-success btn-lg" [href]="ctaHref" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp me-2"></i>Agendar análise de FinOps & Performance
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-title">
+        <h2>Como funciona o cálculo de Requests e Limits</h2>
+        <p>A calculadora segue heurísticas de SRE/DevOps para dimensionar Pods com base no perfil real de uso.</p>
+      </div>
+      <article class="content-block">
+        <h3>CPU: de RPS para milicores</h3>
+        <p>O cálculo de <strong>CPU requests</strong> parte do princípio de que cada request ocupa a CPU pelo tempo de resposta. A fórmula <code>RPS x Latência (s) x 1000</code> converte tráfego em milicores necessários. Um fator de ajuste por stack compensa overhead do runtime (ex: JVM consome mais CPU em GC que Go).</p>
+        <p>Para <strong>CPU limits</strong>, em cargas <em>burstable</em> usamos 4x o request (absorvendo picos sem throttling). Em cargas estáveis, 2x é suficiente. Muitas equipes de SRE preferem não definir CPU limits para evitar throttling desnecessário.</p>
+
+        <h3>Memória: runtime base + overhead por request</h3>
+        <p>Cada stack tem uma <strong>memória base</strong> diferente: Java/JVM (~350Mi com heap padrão), Node.js (~70Mi com V8), Go (~30Mi, muito leve) e Python (~100Mi). A cada request simultâneo, buffers, alocações e contextos adicionam memória proporcional ao RPS.</p>
+        <p>O <strong>limits.memory</strong> é definido como request + 30%. Se o Pod ultrapassar esse limite, o Kubernetes o encerra com <code>OOMKilled</code>, protegendo os outros workloads no Node.</p>
+
+        <h3>Estimativa de custo: quanto cada Pod pesa na fatura</h3>
+        <p>O custo é estimado com base em preços médios de instâncias <strong>AWS on-demand</strong> (~$0.04/vCPU/h e ~$0.005/GB/h). Em 730 horas/mês, um Pod com 500m de CPU e 256Mi de RAM custa aproximadamente $15/mês. Multiplique pelo número de réplicas para ter o custo total do serviço.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section muted" id="parametros">
+    <div class="container">
+      <div class="section-title">
+        <h2>Guia de Resources do Kubernetes</h2>
+        <p>Referência rápida de cada campo calculado por esta ferramenta.</p>
+      </div>
+      <div class="param-grid">
+        <div class="param-card" *ngFor="let param of parametrosExplicacao">
+          <h4><code>{{ param.nome }}</code></h4>
+          <p>{{ param.descricao }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes sobre Resources no Kubernetes</h2>
+        <p>Dúvidas comuns de DevOps e SREs sobre requests, limits, OOMKilled e FinOps.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" *ngFor="let faq of faqs" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 itemprop="name">{{ faq.question }}</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="servicos-relacionados">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serviços para quem precisa ir além da calculadora</h2>
+        <p>Dimensionar Pods é o primeiro passo. Para otimizar custos e performance de verdade, conheça nossos serviços.</p>
+      </div>
+      <div class="links-grid">
+        <a class="link-card" routerLink="/performance-infra">
+          <h4>Diagnóstico de Performance & Infra</h4>
+          <p>Mapeamento de gargalos em aplicação, banco de dados e infraestrutura com plano priorizado.</p>
+        </a>
+        <a class="link-card" routerLink="/blindagem-performance-infra">
+          <h4>Blindagem de Performance</h4>
+          <p>Execução das otimizações com testes de carga e rollback controlado para sistemas em produção.</p>
+        </a>
+        <a class="link-card" routerLink="/ferramentas/postgres-tuning-online">
+          <h4>Gerador de Configuração PostgreSQL</h4>
+          <p>Calcule shared_buffers, work_mem e outros parâmetros do postgresql.conf para otimizar seu banco.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Seus Pods podem custar menos e rodar melhor</h2>
+      <p>Calculadora é o ponto de partida. Para análise de custos reais, HPA, VPA e otimização de cluster, fale com quem vive Kubernetes e FinOps no dia a dia.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp me-2"></i>{{ ctaLabel }}
+        </a>
+      </div>
+      <p class="cta-meta">Análise de custos e performance Kubernetes com plano de ação priorizado. Retornamos em 1 dia útil.</p>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>
