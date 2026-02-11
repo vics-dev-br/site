@@ -1,0 +1,225 @@
+<app-navbar [minimalNav]="true" [ctaHref]="ctaHref" [ctaLabel]="ctaLabel"></app-navbar>
+
+<div class="page" itemscope itemtype="https://schema.org/WebPage">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a routerLink="/" itemprop="item"><span itemprop="name">Início</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Ferramentas</span>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+          <span itemprop="name">Gerador de Configuração PostgreSQL</span>
+          <meta itemprop="position" content="3" />
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Ferramenta Gratuita</p>
+          <h1 itemprop="name">Gerador de Configuração PostgreSQL Online</h1>
+          <p class="lede" itemprop="description">Informe os recursos do seu servidor e gere uma configuração <code>postgresql.conf</code> otimizada em segundos. Calcule <strong>shared_buffers</strong>, <strong>work_mem</strong>, <strong>effective_cache_size</strong> e outros parâmetros essenciais de performance.</p>
+          <p class="seo-intro">Esta calculadora de tuning PostgreSQL analisa a <strong>memória RAM</strong>, <strong>número de CPUs</strong>, <strong>perfil de carga</strong> (OLTP, Data Warehouse ou misto) e <strong>tipo de disco</strong> (SSD ou HDD) para gerar valores otimizados de <code>shared_buffers</code>, <code>work_mem</code>, <code>maintenance_work_mem</code>, <code>effective_cache_size</code>, <code>max_connections</code>, <code>random_page_cost</code>, <code>wal_buffers</code> e parâmetros de paralelismo. Os cálculos seguem as <strong>melhores práticas da documentação oficial do PostgreSQL</strong> e recomendações da comunidade.</p>
+        </div>
+
+        <div class="form-card" id="gerador">
+          <h2 class="form-title">Configure seu servidor</h2>
+
+          <div class="form-group">
+            <label for="ramSelect">RAM Total</label>
+            <select id="ramSelect" [(ngModel)]="ramGB" aria-describedby="ramHelp">
+              <option *ngFor="let ram of ramOptions" [ngValue]="ram">{{ ram }} GB</option>
+            </select>
+            <small id="ramHelp" class="form-help">Memória total do servidor dedicado ao PostgreSQL</small>
+          </div>
+
+          <div class="form-group">
+            <label for="cpuInput">CPUs (cores)</label>
+            <input id="cpuInput" type="number" [(ngModel)]="cpus" min="1" max="256" aria-describedby="cpuHelp" />
+            <small id="cpuHelp" class="form-help">Número de cores/vCPUs disponíveis</small>
+          </div>
+
+          <div class="form-group" role="radiogroup" aria-labelledby="tipoAppLabel">
+            <label id="tipoAppLabel">Tipo de Aplicação</label>
+            <div class="radio-group">
+              <label class="radio-label" [class.active]="tipoApp === 'web'">
+                <input type="radio" name="tipoApp" value="web" [(ngModel)]="tipoApp" />
+                <span>Web / OLTP</span>
+              </label>
+              <label class="radio-label" [class.active]="tipoApp === 'dw'">
+                <input type="radio" name="tipoApp" value="dw" [(ngModel)]="tipoApp" />
+                <span>Data Warehouse</span>
+              </label>
+              <label class="radio-label" [class.active]="tipoApp === 'misto'">
+                <input type="radio" name="tipoApp" value="misto" [(ngModel)]="tipoApp" />
+                <span>Misto</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" role="radiogroup" aria-labelledby="tipoDiscoLabel">
+            <label id="tipoDiscoLabel">Tipo de Disco</label>
+            <div class="radio-group">
+              <label class="radio-label" [class.active]="tipoDisco === 'ssd'">
+                <input type="radio" name="tipoDisco" value="ssd" [(ngModel)]="tipoDisco" />
+                <span>SSD / NVMe</span>
+              </label>
+              <label class="radio-label" [class.active]="tipoDisco === 'hdd'">
+                <input type="radio" name="tipoDisco" value="hdd" [(ngModel)]="tipoDisco" />
+                <span>HDD</span>
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg w-100" (click)="gerarConfig()">
+            <i class="fas fa-cogs me-2"></i>Gerar Configuração
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resultado" *ngIf="configVisible" #resultadoSection aria-label="Resultado da configuração gerada">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sua configuração postgresql.conf otimizada</h2>
+        <p>Copie e aplique no seu servidor. Parâmetros como <code>shared_buffers</code> exigem restart; outros como <code>work_mem</code> aceitam reload.</p>
+      </div>
+      <div class="terminal" role="region" aria-label="Configuração gerada">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">postgresql.conf</span>
+          <button class="btn-copy" (click)="copiarConfig()" [class.copied]="copiadoFeedback" [attr.aria-label]="copiadoFeedback ? 'Configuração copiada' : 'Copiar configuração para clipboard'">
+            <i class="fas" [ngClass]="copiadoFeedback ? 'fa-check' : 'fa-copy'"></i>
+            {{ copiadoFeedback ? 'Copiado!' : 'Copiar' }}
+          </button>
+        </div>
+        <pre class="terminal-body"><code>{{ configGerada }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="alerta" *ngIf="configVisible" aria-label="Aviso importante sobre tuning">
+    <div class="container">
+      <div class="alert-box" role="alert">
+        <div class="alert-icon">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        </div>
+        <div class="alert-content">
+          <h3>Configuração do postgresql.conf resolve ~30% dos problemas</h3>
+          <p>O tuning de <code>postgresql.conf</code> é o ponto de partida essencial. Porém, os outros <strong>70% dos problemas de performance</strong> do PostgreSQL são causados por:</p>
+          <ul>
+            <li><strong>Queries mal escritas</strong> — SELECT * sem WHERE, JOINs sem índice, subqueries desnecessárias</li>
+            <li><strong>Índices faltando ou redundantes</strong> — sequential scans em tabelas com milhões de linhas</li>
+            <li><strong>Modelo de dados inadequado</strong> — normalização excessiva ou falta dela</li>
+            <li><strong>Falta de VACUUM e ANALYZE</strong> — estatísticas desatualizadas e table bloat</li>
+          </ul>
+          <p class="alert-cta-text">Precisa de uma análise completa de performance PostgreSQL? Nossos especialistas identificam gargalos, otimizam queries e entregam um plano de ação priorizado.</p>
+          <a class="btn btn-success btn-lg" [href]="ctaHref" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp me-2"></i>Solicitar análise especializada
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-title">
+        <h2>Como funciona o cálculo de tuning do PostgreSQL</h2>
+        <p>A calculadora segue as recomendações da documentação oficial e da comunidade PostgreSQL para determinar cada parâmetro.</p>
+      </div>
+      <article class="content-block">
+        <h3>Memória: shared_buffers, effective_cache_size e work_mem</h3>
+        <p>O <strong>shared_buffers</strong> é configurado como <strong>25% da RAM total</strong>, conforme recomendado pela documentação oficial do PostgreSQL. Valores maiores podem causar contenção com o cache do sistema operacional. O <strong>effective_cache_size</strong> (75% da RAM) orienta o query planner sobre quanta memória está disponível para cache, influenciando a escolha entre index scan e sequential scan.</p>
+        <p>O <strong>work_mem</strong> é calculado dividindo a memória restante pelo número de conexões multiplicado por um fator de segurança (3x para OLTP, 1.5x para Data Warehouse), evitando que operações simultâneas de sort e hash consumam toda a RAM.</p>
+
+        <h3>Disco: random_page_cost e effective_io_concurrency</h3>
+        <p>Em servidores com <strong>SSD ou NVMe</strong>, o <code>random_page_cost</code> cai de 4.0 para <strong>1.1</strong> porque leituras aleatórias são quase tão rápidas quanto sequenciais. Isso faz o planner preferir index scans. O <code>effective_io_concurrency</code> sobe para <strong>200</strong> em SSDs, permitindo ao PostgreSQL disparar múltiplas leituras em paralelo.</p>
+
+        <h3>Conexões e paralelismo</h3>
+        <p>Aplicações <strong>Web/OLTP</strong> tipicamente precisam de mais conexões (200) com menos <code>work_mem</code> por conexão, enquanto <strong>Data Warehouses</strong> usam menos conexões (40) com mais memória por query. O número de parallel workers é calculado com base nos CPUs disponíveis, limitado a 8 workers conforme a prática recomendada.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section muted" id="parametros">
+    <div class="container">
+      <div class="section-title">
+        <h2>Guia de parâmetros do postgresql.conf</h2>
+        <p>Referência rápida de cada parâmetro calculado por esta ferramenta de tuning PostgreSQL.</p>
+      </div>
+      <div class="param-grid">
+        <div class="param-card" *ngFor="let param of parametrosExplicacao">
+          <h4><code>{{ param.nome }}</code></h4>
+          <p>{{ param.descricao }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes sobre tuning PostgreSQL</h2>
+        <p>Dúvidas comuns de DBAs e desenvolvedores sobre configuração e otimização de performance do PostgreSQL.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" *ngFor="let faq of faqs" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 itemprop="name">{{ faq.question }}</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="servicos-relacionados">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serviços de performance para quem precisa ir além do tuning</h2>
+        <p>Configuração é o primeiro passo. Para resolver gargalos estruturais, conheça nossos serviços especializados.</p>
+      </div>
+      <div class="links-grid">
+        <a class="link-card" routerLink="/performance-infra">
+          <h4>Diagnóstico de Performance & Infra</h4>
+          <p>Mapeamento completo de gargalos em aplicação, banco de dados e infraestrutura com plano priorizado.</p>
+        </a>
+        <a class="link-card" routerLink="/blindagem-performance-infra">
+          <h4>Blindagem de Performance</h4>
+          <p>Execução das otimizações com testes de carga e rollback controlado para sistemas em produção.</p>
+        </a>
+        <a class="link-card" routerLink="/monitoramento-governanca-performance">
+          <h4>Monitoramento & Governança</h4>
+          <p>Observabilidade contínua com SLI/SLO e FinOps para manter os ganhos de performance ao longo do tempo.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Seu PostgreSQL pode render muito mais</h2>
+      <p>Configuração é só o começo. Para análise de queries, índices e arquitetura de dados, fale com quem vive performance de banco de dados no dia a dia.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" [href]="ctaHref" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp me-2"></i>{{ ctaLabel }}
+        </a>
+      </div>
+      <p class="cta-meta">Análise de performance PostgreSQL com plano de ação priorizado. Retornamos em 1 dia útil.</p>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

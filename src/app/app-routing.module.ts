@@ -42,5 +42,9 @@ export const appRoutes: Route[] = [
         path: 'ml-start',
         loadChildren: () => import('./modules/ml-start/ml-start.module').then(m => m.MlStartModule)
     },
+    {
+        path: 'ferramentas/postgres-tuning-online',
+        loadChildren: () => import('./modules/postgres-tuning/postgres-tuning.module').then(m => m.PostgresTuningModule)
+    },
 
 ];
