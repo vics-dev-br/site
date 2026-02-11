@@ -4,13 +4,13 @@
     <div class="d-table-cell">
       <div class="container">
         <div class="main-banner-text text-start">
-          <div class="hero-badge">Tripé de performance: Diagnóstico → Blindagem → Governança</div>
-          <h1>Diagnóstico, execução e governança para sistemas críticos que não podem parar.</h1>
-          <p>Começamos pelo diagnóstico pago, executamos a blindagem com método e mantemos a estabilidade com governança recorrente. Resultado: performance sustentada e custo previsível.</p>
+          <div class="hero-badge">METODOLOGIA PRÓPRIA: DIAGNÓSTICO → BLINDAGEM → GOVERNANÇA</div>
+          <h1>Performance não é sorte. É método.</h1>
+          <h2 class="hero-subtitle">Transformamos sistemas críticos e instáveis em operações previsíveis. Paramos de apagar incêndios aplicando um processo estruturado de engenharia que protege seu faturamento e reduz custos de infraestrutura.</h2>
           <div class="hero-actions">
             <a routerLink="/performance-infra"
                class="btn btn-primary btn-lg">
-              🔴 Diagnóstico de Performance (Produto 1)
+              Começar pelo Diagnóstico
             </a>
             <a href="https://wa.me/5531975474785?text=Quero%20agendar%20o%20Diagn%C3%B3stico%20de%20Performance"
                target="_blank"
@@ -20,11 +20,44 @@
             </a>
             <div class="hero-meta">Prazo do diagnóstico: 10 a 15 dias • Execução pelos sócios</div>
           </div>
+          <button type="button" class="hero-link" (click)="onClick('metodo')">Entenda como o tripé de performance funciona 👇</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<section id="metodo" class="section-tight bg-fffdfd journey-section">
+  <div class="container">
+    <div class="section-title simple">
+      <h4>Jornada da estabilidade</h4>
+      <h2>Diagnóstico → Blindagem → Governança</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="crisis-card journey-card">
+          <div class="icon">🔍</div>
+          <h5>Diagnóstico: achar o erro</h5>
+          <p>Identificamos com precisão o que está travando vendas e operação.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="crisis-card journey-card">
+          <div class="icon">🛡️</div>
+          <h5>Blindagem: corrigir a infra</h5>
+          <p>Executamos as correções críticas com segurança total e rollback.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="crisis-card journey-card">
+          <div class="icon">📈</div>
+          <h5>Governança: manter estável</h5>
+          <p>Monitoramos e prevenimos regressões para proteger faturamento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="realidade" class="section-tight bg-fffdfd">
   <div class="container">
@@ -87,6 +120,34 @@
   </div>
 </section>
 
+<section id="especialista" class="section-tight bg-fffdfd">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-6">
+        <div class="section-title simple">
+          <h4>Autoridade técnica</h4>
+          <h2>Engenharia de Performance para quem não pode errar.</h2>
+        </div>
+        <p>Sou o criador da metodologia Diagnóstico → Blindagem → Governança, desenvolvida para resolver gargalos em sistemas de alta complexidade.</p>
+        <p>Minha atuação vai além do código: atuo como parceiro estratégico de CTOs e fundadores que precisam de:</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="case-card about-card">
+          <ul class="bullet-list">
+            <li><strong>Clareza técnica:</strong> Traduzo o “caos” do código em decisões de negócio.</li>
+            <li><strong>Redução de risco:</strong> Blindo a infraestrutura contra picos de acesso e falhas.</li>
+            <li><strong>Eficiência financeira:</strong> Corto custos de nuvem desnecessários através de otimização real.</li>
+          </ul>
+          <p class="tagline">Se o seu sistema é crítico para o seu negócio, eu sou o especialista que garante que ele continue rodando.</p>
+        </div>
+      </div>
+    </div>
+    <figure class="about-method-figure">
+      <img src="assets/images/processo.png" alt="Metodologia VICS: tripé de performance" loading="lazy">
+    </figure>
+  </div>
+</section>
+
 <section id="produtos" class="section-tight bg-F7F5F4">
   <div class="container">
     <div class="section-title simple">
@@ -109,21 +170,21 @@
             <p>{{ product.offer }}</p>
           </div>
           <div class="product-section">
-            <h6>Escopo rápido</h6>
+            <h6>O que entregamos</h6>
             <ul class="dash-list">
               <li *ngFor="let item of product.scope">{{ item }}</li>
             </ul>
           </div>
           <div class="product-section">
-            <h6>Por que isso escala</h6>
+            <h6>Por que faz sentido</h6>
             <ul class="dash-list">
               <li *ngFor="let reason of product.scale">{{ reason }}</li>
             </ul>
             <div class="product-actions">
-              <a *ngIf="product.label === 'Produto 1'" routerLink="/performance-infra" class="btn btn-primary btn-sm">Ver diagnóstico</a>
-              <a *ngIf="product.label === 'Produto 2'" routerLink="/blindagem-performance-infra" class="btn btn-primary btn-sm">Ver blindagem</a>
-              <a *ngIf="product.label === 'Produto 3'" routerLink="/monitoramento-governanca-performance" class="btn btn-primary btn-sm">Ver governança</a>
-              <a *ngIf="product.label === 'Produto 4'" routerLink="/ml-start" class="btn btn-primary btn-sm">Ver ML Start</a>
+              <a *ngIf="product.label === 'Produto 1'" routerLink="/performance-infra" class="btn btn-primary btn-sm">Quero reduzir custo</a>
+              <a *ngIf="product.label === 'Produto 2'" routerLink="/blindagem-performance-infra" class="btn btn-primary btn-sm">Quero estabilidade</a>
+              <a *ngIf="product.label === 'Produto 3'" routerLink="/monitoramento-governanca-performance" class="btn btn-primary btn-sm">Quero performance contínua</a>
+              <a *ngIf="product.label === 'Produto 4'" routerLink="/ml-start" class="btn btn-primary btn-sm">Quero meu MVP de IA</a>
             </div>
           </div>
         </div>
@@ -139,9 +200,9 @@
       <h2>Plano realista: tripé em 3 passos</h2>
     </div>
     <ol class="process-steps">
-      <li><span>1</span> Diagnóstico de Performance (10 a 15 dias) — entrada paga, plano priorizado e abatimento na execução.</li>
-      <li><span>2</span> Blindagem de Performance & Infra (15 a 30 dias) — execução controlada das otimizações com rollback e validação.</li>
-      <li><span>3</span> Monitoramento & Governança (recorrente) — evitar regressão, orientar novas features e manter previsibilidade.</li>
+      <li><span>1</span> Diagnóstico de Gargalos e Redução de Custos (10 a 15 dias) — entrada paga, plano priorizado e abatimento na execução.</li>
+      <li><span>2</span> Blindagem de Performance & Infra (15 a 30 dias) — correções críticas com segurança total e validação.</li>
+      <li><span>3</span> Monitoramento & Governança (recorrente) — garantia de performance contínua e prevenção de regressões.</li>
     </ol>
     <div class="key-phrase">
       <p>“Performance não é projeto. É diagnóstico, blindagem e governança contínua.”</p>

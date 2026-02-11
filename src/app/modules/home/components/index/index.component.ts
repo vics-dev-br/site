@@ -13,73 +13,54 @@ export class IndexComponent implements OnInit {
         {
             icon: '🛡️',
             label: 'Produto 1',
-            title: 'Diagnóstico de Performance para Sistemas Críticos',
-            pitch: 'Mapa claro de gargalos de aplicação, banco e infra em até 15 dias.',
-            offer: 'Diagnóstico técnico pago com plano de ação priorizado antes de escalar infraestrutura.',
+            title: 'Diagnóstico de Gargalos & Redução de Custos',
+            pitch: 'Em até 15 dias, mostramos onde seu sistema está perdendo dinheiro e o que corrigir primeiro.',
+            offer: 'Pare de tentar resolver lentidão apenas aumentando servidor. Entregamos um mapa claro dos problemas para você decidir com base em dados, não em achismo.',
             scope: [
-                'Levantamento de métricas, logs e configuração',
-                'Análise de aplicação, banco e infraestrutura',
-                'Plano de ação priorizado com impacto técnico e financeiro',
-                'Entregáveis documentados'
+                'Mapeamento de riscos: identificação exata do que está travando vendas e operação',
+                'Análise financeira: estimativa clara de custo x benefício de cada correção',
+                'Plano de ação priorizado: um roteiro de ganhos rápidos para aliviar o sistema imediatamente'
             ],
             scale: [
-                'Entrada clara e de baixo risco',
-                'Define onde agir primeiro',
-                'Abatimento do valor na execução'
+                'Decisão segura: retorno do investimento antes de aprovar a execução',
+                'Economia real: evita gastos errados com infraestrutura desnecessária',
+                'Risco zero: se fechar a execução, o valor do diagnóstico é abatido'
             ]
         },
         {
             icon: '⚙️',
             label: 'Produto 2',
-            title: 'Blindagem de Performance & Infra',
-            pitch: 'Execução controlada das otimizações críticas em 15 a 30 dias.',
-            offer: 'Implementação com método, rollback e validação de métricas para sistemas que não podem parar.',
+            title: 'Blindagem de Performance & Estabilidade',
+            pitch: 'Resolvemos a lentidão e os travamentos sem parar a sua operação.',
+            offer: 'Executamos as correções críticas identificadas no diagnóstico. É uma intervenção cirúrgica para que seu sistema aguente picos de acesso sem cair.',
             scope: [
-                'Planejamento técnico e janelas de execução',
-                'Otimização de queries, índices e cache',
-                'Ajustes de aplicação e servidores',
-                'Monitoramento e validação pós-implantação'
+                'Execução segura: correções aplicadas com metodologia de blindagem e risco controlado',
+                'Foco no negócio: ajustes em aplicação e banco priorizando o que impacta o faturamento',
+                'Validação de carga: testes reais para garantir que o sistema aguenta o tranco',
+                'Garantia de reversão (rollback): protocolos de segurança para desfazer alterações em minutos'
             ],
             scale: [
-                'Plano já validado no diagnóstico',
-                'Entrega fechada com escopo claro',
-                'Evita aumento desnecessário de infraestrutura'
+                'Resultado rápido: melhora perceptível na velocidade em poucas semanas',
+                'Paz operacional: menos risco de queda em datas críticas (Black Friday, lançamentos)',
+                'Eficiência: seu sistema faz mais com os mesmos servidores'
             ]
         },
         {
             icon: '📈',
             label: 'Produto 3',
-            title: 'Monitoramento & Governança de Performance',
-            pitch: 'Assinatura recorrente para manter performance e evitar novas crises.',
-            offer: 'Monitoramento estratégico, revisões periódicas e governança técnica com relatórios executivos.',
+            title: 'Monitoramento & Governança Contínua',
+            pitch: 'O seguro do seu sistema: performance previsível mês a mês.',
+            offer: 'Performance não é um projeto com fim, é uma disciplina contínua. Garantimos que o sistema não volte a ficar lento conforme novas funcionalidades são lançadas.',
             scope: [
-                'Indicadores críticos e análise de tendência',
-                'Revisões técnicas mensais ou trimestrais',
-                'Boas práticas e orientação para novas features',
-                'Relatórios executivos com riscos e recomendações'
+                'Vigilância ativa: monitoramento de indicadores que importam para o negócio',
+                'Antecipação de problemas: alertas de tendência antes do cliente reclamar',
+                'Relatórios executivos: visão clara dos riscos técnicos e da eficiência de custos (FinOps)',
+                'Governança técnica: apoio ao time para manter boas práticas de performance'
             ],
             scale: [
-                'Receita previsível e relação de longo prazo',
-                'Menos incidentes e menos pressão por infra',
-                'Produto recorrente, sem horas abertas'
-            ]
-        },
-        {
-            icon: '🤖',
-            label: 'Produto 4',
-            title: 'ML Start — Decisões que Escalam',
-            pitch: 'Primeiro modelo de Machine Learning em produção em 6 semanas.',
-            offer: 'Modelo de ML funcional para startups que querem automatizar decisões com dados.',
-            scope: [
-                'Diagnóstico e mapeamento de dados',
-                'Preparação e feature engineering',
-                'Treinamento e validação do modelo',
-                'Integração via API ou batch'
-            ],
-            scale: [
-                'Entrega rápida com escopo fechado',
-                'Modelo pronto para consumo',
-                'Base para escalar com dados'
+                'Previsibilidade: sem surpresas na fatura da nuvem ou quedas inesperadas',
+                'Foco no core business: seu time cria features e a casa fica em pé',
+                'Proteção do faturamento: menos downtime e perda de vendas'
             ]
         }
     ];

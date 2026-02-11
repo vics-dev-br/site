@@ -112,10 +112,10 @@ export class PerformanceInfraComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Performance de Infraestrutura | Aceleração, SLO e Custos — VICS');
+    this.title.setTitle('Diagnóstico de Gargalos e Redução de Custos | Performance de Infra — VICS');
     this.meta.updateTag({
       name: 'description',
-      content: 'Otimize latência, throughput e custo da sua infra. SLO claros, ganhos mensuráveis e governança. Veja como a VICS executa.'
+      content: 'Descubra por que seu sistema está lento ou caro e quanto economizar corrigindo os gargalos certos antes de escalar infraestrutura.'
     });
     this.meta.updateTag({
       name: 'keywords',
@@ -124,11 +124,11 @@ export class PerformanceInfraComponent implements OnInit {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Performance de Infraestrutura | Aceleração, SLO e Custos — VICS'
+      content: 'Diagnóstico de Gargalos e Redução de Custos | Performance de Infra — VICS'
     });
     this.meta.updateTag({
       property: 'og:description',
-      content: 'Otimize latência, throughput e custo da sua infra com SLO claros e ganhos mensuráveis.'
+      content: 'Diagnóstico em até 15 dias para reduzir custos e recuperar performance antes de escalar infraestrutura.'
     });
     this.meta.updateTag({
       property: 'og:url',
@@ -156,7 +156,7 @@ export class PerformanceInfraComponent implements OnInit {
         '@type': 'Service',
         name: 'Performance de Infraestrutura',
         url: 'https://www.vics.dev.br/performance-infra',
-        serviceType: 'Diagnóstico e aceleração de performance',
+        serviceType: 'Diagnóstico de gargalos e redução de custos',
         provider: {
           '@type': 'Organization',
           name: 'VICS',
@@ -165,7 +165,7 @@ export class PerformanceInfraComponent implements OnInit {
         areaServed: { '@type': 'Country', name: 'BR' },
         offers: {
           '@type': 'Offer',
-          description: 'Diagnóstico e plano de ação para performance de infraestrutura com SLO claros.'
+          description: 'Diagnóstico e plano priorizado para reduzir custos e melhorar performance antes de escalar infraestrutura.'
         }
       });
 

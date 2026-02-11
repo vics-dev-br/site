@@ -111,10 +111,10 @@ export class MlStartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('ML Start — Decisoes que Escalam | Machine Learning para Startups — VICS');
+    this.title.setTitle('ML Start — Inteligencia de Dados Pratica | MVP de IA em 6 semanas — VICS');
     this.meta.updateTag({
       name: 'description',
-      content: 'Primeiro modelo de Machine Learning em producao em 6 semanas. Para startups que querem automatizar decisoes com dados.'
+      content: 'Automatize decisoes complexas em 6 semanas com um modelo preditivo funcional para vender mais ou reduzir riscos.'
     });
     this.meta.updateTag({
       name: 'keywords',
@@ -123,11 +123,11 @@ export class MlStartComponent implements OnInit {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
       property: 'og:title',
-      content: 'ML Start — Decisoes que Escalam | Machine Learning para Startups — VICS'
+      content: 'ML Start — Inteligencia de Dados Pratica | MVP de IA em 6 semanas — VICS'
     });
     this.meta.updateTag({
       property: 'og:description',
-      content: 'Primeiro modelo de Machine Learning em producao em 6 semanas. Para startups que querem automatizar decisoes com dados.'
+      content: 'Automatize decisoes complexas em 6 semanas com um modelo preditivo funcional para vender mais ou reduzir riscos.'
     });
     this.meta.updateTag({
       property: 'og:url',
@@ -147,9 +147,9 @@ export class MlStartComponent implements OnInit {
       this.appendJsonLd({
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'ML Start — Decisoes que Escalam',
+        name: 'ML Start — Inteligencia de Dados Pratica',
         url: 'https://www.vics.dev.br/ml-start',
-        serviceType: 'Machine Learning para Startups',
+        serviceType: 'MVP de IA para startups',
         provider: {
           '@type': 'Organization',
           name: 'VICS'

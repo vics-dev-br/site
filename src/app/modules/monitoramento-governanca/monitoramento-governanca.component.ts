@@ -166,10 +166,10 @@ export class MonitoramentoGovernancaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Monitoramento e Governança de Performance | Observabilidade — VICS');
+    this.title.setTitle('Garantia de Performance Contínua | Monitoramento & Governança — VICS');
     this.meta.updateTag({
       name: 'description',
-      content: 'Observabilidade, SLI/SLO, FinOps e governança contínua para performance previsível.'
+      content: 'Monitoramento contínuo para prever problemas antes que afetem clientes e faturamento.'
     });
     this.meta.updateTag({
       name: 'keywords',
@@ -179,11 +179,11 @@ export class MonitoramentoGovernancaComponent implements OnInit {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Monitoramento e Governança de Performance | Observabilidade — VICS'
+      content: 'Garantia de Performance Contínua | Monitoramento & Governança — VICS'
     });
     this.meta.updateTag({
       property: 'og:description',
-      content: 'Observabilidade, SLI/SLO, FinOps e governança contínua para performance previsível.'
+      content: 'Acompanhamento contínuo para evitar regressões e proteger receita.'
     });
     this.meta.updateTag({
       property: 'og:url',
@@ -204,7 +204,7 @@ export class MonitoramentoGovernancaComponent implements OnInit {
         '@type': 'Service',
         name: 'Monitoramento & Governança de Performance',
         url: 'https://www.vics.dev.br/monitoramento-governanca-performance',
-        serviceType: 'Observabilidade e governança de SLO',
+        serviceType: 'Garantia de performance contínua com governança',
         provider: { '@type': 'Organization', name: 'VICS' },
         areaServed: { '@type': 'Country', name: 'BR' }
       });

@@ -133,10 +133,10 @@ export class BlindagemPerformanceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Blindagem de Performance em Infra | Resiliência e SLO — VICS');
+    this.title.setTitle('Blindagem de Performance | Estabilidade de Sistema — VICS');
     this.meta.updateTag({
       name: 'description',
-      content: 'Evite quedas de SLO e degradação. Arquiteturas resilientes, testes de carga e caos engineering.'
+      content: 'Correções críticas com segurança total, rollback e validação para evitar travamentos e quedas em picos.'
     });
     this.meta.updateTag({
       name: 'keywords',
@@ -146,11 +146,11 @@ export class BlindagemPerformanceComponent implements OnInit {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Blindagem de Performance em Infra | Resiliência e SLO — VICS'
+      content: 'Blindagem de Performance | Estabilidade de Sistema — VICS'
     });
     this.meta.updateTag({
       property: 'og:description',
-      content: 'Arquiteturas resilientes, testes de carga e caos engineering para sustentar SLO mesmo em falhas.'
+      content: 'Execução segura das correções críticas para sustentar estabilidade em picos e falhas.'
     });
     this.meta.updateTag({
       property: 'og:url',
@@ -172,7 +172,7 @@ export class BlindagemPerformanceComponent implements OnInit {
         '@type': 'Service',
         name: 'Blindagem de Performance em Infra',
         url: 'https://www.vics.dev.br/blindagem-performance-infra',
-        serviceType: 'Resiliência e execução controlada de performance',
+        serviceType: 'Estabilidade de sistema com execução controlada',
         provider: {
           '@type': 'Organization',
           name: 'VICS'
