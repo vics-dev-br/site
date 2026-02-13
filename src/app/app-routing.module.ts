@@ -50,5 +50,9 @@ export const appRoutes: Route[] = [
         path: 'ferramentas/k8s-resources-calculator',
         loadChildren: () => import('./modules/k8s-resources/k8s-resources.module').then(m => m.K8sResourcesModule)
     },
+    {
+        path: 'ferramentas/cloud-credits',
+        loadChildren: () => import('./modules/cloud-credits/cloud-credits.module').then(m => m.CloudCreditsModule)
+    },
 
 ];

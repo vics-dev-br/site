@@ -486,6 +486,103 @@
   }
 }
 
+.cloud-credits-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.cloud-credits-title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.cloud-credits-pitch {
+  color: #565050;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.cloud-credits-bullets {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin-bottom: 20px;
+
+  li {
+    list-style: none;
+    position: relative;
+    padding-left: 24px;
+    color: #2d2828;
+    font-weight: 500;
+    line-height: 1.5;
+
+    &::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: 700;
+    }
+  }
+}
+
+.cloud-credits-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  .btn-outline-success {
+    color: #10b981;
+    border-color: #10b981;
+
+    &:hover {
+      background: #10b981;
+      color: #fff;
+    }
+  }
+}
+
+.cloud-credits-card {
+  background: #ffffff;
+  border: 2px solid #10b981;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(16, 185, 129, 0.1);
+
+  .cloud-credits-card-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+
+  .cloud-credits-card-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: #10b981;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .cloud-credits-card-label {
+    color: #565050;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+
 @media (max-width: 991px) {
   .crisis-hero {
     padding: 120px 0 90px;

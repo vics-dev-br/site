@@ -1,0 +1,158 @@
+<div class="page">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Início</a></li>
+        <li><span>Ferramentas</span></li>
+        <li><span>Créditos Cloud</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Parceria VICS + Spendbase</p>
+      <h1>Créditos Cloud AWS & GCP para Startups — Até US$ 25 mil</h1>
+      <p class="subtitle">Reduza custos de infraestrutura cloud desde o primeiro dia. Acesse créditos, suporte técnico e ferramentas de FinOps sem burocracia.</p>
+      <div class="hero-actions">
+        <a [href]="spendbaseUrl" target="_blank" rel="noopener" class="btn btn-accent btn-lg">
+          Avaliar elegibilidade
+        </a>
+        <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg">
+          Falar com a VICS
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Benefícios -->
+  <section class="section" id="beneficios">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que você recebe com o programa</h2>
+        <p>Créditos cloud são só o começo. O programa inclui suporte e ferramentas para otimizar sua operação.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="benefit-card" *ngFor="let b of beneficios">
+          <div class="icon">{{ b.icon }}</div>
+          <h3>{{ b.titulo }}</h3>
+          <p>{{ b.descricao }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requisitos -->
+  <section class="section muted" id="requisitos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Requisitos para participar</h2>
+        <p>Verifique se sua empresa atende aos critérios básicos antes de aplicar.</p>
+      </div>
+      <ul class="requisitos-list">
+        <li *ngFor="let req of requisitos">{{ req }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Como funciona -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-title">
+        <h2>Como funciona</h2>
+        <p>Três passos simples para acessar os créditos.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" *ngFor="let p of passos">
+          <div class="step-number">{{ p.numero }}</div>
+          <h3>{{ p.titulo }}</h3>
+          <p>{{ p.descricao }}</p>
+        </div>
+      </div>
+      <div class="steps-cta">
+        <a [href]="spendbaseUrl" target="_blank" rel="noopener" class="btn btn-accent btn-lg">
+          Acessar link da Spendbase
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alert VICS -->
+  <section class="section highlight-section" id="servico-vics">
+    <div class="container">
+      <div class="highlight-box">
+        <h2>Não tem time de infra?</h2>
+        <p>Conseguir os créditos é o primeiro passo. Mas se você precisa de ajuda para configurar, otimizar ou manter sua infraestrutura cloud, a VICS resolve.</p>
+        <ul class="highlight-list">
+          <li>Deploy de aplicações em AWS/GCP</li>
+          <li>Configuração de HTTPS, domínio e DNS</li>
+          <li>Setup de banco de dados (PostgreSQL, Redis)</li>
+          <li>Otimização de performance e custos</li>
+          <li>Monitoramento e governança contínua</li>
+        </ul>
+        <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn-accent btn-lg">
+          Falar com a VICS sobre infraestrutura
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section muted" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" *ngFor="let faq of faqs">
+          <summary>{{ faq.question }}</summary>
+          <p>{{ faq.answer }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços relacionados -->
+  <section class="section muted" id="servicos-relacionados">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ferramentas e serviços relacionados</h2>
+        <p>Explore outras ferramentas gratuitas e serviços de performance da VICS.</p>
+      </div>
+      <div class="links-grid">
+        <a class="link-card" routerLink="/ferramentas/postgres-tuning-online">
+          <h4>Gerador de Configuração PostgreSQL</h4>
+          <p>Calcule shared_buffers, work_mem e outros parâmetros para otimizar seu banco de dados PostgreSQL.</p>
+        </a>
+        <a class="link-card" routerLink="/ferramentas/k8s-resources-calculator">
+          <h4>Calculadora de Recursos Kubernetes</h4>
+          <p>Dimensione requests e limits de CPU e memória para seus Pods com base em boas práticas.</p>
+        </a>
+        <a class="link-card" routerLink="/performance-infra">
+          <h4>Diagnóstico de Performance & Infra</h4>
+          <p>Mapeamento completo de gargalos em aplicação, banco de dados e infraestrutura com plano priorizado.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final" id="cta-final">
+    <div class="container">
+      <h2>Reduza seus custos de cloud agora</h2>
+      <p>Acesse até US$ 25 mil em créditos AWS e GCP pela parceria VICS + Spendbase. Sem burocracia, sem custo.</p>
+      <div class="cta-actions">
+        <a [href]="spendbaseUrl" target="_blank" rel="noopener" class="btn btn-accent btn-lg">
+          Avaliar elegibilidade na Spendbase
+        </a>
+        <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg">
+          Falar com a VICS
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
