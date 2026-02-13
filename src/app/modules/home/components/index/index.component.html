@@ -164,47 +164,33 @@
   </div>
 </section>
 
-<section id="produtos" class="section-tight bg-F7F5F4">
+<section id="produtos" class="section-tight bg-dark-gradient">
   <div class="container">
-    <div class="section-title simple">
-      <h4>Três produtos claros</h4>
-      <h2>Entrada, execução e recorrência previsível</h2>
+    <div class="section-title simple section-title-light">
+      <h4>Unidade de intervenção tática</h4>
+      <h2>Diagnóstico. Blindagem. Governança.</h2>
+      <p class="section-subtitle">Três pilares que transformam sistemas instáveis em operações previsíveis e eficientes.</p>
     </div>
-    <div class="row g-4">
-      <div class="col-lg-6" *ngFor="let product of products">
-        <div class="product-card">
-          <div class="product-head">
-            <div class="icon">{{ product.icon }}</div>
-            <div>
-              <p class="eyebrow">{{ product.label }}</p>
-              <h5>{{ product.title }}</h5>
-              <p class="pitch">{{ product.pitch }}</p>
-            </div>
-          </div>
-          <div class="product-section">
-            <h6>O que você vende</h6>
-            <p>{{ product.offer }}</p>
-          </div>
-          <div class="product-section">
-            <h6>O que entregamos</h6>
-            <ul class="dash-list">
-              <li *ngFor="let item of product.scope">{{ item }}</li>
-            </ul>
-          </div>
-          <div class="product-section">
-            <h6>Por que faz sentido</h6>
-            <ul class="dash-list">
-              <li *ngFor="let reason of product.scale">{{ reason }}</li>
-            </ul>
-            <div class="product-actions">
-              <a *ngIf="product.label === 'Produto 1'" routerLink="/performance-infra" class="btn btn-primary btn-sm">Quero reduzir custo</a>
-              <a *ngIf="product.label === 'Produto 2'" routerLink="/blindagem-performance-infra" class="btn btn-primary btn-sm">Quero estabilidade</a>
-              <a *ngIf="product.label === 'Produto 3'" routerLink="/monitoramento-governanca-performance" class="btn btn-primary btn-sm">Quero performance contínua</a>
-              <a *ngIf="product.label === 'Produto 4'" routerLink="/ml-start" class="btn btn-primary btn-sm">Quero meu MVP de IA</a>
-            </div>
-          </div>
+    <div class="journey-timeline">
+      <div class="journey-step" *ngFor="let product of products">
+        <div class="step-marker">
+          <span class="step-number">{{ product.step }}</span>
+          <span class="step-line"></span>
+        </div>
+        <div class="journey-card">
+          <div class="journey-label">{{ product.label }}</div>
+          <p class="journey-pain"><strong>Onde dói:</strong> {{ product.pain }}</p>
+          <h3 class="journey-title">{{ product.title }}</h3>
+          <p class="journey-pitch">{{ product.pitch }}</p>
+          <ul class="journey-bullets">
+            <li *ngFor="let bullet of product.bullets">{{ bullet }}</li>
+          </ul>
+          <a [routerLink]="product.link" class="btn btn-primary btn-sm">{{ product.cta }}</a>
         </div>
       </div>
+    </div>
+    <div class="key-phrase">
+      <p>"Performance não é projeto. É diagnóstico, blindagem e governança contínua."</p>
     </div>
   </div>
 </section>
@@ -233,23 +219,6 @@
           <div class="cloud-credits-card-label">em créditos cloud para startups</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="plano" class="section-tight">
-  <div class="container">
-    <div class="section-title simple">
-      <h4>Sobrevivência + escala</h4>
-      <h2>Plano realista: tripé em 3 passos</h2>
-    </div>
-    <ol class="process-steps">
-      <li><span>1</span> Diagnóstico de Gargalos e Redução de Custos (10 a 15 dias) — entrada paga, plano priorizado e abatimento na execução.</li>
-      <li><span>2</span> Blindagem de Performance & Infra (15 a 30 dias) — correções críticas com segurança total e validação.</li>
-      <li><span>3</span> Monitoramento & Governança (recorrente) — garantia de performance contínua e prevenção de regressões.</li>
-    </ol>
-    <div class="key-phrase">
-      <p>“Performance não é projeto. É diagnóstico, blindagem e governança contínua.”</p>
     </div>
   </div>
 </section>

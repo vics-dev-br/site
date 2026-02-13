@@ -384,65 +384,140 @@
   color: #2d2828;
 }
 
-.product-card {
+.bg-dark-gradient {
+  background: linear-gradient(180deg, #0f0d0e 0%, #161313 100%);
+  color: #f5f5f5;
+}
+
+.section-title-light {
+  h4 {
+    color: #ff2c57 !important;
+  }
+
+  h2 {
+    color: #ffffff;
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 17px;
+    max-width: 640px;
+    margin-top: 10px;
+  }
+}
+
+.journey-timeline {
   display: grid;
-  gap: 14px;
+  gap: 0;
+  position: relative;
+}
 
-  .product-head {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
+.journey-step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  min-height: 0;
+}
+
+.step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .step-number {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ff2c57;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 16px;
+    flex-shrink: 0;
+    z-index: 1;
   }
 
-  .icon {
-    font-size: 28px;
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(180deg, #ff2c57, rgba(255, 44, 87, 0.2));
+  }
+}
+
+.journey-step:last-child .step-line {
+  display: none;
+}
+
+.journey-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 24px;
+  transition: transform 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 44, 87, 0.3);
   }
 
-  .eyebrow {
-    margin: 0;
+  .journey-label {
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     font-size: 12px;
-    color: #6b6161;
-  }
-
-  h5 {
-    margin: 2px 0 6px;
     font-weight: 700;
+    color: #ff2c57;
+    margin-bottom: 8px;
   }
 
-  .pitch {
-    margin: 0;
-    color: #4a4444;
-  }
+  .journey-pain {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-bottom: 12px;
 
-  .product-section {
-    border-top: 1px solid #f0eceb;
-    padding-top: 10px;
-    display: grid;
-    gap: 6px;
-
-    h6 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.2px;
-      text-transform: uppercase;
-      color: #6b6161;
-    }
-
-    p {
-      margin: 0;
-      color: #2d2828;
-      font-weight: 600;
-      line-height: 1.5;
+    strong {
+      color: rgba(255, 255, 255, 0.85);
     }
   }
 
-  .product-actions {
-    margin-top: 8px;
+  .journey-title {
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
 
-    .btn {
+  .journey-pitch {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 640px;
+  }
+}
+
+.journey-bullets {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin-bottom: 18px;
+
+  li {
+    list-style: none;
+    position: relative;
+    padding-left: 22px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    font-size: 15px;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #ff2c57;
       font-weight: 700;
     }
   }
