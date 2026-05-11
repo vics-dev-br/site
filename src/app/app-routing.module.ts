@@ -54,5 +54,13 @@ export const appRoutes: Route[] = [
         path: 'ferramentas/cloud-credits',
         loadChildren: () => import('./modules/cloud-credits/cloud-credits.module').then(m => m.CloudCreditsModule)
     },
+    {
+        path: 'programa-indicacoes',
+        loadChildren: () => import('./modules/referral-program/referral-program.module').then(m => m.ReferralProgramModule)
+    },
+    {
+        path: 'en',
+        loadChildren: () => import('./modules/en/en.module').then(m => m.EnModule)
+    },
 
 ];

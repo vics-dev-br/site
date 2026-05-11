@@ -1,0 +1,172 @@
+<!-- HERO -->
+<div class="en-hero" id="home">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="container">
+        <div class="hero-text">
+          <div class="hero-badge">METHODOLOGY: DIAGNOSIS → SHIELDING → GOVERNANCE</div>
+          <h1>Performance is not luck.<br>It's engineering.</h1>
+          <p class="hero-subtitle">We turn unstable, business-critical systems into predictable operations. We stop firefighting by applying a structured engineering process that protects your revenue and cuts infrastructure costs.</p>
+          <div class="hero-actions">
+            <a routerLink="/performance-infra" class="btn btn-primary btn-lg">Start with a Diagnosis</a>
+            <a href="https://wa.me/5531975474785?text=Hi%2C%20I%20found%20your%20site%20and%20want%20to%20talk%20about%20performance%20engineering"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-light btn-lg">Talk to a specialist</a>
+          </div>
+          <div class="hero-meta">Diagnosis delivered in 10–15 days &nbsp;•&nbsp; Executed by the founders</div>
+          <button type="button" class="hero-link" (click)="onClick('method')">See how the three-pillar method works ↓</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METHOD OVERVIEW -->
+<section id="method" class="section-en bg-light-en">
+  <div class="container">
+    <div class="en-section-title">
+      <span class="eyebrow">The method</span>
+      <h2>Diagnosis → Shielding → Governance</h2>
+      <p>Three stages that transform a fragile environment into a reliable, cost-efficient operation.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4" *ngFor="let svc of services">
+        <div class="method-card">
+          <div class="step-badge">{{ svc.step }}</div>
+          <h5>{{ svc.label }}</h5>
+          <p class="pain-line"><strong>Where it hurts:</strong> {{ svc.pain }}</p>
+          <p>{{ svc.pitch }}</p>
+          <ul class="en-bullets">
+            <li *ngFor="let b of svc.bullets">{{ b }}</li>
+          </ul>
+          <a [routerLink]="svc.link" class="btn btn-primary btn-sm">{{ svc.cta }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="section-en">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="en-section-title">
+          <span class="eyebrow">Who we work with</span>
+          <h2>CTOs and founders who can't afford downtime.</h2>
+        </div>
+        <p>We partner with engineering leaders who need more than a contractor — they need a strategic technical partner who speaks business and code.</p>
+        <ul class="en-check-list">
+          <li>Your system is slow and the root cause is unclear</li>
+          <li>Production incidents are costing you clients or revenue</li>
+          <li>Cloud bills keep growing without a clear reason</li>
+          <li>You need a reliable team to own a critical migration or fix</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="insight-card">
+          <p class="quote">"We are the experts you call when the system simply cannot fail."</p>
+          <ul class="en-check-list mt-3">
+            <li><strong>Technical clarity:</strong> We translate code chaos into business decisions.</li>
+            <li><strong>Risk reduction:</strong> We shield infrastructure against traffic spikes and failures.</li>
+            <li><strong>Financial efficiency:</strong> We cut unnecessary cloud spend through real optimization.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section-en bg-light-en">
+  <div class="container">
+    <div class="en-section-title">
+      <span class="eyebrow">Track record</span>
+      <h2>Real results, not just optimization tickets.</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="case-card-en">
+          <span class="case-tag">Healthcare system</span>
+          <h5>Prevented a critical outage and recovered operational trust</h5>
+          <ul class="en-bullets">
+            <li>Identified a query bottleneck that was degrading the system under load</li>
+            <li>Delivered structural fix with zero downtime and full rollback plan</li>
+            <li>Client renewed the contract and escalated scope</li>
+          </ul>
+          <p class="case-result">Revenue protected. Vendor reputation preserved.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="case-card-en">
+          <span class="case-tag">Public procurement (Brazil)</span>
+          <h5>Engineered a winning technical specification</h5>
+          <ul class="en-bullets">
+            <li>Translated technical requirements into commercially viable language</li>
+            <li>Anticipated evaluation criteria and shielded against legal challenge</li>
+            <li>Client won the bid with reduced post-award rework</li>
+          </ul>
+          <p class="case-result">Strategic advisory beyond the code.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-en">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="en-section-title">
+          <span class="eyebrow">About VICS</span>
+          <h2>Brazilian performance engineering, global reach.</h2>
+        </div>
+        <p>VICS is a specialist performance engineering firm founded by Cristiano Araújo, a data engineer and infrastructure specialist with over a decade of experience in high-stakes environments.</p>
+        <p>We created the <strong>Diagnosis → Shielding → Governance</strong> methodology to bring predictability to complex systems — not as a one-off project, but as a continuous practice.</p>
+        <p>We work remotely with clients across Brazil, Portugal, and Europe.</p>
+        <div class="location-pills">
+          <span>Brazil</span>
+          <span>Portugal</span>
+          <span>Remote-first</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <figure class="about-figure">
+          <picture>
+            <source type="image/avif"
+              srcset="/assets/images/processo-1600.avif 1600w, /assets/images/processo-2400.avif 2400w"
+              sizes="(min-width: 1200px) 500px, 90vw">
+            <source type="image/webp"
+              srcset="/assets/images/processo-1600.webp 1600w, /assets/images/processo-2400.webp 2400w"
+              sizes="(min-width: 1200px) 500px, 90vw">
+            <img src="/assets/images/processo-1600.png"
+                 alt="VICS methodology: three-pillar performance framework"
+                 loading="lazy"
+                 decoding="async"
+                 width="2816"
+                 height="1536">
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contact" class="en-cta-final">
+  <div class="container">
+    <h2>Ready to stabilize your operation?</h2>
+    <p>Don't wait for the next incident. Share your scenario and we'll scope the right Diagnosis or Shielding engagement for your current moment — no bureaucracy, focused on what resolves.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/5531975474785?text=Hi%2C%20I%20want%20to%20talk%20about%20a%20performance%20engineering%20project"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-primary btn-lg">Schedule a conversation</a>
+      <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Performance%20Engineering%20Project"
+         class="btn btn-light btn-lg">Send details by email</a>
+    </div>
+    <p class="cta-meta">Response within 2 business hours &nbsp;•&nbsp; Based in Brazil, serving Portugal & Europe remotely</p>
+  </div>
+</section>

@@ -1,0 +1,192 @@
+<div class="page">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a routerLink="/">Início</a></li>
+        <li><span>Parcerias</span></li>
+        <li><span>Programa de Indicações</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Programa de Indicações VICS</p>
+      <h1>Indicações que viram projetos, sem prospecção fria.</h1>
+      <p class="subtitle">
+        Indique alguém com dor real em dados, BI, engenharia, integrações ou infraestrutura.
+        A VICS faz um Diagnóstico Express objetivo e define o próximo passo com clareza.
+      </p>
+      <div class="hero-tags">
+        <span>Qualificação rápida</span>
+        <span>Diagnóstico prático (30-45 min)</span>
+        <span>Sprint ou Retainer</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#form" class="btn btn-accent btn-lg">Quero indicar alguém</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-title">
+        <h2>Como funciona</h2>
+        <p>Processo simples para transformar uma indicação qualificada em projeto executável.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" *ngFor="let step of steps; let i = index">
+          <div class="step-number">{{ i + 1 }}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted" id="publico">
+    <div class="container">
+      <div class="content-grid">
+        <article class="content-box">
+          <h2>Para quem é</h2>
+          <ul class="clean-list">
+            <li>Clientes ativos e ex-clientes satisfeitos</li>
+            <li>Parceiros (agências, consultores, devs e founders)</li>
+            <li>Contatos estratégicos que confiam no seu trabalho</li>
+          </ul>
+        </article>
+
+        <article class="content-box">
+          <h2>Recompensa</h2>
+          <ul class="clean-list">
+            <li><strong>Indicação válida:</strong> crédito simbólico ou melhoria rápida.</li>
+            <li><strong>Indicação convertida:</strong> crédito maior ou upgrade de entrega.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="form">
+    <div class="container">
+      <div class="section-title">
+        <h2>Faça uma indicação</h2>
+        <p>Leva menos de 2 minutos. A equipe VICS cuida da qualificação e do follow-up com contexto.</p>
+      </div>
+
+      <form class="referral-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-grid two-col">
+          <div class="field">
+            <label for="referrerName">Seu nome</label>
+            <input id="referrerName" type="text" formControlName="referrerName" placeholder="Ex.: Cristiano" />
+            <small class="error" *ngIf="referrerName.invalid && referrerName.touched">Informe seu nome.</small>
+          </div>
+          <div class="field">
+            <label for="referrerEmail">Seu e-mail</label>
+            <input id="referrerEmail" type="email" formControlName="referrerEmail" placeholder="voce@empresa.com" />
+            <small class="error" *ngIf="referrerEmail.invalid && referrerEmail.touched">Informe um e-mail válido.</small>
+          </div>
+        </div>
+
+        <div class="form-grid two-col">
+          <div class="field">
+            <label for="referrerPhone">Seu WhatsApp (opcional)</label>
+            <input id="referrerPhone" type="text" formControlName="referrerPhone" placeholder="(31) 9xxxx-xxxx" />
+          </div>
+          <div class="field">
+            <label for="referrerType">Você é</label>
+            <select id="referrerType" formControlName="referrerType">
+              <option value="">Selecione</option>
+              <option value="Cliente">Cliente</option>
+              <option value="Ex-cliente">Ex-cliente</option>
+              <option value="Parceiro">Parceiro</option>
+              <option value="Contato estratégico">Contato estratégico</option>
+            </select>
+            <small class="error" *ngIf="referrerType.invalid && referrerType.touched">Selecione uma opção.</small>
+          </div>
+        </div>
+
+        <div class="form-grid two-col">
+          <div class="field">
+            <label for="introOk">Você pode fazer uma intro?</label>
+            <select id="introOk" formControlName="introOk">
+              <option value="">Selecione</option>
+              <option value="Sim">Sim, posso apresentar</option>
+              <option value="Nao">Não, prefiro que a VICS aborde</option>
+            </select>
+            <small class="error" *ngIf="introOk.invalid && introOk.touched">Selecione uma opção.</small>
+          </div>
+          <div class="field">
+            <label for="leadName">Nome do indicado</label>
+            <input id="leadName" type="text" formControlName="leadName" placeholder="Ex.: Ana Silva" />
+            <small class="error" *ngIf="leadName.invalid && leadName.touched">Informe o nome do indicado.</small>
+          </div>
+        </div>
+
+        <div class="form-grid two-col">
+          <div class="field">
+            <label for="leadContact">Contato do indicado</label>
+            <input id="leadContact" type="text" formControlName="leadContact" placeholder="WhatsApp, e-mail ou LinkedIn" />
+            <small class="error" *ngIf="leadContact.invalid && leadContact.touched">Informe o contato do indicado.</small>
+          </div>
+          <div class="field">
+            <label for="leadCompany">Empresa (opcional)</label>
+            <input id="leadCompany" type="text" formControlName="leadCompany" placeholder="Ex.: Empresa X" />
+          </div>
+        </div>
+
+        <div class="form-grid two-col">
+          <div class="field">
+            <label for="leadRole">Cargo/área (opcional)</label>
+            <input id="leadRole" type="text" formControlName="leadRole" placeholder="Ex.: Head de Ops" />
+          </div>
+          <div class="field"></div>
+        </div>
+
+        <div class="field">
+          <label for="leadPain">Dor/objetivo (1 a 3 linhas)</label>
+          <textarea id="leadPain" rows="4" formControlName="leadPain" placeholder="Ex.: dados espalhados, relatórios manuais, integrações frágeis, falta de visão do funil, custos altos..."></textarea>
+          <small class="error" *ngIf="leadPain.invalid && leadPain.touched">Descreva a dor com mais detalhes.</small>
+        </div>
+
+        <label class="consent-box" for="consent">
+          <input id="consent" type="checkbox" formControlName="consent" />
+          <span>Tenho permissão para compartilhar esse contato e entendo que a VICS fará abordagem respeitosa, sem spam.</span>
+        </label>
+        <small class="error" *ngIf="consent.invalid && consent.touched">É necessário confirmar o consentimento.</small>
+
+        <div class="form-actions">
+          <button class="btn btn-accent btn-lg" type="submit" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'Enviando...' : 'Enviar indicação' }}
+          </button>
+          <p class="error" *ngIf="submitError">{{ submitError }}</p>
+          <p class="fineprint">
+            LGPD: os dados são usados apenas para contato e qualificação desta indicação.
+            Regra de duplicidade: mesma empresa/lead em até 90 dias.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section muted" id="regras-faq">
+    <div class="container content-grid">
+      <article class="content-box">
+        <h2>Regras rápidas</h2>
+        <ul class="clean-list">
+          <li *ngFor="let rule of rules">{{ rule }}</li>
+        </ul>
+      </article>
+
+      <article class="content-box">
+        <h2>FAQ</h2>
+        <div class="faq-list">
+          <details class="faq-item" *ngFor="let faq of faqs">
+            <summary>{{ faq.question }}</summary>
+            <p>{{ faq.answer }}</p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
