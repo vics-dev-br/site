@@ -1,0 +1,171 @@
+<!-- HERO -->
+<div class="pt-hero" id="inicio">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="container">
+        <div class="hero-text">
+          <div class="hero-badge">DIAGNÓSTICO → CORRECÇÃO → CONTROLO CONTÍNUO</div>
+          <h1>O seu sistema está a custar-lhe<br>mais do que imagina.</h1>
+          <p class="hero-subtitle">Lentidão inexplicável, paragens que se repetem, facturas cloud que crescem sem razão aparente — não são problemas técnicos. São problemas de negócio. Identificamo-los, corrigimo-los e garantimos que não voltam.</p>
+          <div class="hero-actions">
+            <a routerLink="/performance-infra" class="btn btn-primary btn-lg">Saber o que está a custar</a>
+            <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Quero%20perceber%20o%20que%20o%20meu%20sistema%20está%20a%20custar"
+               class="btn btn-light btn-lg">Enviar mensagem</a>
+          </div>
+          <div class="hero-meta">Diagnóstico entregue em 10–15 dias &nbsp;•&nbsp; Executado pelos fundadores &nbsp;•&nbsp; 100% remoto</div>
+          <button type="button" class="hero-link" (click)="onClick('metodo')">Ver como funciona ↓</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MÉTODO -->
+<section id="metodo" class="section-pt bg-light-pt">
+  <div class="container">
+    <div class="pt-section-title">
+      <span class="eyebrow">Como trabalhamos</span>
+      <h2>Encontrar. Corrigir. Manter assim.</h2>
+      <p>Três fases que transformam operações imprevisíveis e dispendiosas em algo fiável e orçamentável.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4" *ngFor="let svc of servicos">
+        <div class="method-card">
+          <div class="step-badge">{{ svc.step }}</div>
+          <h5>{{ svc.label }}</h5>
+          <p class="pain-line"><strong>Onde dói:</strong> {{ svc.dor }}</p>
+          <p>{{ svc.descricao }}</p>
+          <ul class="pt-bullets">
+            <li *ngFor="let b of svc.bullets">{{ b }}</li>
+          </ul>
+          <a [routerLink]="svc.link" class="btn btn-primary btn-sm">{{ svc.cta }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section class="section-pt">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="pt-section-title">
+          <span class="eyebrow">Para quem trabalhamos</span>
+          <h2>Líderes cansados de pagar por problemas que não conseguem ver.</h2>
+        </div>
+        <p>Trabalhamos com directores de tecnologia, responsáveis de operações e fundadores de PMEs e scale-ups portuguesas que sabem que algo está errado — custos demasiado altos, sistema demasiado frágil, equipa sempre em modo reactivo — mas não têm largura de banda para investigar.</p>
+        <ul class="pt-check-list">
+          <li>Factura cloud a crescer mais depressa do que o negócio</li>
+          <li>Incidentes que se repetem sem resolução permanente</li>
+          <li>Um sistema crítico que já ninguém compreende totalmente</li>
+          <li>Uma migração ou integração que não pode falhar</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="insight-card">
+          <p class="quote">"A maioria das equipas trata sintomas. Nós removemos a causa — e colocamos os números em cima da mesa antes de começar."</p>
+          <ul class="pt-check-list mt-3">
+            <li><strong>Redução de custos:</strong> Identificamos e eliminamos desperdício em cloud e infraestrutura.</li>
+            <li><strong>Previsibilidade:</strong> Sem surpresas na factura nem paragens ao fim do mês.</li>
+            <li><strong>Eficiência:</strong> A mesma infraestrutura a fazer mais — sem aumentar headcount.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS -->
+<section class="section-pt bg-light-pt">
+  <div class="container">
+    <div class="pt-section-title">
+      <span class="eyebrow">Resultados reais</span>
+      <h2>Medidos em euros poupados e paragens evitadas.</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="case-card-pt">
+          <span class="case-tag">Plataforma SaaS — Saúde</span>
+          <h5>Sistema a cair sob carga. Cliente prestes a cancelar o contrato.</h5>
+          <ul class="pt-bullets">
+            <li>Causa raiz diagnosticada em 5 dias — padrão de query sob concorrência</li>
+            <li>Correcção sem paragens não planeadas e com plano de rollback completo</li>
+            <li>Cliente renovou e alargou o contrato nos 30 dias seguintes</li>
+          </ul>
+          <p class="case-result">Contrato salvo. Custo de infraestrutura reduzido 40%.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="case-card-pt">
+          <span class="case-tag">Operações — Empresa de média dimensão</span>
+          <h5>Factura cloud a crescer 20% por mês sem explicação.</h5>
+          <ul class="pt-bullets">
+            <li>Auditoria de 3 meses de consumo — 6 categorias de desperdício identificadas</li>
+            <li>Processos redundantes automatizados e instâncias redimensionadas</li>
+            <li>Redução de 35% no custo cloud nos primeiros 60 dias</li>
+          </ul>
+          <p class="case-result">2.400€/mês poupados. Mesma capacidade. Menos complexidade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section-pt">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="pt-section-title">
+          <span class="eyebrow">Sobre a VICS</span>
+          <h2>Já vimos este problema antes. Sabemos onde procurar.</h2>
+        </div>
+        <p>A VICS foi fundada por Cristiano Araújo, especialista em dados e infraestrutura com mais de uma década de experiência em ambientes onde falhar não é opção — saúde, sector público e SaaS em crescimento acelerado.</p>
+        <p>Construímos a nossa metodologia de três fases porque a maioria das equipas trata sintomas. Nós vamos à causa — e colocamos o impacto no negócio por escrito antes de começar.</p>
+        <p>Trabalhamos 100% remotamente com clientes em Portugal e no Brasil. Comunicação em português europeu. Sem barreiras de fuso horário com Portugal.</p>
+        <div class="location-pills">
+          <span>Portugal</span>
+          <span>Brasil</span>
+          <span>100% Remoto</span>
+          <span>PT-PT</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <figure class="about-figure">
+          <picture>
+            <source type="image/avif"
+              srcset="/assets/images/processo-1600.avif 1600w, /assets/images/processo-2400.avif 2400w"
+              sizes="(min-width: 1200px) 500px, 90vw">
+            <source type="image/webp"
+              srcset="/assets/images/processo-1600.webp 1600w, /assets/images/processo-2400.webp 2400w"
+              sizes="(min-width: 1200px) 500px, 90vw">
+            <img src="/assets/images/processo-1600.png"
+                 alt="Metodologia VICS: três fases para sistemas fiáveis e eficientes"
+                 loading="lazy"
+                 decoding="async"
+                 width="2816"
+                 height="1536">
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" class="pt-cta-final">
+  <div class="container">
+    <h2>Quanto está o seu sistema a custar agora?</h2>
+    <p>Descreva o que está a acontecer — sistema lento, custos a crescer, uma integração que continua a falhar. Numa conversa percebemos se conseguimos ajudar e o que seria necessário.</p>
+    <div class="cta-actions">
+      <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Quero%20reduzir%20custos%20e%20melhorar%20a%20fiabilidade%20do%20sistema"
+         class="btn btn-primary btn-lg">Enviar mensagem</a>
+      <a href="https://www.linkedin.com/in/cristiano-data-engineer/"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-light btn-lg">Ligar no LinkedIn</a>
+    </div>
+    <p class="cta-meta">Resposta em até 2 horas úteis &nbsp;•&nbsp; Comunicação em português europeu &nbsp;•&nbsp; Sem diferença de fuso com Portugal</p>
+  </div>
+</section>

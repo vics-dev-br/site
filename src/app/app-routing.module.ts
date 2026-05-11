@@ -62,5 +62,9 @@ export const appRoutes: Route[] = [
         path: 'en',
         loadChildren: () => import('./modules/en/en.module').then(m => m.EnModule)
     },
+    {
+        path: 'pt-pt',
+        loadChildren: () => import('./modules/pt-pt/pt-pt.module').then(m => m.PtPtModule)
+    },
 
 ];
