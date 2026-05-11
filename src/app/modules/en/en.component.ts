@@ -14,13 +14,13 @@ export class EnComponent implements OnInit {
         {
             step: '01',
             label: 'Diagnosis',
-            pain: 'Unexplained slowness, ghost costs, and uncertainty.',
-            title: 'Stop guessing. Get a full technical X-ray of your environment.',
-            pitch: 'We conduct a deep audit of your infrastructure and databases to identify performance bottlenecks, security gaps, and resource waste. You receive a clear execution roadmap with priorities ranked by financial and operational impact.',
+            pain: 'You know something is wrong. You just don\'t know what — or what it\'s costing you.',
+            title: 'Find out exactly where you\'re losing money.',
+            pitch: 'In 10–15 days we audit your infrastructure and pinpoint the specific failures driving slow response times, unplanned downtime, and inflated cloud bills. You get a prioritised action plan ranked by business impact — not by technical complexity.',
             bullets: [
-                'Bottleneck identification across the stack',
-                'Cloud cost audit (AWS, GCP, Azure)',
-                'Critical risk report with remediation plan'
+                'Identify the exact cause of slowness and instability',
+                'Quantify what each problem is costing per month',
+                'Receive a clear, prioritised fix roadmap'
             ],
             cta: 'Start with Diagnosis',
             link: '/performance-infra'
@@ -28,29 +28,29 @@ export class EnComponent implements OnInit {
         {
             step: '02',
             label: 'Shielding',
-            pain: 'Production outages, instability, and fear of scaling.',
-            title: 'Absolute stability for systems that cannot go down.',
-            pitch: 'We don\'t just deliver code — we deliver resilience. We fix the structural failures found in the diagnosis, applying engineering best practices so your system handles traffic spikes without degradation. The transition from chaos to predictability.',
+            pain: 'Every hour of downtime costs clients, revenue, and trust.',
+            title: 'Make your system reliable enough to scale without fear.',
+            pitch: 'We fix the structural failures found in the diagnosis — with a full rollback plan and zero unplanned downtime. The result: your system handles the same load at a fraction of the current cost, and your team stops firefighting.',
             bullets: [
-                'Database and query tuning',
-                'Latency and concurrency optimization',
-                'Stability-focused refactoring with rollback plan'
+                'Eliminate the root causes of outages and slowness',
+                'Cut cloud spend without sacrificing capacity',
+                'Scale confidently — no more "let\'s hope it holds"'
             ],
-            cta: 'Get Stability',
+            cta: 'Fix the problem',
             link: '/blindagem-performance-infra'
         },
         {
             step: '03',
             label: 'Governance',
-            pain: 'System slows down again over time, costs spiral out of control.',
-            title: 'Long-term technical and financial sustainability.',
-            pitch: 'The environment is fast and stable — now we keep it that way. We implement advanced monitoring (SLIs/SLOs) and FinOps practices so your infrastructure scales healthily, maintaining high performance and tight cost control.',
+            pain: 'Problems always come back. Costs creep up. Nobody notices until it\'s too late.',
+            title: 'Keep costs predictable and problems preventable.',
+            pitch: 'We put monitoring and cost controls in place so you see issues before your clients do. Cloud bills become predictable. Engineering decisions become data-driven. You stop reacting and start planning.',
             bullets: [
-                'Real-time health dashboards',
-                'Continuous cloud/on-premise cost management',
-                'Proactive incident prevention'
+                'Real-time visibility into system health and cost',
+                'Alerts before problems affect users or revenue',
+                'Monthly reporting your CFO can actually read'
             ],
-            cta: 'Get Governance',
+            cta: 'Get ongoing control',
             link: '/monitoramento-governanca-performance'
         }
     ];
@@ -66,26 +66,26 @@ export class EnComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.title.setTitle('VICS | Performance Engineering for Critical Systems');
+        this.title.setTitle('VICS | Stop Losing Money to Slow, Unstable Systems');
 
         this.meta.updateTag({
             name: 'description',
-            content: 'We stabilize mission-critical systems through a proven three-step method: Diagnosis, Shielding, and Governance. Reduce infrastructure costs and eliminate production outages.'
+            content: 'We find what\'s costing you — slow systems, unplanned downtime, runaway cloud bills — and fix it for good. Predictable costs. Reliable operations. No more firefighting.'
         });
 
         this.meta.updateTag({
             name: 'keywords',
-            content: 'performance engineering, database optimization, infrastructure reliability, finops, SRE, cloud cost reduction, PostgreSQL tuning, Kubernetes'
+            content: 'reduce cloud costs, fix slow system, eliminate downtime, cost reduction, infrastructure efficiency, system reliability, cloud cost optimisation, automation'
         });
 
         this.meta.updateTag({ property: 'og:type', content: 'website' });
         this.meta.updateTag({
             property: 'og:title',
-            content: 'VICS – Performance Engineering for Critical Systems'
+            content: 'VICS – Stop Losing Money to Slow, Unstable Systems'
         });
         this.meta.updateTag({
             property: 'og:description',
-            content: 'Diagnosis, Shielding, and Governance: a structured method to stop production fires and protect your revenue.'
+            content: 'Predictable costs. Reliable operations. We diagnose, fix, and monitor critical systems so you stop firefighting and start growing.'
         });
 
         this.meta.updateTag({ name: 'language', content: 'en' });
