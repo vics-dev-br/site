@@ -4,41 +4,63 @@
     <div class="d-table-cell">
       <div class="container">
         <div class="hero-text">
-          <div class="hero-badge">DIAGNÓSTICO → CORRECÇÃO → CONTROLO CONTÍNUO</div>
-          <h1>O seu sistema está a custar-lhe<br>mais do que imagina.</h1>
-          <p class="hero-subtitle">Lentidão inexplicável, paragens que se repetem, facturas cloud que crescem sem razão aparente — não são problemas técnicos. São problemas de negócio. Identificamo-los, corrigimo-los e garantimos que não voltam.</p>
+          <div class="hero-badge">NEARSHORE DATA & SOFTWARE ENGINEERING — BRASIL → PORTUGAL</div>
+          <h1>Engenharia técnica de alto nível,<br>sem o custo europeu.</h1>
+          <p class="hero-subtitle">Portugal tem escassez de talento técnico e custos a subir. O Brasil tem engenheiros seniores, fala português e trabalha no mesmo fuso. A VICS é a ponte — entregamos projectos de dados e software como se fôssemos parte da vossa equipa.</p>
           <div class="hero-actions">
-            <a routerLink="/performance-infra" class="btn btn-primary btn-lg">Saber o que está a custar</a>
-            <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Quero%20perceber%20o%20que%20o%20meu%20sistema%20está%20a%20custar"
-               class="btn btn-light btn-lg">Enviar mensagem</a>
+            <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Quero%20saber%20mais%20sobre%20parceria%20nearshore"
+               class="btn btn-primary btn-lg">Falar sobre parceria</a>
+            <a href="https://www.linkedin.com/in/cristiano-data-engineer/"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-light btn-lg">Ligar no LinkedIn</a>
           </div>
-          <div class="hero-meta">Diagnóstico entregue em 10–15 dias &nbsp;•&nbsp; Executado pelos fundadores &nbsp;•&nbsp; 100% remoto</div>
-          <button type="button" class="hero-link" (click)="onClick('metodo')">Ver como funciona ↓</button>
+          <div class="hero-meta">Português europeu &nbsp;•&nbsp; Fuso compatível com Portugal &nbsp;•&nbsp; Projectos ou dedicação continuada</div>
+          <button type="button" class="hero-link" (click)="onClick('vantagens')">Ver por que faz sentido ↓</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MÉTODO -->
-<section id="metodo" class="section-pt bg-light-pt">
+<!-- VANTAGENS NEARSHORE -->
+<section id="vantagens" class="section-pt bg-light-pt">
   <div class="container">
     <div class="pt-section-title">
-      <span class="eyebrow">Como trabalhamos</span>
-      <h2>Encontrar. Corrigir. Manter assim.</h2>
-      <p>Três fases que transformam operações imprevisíveis e dispendiosas em algo fiável e orçamentável.</p>
+      <span class="eyebrow">Por que nearshore com o Brasil</span>
+      <h2>O que outras geografias não conseguem oferecer em simultâneo.</h2>
+      <p>Nearshore indiano ou ucraniano resolve o custo mas cria barreiras de língua, cultura e fuso. Nearshore brasileiro não.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" *ngFor="let v of vantagens">
+        <div class="vantagem-card">
+          <div class="vantagem-icon">{{ v.icon }}</div>
+          <h5>{{ v.titulo }}</h5>
+          <p>{{ v.descricao }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="section-pt">
+  <div class="container">
+    <div class="pt-section-title">
+      <span class="eyebrow">O que entregamos</span>
+      <h2>Projectos de engenharia, não promessas de consultoria.</h2>
+      <p>Trabalhamos por entrega, com escopo definido, timelines reais e responsabilidade pelo resultado.</p>
     </div>
     <div class="row g-4">
       <div class="col-lg-4" *ngFor="let svc of servicos">
         <div class="method-card">
           <div class="step-badge">{{ svc.step }}</div>
           <h5>{{ svc.label }}</h5>
-          <p class="pain-line"><strong>Onde dói:</strong> {{ svc.dor }}</p>
+          <p class="pain-line"><strong>Quando faz sentido:</strong> {{ svc.quando }}</p>
           <p>{{ svc.descricao }}</p>
           <ul class="pt-bullets">
             <li *ngFor="let b of svc.bullets">{{ b }}</li>
           </ul>
-          <a [routerLink]="svc.link" class="btn btn-primary btn-sm">{{ svc.cta }}</a>
         </div>
       </div>
     </div>
@@ -46,29 +68,29 @@
 </section>
 
 <!-- PARA QUEM É -->
-<section class="section-pt">
+<section class="section-pt bg-light-pt">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6">
         <div class="pt-section-title">
           <span class="eyebrow">Para quem trabalhamos</span>
-          <h2>Líderes cansados de pagar por problemas que não conseguem ver.</h2>
+          <h2>Empresas portuguesas que precisam de mais capacidade técnica — agora.</h2>
         </div>
-        <p>Trabalhamos com directores de tecnologia, responsáveis de operações e fundadores de PMEs e scale-ups portuguesas que sabem que algo está errado — custos demasiado altos, sistema demasiado frágil, equipa sempre em modo reactivo — mas não têm largura de banda para investigar.</p>
+        <p>Trabalhamos com CTOs, directores de produto e fundadores de empresas portuguesas que têm projectos parados por falta de talento técnico disponível ou por custo proibitivo de contratação local.</p>
         <ul class="pt-check-list">
-          <li>Factura cloud a crescer mais depressa do que o negócio</li>
-          <li>Incidentes que se repetem sem resolução permanente</li>
-          <li>Um sistema crítico que já ninguém compreende totalmente</li>
-          <li>Uma migração ou integração que não pode falhar</li>
+          <li>Projecto de dados ou integração sem equipa para executar</li>
+          <li>Contratação local demorada, cara ou simplesmente impossível</li>
+          <li>Necessidade de capacidade sénior sem headcount permanente</li>
+          <li>Equipa interna a trabalhar acima da capacidade</li>
         </ul>
       </div>
       <div class="col-lg-6">
         <div class="insight-card">
-          <p class="quote">"A maioria das equipas trata sintomas. Nós removemos a causa — e colocamos os números em cima da mesa antes de começar."</p>
+          <p class="quote">"Engenharia brasileira já provou o seu valor global. A diferença é que nós falamos a vossa língua — literalmente."</p>
           <ul class="pt-check-list mt-3">
-            <li><strong>Redução de custos:</strong> Identificamos e eliminamos desperdício em cloud e infraestrutura.</li>
-            <li><strong>Previsibilidade:</strong> Sem surpresas na factura nem paragens ao fim do mês.</li>
-            <li><strong>Eficiência:</strong> A mesma infraestrutura a fazer mais — sem aumentar headcount.</li>
+            <li><strong>Sem barreira de língua:</strong> Reuniões, documentação e entregas em português europeu.</li>
+            <li><strong>Fuso administrável:</strong> Lisboa e São Paulo têm 3–4h de diferença. Colaboração em tempo real é possível.</li>
+            <li><strong>Custo competitivo:</strong> Qualidade sénior europeia, a uma fracção do custo de contratação local.</li>
           </ul>
         </div>
       </div>
@@ -77,35 +99,54 @@
 </section>
 
 <!-- CASOS -->
-<section class="section-pt bg-light-pt">
+<section class="section-pt">
   <div class="container">
     <div class="pt-section-title">
       <span class="eyebrow">Resultados reais</span>
-      <h2>Medidos em euros poupados e paragens evitadas.</h2>
+      <h2>Projectos entregues. Sistemas em produção.</h2>
     </div>
     <div class="row g-4">
       <div class="col-lg-6">
         <div class="case-card-pt">
           <span class="case-tag">Plataforma SaaS — Saúde</span>
-          <h5>Sistema a cair sob carga. Cliente prestes a cancelar o contrato.</h5>
+          <h5>Sistema crítico a cair sob carga. Equipa interna sem capacidade para resolver.</h5>
           <ul class="pt-bullets">
-            <li>Causa raiz diagnosticada em 5 dias — padrão de query sob concorrência</li>
-            <li>Correcção sem paragens não planeadas e com plano de rollback completo</li>
-            <li>Cliente renovou e alargou o contrato nos 30 dias seguintes</li>
+            <li>Causa raiz diagnosticada e corrigida em menos de 3 semanas</li>
+            <li>Zero paragens não planeadas durante a intervenção</li>
+            <li>Custo de infraestrutura reduzido 40% após optimização</li>
           </ul>
-          <p class="case-result">Contrato salvo. Custo de infraestrutura reduzido 40%.</p>
+          <p class="case-result">Contrato com cliente final salvo. Parceria alargada.</p>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="case-card-pt">
           <span class="case-tag">Operações — Empresa de média dimensão</span>
-          <h5>Factura cloud a crescer 20% por mês sem explicação.</h5>
+          <h5>Dados espalhados por 5 sistemas. Relatórios feitos à mão todas as semanas.</h5>
           <ul class="pt-bullets">
-            <li>Auditoria de 3 meses de consumo — 6 categorias de desperdício identificadas</li>
-            <li>Processos redundantes automatizados e instâncias redimensionadas</li>
-            <li>Redução de 35% no custo cloud nos primeiros 60 dias</li>
+            <li>Pipeline de dados construído do zero em 6 semanas</li>
+            <li>Integração com ERP, CRM e plataforma de e-commerce</li>
+            <li>Equipa passou de relatórios manuais a dashboards em tempo real</li>
           </ul>
-          <p class="case-result">2.400€/mês poupados. Mesma capacidade. Menos complexidade.</p>
+          <p class="case-result">12h semanais poupadas. Decisões baseadas em dados reais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="section-pt bg-light-pt">
+  <div class="container">
+    <div class="pt-section-title">
+      <span class="eyebrow">Como começar</span>
+      <h2>De conversa a projecto em menos de uma semana.</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" *ngFor="let passo of passos; let i = index">
+        <div class="passo-card">
+          <div class="passo-numero">{{ i + 1 }}</div>
+          <h5>{{ passo.titulo }}</h5>
+          <p>{{ passo.descricao }}</p>
         </div>
       </div>
     </div>
@@ -119,16 +160,16 @@
       <div class="col-lg-6">
         <div class="pt-section-title">
           <span class="eyebrow">Sobre a VICS</span>
-          <h2>Já vimos este problema antes. Sabemos onde procurar.</h2>
+          <h2>Engenharia brasileira com foco no mercado europeu.</h2>
         </div>
-        <p>A VICS foi fundada por Cristiano Araújo, especialista em dados e infraestrutura com mais de uma década de experiência em ambientes onde falhar não é opção — saúde, sector público e SaaS em crescimento acelerado.</p>
-        <p>Construímos a nossa metodologia de três fases porque a maioria das equipas trata sintomas. Nós vamos à causa — e colocamos o impacto no negócio por escrito antes de começar.</p>
-        <p>Trabalhamos 100% remotamente com clientes em Portugal e no Brasil. Comunicação em português europeu. Sem barreiras de fuso horário com Portugal.</p>
+        <p>A VICS foi fundada por Cristiano Araújo, engenheiro de dados e infraestrutura com mais de uma década de experiência em ambientes críticos — saúde, sector público e SaaS em crescimento acelerado.</p>
+        <p>Construímos a nossa prática de nearshore porque vimos a lacuna: Portugal precisa de talento técnico sénior que o mercado local não consegue fornecer a tempo nem a custo razoável.</p>
+        <p>Trabalhamos 100% remotamente, com comunicação em português europeu e ritmo alinhado ao fuso de Lisboa.</p>
         <div class="location-pills">
-          <span>Portugal</span>
-          <span>Brasil</span>
+          <span>Brasil → Portugal</span>
+          <span>Português Europeu</span>
           <span>100% Remoto</span>
-          <span>PT-PT</span>
+          <span>Fuso UTC+1 / UTC-3</span>
         </div>
       </div>
       <div class="col-lg-6">
@@ -141,7 +182,7 @@
               srcset="/assets/images/processo-1600.webp 1600w, /assets/images/processo-2400.webp 2400w"
               sizes="(min-width: 1200px) 500px, 90vw">
             <img src="/assets/images/processo-1600.png"
-                 alt="Metodologia VICS: três fases para sistemas fiáveis e eficientes"
+                 alt="VICS — Nearshore Data & Software Engineering, Brasil para Portugal"
                  loading="lazy"
                  decoding="async"
                  width="2816"
@@ -156,16 +197,16 @@
 <!-- CTA FINAL -->
 <section id="contacto" class="pt-cta-final">
   <div class="container">
-    <h2>Quanto está o seu sistema a custar agora?</h2>
-    <p>Descreva o que está a acontecer — sistema lento, custos a crescer, uma integração que continua a falhar. Numa conversa percebemos se conseguimos ajudar e o que seria necessário.</p>
+    <h2>Tem um projecto que precisa de arrancar?</h2>
+    <p>Descreva o que precisa — dados, integrações, infraestrutura ou software. Numa conversa percebemos se temos fit e o que seria necessário para começar.</p>
     <div class="cta-actions">
-      <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Quero%20reduzir%20custos%20e%20melhorar%20a%20fiabilidade%20do%20sistema"
+      <a href="mailto:cristiano@engenhariadedados.tec.br?subject=Quero%20explorar%20parceria%20nearshore%20com%20a%20VICS"
          class="btn btn-primary btn-lg">Enviar mensagem</a>
       <a href="https://www.linkedin.com/in/cristiano-data-engineer/"
          target="_blank"
          rel="noopener"
          class="btn btn-light btn-lg">Ligar no LinkedIn</a>
     </div>
-    <p class="cta-meta">Resposta em até 2 horas úteis &nbsp;•&nbsp; Comunicação em português europeu &nbsp;•&nbsp; Sem diferença de fuso com Portugal</p>
+    <p class="cta-meta">Resposta em até 2 horas úteis &nbsp;•&nbsp; Português europeu &nbsp;•&nbsp; Sem diferença de fuso com Lisboa</p>
   </div>
 </section>

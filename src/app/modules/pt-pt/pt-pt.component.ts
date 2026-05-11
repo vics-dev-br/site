@@ -10,48 +10,81 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class PtPtComponent implements OnInit {
 
+    vantagens = [
+        {
+            icon: '🇧🇷',
+            titulo: 'Talento sénior disponível',
+            descricao: 'O Brasil forma mais engenheiros de software por ano do que qualquer país da Europa. Acesso imediato a perfis que Portugal não consegue contratar localmente.'
+        },
+        {
+            icon: '🗣️',
+            titulo: 'Mesma língua, zero atrito',
+            descricao: 'Reuniões, documentação e entregas em português. Sem traduções, sem mal-entendidos, sem o custo oculto da barreira linguística.'
+        },
+        {
+            icon: '🕐',
+            titulo: 'Fuso administrável',
+            descricao: 'Lisboa e São Paulo têm 3 a 4 horas de diferença. Colaboração em tempo real durante a manhã europeia é totalmente viável.'
+        },
+        {
+            icon: '💶',
+            titulo: 'Custo competitivo',
+            descricao: 'Qualidade técnica de nível europeu a uma fracção do custo de contratação local em Portugal ou no resto da Europa Ocidental.'
+        }
+    ];
+
     servicos = [
         {
             step: '01',
-            label: 'Diagnóstico',
-            dor: 'O sistema está lento, os custos crescem e ninguém sabe bem porquê.',
-            titulo: 'Descubra exactamente o que está a custar dinheiro à sua empresa.',
-            descricao: 'Em 10 a 15 dias auditamos a sua infraestrutura e identificamos as falhas concretas que estão a causar lentidão, paragens não planeadas e facturas cloud a crescer. Recebe um plano de acção priorizado por impacto financeiro — não por complexidade técnica.',
+            label: 'Engenharia de Dados',
+            quando: 'Dados espalhados, relatórios manuais, decisões sem base fiável.',
+            descricao: 'Construímos pipelines, data warehouses e integrações entre sistemas para que a vossa equipa deixe de trabalhar com dados inconsistentes e passe a tomar decisões em tempo real.',
             bullets: [
-                'Identificação da causa raiz de lentidão e instabilidade',
-                'Quantificação do custo mensal de cada problema',
-                'Relatório claro com prioridades e próximos passos'
-            ],
-            cta: 'Pedir um Diagnóstico',
-            link: '/performance-infra'
+                'Pipelines ETL/ELT em produção',
+                'Integração entre ERP, CRM e plataformas digitais',
+                'Dashboards e relatórios automatizados'
+            ]
         },
         {
             step: '02',
-            label: 'Correcção',
-            dor: 'Cada hora de paragem custa clientes, receita e reputação.',
-            titulo: 'Torne o seu sistema fiável o suficiente para crescer sem medo.',
-            descricao: 'Corrigimos as falhas estruturais encontradas no diagnóstico — com plano de rollback completo e zero paragens não planeadas. O resultado: a sua equipa deixa de apagar incêndios e o sistema aguenta o crescimento do negócio.',
+            label: 'Engenharia de Software',
+            quando: 'Projecto parado, equipa sem capacidade, prazo a pressionar.',
+            descricao: 'Desenvolvemos e entregamos sistemas, APIs e integrações com o rigor de uma equipa sénior — sem o overhead de contratar e integrar pessoas novas internamente.',
             bullets: [
-                'Eliminação das causas raiz de paragens e lentidão',
-                'Redução de custos cloud sem perda de capacidade',
-                'Escalar com confiança — sem "esperemos que aguente"'
-            ],
-            cta: 'Resolver o problema',
-            link: '/blindagem-performance-infra'
+                'APIs e microsserviços',
+                'Integrações entre plataformas',
+                'Automação de processos operacionais'
+            ]
         },
         {
             step: '03',
-            label: 'Controlo Contínuo',
-            dor: 'Os problemas voltam. Os custos sobem. Ninguém nota até ser tarde.',
-            titulo: 'Custos previsíveis. Problemas detectados antes de afectarem o negócio.',
-            descricao: 'Implementamos monitorização e controlo de custos para que veja os problemas antes dos seus clientes. As facturas cloud tornam-se previsíveis. As decisões técnicas passam a ser baseadas em dados. A equipa deixa de reagir e começa a planear.',
+            label: 'Infraestrutura & Performance',
+            quando: 'Sistema lento, instável ou com custos cloud fora de controlo.',
+            descricao: 'Auditamos, optimizamos e estabilizamos infraestrutura cloud para que o vosso produto aguente crescimento sem surpresas na factura nem paragens em produção.',
             bullets: [
-                'Visibilidade em tempo real sobre saúde e custo da infraestrutura',
-                'Alertas antes de problemas afectarem utilizadores ou receita',
-                'Relatório mensal que o CFO consegue interpretar'
-            ],
-            cta: 'Manter o controlo',
-            link: '/monitoramento-governanca-performance'
+                'Diagnóstico e optimização de performance',
+                'Redução de custos cloud (AWS, GCP, Azure)',
+                'Monitorização e alertas proactivos'
+            ]
+        }
+    ];
+
+    passos = [
+        {
+            titulo: 'Conversa inicial',
+            descricao: 'Descrevem o projecto ou necessidade. Percebemos em conjunto se há fit técnico e cultural.'
+        },
+        {
+            titulo: 'Proposta em 48h',
+            descricao: 'Escopo, timelines e investimento por escrito. Sem reuniões intermináveis antes de ter números.'
+        },
+        {
+            titulo: 'Arranque rápido',
+            descricao: 'Onboarding em menos de uma semana. A equipa integra-se nos vossos processos e ferramentas existentes.'
+        },
+        {
+            titulo: 'Entrega contínua',
+            descricao: 'Entregas incrementais com visibilidade total. Sem caixas negras, sem surpresas no final.'
         }
     ];
 
@@ -66,26 +99,26 @@ export class PtPtComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.title.setTitle('VICS | Reduza Custos e Elimine Paragens — Engenharia de Sistemas para Portugal');
+        this.title.setTitle('VICS | Nearshore Data & Software Engineering — Brasil para Portugal');
 
         this.meta.updateTag({
             name: 'description',
-            content: 'Auditamos a sua infraestrutura, identificamos o que está a custar dinheiro e corrigimos. Custos cloud previsíveis, sistemas fiáveis, sem paragens não planeadas. Trabalhamos com empresas portuguesas remotamente.'
+            content: 'Parceiro nearshore de engenharia de dados e software para empresas portuguesas. Talento técnico brasileiro sénior, em português, com fuso compatível com Lisboa. Projectos entregues, não promessas.'
         });
 
         this.meta.updateTag({
             name: 'keywords',
-            content: 'redução de custos cloud, sistemas lentos Portugal, paragens não planeadas, eficiência operacional, automação Portugal, engenharia de dados Portugal, infraestrutura cloud PME'
+            content: 'nearshore Portugal, engenharia de dados Portugal, software nearshore Brasil, parceiro técnico Portugal, desenvolvimento software Portugal, data engineering Portugal, outsourcing tecnológico Portugal'
         });
 
         this.meta.updateTag({ property: 'og:type', content: 'website' });
         this.meta.updateTag({
             property: 'og:title',
-            content: 'VICS – Reduza Custos e Elimine Paragens nos Seus Sistemas'
+            content: 'VICS – Nearshore Data & Software Engineering, Brasil para Portugal'
         });
         this.meta.updateTag({
             property: 'og:description',
-            content: 'Diagnóstico, correcção e controlo contínuo para sistemas críticos. Trabalhamos com empresas em Portugal, remotamente, em português europeu.'
+            content: 'Talento técnico brasileiro sénior para empresas portuguesas. Mesma língua, fuso compatível, custo competitivo. Projectos de dados, software e infraestrutura.'
         });
 
         this.meta.updateTag({ name: 'language', content: 'pt-PT' });
